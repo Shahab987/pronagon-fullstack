@@ -1,0 +1,7391 @@
+{
+  "todos": [
+    {
+      "id": 1695721753473,
+      "title": "todo two",
+      "completed": true
+    },
+    {
+      "title": "todo seven",
+      "id": 1695744822533,
+      "completed": false
+    },
+    {
+      "title": "todo three",
+      "id": 1695746023934,
+      "completed": false
+    }
+  ],
+  "words": [
+    {
+      "name": "approach",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appro/approach__us_1.mp3",
+      "id": 93
+    },
+    {
+      "id": 14,
+      "meaning": "",
+      "name": "approachable",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appro/approachable__us_1.mp3"
+    },
+    {
+      "id": 3,
+      "meaning": "",
+      "name": "beneficiary",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/ben/benef/beneficiary__us_1.mp3"
+    },
+    {
+      "id": 27,
+      "meaning": "",
+      "name": "big",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/big/big__/big__us_1.mp3"
+    },
+    {
+      "name": "broad",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bro/broad/broad__us_1.mp3",
+      "id": 67
+    },
+    {
+      "name": "budget",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bud/budge/budget__us_1.mp3",
+      "id": 56
+    },
+    {
+      "id": 9,
+      "meaning": "",
+      "name": "cambridge",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cam/cambr/cambridge__1_us_1.mp3"
+    },
+    {
+      "name": "capacity",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cap/capac/capacity__us_1.mp3",
+      "id": 60
+    },
+    {
+      "id": 10,
+      "meaning": "",
+      "name": "child",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/chi/child/child__us_1.mp3"
+    },
+    {
+      "id": 32,
+      "name": "coincidence",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/coi/coinc/coincidence__us_1.mp3"
+    },
+    {
+      "name": "combine",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/combi/combine__us_1.mp3",
+      "id": 66
+    },
+    {
+      "id": 13,
+      "meaning": "",
+      "name": "commissioner",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/commi/commissioner__us_1.mp3"
+    },
+    {
+      "name": "company",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compa/company__us_1.mp3",
+      "id": 91
+    },
+    {
+      "id": 21,
+      "meaning": "",
+      "audio_url_us": "",
+      "audio_url_uk": "",
+      "name": "compositional",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compo/composition__us_1.mp3"
+    },
+    {
+      "id": 29,
+      "name": "congratulation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcong/xcongratulation__us_1.mp3"
+    },
+    {
+      "id": 31,
+      "name": "contemporary",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontemporary__us_1.mp3"
+    },
+    {
+      "name": "contest",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontest__us_1.mp3",
+      "id": 61
+    },
+    {
+      "id": 26,
+      "meaning": "",
+      "name": "continue",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontinue__us_1.mp3"
+    },
+    {
+      "name": "core",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cor/core_/core__us_1.mp3",
+      "id": 64
+    },
+    {
+      "name": "critical",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cri/criti/critical__us_1.mp3",
+      "id": 133
+    },
+    {
+      "id": 36,
+      "name": "cute",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cut/cute_/cute__us_1.mp3"
+    },
+    {
+      "name": "demand",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dem/deman/demand__us_1.mp3",
+      "id": 49
+    },
+    {
+      "id": 20,
+      "meaning": "",
+      "name": "demure",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dem/demur/demure__us_1.mp3"
+    },
+    {
+      "name": "design",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/des/desig/design__us_1.mp3",
+      "id": 57
+    },
+    {
+      "id": 24,
+      "meaning": "",
+      "name": "domination",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dom/domin/domination__us_1.mp3"
+    },
+    {
+      "id": 35,
+      "name": "double",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dou/doubl/double__us_1.mp3"
+    },
+    {
+      "name": "during",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dur/durin/during__us_1.mp3",
+      "id": 48
+    },
+    {
+      "name": "effort",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eff/effor/effort__us_1.mp3",
+      "id": 54
+    },
+    {
+      "name": "electric",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ele/elect/electric__us_1.mp3",
+      "id": 84
+    },
+    {
+      "name": "elephant",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ele/eleph/elephant__us_1.mp3",
+      "id": 77
+    },
+    {
+      "id": 15,
+      "meaning": "",
+      "name": "enormously",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eno/enorm/enormously__us_1.mp3"
+    },
+    {
+      "name": "entirely",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ent/entir/entirely__us_1.mp3",
+      "id": 86
+    },
+    {
+      "id": 2,
+      "meaning": "",
+      "name": "entrepreneurship",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ent/entre/entrepreneurship__us_1.mp3"
+    },
+    {
+      "id": 22,
+      "meaning": "",
+      "name": "estimation",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/est/estim/estimation__us_1.mp3"
+    },
+    {
+      "id": 38,
+      "name": "exhibition",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exh/exhib/exhibition__us_1.mp3"
+    },
+    {
+      "name": "explore",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/explo/explore__us_1.mp3",
+      "id": 52
+    },
+    {
+      "id": 5,
+      "meaning": "",
+      "name": "eyewash",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eye/eyewa/eyewash__us_1.mp3"
+    },
+    {
+      "name": "factor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fac/facto/factor__us_1.mp3",
+      "id": 50
+    },
+    {
+      "id": 4,
+      "meaning": "",
+      "name": "fatally",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fat/fatal/fatally__us_1.mp3"
+    },
+    {
+      "name": "financial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fin/finan/financial__us_1.mp3",
+      "id": 92
+    },
+    {
+      "name": "great",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gre/great/great__us_1.mp3",
+      "id": 46
+    },
+    {
+      "id": 33,
+      "name": "hi",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hi_/hi__u/hi__us_1.mp3"
+    },
+    {
+      "id": 41,
+      "name": "hybrid",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hyb/hybri/hybrid__us_1.mp3"
+    },
+    {
+      "name": "industrial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ind/indus/industrial__us_1.mp3",
+      "id": 68
+    },
+    {
+      "name": "ingredient",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ing/ingre/ingredient__us_1.mp3",
+      "id": 59
+    },
+    {
+      "name": "innovation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inn/innov/innovation__us_1.mp3",
+      "id": 62
+    },
+    {
+      "id": 16,
+      "meaning": "",
+      "name": "insightful",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ins/insig/insightful__us_1.mp3"
+    },
+    {
+      "name": "internal",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/int/inter/internal__us_1.mp3",
+      "id": 97
+    },
+    {
+      "id": 11,
+      "meaning": "",
+      "name": "internship",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/int/inter/internship__us_1.mp3"
+    },
+    {
+      "name": "launch",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lau/launc/launch__us_1.mp3",
+      "id": 83
+    },
+    {
+      "name": "literature",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lit/liter/literature__us_1.mp3",
+      "id": 51
+    },
+    {
+      "id": 43,
+      "name": "love",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lov/love_/love__us_1.mp3"
+    },
+    {
+      "name": "mainly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mai/mainl/mainly__us_1.mp3",
+      "id": 94
+    },
+    {
+      "name": "manufacturer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/man/manuf/manufacturer__us_1.mp3",
+      "id": 85
+    },
+    {
+      "id": 34,
+      "name": "medium",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/med/mediu/medium__us_1.mp3"
+    },
+    {
+      "id": 28,
+      "name": "minimum",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/min/minim/minimum__us_1.mp3"
+    },
+    {
+      "id": 30,
+      "name": "minute",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/min/minut/minute__us_1.mp3"
+    },
+    {
+      "id": 1,
+      "meaning": "",
+      "name": "mishap",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mis/misha/mishap__us_1.mp3"
+    },
+    {
+      "id": 37,
+      "name": "misunderstanding",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mis/misun/misunderstanding__us_1.mp3"
+    },
+    {
+      "id": 40,
+      "name": "mutual",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mut/mutua/mutual__us_1.mp3"
+    },
+    {
+      "id": 23,
+      "meaning": "",
+      "name": "nomination",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/nom/nomin/nomination__us_1.mp3"
+    },
+    {
+      "name": "observe",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/obs/obser/observe__us_1.mp3",
+      "id": 96
+    },
+    {
+      "id": 45,
+      "name": "old",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/old/old__/old__us_1.mp3"
+    },
+    {
+      "name": "perception",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/perce/perception__us_1.mp3",
+      "id": 58
+    },
+    {
+      "id": 17,
+      "meaning": "",
+      "name": "poster",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pos/poste/poster__us_1.mp3"
+    },
+    {
+      "name": "presentation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/prese/presentation__us_1.mp3",
+      "id": 90
+    },
+    {
+      "name": "prosperity",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/prosp/prosperity__us_1.mp3",
+      "id": 80
+    },
+    {
+      "id": 7,
+      "meaning": "",
+      "name": "punctually",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pun/punct/punctually__us_1.mp3"
+    },
+    {
+      "name": "purchase",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pur/purch/purchase__us_1.mp3",
+      "id": 74
+    },
+    {
+      "name": "qualify",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/q/qua/quali/qualify__us_1.mp3",
+      "id": 87
+    },
+    {
+      "id": 39,
+      "name": "rectangular",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rec/recta/rectangular__us_1.mp3"
+    },
+    {
+      "name": "reduce",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/red/reduc/reduce__us_1.mp3",
+      "id": 88
+    },
+    {
+      "id": 0,
+      "meaning": "",
+      "name": "restricted",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/res/restr/restricted__us_1.mp3"
+    },
+    {
+      "name": "scientific",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sci/scien/scientific__us_1.mp3",
+      "id": 69
+    },
+    {
+      "id": 44,
+      "name": "situation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sit/situa/situation__us_1.mp3"
+    },
+    {
+      "id": 18,
+      "meaning": "",
+      "name": "sociology",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/soc/socio/sociology__us_1.mp3"
+    },
+    {
+      "name": "solar",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sol/solar/solar__us_1.mp3",
+      "id": 65
+    },
+    {
+      "name": "source",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sou/sourc/source__us_1.mp3",
+      "id": 78
+    },
+    {
+      "name": "species",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/spe/speci/species__us_1.mp3",
+      "id": 89
+    },
+    {
+      "id": 8,
+      "meaning": "",
+      "name": "stipend",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/s/sti/stipe/stipend__gb_1.mp3"
+    },
+    {
+      "id": 25,
+      "meaning": "",
+      "name": "strawberry",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/straw/strawberry__us_1.mp3"
+    },
+    {
+      "id": 6,
+      "meaning": "",
+      "name": "stressful",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/stres/stressful__us_1.mp3"
+    },
+    {
+      "name": "substantial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sub/subst/substantial__us_1.mp3",
+      "id": 76
+    },
+    {
+      "name": "sustainable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sus/susta/sustainable__us_1.mp3",
+      "id": 47
+    },
+    {
+      "id": 19,
+      "meaning": "",
+      "name": "synopsis",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/syn/synop/synopsis__us_1.mp3"
+    },
+    {
+      "name": "technique",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tec/techn/technique__us_1.mp3",
+      "id": 82
+    },
+    {
+      "id": 12,
+      "meaning": "",
+      "name": "toast",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/toa/toast/toast__us_1.mp3"
+    },
+    {
+      "name": "toddler",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tod/toddl/toddler__us_1.mp3",
+      "id": 95
+    },
+    {
+      "name": "university",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/uni/unive/university__us_1.mp3",
+      "id": 55
+    },
+    {
+      "name": "vulnerable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/vul/vulne/vulnerable__us_1.mp3",
+      "id": 81
+    },
+    {
+      "name": "word",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wor/word_/word__us_1.mp3",
+      "id": 79
+    },
+    {
+      "name": "necessarily",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/nec/neces/necessarily__us_1.mp3",
+      "id": 137
+    },
+    {
+      "name": "gig",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gig/gig__/gig__us_1.mp3",
+      "id": 138
+    },
+    {
+      "name": "peach",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pea/peach/peach__us_1.mp3",
+      "id": 139
+    },
+    {
+      "name": "struggle",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/strug/struggle__us_1.mp3",
+      "id": 140
+    },
+    {
+      "name": "conclusion",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconc/xconclusion__us_1.mp3",
+      "id": 141
+    },
+    {
+      "name": "wave",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wav/wave_/wave__us_1.mp3",
+      "id": 142
+    },
+    {
+      "name": "output",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/out/outpu/output__us_1.mp3",
+      "id": 143
+    },
+    {
+      "name": "positive",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pos/posit/positive__us_1.mp3",
+      "id": 144
+    },
+    {
+      "name": "potential",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pot/poten/potential__us_1.mp3",
+      "id": 145
+    },
+    {
+      "name": "hypothesis",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hyp/hypot/hypothesis__us_1.mp3",
+      "id": 146
+    },
+    {
+      "name": "highlight",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hig/highl/highlight__us_1.mp3",
+      "id": 147
+    },
+    {
+      "name": "association",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/assoc/association__us_1.mp3",
+      "id": 148
+    },
+    {
+      "name": "postgraduate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pos/postg/postgraduate__us_1.mp3",
+      "id": 149
+    },
+    {
+      "name": "poverty",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pov/pover/poverty__us_1.mp3",
+      "id": 150
+    },
+    {
+      "name": "strategy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/strat/strategy__us_1.mp3",
+      "id": 151
+    },
+    {
+      "name": "management",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/man/manag/management__us_1.mp3",
+      "id": 152
+    },
+    {
+      "name": "day",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/day/day__/day__us_1.mp3",
+      "id": 153
+    },
+    {
+      "name": "analysis",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ana/analy/analysis__us_1.mp3",
+      "id": 154
+    },
+    {
+      "name": "preparation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/prepa/preparation__us_1.mp3",
+      "id": 155
+    },
+    {
+      "name": "semester",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sem/semes/semester__us_1.mp3",
+      "id": 156
+    },
+    {
+      "name": "scope",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sco/scope/scope__us_1.mp3",
+      "id": 157
+    },
+    {
+      "name": "convince",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconv/xconvince__us_1.mp3",
+      "id": 158
+    },
+    {
+      "name": "measure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mea/measu/measure__us_1.mp3",
+      "id": 159
+    },
+    {
+      "name": "union",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/uni/union/union__us_1.mp3",
+      "id": 160
+    },
+    {
+      "name": "connection",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconn/xconnection__us_1.mp3",
+      "id": 161
+    },
+    {
+      "name": "london",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/media/english/us_pron/l/lon/londo/london_1_us_2.mp3",
+      "id": 162
+    },
+    {
+      "name": "career",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/car/caree/career__us_1.mp3",
+      "id": 163
+    },
+    {
+      "name": "surprisingly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sur/surpr/surprisingly__us_1.mp3",
+      "id": 164
+    },
+    {
+      "name": "fossil",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fos/fossi/fossil__us_1.mp3",
+      "id": 165
+    },
+    {
+      "name": "posture",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pos/postu/posture__us_1.mp3",
+      "id": 166
+    },
+    {
+      "name": "likely",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lik/likel/likely__us_1.mp3",
+      "id": 167
+    },
+    {
+      "name": "human",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hum/human/human__us_1.mp3",
+      "id": 168
+    },
+    {
+      "name": "specific",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/spe/speci/specific__us_1.mp3",
+      "id": 169
+    },
+    {
+      "name": "debate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/deb/debat/debate__us_1.mp3",
+      "id": 170
+    },
+    {
+      "name": "recent",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rec/recen/recent__us_1.mp3",
+      "id": 171
+    },
+    {
+      "name": "evidence",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/evi/evide/evidence__us_1.mp3",
+      "id": 172
+    },
+    {
+      "name": "establish",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/est/estab/establish__us_1.mp3",
+      "id": 173
+    },
+    {
+      "name": "propose",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/propo/propose__us_1.mp3",
+      "id": 174
+    },
+    {
+      "name": "accept",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accep/accept__us_1.mp3",
+      "id": 175
+    },
+    {
+      "name": "publication",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pub/publi/publication__us_1.mp3",
+      "id": 176
+    },
+    {
+      "name": "journal",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/j/jou/journ/journal__us_1.mp3",
+      "id": 177
+    },
+    {
+      "name": "mood",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/moo/mood_/mood__us_1.mp3",
+      "id": 178
+    },
+    {
+      "name": "extent",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ext/exten/extent__us_1.mp3",
+      "id": 179
+    },
+    {
+      "name": "judge",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/j/jud/judge/judge__us_1.mp3",
+      "id": 180
+    },
+    {
+      "name": "rely",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rel/rely_/rely__us_1.mp3",
+      "id": 181
+    },
+    {
+      "name": "focus",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/foc/focus/focus__us_1.mp3",
+      "id": 182
+    },
+    {
+      "name": "external",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ext/exter/external__us_1.mp3",
+      "id": 183
+    },
+    {
+      "name": "promote",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/promo/promote__us_1.mp3",
+      "id": 184
+    },
+    {
+      "name": "negative",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/neg/negat/negative__us_1.mp3",
+      "id": 185
+    },
+    {
+      "name": "despite",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/des/despi/despite__us_1.mp3",
+      "id": 186
+    },
+    {
+      "name": "requirement",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/req/requi/requirement__us_1.mp3",
+      "id": 187
+    },
+    {
+      "name": "environment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/env/envir/environment__us_1.mp3",
+      "id": 188
+    },
+    {
+      "name": "resource",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/res/resou/resource__us_1.mp3",
+      "id": 189
+    },
+    {
+      "name": "limit",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lim/limit/limit__us_1.mp3",
+      "id": 190
+    },
+    {
+      "name": "supply",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sup/suppl/supply__us_1.mp3",
+      "id": 191
+    },
+    {
+      "name": "operate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ope/opera/operate__us_1.mp3",
+      "id": 192
+    },
+    {
+      "name": "professor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/profe/professor__us_1.mp3",
+      "id": 193
+    },
+    {
+      "name": "faculty",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fac/facul/faculty__us_1.mp3",
+      "id": 194
+    },
+    {
+      "name": "travel",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tra/trave/travel__us_1.mp3",
+      "id": 195
+    },
+    {
+      "name": "efficiency",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eff/effic/efficiency__us_1.mp3",
+      "id": 196
+    },
+    {
+      "name": "represent",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rep/repre/represent__us_1.mp3",
+      "id": 197
+    },
+    {
+      "name": "single",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sin/singl/single__us_1.mp3",
+      "id": 198
+    },
+    {
+      "name": "aspect",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/asp/aspec/aspect__us_1.mp3",
+      "id": 199
+    },
+    {
+      "name": "loan",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/loa/loan_/loan__us_1.mp3",
+      "id": 200
+    },
+    {
+      "name": "workforce",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wor/workf/workforce__us_1.mp3",
+      "id": 201
+    },
+    {
+      "name": "participate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/par/parti/participate__us_1.mp3",
+      "id": 202
+    },
+    {
+      "name": "gain",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gai/gain_/gain__us_1.mp3",
+      "id": 203
+    },
+    {
+      "name": "series",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/ser/serie/series__us_1.mp3",
+      "id": 204
+    },
+    {
+      "name": "type",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/typ/type_/type__us_1.mp3",
+      "id": 205
+    },
+    {
+      "name": "quantitative",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/q/qua/quant/quantitative__us_1.mp3",
+      "id": 206
+    },
+    {
+      "name": "whereas",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/whe/where/whereas__us_1.mp3",
+      "id": 207
+    },
+    {
+      "name": "option",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/opt/optio/option__us_1.mp3",
+      "id": 208
+    },
+    {
+      "name": "relatively",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rel/relat/relatively__us_1.mp3",
+      "id": 209
+    },
+    {
+      "name": "temperature",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tem/tempe/temperature__us_1.mp3",
+      "id": 210
+    },
+    {
+      "name": "dangerous",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dan/dange/dangerous__us_1.mp3",
+      "id": 211
+    },
+    {
+      "name": "regulation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/reg/regul/regulation__us_1.mp3",
+      "id": 213
+    },
+    {
+      "name": "vary",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/var/vary_/vary__us_1.mp3",
+      "id": 214
+    },
+    {
+      "name": "employ",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emp/emplo/employ__us_1.mp3",
+      "id": 215
+    },
+    {
+      "name": "legislation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/leg/legis/legislation__us_1.mp3",
+      "id": 216
+    },
+    {
+      "name": "define",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/def/defin/define__us_1.mp3",
+      "id": 217
+    },
+    {
+      "name": "unite",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/uni/unite/unite__us_1.mp3",
+      "id": 218
+    },
+    {
+      "name": "aid",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aid/aid__/aid__us_1.mp3",
+      "id": 219
+    },
+    {
+      "name": "comparison",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compa/comparison__us_1.mp3",
+      "id": 220
+    },
+    {
+      "name": "region",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/reg/regio/region__us_1.mp3",
+      "id": 221
+    },
+    {
+      "name": "obtain",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/obt/obtai/obtain__us_1.mp3",
+      "id": 222
+    },
+    {
+      "name": "minimal",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/min/minim/minimal__us_1.mp3",
+      "id": 223
+    },
+    {
+      "name": "explanation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/expla/explanation__us_1.mp3",
+      "id": 224
+    },
+    {
+      "name": "characteristic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cha/chara/characteristic__us_1.mp3",
+      "id": 225
+    },
+    {
+      "name": "billion",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bil/billi/billion__us_1.mp3",
+      "id": 226
+    },
+    {
+      "name": "statistics",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sta/stati/statistics__us_1.mp3",
+      "id": 227
+    },
+    {
+      "name": "variable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/var/varia/variable__us_1.mp3",
+      "id": 228
+    },
+    {
+      "name": "graph",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gra/graph/graph__us_1.mp3",
+      "id": 229
+    },
+    {
+      "name": "select",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sel/selec/select__us_1.mp3",
+      "id": 230
+    },
+    {
+      "name": "statistical",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sta/stati/statistical__us_1.mp3",
+      "id": 231
+    },
+    {
+      "name": "analyze",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ana/analy/analyze__us_1.mp3",
+      "id": 232
+    },
+    {
+      "name": "click",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cli/click/click__us_1.mp3",
+      "id": 233
+    },
+    {
+      "name": "button",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/but/butto/button__us_1.mp3",
+      "id": 234
+    },
+    {
+      "name": "chief",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/chi/chief/chief__us_1.mp3",
+      "id": 235
+    },
+    {
+      "name": "executive",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exe/execu/executive__us_1.mp3",
+      "id": 236
+    },
+    {
+      "name": "balance",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bal/balan/balance__us_1.mp3",
+      "id": 237
+    },
+    {
+      "name": "motivate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mot/motiv/motivate__us_1.mp3",
+      "id": 238
+    },
+    {
+      "name": "legal",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/leg/legal/legal__us_1.mp3",
+      "id": 239
+    },
+    {
+      "name": "philosopher",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/phi/philo/philosopher__us_1.mp3",
+      "id": 240
+    },
+    {
+      "name": "rational",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rat/ratio/rational__us_1.mp3",
+      "id": 241
+    },
+    {
+      "name": "emotional",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emo/emoti/emotional__us_1.mp3",
+      "id": 242
+    },
+    {
+      "name": "carefully",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/car/caref/carefully__us_1.mp3",
+      "id": 243
+    },
+    {
+      "name": "scientist",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sci/scien/scientist__us_1.mp3",
+      "id": 244
+    },
+    {
+      "name": "latest",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lat/lates/latest__us_1.mp3",
+      "id": 245
+    },
+    {
+      "name": "function",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fun/funct/function__us_1.mp3",
+      "id": 246
+    },
+    {
+      "name": "logical",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/log/logic/logical__us_1.mp3",
+      "id": 247
+    },
+    {
+      "name": "tend",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/ten/tend_/tend__us_1.mp3",
+      "id": 248
+    },
+    {
+      "name": "global",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/glo/globa/global__us_1.mp3",
+      "id": 249
+    },
+    {
+      "name": "atmosphere",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/atm/atmos/atmosphere__us_1.mp3",
+      "id": 250
+    },
+    {
+      "name": "trend",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tre/trend/trend__us_1.mp3",
+      "id": 251
+    },
+    {
+      "name": "environmental",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/env/envir/environmental__us_1.mp3",
+      "id": 252
+    },
+    {
+      "name": "concern",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconc/xconcern__us_1.mp3",
+      "id": 253
+    },
+    {
+      "name": "worldwide",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wor/world/worldwide__us_1.mp3",
+      "id": 254
+    },
+    {
+      "name": "greenhouse",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gre/green/greenhouse__us_1.mp3",
+      "id": 255
+    },
+    {
+      "name": "gas",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gas/gas__/gas__us_1.mp3",
+      "id": 256
+    },
+    {
+      "name": "personnel",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/perso/personnel__us_1.mp3",
+      "id": 257
+    },
+    {
+      "name": "datum",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dat/datum/datum__us_1.mp3",
+      "id": 258
+    },
+    {
+      "name": "male",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mal/male_/male__us_1.mp3",
+      "id": 259
+    },
+    {
+      "name": "candidate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/can/candi/candidate__us_1.mp3",
+      "id": 260
+    },
+    {
+      "name": "politics",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pol/polit/politics__us_1.mp3",
+      "id": 261
+    },
+    {
+      "name": "emission",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emi/emiss/emission__us_1.mp3",
+      "id": 262
+    },
+    {
+      "name": "fuel",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fue/fuel_/fuel__us_1.mp3",
+      "id": 263
+    },
+    {
+      "name": "urban",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/urb/urban/urban__us_1.mp3",
+      "id": 264
+    },
+    {
+      "name": "trade",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tra/trade/trade__us_1.mp3",
+      "id": 265
+    },
+    {
+      "name": "apply",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/apply/apply__us_1.mp3",
+      "id": 266
+    },
+    {
+      "name": "import",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/imp/impor/import__us_1.mp3",
+      "id": 267
+    },
+    {
+      "name": "unlike",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/unl/unlik/unlike__us_1.mp3",
+      "id": 268
+    },
+    {
+      "name": "possession",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pos/posse/possession__us_1.mp3",
+      "id": 269
+    },
+    {
+      "name": "originate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ori/origi/originate__us_1.mp3",
+      "id": 270
+    },
+    {
+      "name": "revolution",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rev/revol/revolution__us_1.mp3",
+      "id": 271
+    },
+    {
+      "name": "skilled",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/ski/skill/skilled__us_1.mp3",
+      "id": 272
+    },
+    {
+      "name": "employer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emp/emplo/employer__us_1.mp3",
+      "id": 273
+    },
+    {
+      "name": "engage",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eng/engag/engage__us_1.mp3",
+      "id": 274
+    },
+    {
+      "name": "appreciation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appre/appreciation__us_1.mp3",
+      "id": 275
+    },
+    {
+      "name": "collection",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/col/colle/collection__us_1.mp3",
+      "id": 276
+    },
+    {
+      "name": "security",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sec/secur/security__us_1.mp3",
+      "id": 277
+    },
+    {
+      "name": "flow",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/flo/flow_/flow__us_1.mp3",
+      "id": 278
+    },
+    {
+      "name": "locate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/loc/locat/locate__us_1.mp3",
+      "id": 279
+    },
+    {
+      "name": "earth",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ear/earth/earth__us_1.mp3",
+      "id": 280
+    },
+    {
+      "name": "climate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cli/clima/climate__us_1.mp3",
+      "id": 281
+    },
+    {
+      "name": "argument",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arg/argum/argument__us_1.mp3",
+      "id": 282
+    },
+    {
+      "name": "historian",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/his/histo/historian__us_1.mp3",
+      "id": 283
+    },
+    {
+      "name": "novelist",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/nov/novel/novelist__us_1.mp3",
+      "id": 284
+    },
+    {
+      "name": "sympathy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sym/sympa/sympathy__us_1.mp3",
+      "id": 285
+    },
+    {
+      "name": "entertainment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ent/enter/entertainment__us_1.mp3",
+      "id": 286
+    },
+    {
+      "name": "adapt",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ada/adapt/adapt__us_1.mp3",
+      "id": 287
+    },
+    {
+      "name": "benefit",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/ben/benef/benefit__us_1.mp3",
+      "id": 288
+    },
+    {
+      "name": "successfully",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/suc/succe/successfully__us_1.mp3",
+      "id": 289
+    },
+    {
+      "name": "exam",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exa/exam_/exam__us_1.mp3",
+      "id": 290
+    },
+    {
+      "name": "concept",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconc/xconcept__us_1.mp3",
+      "id": 291
+    },
+    {
+      "name": "currently",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cur/curre/currently__us_1.mp3",
+      "id": 292
+    },
+    {
+      "name": "increasingly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inc/incre/increasingly__us_1.mp3",
+      "id": 293
+    },
+    {
+      "name": "relate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rel/relat/relate__us_1.mp3",
+      "id": 294
+    },
+    {
+      "name": "competitive",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compe/competitive__us_1.mp3",
+      "id": 295
+    },
+    {
+      "name": "essential",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ess/essen/essential__us_1.mp3",
+      "id": 296
+    },
+    {
+      "name": "quality",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/q/qua/quali/quality__us_1.mp3",
+      "id": 297
+    },
+    {
+      "name": "participant",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/par/parti/participant__us_1.mp3",
+      "id": 298
+    },
+    {
+      "name": "track",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tra/track/track__us_1.mp3",
+      "id": 299
+    },
+    {
+      "name": "statistically",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sta/stati/statistically__us_1.mp3",
+      "id": 300
+    },
+    {
+      "name": "significant",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sig/signi/significant__us_1.mp3",
+      "id": 301
+    },
+    {
+      "name": "parliament",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/par/parli/parliament__us_1.mp3",
+      "id": 302
+    },
+    {
+      "name": "crown",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cro/crown/crown__us_1.mp3",
+      "id": 303
+    },
+    {
+      "name": "crucial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cru/cruci/crucial__us_1.mp3",
+      "id": 304
+    },
+    {
+      "name": "mar",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mar/mar__/mar__us_1.mp3",
+      "id": 305
+    },
+    {
+      "name": "pace",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pac/pace_/pace__us_1.mp3",
+      "id": 306
+    },
+    {
+      "name": "agree",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/agr/agree/agree__us_1.mp3",
+      "id": 307
+    },
+    {
+      "name": "conference",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconf/xconference__us_1.mp3",
+      "id": 308
+    },
+    {
+      "name": "republic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rep/repub/republic__us_1.mp3",
+      "id": 309
+    },
+    {
+      "name": "jam",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/j/jam/jam__/jam__us_1.mp3",
+      "id": 310
+    },
+    {
+      "name": "structure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/struc/structure__us_1.mp3",
+      "id": 311
+    },
+    {
+      "name": "stage",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sta/stage/stage__us_1.mp3",
+      "id": 312
+    },
+    {
+      "name": "complex",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compl/complex__us_1.mp3",
+      "id": 313
+    },
+    {
+      "name": "coastal",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/coa/coast/coastal__us_1.mp3",
+      "id": 314
+    },
+    {
+      "name": "contain",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontain__us_1.mp3",
+      "id": 315
+    },
+    {
+      "name": "collapse",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/col/colla/collapse__us_1.mp3",
+      "id": 316
+    },
+    {
+      "name": "device",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dev/devic/device__us_1.mp3",
+      "id": 317
+    },
+    {
+      "name": "digital",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dig/digit/digital__us_1.mp3",
+      "id": 318
+    },
+    {
+      "name": "assistant",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/assis/assistant__us_1.mp3",
+      "id": 319
+    },
+    {
+      "name": "application",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appli/application__us_1.mp3",
+      "id": 320
+    },
+    {
+      "name": "commercial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/comme/commercial__us_1.mp3",
+      "id": 321
+    },
+    {
+      "name": "provider",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/provi/provider__us_1.mp3",
+      "id": 322
+    },
+    {
+      "name": "prove",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/prove/prove__us_1.mp3",
+      "id": 323
+    },
+    {
+      "name": "grade",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gra/grade/grade__us_1.mp3",
+      "id": 324
+    },
+    {
+      "name": "item",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ite/item_/item__us_1.mp3",
+      "id": 325
+    },
+    {
+      "name": "content",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontent__us_1.mp3",
+      "id": 326
+    },
+    {
+      "name": "secure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sec/secur/secure__us_1.mp3",
+      "id": 327
+    },
+    {
+      "name": "mistake",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mis/mista/mistake__us_1.mp3",
+      "id": 328
+    },
+    {
+      "name": "integrate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/int/integ/integrate__us_1.mp3",
+      "id": 329
+    },
+    {
+      "name": "occur",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/occ/occur/occur__us_1.mp3",
+      "id": 330
+    },
+    {
+      "name": "sea",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sea/sea__/sea__us_1.mp3",
+      "id": 331
+    },
+    {
+      "name": "physical",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/phy/physi/physical__us_1.mp3",
+      "id": 332
+    },
+    {
+      "name": "researcher",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/res/resea/researcher__us_1.mp3",
+      "id": 333
+    },
+    {
+      "name": "cell",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cel/cell_/cell__us_1.mp3",
+      "id": 334
+    },
+    {
+      "name": "molecule",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mol/molec/molecule__us_1.mp3",
+      "id": 335
+    },
+    {
+      "name": "bacteria",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bac/bacte/bacteria__us_1.mp3",
+      "id": 336
+    },
+    {
+      "name": "aim",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aim/aim__/aim__us_1.mp3",
+      "id": 337
+    },
+    {
+      "name": "affect",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aff/affec/affect__us_1.mp3",
+      "id": 338
+    },
+    {
+      "name": "tap",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tap/tap__/tap__us_1.mp3",
+      "id": 339
+    },
+    {
+      "name": "current",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cur/curre/current__us_1.mp3",
+      "id": 340
+    },
+    {
+      "name": "shift",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/shi/shift/shift__us_1.mp3",
+      "id": 341
+    },
+    {
+      "name": "impact",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/imp/impac/impact__us_1.mp3",
+      "id": 342
+    },
+    {
+      "name": "wildlife",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wil/wildl/wildlife__us_1.mp3",
+      "id": 343
+    },
+    {
+      "name": "photograph",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pho/photo/photograph__us_1.mp3",
+      "id": 344
+    },
+    {
+      "name": "prefer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/prefe/prefer__us_1.mp3",
+      "id": 345
+    },
+    {
+      "name": "adopt",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ado/adopt/adopt__us_1.mp3",
+      "id": 346
+    },
+    {
+      "name": "lifestyle",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lif/lifes/lifestyle__us_1.mp3",
+      "id": 347
+    },
+    {
+      "name": "reproduce",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rep/repro/reproduce__us_1.mp3",
+      "id": 348
+    },
+    {
+      "name": "threat",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/thr/threa/threat__us_1.mp3",
+      "id": 349
+    },
+    {
+      "name": "marine",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mar/marin/marine__us_1.mp3",
+      "id": 350
+    },
+    {
+      "name": "vital",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/vit/vital/vital__us_1.mp3",
+      "id": 351
+    },
+    {
+      "name": "port",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/por/port_/port__us_1.mp3",
+      "id": 352
+    },
+    {
+      "name": "exist",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exi/exist/exist__us_1.mp3",
+      "id": 353
+    },
+    {
+      "name": "pollution",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pol/pollu/pollution__us_1.mp3",
+      "id": 354
+    },
+    {
+      "name": "overlap",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ove/overl/overlap__us_1.mp3",
+      "id": 355
+    },
+    {
+      "name": "economics",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eco/econo/economics__us_1.mp3",
+      "id": 356
+    },
+    {
+      "name": "demography",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dem/demog/demography__us_1.mp3",
+      "id": 357
+    },
+    {
+      "name": "pure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pur/pure_/pure__us_1.mp3",
+      "id": 358
+    },
+    {
+      "name": "detail",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/det/detai/detail__us_1.mp3",
+      "id": 359
+    },
+    {
+      "name": "identify",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ide/ident/identify__us_1.mp3",
+      "id": 360
+    },
+    {
+      "name": "status",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sta/statu/status__us_1.mp3",
+      "id": 361
+    },
+    {
+      "name": "visual",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/vis/visua/visual__us_1.mp3",
+      "id": 362
+    },
+    {
+      "name": "highly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hig/highl/highly__us_1.mp3",
+      "id": 363
+    },
+    {
+      "name": "bias",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bia/bias_/bias__us_1.mp3",
+      "id": 364
+    },
+    {
+      "name": "image",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ima/image/image__us_1.mp3",
+      "id": 365
+    },
+    {
+      "name": "accurate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accur/accurate__us_1.mp3",
+      "id": 366
+    },
+    {
+      "name": "habitat",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hab/habit/habitat__us_1.mp3",
+      "id": 367
+    },
+    {
+      "name": "nearby",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/nea/nearb/nearby__us_1.mp3",
+      "id": 368
+    },
+    {
+      "name": "amount",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/amo/amoun/amount__us_1.mp3",
+      "id": 369
+    },
+    {
+      "name": "agriculture",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/agr/agric/agriculture__us_1.mp3",
+      "id": 370
+    },
+    {
+      "name": "publish",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pub/publi/publish__us_1.mp3",
+      "id": 371
+    },
+    {
+      "name": "initial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ini/initi/initial__us_1.mp3",
+      "id": 372
+    },
+    {
+      "name": "maximum",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/max/maxim/maximum__us_1.mp3",
+      "id": 373
+    },
+    {
+      "name": "author",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aut/autho/author__us_1.mp3",
+      "id": 374
+    },
+    {
+      "name": "switch",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/swi/switc/switch__us_1.mp3",
+      "id": 375
+    },
+    {
+      "name": "strike",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/strik/strike__us_1.mp3",
+      "id": 376
+    },
+    {
+      "name": "significantly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sig/signi/significantly__us_1.mp3",
+      "id": 377
+    },
+    {
+      "name": "profit",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/profi/profit__us_1.mp3",
+      "id": 378
+    },
+    {
+      "name": "perspective",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/persp/perspective__us_1.mp3",
+      "id": 379
+    },
+    {
+      "name": "threaten",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/thr/threa/threaten__us_1.mp3",
+      "id": 380
+    },
+    {
+      "name": "currency",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cur/curre/currency__us_1.mp3",
+      "id": 381
+    },
+    {
+      "name": "expert",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/exper/expert__us_1.mp3",
+      "id": 382
+    },
+    {
+      "name": "step",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/ste/step_/step__us_1.mp3",
+      "id": 383
+    },
+    {
+      "name": "economy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eco/econo/economy__us_1.mp3",
+      "id": 384
+    },
+    {
+      "name": "sandwich",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/san/sandw/sandwich__us_1.mp3",
+      "id": 385
+    },
+    {
+      "name": "layer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lay/layer/layer__us_1.mp3",
+      "id": 386
+    },
+    {
+      "name": "react",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rea/react/react__us_1.mp3",
+      "id": 387
+    },
+    {
+      "name": "oxygen",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/oxy/oxyge/oxygen__us_1.mp3",
+      "id": 388
+    },
+    {
+      "name": "tube",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tub/tube_/tube__us_1.mp3",
+      "id": 389
+    },
+    {
+      "name": "firm",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fir/firm_/firm__us_1.mp3",
+      "id": 390
+    },
+    {
+      "name": "permit",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/permi/permit__us_1.mp3",
+      "id": 391
+    },
+    {
+      "name": "schedule",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sch/sched/schedule__us_1.mp3",
+      "id": 392
+    },
+    {
+      "name": "involve",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inv/invol/involve__us_1.mp3",
+      "id": 393
+    },
+    {
+      "name": "discourage",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dis/disco/discourage__us_1.mp3",
+      "id": 394
+    },
+    {
+      "name": "redesign",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/red/redes/redesign__us_1.mp3",
+      "id": 395
+    },
+    {
+      "name": "original",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ori/origi/original__us_1.mp3",
+      "id": 396
+    },
+    {
+      "name": "audience",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aud/audie/audience__us_1.mp3",
+      "id": 397
+    },
+    {
+      "name": "organization",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/org/organ/organization__us_1.mp3",
+      "id": 398
+    },
+    {
+      "name": "democracy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dem/democ/democracy__us_1.mp3",
+      "id": 399
+    },
+    {
+      "name": "technological",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tec/techn/technological__us_1.mp3",
+      "id": 400
+    },
+    {
+      "name": "journalism",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/j/jou/journ/journalism__us_1.mp3",
+      "id": 401
+    },
+    {
+      "name": "site",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sit/site_/site__us_1.mp3",
+      "id": 402
+    },
+    {
+      "name": "update",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/upd/updat/update__us_1.mp3",
+      "id": 403
+    },
+    {
+      "name": "foreign",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/for/forei/foreign__us_1.mp3",
+      "id": 404
+    },
+    {
+      "name": "collaboration",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/col/colla/collaboration__us_1.mp3",
+      "id": 405
+    },
+    {
+      "name": "topic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/top/topic/topic__us_1.mp3",
+      "id": 406
+    },
+    {
+      "name": "neuroscience",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/neu/neuro/neuroscience__us_1.mp3",
+      "id": 407
+    },
+    {
+      "name": "stock",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sto/stock/stock__us_1.mp3",
+      "id": 408
+    },
+    {
+      "name": "recognize",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rec/recog/recognize__us_1.mp3",
+      "id": 409
+    },
+    {
+      "name": "demonstrate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dem/demon/demonstrate__us_1.mp3",
+      "id": 410
+    },
+    {
+      "name": "unique",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/uni/uniqu/unique__us_1.mp3",
+      "id": 411
+    },
+    {
+      "name": "durable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dur/durab/durable__us_1.mp3",
+      "id": 412
+    },
+    {
+      "name": "creature",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cre/creat/creature__us_1.mp3",
+      "id": 413
+    },
+    {
+      "name": "throughout",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/thr/throu/throughout__us_1.mp3",
+      "id": 414
+    },
+    {
+      "name": "impossible",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/imp/impos/impossible__us_1.mp3",
+      "id": 415
+    },
+    {
+      "name": "attempt",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/att/attem/attempt__us_1.mp3",
+      "id": 416
+    },
+    {
+      "name": "scale",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sca/scale/scale__us_1.mp3",
+      "id": 417
+    },
+    {
+      "name": "crisis",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cri/crisi/crisis__us_1.mp3",
+      "id": 418
+    },
+    {
+      "name": "suffer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/suf/suffe/suffer__us_1.mp3",
+      "id": 419
+    },
+    {
+      "name": "loss",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/los/loss_/loss__us_1.mp3",
+      "id": 420
+    },
+    {
+      "name": "confidence",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconf/xconfidence__us_1.mp3",
+      "id": 421
+    },
+    {
+      "name": "solution",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sol/solut/solution__us_1.mp3",
+      "id": 422
+    },
+    {
+      "name": "fully",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/ful/fully/fully__us_1.mp3",
+      "id": 423
+    },
+    {
+      "name": "various",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/var/vario/various__us_1.mp3",
+      "id": 424
+    },
+    {
+      "name": "criteria",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cri/crite/criteria__us_1.mp3",
+      "id": 425
+    },
+    {
+      "name": "implement",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/imp/imple/implement__us_1.mp3",
+      "id": 426
+    },
+    {
+      "name": "thesis",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/the/thesi/thesis__us_1.mp3",
+      "id": 427
+    },
+    {
+      "name": "destroy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/des/destr/destroy__us_1.mp3",
+      "id": 428
+    },
+    {
+      "name": "feature",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fea/featu/feature__us_1.mp3",
+      "id": 429
+    },
+    {
+      "name": "tradition",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tra/tradi/tradition__us_1.mp3",
+      "id": 430
+    },
+    {
+      "name": "fund",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fun/fund_/fund__us_1.mp3",
+      "id": 431
+    },
+    {
+      "name": "account",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accou/account__us_1.mp3",
+      "id": 432
+    },
+    {
+      "name": "ensure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ens/ensur/ensure__us_1.mp3",
+      "id": 433
+    },
+    {
+      "name": "appropriate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appro/appropriate__us_1.mp3",
+      "id": 434
+    },
+    {
+      "name": "conflict",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconf/xconflict__us_1.mp3",
+      "id": 435
+    },
+    {
+      "name": "advance",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/adv/advan/advance__us_1.mp3",
+      "id": 436
+    },
+    {
+      "name": "roman",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rom/roman/roman__us_1.mp3",
+      "id": 437
+    },
+    {
+      "name": "expand",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/expan/expand__us_1.mp3",
+      "id": 438
+    },
+    {
+      "name": "hire",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hir/hire_/hire__us_1.mp3",
+      "id": 439
+    },
+    {
+      "name": "gender",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gen/gende/gender__us_1.mp3",
+      "id": 440
+    },
+    {
+      "name": "proactive",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/proac/proactive__us_1.mp3",
+      "id": 441
+    },
+    {
+      "name": "overlook",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ove/overl/overlook__us_1.mp3",
+      "id": 442
+    },
+    {
+      "name": "charge",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cha/charg/charge__us_1.mp3",
+      "id": 443
+    },
+    {
+      "name": "rate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rat/rate_/rate__us_1.mp3",
+      "id": 444
+    },
+    {
+      "name": "heat",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hea/heat_/heat__us_1.mp3",
+      "id": 445
+    },
+    {
+      "name": "deposit",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dep/depos/deposit__us_1.mp3",
+      "id": 446
+    },
+    {
+      "name": "native",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/nat/nativ/native__us_1.mp3",
+      "id": 447
+    },
+    {
+      "name": "renowned",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/ren/renow/renowned__us_1.mp3",
+      "id": 448
+    },
+    {
+      "name": "predominant",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/predo/predominant__us_1.mp3",
+      "id": 449
+    },
+    {
+      "name": "expectation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/expec/expectation__us_1.mp3",
+      "id": 450
+    },
+    {
+      "name": "engineer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eng/engin/engineer__us_1.mp3",
+      "id": 451
+    },
+    {
+      "name": "raw",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/raw/raw__/raw__us_1.mp3",
+      "id": 452
+    },
+    {
+      "name": "considerably",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcons/xconsiderably__us_1.mp3",
+      "id": 453
+    },
+    {
+      "name": "recommend",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rec/recom/recommend__us_1.mp3",
+      "id": 454
+    },
+    {
+      "name": "prestigious",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/prest/prestigious__us_1.mp3",
+      "id": 455
+    },
+    {
+      "name": "department",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dep/depar/department__us_1.mp3",
+      "id": 456
+    },
+    {
+      "name": "muscle",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mus/muscl/muscle__us_1.mp3",
+      "id": 457
+    },
+    {
+      "name": "contract",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontract__us_1.mp3",
+      "id": 458
+    },
+    {
+      "name": "major",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/maj/major/major__us_1.mp3",
+      "id": 459
+    },
+    {
+      "name": "universe",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/uni/unive/universe__us_1.mp3",
+      "id": 460
+    },
+    {
+      "name": "tricky",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tri/trick/tricky__us_1.mp3",
+      "id": 461
+    },
+    {
+      "name": "aware",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/awa/aware/aware__us_1.mp3",
+      "id": 462
+    },
+    {
+      "name": "conceive",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconc/xconceive__us_1.mp3",
+      "id": 463
+    },
+    {
+      "name": "plagiarism",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pla/plagi/plagiarism__us_1.mp3",
+      "id": 464
+    },
+    {
+      "name": "presidential",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/presi/presidential__us_1.mp3",
+      "id": 465
+    },
+    {
+      "name": "vegan",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/veg/vegan/vegan__us_1.mp3",
+      "id": 466
+    },
+    {
+      "name": "hour",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hou/hour_/hour__us_1.mp3",
+      "id": 467
+    },
+    {
+      "name": "reset",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/res/reset/reset__us_1.mp3",
+      "id": 468
+    },
+    {
+      "name": "tourism",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tou/touri/tourism__us_1.mp3",
+      "id": 469
+    },
+    {
+      "name": "overseas",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ove/overs/overseas__us_1.mp3",
+      "id": 470
+    },
+    {
+      "name": "visitor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/vis/visit/visitor__us_1.mp3",
+      "id": 471
+    },
+    {
+      "name": "theory",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/the/theor/theory__us_1.mp3",
+      "id": 472
+    },
+    {
+      "name": "selection",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sel/selec/selection__us_1.mp3",
+      "id": 473
+    },
+    {
+      "name": "individual",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ind/indiv/individual__us_1.mp3",
+      "id": 474
+    },
+    {
+      "name": "higher",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hig/highe/higher__us_1.mp3",
+      "id": 475
+    },
+    {
+      "name": "chemical",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/che/chemi/chemical__us_1.mp3",
+      "id": 476
+    },
+    {
+      "name": "acid",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aci/acid_/acid__us_1.mp3",
+      "id": 477
+    },
+    {
+      "name": "stream",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/strea/stream__us_1.mp3",
+      "id": 478
+    },
+    {
+      "name": "cultural",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cul/cultu/cultural__us_1.mp3",
+      "id": 479
+    },
+    {
+      "name": "institution",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ins/insti/institution__us_1.mp3",
+      "id": 480
+    },
+    {
+      "name": "display",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dis/displ/display__us_1.mp3",
+      "id": 481
+    },
+    {
+      "name": "primarily",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pri/prima/primarily__us_1.mp3",
+      "id": 482
+    },
+    {
+      "name": "exotic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exo/exoti/exotic__us_1.mp3",
+      "id": 483
+    },
+    {
+      "name": "captivity",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cap/capti/captivity__us_1.mp3",
+      "id": 484
+    },
+    {
+      "name": "approve",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appro/approve__us_1.mp3",
+      "id": 485
+    },
+    {
+      "name": "category",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cat/categ/category__us_1.mp3",
+      "id": 486
+    },
+    {
+      "name": "normal",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/n/nor/norma/normal__us_1.mp3",
+      "id": 487
+    },
+    {
+      "name": "associate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/assoc/associate__us_1.mp3",
+      "id": 488
+    },
+    {
+      "name": "reception",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rec/recep/reception__us_1.mp3",
+      "id": 489
+    },
+    {
+      "name": "disease",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dis/disea/disease__us_1.mp3",
+      "id": 490
+    },
+    {
+      "name": "opportunity",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/opp/oppor/opportunity__us_1.mp3",
+      "id": 491
+    },
+    {
+      "name": "employee",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emp/emplo/employee__us_1.mp3",
+      "id": 492
+    },
+    {
+      "name": "beneficial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/ben/benef/beneficial__us_1.mp3",
+      "id": 493
+    },
+    {
+      "name": "effective",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eff/effec/effective__us_1.mp3",
+      "id": 494
+    },
+    {
+      "name": "experimental",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/exper/experimental__us_1.mp3",
+      "id": 495
+    },
+    {
+      "name": "strain",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/str/strai/strain__us_1.mp3",
+      "id": 496
+    },
+    {
+      "name": "consume",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcons/xconsume__us_1.mp3",
+      "id": 497
+    },
+    {
+      "name": "beyond",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bey/beyon/beyond__us_1.mp3",
+      "id": 498
+    },
+    {
+      "name": "assembly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/assem/assembly__us_1.mp3",
+      "id": 499
+    },
+    {
+      "name": "assessment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/asses/assessment__us_1.mp3",
+      "id": 500
+    },
+    {
+      "name": "academic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aca/acade/academic__us_1.mp3",
+      "id": 501
+    },
+    {
+      "name": "anxiety",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/anx/anxie/anxiety__us_1.mp3",
+      "id": 502
+    },
+    {
+      "name": "adulthood",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/adu/adult/adulthood__us_1.mp3",
+      "id": 503
+    },
+    {
+      "name": "growth",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/g/gro/growt/growth__us_1.mp3",
+      "id": 504
+    },
+    {
+      "name": "contribute",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcont/xcontribute__us_1.mp3",
+      "id": 505
+    },
+    {
+      "name": "harm",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/har/harm_/harm__us_1.mp3",
+      "id": 506
+    },
+    {
+      "name": "consideration",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcons/xconsideration__us_1.mp3",
+      "id": 507
+    },
+    {
+      "name": "floor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/flo/floor/floor__us_1.mp3",
+      "id": 508
+    },
+    {
+      "name": "decrease",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dec/decre/decrease__us_1.mp3",
+      "id": 509
+    },
+    {
+      "name": "sophisticate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sop/sophi/sophisticate__us_1.mp3",
+      "id": 510
+    },
+    {
+      "name": "reward",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rew/rewar/reward__us_1.mp3",
+      "id": 511
+    },
+    {
+      "name": "per",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/per__/per__us_1.mp3",
+      "id": 512
+    },
+    {
+      "name": "lifetime",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lif/lifet/lifetime__us_1.mp3",
+      "id": 513
+    },
+    {
+      "name": "carbon",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/car/carbo/carbon__us_1.mp3",
+      "id": 514
+    },
+    {
+      "name": "respond",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/res/respo/respond__us_1.mp3",
+      "id": 515
+    },
+    {
+      "name": "politician",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pol/polit/politician__us_1.mp3",
+      "id": 516
+    },
+    {
+      "name": "mass",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mas/mass_/mass__us_1.mp3",
+      "id": 517
+    },
+    {
+      "name": "range",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/ran/range/range__us_1.mp3",
+      "id": 518
+    },
+    {
+      "name": "production",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/produ/production__us_1.mp3",
+      "id": 519
+    },
+    {
+      "name": "compound",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compo/compound__us_1.mp3",
+      "id": 520
+    },
+    {
+      "name": "lab",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/l/lab/lab__/lab__us_1.mp3",
+      "id": 521
+    },
+    {
+      "name": "era",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/era/era__/era__us_1.mp3",
+      "id": 522
+    },
+    {
+      "name": "partnership",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/par/partn/partnership__us_1.mp3",
+      "id": 523
+    },
+    {
+      "name": "critically",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cri/criti/critically__us_1.mp3",
+      "id": 524
+    },
+    {
+      "name": "colleague",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/col/colle/colleague__us_1.mp3",
+      "id": 525
+    },
+    {
+      "name": "trigger",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tri/trigg/trigger__us_1.mp3",
+      "id": 526
+    },
+    {
+      "name": "immunity",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/imm/immun/immunity__us_1.mp3",
+      "id": 527
+    },
+    {
+      "name": "constantly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcons/xconstantly__us_1.mp3",
+      "id": 528
+    },
+    {
+      "name": "considerable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xcons/xconsiderable__us_1.mp3",
+      "id": 529
+    },
+    {
+      "name": "compose",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compo/compose__us_1.mp3",
+      "id": 530
+    },
+    {
+      "name": "organ",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/org/organ/organ__us_1.mp3",
+      "id": 531
+    },
+    {
+      "name": "organism",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/org/organ/organism__us_1.mp3",
+      "id": 532
+    },
+    {
+      "name": "fundamental",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fun/funda/fundamental__us_1.mp3",
+      "id": 533
+    },
+    {
+      "name": "transport",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tra/trans/transport__us_1.mp3",
+      "id": 534
+    },
+    {
+      "name": "component",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/compo/component__us_1.mp3",
+      "id": 535
+    },
+    {
+      "name": "exclusive",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exc/exclu/exclusive__us_1.mp3",
+      "id": 536
+    },
+    {
+      "name": "convert",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/x/xco/xconv/xconvert__us_1.mp3",
+      "id": 537
+    },
+    {
+      "name": "dine",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/din/dine_/dine__us_1.mp3",
+      "id": 538
+    },
+    {
+      "name": "artistic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/art/artis/artistic__us_1.mp3",
+      "id": 539
+    },
+    {
+      "name": "income",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inc/incom/income__us_1.mp3",
+      "id": 540
+    },
+    {
+      "name": "sufficient",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/suf/suffi/sufficient__us_1.mp3",
+      "id": 541
+    },
+    {
+      "name": "psychology",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/psy/psych/psychology__us_1.mp3",
+      "id": 542
+    },
+    {
+      "name": "rapidly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rap/rapid/rapidly__us_1.mp3",
+      "id": 543
+    },
+    {
+      "name": "historical",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/his/histo/historical__us_1.mp3",
+      "id": 544
+    },
+    {
+      "name": "circumstance",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cir/circu/circumstance__us_1.mp3",
+      "id": 545
+    },
+    {
+      "name": "luggage",
+      "meaning": "",
+      "audio_us": "",
+      "id": 547
+    },
+    {
+      "name": "salt",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sal/salt_/salt__us_1.mp3",
+      "id": 548
+    },
+    {
+      "name": "consequence",
+      "meaning": "",
+      "audio_us": "",
+      "id": 549
+    },
+    {
+      "name": "infrastructure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inf/infra/infrastructure__us_1.mp3",
+      "id": 550
+    },
+    {
+      "name": "freshwater",
+      "meaning": "",
+      "audio_us": "",
+      "id": 551
+    },
+    {
+      "name": "failure",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fai/failu/failure__us_1.mp3",
+      "id": 552
+    },
+    {
+      "name": "participation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/par/parti/participation__us_1.mp3",
+      "id": 553
+    },
+    {
+      "name": "pathway",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pat/pathw/pathway__us_1.mp3",
+      "id": 554
+    },
+    {
+      "name": "underlie",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/und/under/underlie__us_1.mp3",
+      "id": 555
+    },
+    {
+      "name": "recovery",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/ski/skill/skill__us_1.mp3",
+      "id": 556
+    },
+    {
+      "name": "stair",
+      "meaning": "",
+      "audio_us": "",
+      "id": 557
+    },
+    {
+      "name": "automatically",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aut/autom/automatically__us_1.mp3",
+      "id": 558
+    },
+    {
+      "name": "adjust",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/adj/adjus/adjust__us_1.mp3",
+      "id": 559
+    },
+    {
+      "name": "sales",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sal/sales/sales__us_1.mp3",
+      "id": 560
+    },
+    {
+      "name": "consumer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 561
+    },
+    {
+      "name": "elderly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eld/elder/elderly__us_1.mp3",
+      "id": 562
+    },
+    {
+      "name": "assistance",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/assis/assistance__us_1.mp3",
+      "id": 563
+    },
+    {
+      "name": "low",
+      "meaning": "",
+      "audio_us": "",
+      "id": 564
+    },
+    {
+      "name": "transform",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tra/trans/transform__us_1.mp3",
+      "id": 565
+    },
+    {
+      "name": "harsh",
+      "meaning": "",
+      "audio_us": "",
+      "id": 566
+    },
+    {
+      "name": "invest",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inv/inves/invest__us_1.mp3",
+      "id": 567
+    },
+    {
+      "name": "multiple",
+      "meaning": "",
+      "audio_us": "",
+      "id": 568
+    },
+    {
+      "name": "scholarship",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sch/schol/scholarship__us_1.mp3",
+      "id": 569
+    },
+    {
+      "name": "intend",
+      "meaning": "",
+      "audio_us": "",
+      "id": 570
+    },
+    {
+      "name": "seek",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/see/seek_/seek__us_1.mp3",
+      "id": 571
+    },
+    {
+      "name": "ignore",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ign/ignor/ignore__us_1.mp3",
+      "id": 572
+    },
+    {
+      "name": "entire",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ent/entir/entire__us_1.mp3",
+      "id": 573
+    },
+    {
+      "name": "enroll",
+      "meaning": "",
+      "audio_us": "",
+      "id": 574
+    },
+    {
+      "name": "previously",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/previ/previously__us_1.mp3",
+      "id": 575
+    },
+    {
+      "name": "verify",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/ver/verif/verify__us_1.mp3",
+      "id": 576
+    },
+    {
+      "name": "eligibility",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eli/eligi/eligibility__us_1.mp3",
+      "id": 577
+    },
+    {
+      "name": "large",
+      "meaning": "",
+      "audio_us": "",
+      "id": 578
+    },
+    {
+      "name": "upgrade",
+      "meaning": "",
+      "audio_us": "",
+      "id": 579
+    },
+    {
+      "name": "advise",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/adv/advis/advise__us_1.mp3",
+      "id": 580
+    },
+    {
+      "name": "extension",
+      "meaning": "",
+      "audio_us": "",
+      "id": 581
+    },
+    {
+      "name": "investor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inv/inves/investor__us_1.mp3",
+      "id": 582
+    },
+    {
+      "name": "center",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cen/cente/center__us_1.mp3",
+      "id": 583
+    },
+    {
+      "name": "identity",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ide/ident/identity__us_1.mp3",
+      "id": 584
+    },
+    {
+      "name": "cruelty",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cru/cruel/cruelty__us_1.mp3",
+      "id": 585
+    },
+    {
+      "name": "immediately",
+      "meaning": "",
+      "audio_us": "",
+      "id": 586
+    },
+    {
+      "name": "root",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/roo/root_/root__us_1.mp3",
+      "id": 587
+    },
+    {
+      "name": "crop",
+      "meaning": "",
+      "audio_us": "",
+      "id": 588
+    },
+    {
+      "name": "lack",
+      "meaning": "",
+      "audio_us": "",
+      "id": 589
+    },
+    {
+      "name": "foundation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 590
+    },
+    {
+      "name": "acknowledge",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ack/ackno/acknowledge__us_1.mp3",
+      "id": 591
+    },
+    {
+      "name": "secondary",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sec/secon/secondary__us_1.mp3",
+      "id": 592
+    },
+    {
+      "name": "closely",
+      "meaning": "",
+      "audio_us": "",
+      "id": 593
+    },
+    {
+      "name": "mental",
+      "meaning": "",
+      "audio_us": "",
+      "id": 594
+    },
+    {
+      "name": "assignment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/assig/assignment__us_1.mp3",
+      "id": 595
+    },
+    {
+      "name": "property",
+      "meaning": "",
+      "audio_us": "",
+      "id": 596
+    },
+    {
+      "name": "financially",
+      "meaning": "",
+      "audio_us": "",
+      "id": 597
+    },
+    {
+      "name": "unable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 598
+    },
+    {
+      "name": "steam",
+      "meaning": "",
+      "audio_us": "",
+      "id": 599
+    },
+    {
+      "name": "pursue",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pur/pursu/pursue__us_1.mp3",
+      "id": 600
+    },
+    {
+      "name": "consist",
+      "meaning": "",
+      "audio_us": "",
+      "id": 601
+    },
+    {
+      "name": "figure",
+      "meaning": "",
+      "audio_us": "",
+      "id": 602
+    },
+    {
+      "name": "behaviour",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/beh/behav/behaviour__us_1.mp3",
+      "id": 603
+    },
+    {
+      "name": "elevator",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ele/eleva/elevator__us_1.mp3",
+      "id": 604
+    },
+    {
+      "name": "catch",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cat/catch/catch__us_1.mp3",
+      "id": 605
+    },
+    {
+      "name": "fliight",
+      "meaning": "",
+      "audio_us": "",
+      "id": 606
+    },
+    {
+      "name": "file",
+      "meaning": "",
+      "audio_us": "",
+      "id": 607
+    },
+    {
+      "name": "final",
+      "meaning": "",
+      "audio_us": "",
+      "id": 608
+    },
+    {
+      "name": "distribute",
+      "meaning": "",
+      "audio_us": "",
+      "id": 609
+    },
+    {
+      "name": "developer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 610
+    },
+    {
+      "name": "initially",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ini/initi/initially__us_1.mp3",
+      "id": 611
+    },
+    {
+      "name": "register",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/reg/regis/register__us_1.mp3",
+      "id": 612
+    },
+    {
+      "name": "tax",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/t/tax/tax__/tax__us_1.mp3",
+      "id": 613
+    },
+    {
+      "name": "court",
+      "meaning": "",
+      "audio_us": "",
+      "id": 614
+    },
+    {
+      "name": "arrest",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arr/arres/arrest__us_1.mp3",
+      "id": 615
+    },
+    {
+      "name": "confirm",
+      "meaning": "",
+      "audio_us": "",
+      "id": 616
+    },
+    {
+      "name": "astronomer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ast/astro/astronomer__us_1.mp3",
+      "id": 617
+    },
+    {
+      "name": "consultation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 618
+    },
+    {
+      "name": "america",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/america.mp3",
+      "id": 619
+    },
+    {
+      "name": "investment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inv/inves/investment__us_1.mp3",
+      "id": 620
+    },
+    {
+      "name": "manufacture",
+      "meaning": "",
+      "audio_us": "",
+      "id": 621
+    },
+    {
+      "name": "annual",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ann/annua/annual__us_1.mp3",
+      "id": 622
+    },
+    {
+      "name": "dioxide",
+      "meaning": "",
+      "audio_us": "",
+      "id": 623
+    },
+    {
+      "name": "atom",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ato/atom_/atom__us_1.mp3",
+      "id": 624
+    },
+    {
+      "name": "access",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/acces/access__us_1.mp3",
+      "id": 625
+    },
+    {
+      "name": "gap",
+      "meaning": "",
+      "audio_us": "",
+      "id": 626
+    },
+    {
+      "name": "distant",
+      "meaning": "",
+      "audio_us": "",
+      "id": 627
+    },
+    {
+      "name": "nasa",
+      "meaning": "",
+      "audio_us": "",
+      "id": 628
+    },
+    {
+      "name": "hydrogen",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hyd/hydro/hydrogen__us_1.mp3",
+      "id": 629
+    },
+    {
+      "name": "extremely",
+      "meaning": "",
+      "audio_us": "",
+      "id": 630
+    },
+    {
+      "name": "castle",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cas/castl/castle__us_1.mp3",
+      "id": 631
+    },
+    {
+      "name": "happiness",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/hap/happi/happiness__us_1.mp3",
+      "id": 632
+    },
+    {
+      "name": "gather",
+      "meaning": "",
+      "audio_us": "",
+      "id": 633
+    },
+    {
+      "name": "recognition",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/s/sin/singl/single__gb_1.mp3",
+      "id": 634
+    },
+    {
+      "name": "generally",
+      "meaning": "",
+      "audio_us": "",
+      "id": 635
+    },
+    {
+      "name": "distinguish",
+      "meaning": "",
+      "audio_us": "",
+      "id": 636
+    },
+    {
+      "name": "personality",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/perso/personality__us_1.mp3",
+      "id": 637
+    },
+    {
+      "name": "handle",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/han/handl/handle__us_1.mp3",
+      "id": 638
+    },
+    {
+      "name": "press",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/press/press__us_1.mp3",
+      "id": 639
+    },
+    {
+      "name": "release",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rel/relea/release__us_1.mp3",
+      "id": 640
+    },
+    {
+      "name": "revise",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rev/revis/revise__us_1.mp3",
+      "id": 641
+    },
+    {
+      "name": "mobility",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mob/mobil/mobility__us_1.mp3",
+      "id": 642
+    },
+    {
+      "name": "obesity",
+      "meaning": "",
+      "audio_us": "",
+      "id": 643
+    },
+    {
+      "name": "wreck",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wre/wreck/wreck__us_1.mp3",
+      "id": 644
+    },
+    {
+      "name": "lecture",
+      "meaning": "",
+      "audio_us": "",
+      "id": 645
+    },
+    {
+      "name": "edge",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/edg/edge_/edge__us_1.mp3",
+      "id": 646
+    },
+    {
+      "name": "attract",
+      "meaning": "",
+      "audio_us": "",
+      "id": 647
+    },
+    {
+      "name": "package",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pac/packa/package__us_1.mp3",
+      "id": 648
+    },
+    {
+      "name": "disagree",
+      "meaning": "",
+      "audio_us": "",
+      "id": 649
+    },
+    {
+      "name": "interpret",
+      "meaning": "",
+      "audio_us": "",
+      "id": 650
+    },
+    {
+      "name": "curriculum",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cur/curri/curriculum__us_1.mp3",
+      "id": 651
+    },
+    {
+      "name": "elective",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ele/elect/elective__us_1.mp3",
+      "id": 652
+    },
+    {
+      "name": "psychologist",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/psy/psych/psychologist__us_1.mp3",
+      "id": 653
+    },
+    {
+      "name": "fee",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fee/fee__/fee__us_1.mp3",
+      "id": 654
+    },
+    {
+      "name": "apartment",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/apartment.mp3",
+      "id": 655
+    },
+    {
+      "name": "attitude",
+      "meaning": "",
+      "audio_us": "",
+      "id": 656
+    },
+    {
+      "name": "emphasis",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emp/empha/emphasis__us_1.mp3",
+      "id": 657
+    },
+    {
+      "name": "hong",
+      "meaning": "",
+      "audio_us": "",
+      "id": 658
+    },
+    {
+      "name": "comprehensive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 659
+    },
+    {
+      "name": "interactive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 660
+    },
+    {
+      "name": "reserve",
+      "meaning": "",
+      "audio_us": "",
+      "id": 661
+    },
+    {
+      "name": "monitor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mon/monit/monitor__us_1.mp3",
+      "id": 662
+    },
+    {
+      "name": "transmit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 663
+    },
+    {
+      "name": "software",
+      "meaning": "",
+      "audio_us": "",
+      "id": 664
+    },
+    {
+      "name": "momentum",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mom/momen/momentum__us_1.mp3",
+      "id": 665
+    },
+    {
+      "name": "absolutely",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/abs/absol/absolutely__us_1.mp3",
+      "id": 666
+    },
+    {
+      "name": "majority",
+      "meaning": "",
+      "audio_us": "",
+      "id": 667
+    },
+    {
+      "name": "rural",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rur/rural/rural__us_1.mp3",
+      "id": 668
+    },
+    {
+      "name": "exception",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exc/excep/exception__us_1.mp3",
+      "id": 669
+    },
+    {
+      "name": "norm",
+      "meaning": "",
+      "audio_us": "",
+      "id": 670
+    },
+    {
+      "name": "path",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pat/path_/path__us_1.mp3",
+      "id": 671
+    },
+    {
+      "name": "variety",
+      "meaning": "",
+      "audio_us": "",
+      "id": 672
+    },
+    {
+      "name": "extensive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 673
+    },
+    {
+      "name": "awareness",
+      "meaning": "",
+      "audio_us": "",
+      "id": 674
+    },
+    {
+      "name": "bay",
+      "meaning": "",
+      "audio_us": "",
+      "id": 675
+    },
+    {
+      "name": "investigate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/inv/inves/investigate__us_1.mp3",
+      "id": 676
+    },
+    {
+      "name": "authority",
+      "meaning": "",
+      "audio_us": "",
+      "id": 677
+    },
+    {
+      "name": "theft",
+      "meaning": "",
+      "audio_us": "",
+      "id": 678
+    },
+    {
+      "name": "counter",
+      "meaning": "",
+      "audio_us": "",
+      "id": 679
+    },
+    {
+      "name": "misunderstand",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mis/misun/misunderstand__us_1.mp3",
+      "id": 680
+    },
+    {
+      "name": "experiment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/exper/experiment__us_1.mp3",
+      "id": 681
+    },
+    {
+      "name": "hang",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/h/han/hang_/hang__us_1.mp3",
+      "id": 682
+    },
+    {
+      "name": "undergraduate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 683
+    },
+    {
+      "name": "finance",
+      "meaning": "",
+      "audio_us": "",
+      "id": 684
+    },
+    {
+      "name": "responsibility",
+      "meaning": "",
+      "audio_us": "",
+      "id": 685
+    },
+    {
+      "name": "undertake",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/und/under/undertake__us_1.mp3",
+      "id": 686
+    },
+    {
+      "name": "mathematics",
+      "meaning": "",
+      "audio_us": "",
+      "id": 687
+    },
+    {
+      "name": "prominent",
+      "meaning": "",
+      "audio_us": "",
+      "id": 688
+    },
+    {
+      "name": "female",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fem/femal/female__us_1.mp3",
+      "id": 689
+    },
+    {
+      "name": "create",
+      "meaning": "",
+      "audio_us": "",
+      "id": 690
+    },
+    {
+      "name": "implementation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 691
+    },
+    {
+      "name": "desirable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 692
+    },
+    {
+      "name": "within",
+      "meaning": "",
+      "audio_us": "",
+      "id": 693
+    },
+    {
+      "name": "driver",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dri/drive/driver__us_1.mp3",
+      "id": 694
+    },
+    {
+      "name": "movement",
+      "meaning": "",
+      "audio_us": "",
+      "id": 695
+    },
+    {
+      "name": "boundary",
+      "meaning": "",
+      "audio_us": "",
+      "id": 696
+    },
+    {
+      "name": "proportion",
+      "meaning": "",
+      "audio_us": "",
+      "id": 697
+    },
+    {
+      "name": "evolution",
+      "meaning": "",
+      "audio_us": "",
+      "id": 698
+    },
+    {
+      "name": "greatly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 699
+    },
+    {
+      "name": "massive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 700
+    },
+    {
+      "name": "enormous",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/eno/enorm/enormous__us_1.mp3",
+      "id": 701
+    },
+    {
+      "name": "applicant",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/applicant.mp3",
+      "id": 702
+    },
+    {
+      "name": "intimidate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 703
+    },
+    {
+      "name": "organic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/org/organ/organic__us_1.mp3",
+      "id": 704
+    },
+    {
+      "name": "placement",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pla/place/placement__us_1.mp3",
+      "id": 705
+    },
+    {
+      "name": "equipment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/equ/equip/equipment__us_1.mp3",
+      "id": 706
+    },
+    {
+      "name": "artificial",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/art/artif/artificial__us_1.mp3",
+      "id": 707
+    },
+    {
+      "name": "commitment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/commi/commitment__us_1.mp3",
+      "id": 708
+    },
+    {
+      "name": "inform",
+      "meaning": "",
+      "audio_us": "",
+      "id": 709
+    },
+    {
+      "name": "directly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 710
+    },
+    {
+      "name": "diet",
+      "meaning": "",
+      "audio_us": "",
+      "id": 711
+    },
+    {
+      "name": "extract",
+      "meaning": "",
+      "audio_us": "",
+      "id": 712
+    },
+    {
+      "name": "guest",
+      "meaning": "",
+      "audio_us": "",
+      "id": 713
+    },
+    {
+      "name": "decline",
+      "meaning": "",
+      "audio_us": "",
+      "id": 714
+    },
+    {
+      "name": "feasible",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fea/feasi/feasible__us_1.mp3",
+      "id": 715
+    },
+    {
+      "name": "portion",
+      "meaning": "",
+      "audio_us": "",
+      "id": 716
+    },
+    {
+      "name": "disappear",
+      "meaning": "",
+      "audio_us": "",
+      "id": 717
+    },
+    {
+      "name": "seminar",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sem/semin/seminar__us_1.mp3",
+      "id": 718
+    },
+    {
+      "name": "tutor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 719
+    },
+    {
+      "name": "leisure",
+      "meaning": "",
+      "audio_us": "",
+      "id": 720
+    },
+    {
+      "name": "safely",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/saf/safel/safely__us_1.mp3",
+      "id": 721
+    },
+    {
+      "name": "outline",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/out/outli/outline__us_1.mp3",
+      "id": 722
+    },
+    {
+      "name": "consumption",
+      "meaning": "",
+      "audio_us": "",
+      "id": 723
+    },
+    {
+      "name": "practical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 724
+    },
+    {
+      "name": "accommodation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accom/accommodation__us_1.mp3",
+      "id": 725
+    },
+    {
+      "name": "exhibit",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exh/exhib/exhibit__us_1.mp3",
+      "id": 726
+    },
+    {
+      "name": "gallery",
+      "meaning": "",
+      "audio_us": "",
+      "id": 727
+    },
+    {
+      "name": "peer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pee/peer_/peer__us_1.mp3",
+      "id": 728
+    },
+    {
+      "name": "architecture",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arc/archi/architecture__us_1.mp3",
+      "id": 729
+    },
+    {
+      "name": "sky",
+      "meaning": "",
+      "audio_us": "",
+      "id": 730
+    },
+    {
+      "name": "acquire",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acq/acqui/acquire__us_1.mp3",
+      "id": 731
+    },
+    {
+      "name": "session",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/ses/sessi/session__us_1.mp3",
+      "id": 732
+    },
+    {
+      "name": "tutorial",
+      "meaning": "",
+      "audio_us": "",
+      "id": 733
+    },
+    {
+      "name": "e-mail",
+      "meaning": "",
+      "audio_us": "",
+      "id": 734
+    },
+    {
+      "name": "section",
+      "meaning": "",
+      "audio_us": "",
+      "id": 735
+    },
+    {
+      "name": "via",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/via/via__/via__us_1.mp3",
+      "id": 737
+    },
+    {
+      "name": "vote",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/vot/vote_/vote__us_1.mp3",
+      "id": 738
+    },
+    {
+      "name": "election",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ele/elect/election__us_1.mp3",
+      "id": 739
+    },
+    {
+      "name": "construct",
+      "meaning": "",
+      "audio_us": "",
+      "id": 740
+    },
+    {
+      "name": "timetable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 741
+    },
+    {
+      "name": "mislead",
+      "meaning": "",
+      "audio_us": "",
+      "id": 742
+    },
+    {
+      "name": "optional",
+      "meaning": "",
+      "audio_us": "",
+      "id": 743
+    },
+    {
+      "name": "brief",
+      "meaning": "",
+      "audio_us": "",
+      "id": 744
+    },
+    {
+      "name": "web",
+      "meaning": "",
+      "audio_us": "",
+      "id": 745
+    },
+    {
+      "name": "infect",
+      "meaning": "",
+      "audio_us": "",
+      "id": 746
+    },
+    {
+      "name": "previous",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/previ/previous__us_1.mp3",
+      "id": 747
+    },
+    {
+      "name": "outbreak",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/out/outbr/outbreak__us_1.mp3",
+      "id": 748
+    },
+    {
+      "name": "automatic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 749
+    },
+    {
+      "name": "teller",
+      "meaning": "",
+      "audio_us": "",
+      "id": 750
+    },
+    {
+      "name": "anatomy",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/anatomy.mp3",
+      "id": 751
+    },
+    {
+      "name": "breath",
+      "meaning": "",
+      "audio_us": "",
+      "id": 753
+    },
+    {
+      "name": "phase",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pha/phase/phase__us_1.mp3",
+      "id": 754
+    },
+    {
+      "name": "campus",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cam/campu/campus__us_1.mp3",
+      "id": 755
+    },
+    {
+      "name": "registration",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/reg/regis/registration__us_1.mp3",
+      "id": 756
+    },
+    {
+      "name": "steadily",
+      "meaning": "",
+      "audio_us": "",
+      "id": 757
+    },
+    {
+      "name": "anthropology",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/anthropology.mp3",
+      "id": 758
+    },
+    {
+      "name": "correctly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 759
+    },
+    {
+      "name": "cite",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cit/cite_/cite__us_1.mp3",
+      "id": 760
+    },
+    {
+      "name": "audition",
+      "meaning": "",
+      "audio_us": "",
+      "id": 761
+    },
+    {
+      "name": "lecturer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 762
+    },
+    {
+      "name": "familiar",
+      "meaning": "",
+      "audio_us": "",
+      "id": 763
+    },
+    {
+      "name": "facility",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fac/facil/facility__us_1.mp3",
+      "id": 764
+    },
+    {
+      "name": "tribe",
+      "meaning": "",
+      "audio_us": "",
+      "id": 765
+    },
+    {
+      "name": "chapter",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cha/chapt/chapter__us_1.mp3",
+      "id": 766
+    },
+    {
+      "name": "summary",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sum/summa/summary__us_1.mp3",
+      "id": 767
+    },
+    {
+      "name": "daily",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dai/daily/daily__us_1.mp3",
+      "id": 768
+    },
+    {
+      "name": "download",
+      "meaning": "",
+      "audio_us": "",
+      "id": 769
+    },
+    {
+      "name": "ethical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 770
+    },
+    {
+      "name": "discount",
+      "meaning": "",
+      "audio_us": "",
+      "id": 771
+    },
+    {
+      "name": "essay",
+      "meaning": "",
+      "audio_us": "",
+      "id": 772
+    },
+    {
+      "name": "overcrowd",
+      "meaning": "",
+      "audio_us": "",
+      "id": 773
+    },
+    {
+      "name": "coursework",
+      "meaning": "",
+      "audio_us": "",
+      "id": 774
+    },
+    {
+      "name": "accuracy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accur/accuracy__us_1.mp3",
+      "id": 775
+    },
+    {
+      "name": "reaction",
+      "meaning": "",
+      "audio_us": "",
+      "id": 776
+    },
+    {
+      "name": "dilute",
+      "meaning": "",
+      "audio_us": "",
+      "id": 777
+    },
+    {
+      "name": "reference",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/ref/refer/reference__us_1.mp3",
+      "id": 778
+    },
+    {
+      "name": "appropriately",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appro/appropriately__us_1.mp3",
+      "id": 779
+    },
+    {
+      "name": "bibliography",
+      "meaning": "",
+      "audio_us": "",
+      "id": 780
+    },
+    {
+      "name": "underscore",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/u/und/under/underscore__us_1.mp3",
+      "id": 781
+    },
+    {
+      "name": "detection",
+      "meaning": "",
+      "audio_us": "",
+      "id": 782
+    },
+    {
+      "name": "solid",
+      "meaning": "",
+      "audio_us": "",
+      "id": 783
+    },
+    {
+      "name": "identification",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ide/ident/identification__us_1.mp3",
+      "id": 784
+    },
+    {
+      "name": "glad",
+      "meaning": "",
+      "audio_us": "",
+      "id": 785
+    },
+    {
+      "name": "celebrate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cel/celeb/celebrate__us_1.mp3",
+      "id": 786
+    },
+    {
+      "name": "attendance",
+      "meaning": "",
+      "audio_us": "",
+      "id": 787
+    },
+    {
+      "name": "submit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 788
+    },
+    {
+      "name": "leadership",
+      "meaning": "",
+      "audio_us": "",
+      "id": 789
+    },
+    {
+      "name": "representative",
+      "meaning": "",
+      "audio_us": "",
+      "id": 790
+    },
+    {
+      "name": "mechanical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 791
+    },
+    {
+      "name": "overwhelm",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/ove/overw/overwhelm__us_1.mp3",
+      "id": 792
+    },
+    {
+      "name": "supervisor",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sup/super/supervisor__us_1.mp3",
+      "id": 793
+    },
+    {
+      "name": "committee",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/commi/committee__us_1.mp3",
+      "id": 794
+    },
+    {
+      "name": "concise",
+      "meaning": "",
+      "audio_us": "",
+      "id": 795
+    },
+    {
+      "name": "bigotry",
+      "meaning": "",
+      "audio_us": "",
+      "id": 796
+    },
+    {
+      "name": "residence",
+      "meaning": "",
+      "audio_us": "",
+      "id": 797
+    },
+    {
+      "name": "printer",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pri/print/printer__us_1.mp3",
+      "id": 798
+    },
+    {
+      "name": "calculate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cal/calcu/calculate__us_1.mp3",
+      "id": 799
+    },
+    {
+      "name": "critic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 800
+    },
+    {
+      "name": "distance",
+      "meaning": "",
+      "audio_us": "",
+      "id": 801
+    },
+    {
+      "name": "regular",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/reg/regul/regular__us_1.mp3",
+      "id": 802
+    },
+    {
+      "name": "biology",
+      "meaning": "",
+      "audio_us": "",
+      "id": 803
+    },
+    {
+      "name": "tough",
+      "meaning": "",
+      "audio_us": "",
+      "id": 804
+    },
+    {
+      "name": "appointment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appoi/appointment__us_1.mp3",
+      "id": 805
+    },
+    {
+      "name": "immigration",
+      "meaning": "",
+      "audio_us": "",
+      "id": 806
+    },
+    {
+      "name": "contact",
+      "meaning": "",
+      "audio_us": "",
+      "id": 807
+    },
+    {
+      "name": "optimism",
+      "meaning": "",
+      "audio_us": "",
+      "id": 808
+    },
+    {
+      "name": "validate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 809
+    },
+    {
+      "name": "formal",
+      "meaning": "",
+      "audio_us": "",
+      "id": 810
+    },
+    {
+      "name": "sector",
+      "meaning": "",
+      "audio_us": "",
+      "id": 811
+    },
+    {
+      "name": "credit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 812
+    },
+    {
+      "name": "correlation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 813
+    },
+    {
+      "name": "bookshop",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/boo/books/bookshop__us_1.mp3",
+      "id": 814
+    },
+    {
+      "name": "weekday",
+      "meaning": "",
+      "audio_us": "",
+      "id": 815
+    },
+    {
+      "name": "flaw",
+      "meaning": "",
+      "audio_us": "",
+      "id": 816
+    },
+    {
+      "name": "pharmacy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pha/pharm/pharmacy__us_1.mp3",
+      "id": 817
+    },
+    {
+      "name": "thorough",
+      "meaning": "",
+      "audio_us": "",
+      "id": 818
+    },
+    {
+      "name": "imagination",
+      "meaning": "",
+      "audio_us": "",
+      "id": 819
+    },
+    {
+      "name": "dedicate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/ded/dedic/dedicate__us_1.mp3",
+      "id": 820
+    },
+    {
+      "name": "vocabulary",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/voc/vocab/vocabulary__us_1.mp3",
+      "id": 821
+    },
+    {
+      "name": "jargon",
+      "meaning": "",
+      "audio_us": "",
+      "id": 822
+    },
+    {
+      "name": "contradict",
+      "meaning": "",
+      "audio_us": "",
+      "id": 823
+    },
+    {
+      "name": "entrance",
+      "meaning": "",
+      "audio_us": "",
+      "id": 824
+    },
+    {
+      "name": "module",
+      "meaning": "",
+      "audio_us": "",
+      "id": 825
+    },
+    {
+      "name": "slide",
+      "meaning": "",
+      "audio_us": "",
+      "id": 826
+    },
+    {
+      "name": "economist",
+      "meaning": "",
+      "audio_us": "",
+      "id": 827
+    },
+    {
+      "name": "handout",
+      "meaning": "",
+      "audio_us": "",
+      "id": 828
+    },
+    {
+      "name": "insufficient",
+      "meaning": "",
+      "audio_us": "",
+      "id": 829
+    },
+    {
+      "name": "intelligence",
+      "meaning": "",
+      "audio_us": "",
+      "id": 830
+    },
+    {
+      "name": "archaeology",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arc/archa/archaeology__us_1.mp3",
+      "id": 831
+    },
+    {
+      "name": "fieldwork",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fie/field/fieldwork__us_1.mp3",
+      "id": 832
+    },
+    {
+      "name": "numerous",
+      "meaning": "",
+      "audio_us": "",
+      "id": 833
+    },
+    {
+      "name": "mentor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 834
+    },
+    {
+      "name": "additional",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/add/addit/additional__us_1.mp3",
+      "id": 835
+    },
+    {
+      "name": "discipline",
+      "meaning": "",
+      "audio_us": "",
+      "id": 836
+    },
+    {
+      "name": "prospective",
+      "meaning": "",
+      "audio_us": "",
+      "id": 837
+    },
+    {
+      "name": "evaluation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 838
+    },
+    {
+      "name": "clinical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 839
+    },
+    {
+      "name": "deadline",
+      "meaning": "",
+      "audio_us": "",
+      "id": 840
+    },
+    {
+      "name": "cash",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cas/cash_/cash__us_1.mp3",
+      "id": 841
+    },
+    {
+      "name": "indicate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 842
+    },
+    {
+      "name": "reimbursement",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/r/rei/reimb/reimbursement__us_1.mp3",
+      "id": 843
+    },
+    {
+      "name": "receipt",
+      "meaning": "",
+      "audio_us": "",
+      "id": 844
+    },
+    {
+      "name": "phenomenon",
+      "meaning": "",
+      "audio_us": "",
+      "id": 845
+    },
+    {
+      "name": "downloadable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 846
+    },
+    {
+      "name": "editor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 847
+    },
+    {
+      "name": "poetry",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/poe/poetr/poetry__us_1.mp3",
+      "id": 848
+    },
+    {
+      "name": "convention",
+      "meaning": "",
+      "audio_us": "",
+      "id": 849
+    },
+    {
+      "name": "guideline",
+      "meaning": "",
+      "audio_us": "",
+      "id": 850
+    },
+    {
+      "name": "rigorous",
+      "meaning": "",
+      "audio_us": "",
+      "id": 851
+    },
+    {
+      "name": "comment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/comme/comment__us_1.mp3",
+      "id": 852
+    },
+    {
+      "name": "controversy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 853
+    },
+    {
+      "name": "cafeteria",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/caf/cafet/cafeteria__us_1.mp3",
+      "id": 854
+    },
+    {
+      "name": "accessible",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/acces/accessible__us_1.mp3",
+      "id": 855
+    },
+    {
+      "name": "earn",
+      "meaning": "",
+      "audio_us": "",
+      "id": 856
+    },
+    {
+      "name": "unclear",
+      "meaning": "",
+      "audio_us": "",
+      "id": 857
+    },
+    {
+      "name": "relevant",
+      "meaning": "",
+      "audio_us": "",
+      "id": 858
+    },
+    {
+      "name": "mathematical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 859
+    },
+    {
+      "name": "organize",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/org/organ/organize__us_1.mp3",
+      "id": 860
+    },
+    {
+      "name": "principle",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pri/princ/principle__us_1.mp3",
+      "id": 861
+    },
+    {
+      "name": "frequent",
+      "meaning": "",
+      "audio_us": "",
+      "id": 862
+    },
+    {
+      "name": "severe",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/s/sev/sever/severe__us_1.mp3",
+      "id": 863
+    },
+    {
+      "name": "philosophy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 864
+    },
+    {
+      "name": "equality",
+      "meaning": "",
+      "audio_us": "",
+      "id": 865
+    },
+    {
+      "name": "ought",
+      "meaning": "",
+      "audio_us": "",
+      "id": 866
+    },
+    {
+      "name": "some",
+      "meaning": "",
+      "audio_us": "",
+      "id": 867
+    },
+    {
+      "name": "time",
+      "meaning": "",
+      "audio_us": "",
+      "id": 868
+    },
+    {
+      "name": "conduct",
+      "meaning": "",
+      "audio_us": "",
+      "id": 869
+    },
+    {
+      "name": "employment",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/emp/emplo/employment__us_1.mp3",
+      "id": 870
+    },
+    {
+      "name": "sooner",
+      "meaning": "",
+      "audio_us": "",
+      "id": 871
+    },
+    {
+      "name": "oil",
+      "meaning": "",
+      "audio_us": "",
+      "id": 872
+    },
+    {
+      "name": "motivation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 873
+    },
+    {
+      "name": "architect",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arc/archi/architect__us_1.mp3",
+      "id": 874
+    },
+    {
+      "name": "freedom",
+      "meaning": "",
+      "audio_us": "",
+      "id": 875
+    },
+    {
+      "name": "combination",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/combi/combination__us_1.mp3",
+      "id": 876
+    },
+    {
+      "name": "gravity",
+      "meaning": "",
+      "audio_us": "",
+      "id": 877
+    },
+    {
+      "name": "frequently",
+      "meaning": "",
+      "audio_us": "",
+      "id": 878
+    },
+    {
+      "name": "input",
+      "meaning": "",
+      "audio_us": "",
+      "id": 879
+    },
+    {
+      "name": "journalist",
+      "meaning": "",
+      "audio_us": "",
+      "id": 880
+    },
+    {
+      "name": "educator",
+      "meaning": "",
+      "audio_us": "",
+      "id": 881
+    },
+    {
+      "name": "planner",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pla/plann/planner__us_1.mp3",
+      "id": 882
+    },
+    {
+      "name": "extreme",
+      "meaning": "",
+      "audio_us": "",
+      "id": 883
+    },
+    {
+      "name": "conquer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 884
+    },
+    {
+      "name": "specialist",
+      "meaning": "",
+      "audio_us": "",
+      "id": 885
+    },
+    {
+      "name": "gadget",
+      "meaning": "",
+      "audio_us": "",
+      "id": 886
+    },
+    {
+      "name": "absorb",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/abs/absor/absorb__us_1.mp3",
+      "id": 887
+    },
+    {
+      "name": "insight",
+      "meaning": "",
+      "audio_us": "",
+      "id": 888
+    },
+    {
+      "name": "quantum",
+      "meaning": "",
+      "audio_us": "",
+      "id": 889
+    },
+    {
+      "name": "element",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ele/eleme/element__us_1.mp3",
+      "id": 890
+    },
+    {
+      "name": "uncertainty",
+      "meaning": "",
+      "audio_us": "",
+      "id": 891
+    },
+    {
+      "name": "wildly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 892
+    },
+    {
+      "name": "mechanics",
+      "meaning": "",
+      "audio_us": "",
+      "id": 893
+    },
+    {
+      "name": "fairly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fai/fairl/fairly__us_1.mp3",
+      "id": 894
+    },
+    {
+      "name": "vitamin",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/vit/vitam/vitamin__us_1.mp3",
+      "id": 895
+    },
+    {
+      "name": "golden",
+      "meaning": "",
+      "audio_us": "",
+      "id": 896
+    },
+    {
+      "name": "appreciate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/app/appre/appreciate__us_1.mp3",
+      "id": 897
+    },
+    {
+      "name": "recommendation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 898
+    },
+    {
+      "name": "treatment",
+      "meaning": "",
+      "audio_us": "",
+      "id": 899
+    },
+    {
+      "name": "unsustainable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 900
+    },
+    {
+      "name": "enterprise",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/ent/enter/enterprise__us_1.mp3",
+      "id": 901
+    },
+    {
+      "name": "textile",
+      "meaning": "",
+      "audio_us": "",
+      "id": 902
+    },
+    {
+      "name": "commission",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/com/commi/commission__us_1.mp3",
+      "id": 903
+    },
+    {
+      "name": "exceed",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exc/excee/exceed__us_1.mp3",
+      "id": 904
+    },
+    {
+      "name": "nutritional",
+      "meaning": "",
+      "audio_us": "",
+      "id": 905
+    },
+    {
+      "name": "nutrition",
+      "meaning": "",
+      "audio_us": "",
+      "id": 906
+    },
+    {
+      "name": "rethink",
+      "meaning": "",
+      "audio_us": "",
+      "id": 907
+    },
+    {
+      "name": "compute",
+      "meaning": "",
+      "audio_us": "",
+      "id": 908
+    },
+    {
+      "name": "linguistics",
+      "meaning": "",
+      "audio_us": "",
+      "id": 909
+    },
+    {
+      "name": "fellow",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fel/fello/fellow__us_1.mp3",
+      "id": 910
+    },
+    {
+      "name": "calculation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cal/calcu/calculation__us_1.mp3",
+      "id": 911
+    },
+    {
+      "name": "tropical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 912
+    },
+    {
+      "name": "perfectly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/per/perfe/perfectly__us_1.mp3",
+      "id": 913
+    },
+    {
+      "name": "extend",
+      "meaning": "",
+      "audio_us": "",
+      "id": 914
+    },
+    {
+      "name": "protest",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pro/prote/protest__us_1.mp3",
+      "id": 915
+    },
+    {
+      "name": "complaint",
+      "meaning": "",
+      "audio_us": "",
+      "id": 916
+    },
+    {
+      "name": "rail",
+      "meaning": "",
+      "audio_us": "",
+      "id": 917
+    },
+    {
+      "name": "inhabitant",
+      "meaning": "",
+      "audio_us": "",
+      "id": 918
+    },
+    {
+      "name": "shelter",
+      "meaning": "",
+      "audio_us": "",
+      "id": 919
+    },
+    {
+      "name": "grant",
+      "meaning": "",
+      "audio_us": "",
+      "id": 920
+    },
+    {
+      "name": "inspire",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ins/inspi/inspire__us_1.mp3",
+      "id": 921
+    },
+    {
+      "name": "print",
+      "meaning": "",
+      "audio_us": "",
+      "id": 922
+    },
+    {
+      "name": "branch",
+      "meaning": "",
+      "audio_us": "",
+      "id": 923
+    },
+    {
+      "name": "musical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 924
+    },
+    {
+      "name": "mixture",
+      "meaning": "",
+      "audio_us": "",
+      "id": 925
+    },
+    {
+      "name": "feedback",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fee/feedb/feedback__us_1.mp3",
+      "id": 926
+    },
+    {
+      "name": "drill",
+      "meaning": "",
+      "audio_us": "",
+      "id": 927
+    },
+    {
+      "name": "illustration",
+      "meaning": "",
+      "audio_us": "",
+      "id": 928
+    },
+    {
+      "name": "concentrate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 929
+    },
+    {
+      "name": "flat",
+      "meaning": "",
+      "audio_us": "",
+      "id": 930
+    },
+    {
+      "name": "monthly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 931
+    },
+    {
+      "name": "grateful",
+      "meaning": "",
+      "audio_us": "",
+      "id": 932
+    },
+    {
+      "name": "cyclone",
+      "meaning": "",
+      "audio_us": "",
+      "id": 933
+    },
+    {
+      "name": "practise",
+      "meaning": "",
+      "audio_us": "",
+      "id": 934
+    },
+    {
+      "name": "shelf",
+      "meaning": "",
+      "audio_us": "",
+      "id": 935
+    },
+    {
+      "name": "recession",
+      "meaning": "",
+      "audio_us": "",
+      "id": 936
+    },
+    {
+      "name": "literacy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 937
+    },
+    {
+      "name": "calorie",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/c/cal/calor/calorie__us_1.mp3",
+      "id": 938
+    },
+    {
+      "name": "bury",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/b/bur/bury_/bury__us_1.mp3",
+      "id": 939
+    },
+    {
+      "name": "stable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 940
+    },
+    {
+      "name": "technician",
+      "meaning": "",
+      "audio_us": "",
+      "id": 941
+    },
+    {
+      "name": "risky",
+      "meaning": "",
+      "audio_us": "",
+      "id": 942
+    },
+    {
+      "name": "conductor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 943
+    },
+    {
+      "name": "archaeologist",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arc/archa/archaeologist__us_1.mp3",
+      "id": 944
+    },
+    {
+      "name": "exceptional",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exc/excep/exceptional__us_1.mp3",
+      "id": 945
+    },
+    {
+      "name": "addition",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/add/addit/addition__us_1.mp3",
+      "id": 946
+    },
+    {
+      "name": "sanitation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 947
+    },
+    {
+      "name": "quantity",
+      "meaning": "",
+      "audio_us": "",
+      "id": 948
+    },
+    {
+      "name": "pacific",
+      "meaning": "",
+      "audio_us": "",
+      "id": 949
+    },
+    {
+      "name": "moisture",
+      "meaning": "",
+      "audio_us": "",
+      "id": 950
+    },
+    {
+      "name": "peculiar",
+      "meaning": "",
+      "audio_us": "",
+      "id": 951
+    },
+    {
+      "name": "accompany",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accom/accompany__us_1.mp3",
+      "id": 952
+    },
+    {
+      "name": "expansion",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/expan/expansion__us_1.mp3",
+      "id": 953
+    },
+    {
+      "name": "donation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 954
+    },
+    {
+      "name": "confuse",
+      "meaning": "",
+      "audio_us": "",
+      "id": 955
+    },
+    {
+      "name": "playground",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pla/playg/playground__us_1.mp3",
+      "id": 956
+    },
+    {
+      "name": "expense",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exp/expen/expense__us_1.mp3",
+      "id": 957
+    },
+    {
+      "name": "wage",
+      "meaning": "",
+      "audio_us": "",
+      "id": 958
+    },
+    {
+      "name": "underwater",
+      "meaning": "",
+      "audio_us": "",
+      "id": 959
+    },
+    {
+      "name": "cure",
+      "meaning": "",
+      "audio_us": "",
+      "id": 960
+    },
+    {
+      "name": "migration",
+      "meaning": "",
+      "audio_us": "",
+      "id": 961
+    },
+    {
+      "name": "migrate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 962
+    },
+    {
+      "name": "prevail",
+      "meaning": "",
+      "audio_us": "",
+      "id": 963
+    },
+    {
+      "name": "bar",
+      "meaning": "",
+      "audio_us": "",
+      "id": 964
+    },
+    {
+      "name": "stripe",
+      "meaning": "",
+      "audio_us": "",
+      "id": 965
+    },
+    {
+      "name": "barn",
+      "meaning": "",
+      "audio_us": "",
+      "id": 966
+    },
+    {
+      "name": "procedure",
+      "meaning": "",
+      "audio_us": "",
+      "id": 967
+    },
+    {
+      "name": "construction",
+      "meaning": "",
+      "audio_us": "",
+      "id": 968
+    },
+    {
+      "name": "incorporate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 969
+    },
+    {
+      "name": "statement",
+      "meaning": "",
+      "audio_us": "",
+      "id": 970
+    },
+    {
+      "name": "exploration",
+      "meaning": "",
+      "audio_us": "",
+      "id": 971
+    },
+    {
+      "name": "priority",
+      "meaning": "",
+      "audio_us": "",
+      "id": 972
+    },
+    {
+      "name": "renovation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 973
+    },
+    {
+      "name": "classical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 974
+    },
+    {
+      "name": "fierce",
+      "meaning": "",
+      "audio_us": "",
+      "id": 975
+    },
+    {
+      "name": "ray",
+      "meaning": "",
+      "audio_us": "",
+      "id": 976
+    },
+    {
+      "name": "observer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 977
+    },
+    {
+      "name": "evacuate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 978
+    },
+    {
+      "name": "strictly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 979
+    },
+    {
+      "name": "witness",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wit/witne/witness__us_1.mp3",
+      "id": 980
+    },
+    {
+      "name": "undergo",
+      "meaning": "",
+      "audio_us": "",
+      "id": 981
+    },
+    {
+      "name": "password",
+      "meaning": "",
+      "audio_us": "",
+      "id": 982
+    },
+    {
+      "name": "workshop",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/w/wor/works/workshop__us_1.mp3",
+      "id": 983
+    },
+    {
+      "name": "cart",
+      "meaning": "",
+      "audio_us": "",
+      "id": 984
+    },
+    {
+      "name": "instruct",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/i/ins/instr/instruct__us_1.mp3",
+      "id": 985
+    },
+    {
+      "name": "structural",
+      "meaning": "",
+      "audio_us": "",
+      "id": 986
+    },
+    {
+      "name": "unemployment",
+      "meaning": "",
+      "audio_us": "",
+      "id": 987
+    },
+    {
+      "name": "illustrate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 988
+    },
+    {
+      "name": "contribution",
+      "meaning": "",
+      "audio_us": "",
+      "id": 989
+    },
+    {
+      "name": "counterpart",
+      "meaning": "",
+      "audio_us": "",
+      "id": 990
+    },
+    {
+      "name": "globally",
+      "meaning": "",
+      "audio_us": "",
+      "id": 991
+    },
+    {
+      "name": "pose",
+      "meaning": "",
+      "audio_us": "",
+      "id": 992
+    },
+    {
+      "name": "acceptable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accep/acceptable__us_1.mp3",
+      "id": 993
+    },
+    {
+      "name": "continuous",
+      "meaning": "",
+      "audio_us": "",
+      "id": 994
+    },
+    {
+      "name": "edit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 995
+    },
+    {
+      "name": "correlate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 996
+    },
+    {
+      "name": "autonomy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 997
+    },
+    {
+      "name": "smartphone",
+      "meaning": "",
+      "audio_us": "",
+      "id": 998
+    },
+    {
+      "name": "atmospheric",
+      "meaning": "",
+      "audio_us": "",
+      "id": 999
+    },
+    {
+      "name": "classify",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1000
+    },
+    {
+      "name": "weed",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1001
+    },
+    {
+      "name": "chart",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1002
+    },
+    {
+      "name": "thrive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1003
+    },
+    {
+      "name": "sorrow",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1004
+    },
+    {
+      "name": "phenomenal",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1005
+    },
+    {
+      "name": "nitrogen",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1006
+    },
+    {
+      "name": "consciously",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1007
+    },
+    {
+      "name": "compulsory",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1008
+    },
+    {
+      "name": "portray",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1009
+    },
+    {
+      "name": "regional",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1010
+    },
+    {
+      "name": "comprise",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1011
+    },
+    {
+      "name": "accelerate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accel/accelerate__us_1.mp3",
+      "id": 1012
+    },
+    {
+      "name": "experience",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1013
+    },
+    {
+      "name": "excursion",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/exc/excur/excursion__us_1.mp3",
+      "id": 1014
+    },
+    {
+      "name": "dynamics",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1015
+    },
+    {
+      "name": "observation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1016
+    },
+    {
+      "name": "geographical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1017
+    },
+    {
+      "name": "logic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1018
+    },
+    {
+      "name": "vocational",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/v/voc/vocat/vocational__us_1.mp3",
+      "id": 1019
+    },
+    {
+      "name": "audit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1020
+    },
+    {
+      "name": "vacuum",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1021
+    },
+    {
+      "name": "accumulation",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accum/accumulation__us_1.mp3",
+      "id": 1022
+    },
+    {
+      "name": "underground",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1023
+    },
+    {
+      "name": "disability",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1024
+    },
+    {
+      "name": "forecast",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1025
+    },
+    {
+      "name": "accountant",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accou/accountant__us_1.mp3",
+      "id": 1026
+    },
+    {
+      "name": "laundry",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1027
+    },
+    {
+      "name": "airport",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/airport.mp3",
+      "id": 1028
+    },
+    {
+      "name": "microscope",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1029
+    },
+    {
+      "name": "doctoral",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1030
+    },
+    {
+      "name": "submission",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1031
+    },
+    {
+      "name": "anonymous",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/anonymous.mp3",
+      "id": 1032
+    },
+    {
+      "name": "mineral",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1033
+    },
+    {
+      "name": "certificate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1034
+    },
+    {
+      "name": "bookstore",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1035
+    },
+    {
+      "name": "aquatic",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/aqu/aquat/aquatic__us_1.mp3",
+      "id": 1036
+    },
+    {
+      "name": "laptop",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1037
+    },
+    {
+      "name": "tense",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1038
+    },
+    {
+      "name": "bilingual",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1039
+    },
+    {
+      "name": "humidity",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1040
+    },
+    {
+      "name": "dissertation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1041
+    },
+    {
+      "name": "athletic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1042
+    },
+    {
+      "name": "excellence",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1043
+    },
+    {
+      "name": "mature",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1044
+    },
+    {
+      "name": "inflation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1045
+    },
+    {
+      "name": "extraordinarily",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1046
+    },
+    {
+      "name": "qualification",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1047
+    },
+    {
+      "name": "likelihood",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1048
+    },
+    {
+      "name": "fashion",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1049
+    },
+    {
+      "name": "labor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1050
+    },
+    {
+      "name": "artefact",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/art/artef/artefact__us_1.mp3",
+      "id": 1051
+    },
+    {
+      "name": "globalization",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1052
+    },
+    {
+      "name": "deliver",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1053
+    },
+    {
+      "name": "geological",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1054
+    },
+    {
+      "name": "utilize",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1055
+    },
+    {
+      "name": "affordable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1056
+    },
+    {
+      "name": "buyer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1057
+    },
+    {
+      "name": "disposable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1058
+    },
+    {
+      "name": "actively",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/act/activ/actively__us_1.mp3",
+      "id": 1059
+    },
+    {
+      "name": "conservative",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1060
+    },
+    {
+      "name": "statue",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1061
+    },
+    {
+      "name": "enquiry",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1062
+    },
+    {
+      "name": "instrumental",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1063
+    },
+    {
+      "name": "dependent",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1064
+    },
+    {
+      "name": "midday",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1065
+    },
+    {
+      "name": "emphasize",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1066
+    },
+    {
+      "name": "biotechnology",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1067
+    },
+    {
+      "name": "fertilizer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1068
+    },
+    {
+      "name": "extrapolate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1069
+    },
+    {
+      "name": "founder",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1070
+    },
+    {
+      "name": "arab",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ara/arab_/arab__us_1.mp3",
+      "id": 1071
+    },
+    {
+      "name": "commence",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1072
+    },
+    {
+      "name": "protective",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1073
+    },
+    {
+      "name": "container",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1074
+    },
+    {
+      "name": "inventor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1075
+    },
+    {
+      "name": "elaborate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1076
+    },
+    {
+      "name": "cosmetic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1077
+    },
+    {
+      "name": "definitive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1078
+    },
+    {
+      "name": "formally",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1079
+    },
+    {
+      "name": "visually",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1080
+    },
+    {
+      "name": "stakeholder",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1081
+    },
+    {
+      "name": "gym",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1082
+    },
+    {
+      "name": "syllabus",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1083
+    },
+    {
+      "name": "carbohydrate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1084
+    },
+    {
+      "name": "progressively",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1085
+    },
+    {
+      "name": "urbanization",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1086
+    },
+    {
+      "name": "agenda",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/agenda.mp3",
+      "id": 1087
+    },
+    {
+      "name": "dip",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1088
+    },
+    {
+      "name": "greece",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1089
+    },
+    {
+      "name": "insurance",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1090
+    },
+    {
+      "name": "thief",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1091
+    },
+    {
+      "name": "vitality",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1092
+    },
+    {
+      "name": "consensus",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1093
+    },
+    {
+      "name": "specialize",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1094
+    },
+    {
+      "name": "anticipate",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/anticipate.mp3",
+      "id": 1095
+    },
+    {
+      "name": "experimentation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1096
+    },
+    {
+      "name": "concession",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1097
+    },
+    {
+      "name": "accommodate",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accom/accommodate__us_1.mp3",
+      "id": 1098
+    },
+    {
+      "name": "fluency",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1099
+    },
+    {
+      "name": "eradicate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1100
+    },
+    {
+      "name": "antibiotic",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/antibiotic.mp3",
+      "id": 1101
+    },
+    {
+      "name": "designer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1102
+    },
+    {
+      "name": "philosophical",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1103
+    },
+    {
+      "name": "plight",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1104
+    },
+    {
+      "name": "legume",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1105
+    },
+    {
+      "name": "metabolic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1106
+    },
+    {
+      "name": "intertwine",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1107
+    },
+    {
+      "name": "obey",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1108
+    },
+    {
+      "name": "limitation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1109
+    },
+    {
+      "name": "foremost",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1110
+    },
+    {
+      "name": "underestimate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1111
+    },
+    {
+      "name": "fourteenth",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1112
+    },
+    {
+      "name": "generous",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1113
+    },
+    {
+      "name": "exempt",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1114
+    },
+    {
+      "name": "education",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1115
+    },
+    {
+      "name": "playlist",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1116
+    },
+    {
+      "name": "highlighter",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1117
+    },
+    {
+      "name": "interim",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1118
+    },
+    {
+      "name": "lounge",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1119
+    },
+    {
+      "name": "architectural",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/arc/archi/architectural__us_1.mp3",
+      "id": 1120
+    },
+    {
+      "name": "communicable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1121
+    },
+    {
+      "name": "accountancy",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/acc/accou/accountancy__us_1.mp3",
+      "id": 1122
+    },
+    {
+      "name": "aerial",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1123
+    },
+    {
+      "name": "promptly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1124
+    },
+    {
+      "name": "inadequately",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1125
+    },
+    {
+      "name": "unconsciously",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1126
+    },
+    {
+      "name": "unavoidable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1127
+    },
+    {
+      "name": "adviser",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1128
+    },
+    {
+      "name": "mule",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1129
+    },
+    {
+      "name": "verbally",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1130
+    },
+    {
+      "name": "deduction",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1131
+    },
+    {
+      "name": "logo",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1132
+    },
+    {
+      "name": "reputable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1133
+    },
+    {
+      "name": "morbid",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1134
+    },
+    {
+      "name": "toxin",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1135
+    },
+    {
+      "name": "mutually",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1136
+    },
+    {
+      "name": "complementary",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1137
+    },
+    {
+      "name": "forefront",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1138
+    },
+    {
+      "name": "principally",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1139
+    },
+    {
+      "name": "nervously",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1140
+    },
+    {
+      "name": "bate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1141
+    },
+    {
+      "name": "intentioned",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1142
+    },
+    {
+      "name": "simplify",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1143
+    },
+    {
+      "name": "negotiable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1144
+    },
+    {
+      "name": "monolithic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1145
+    },
+    {
+      "name": "time-restricted",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1146
+    },
+    {
+      "name": "world",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1147
+    },
+    {
+      "name": "untapped",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1148
+    },
+    {
+      "name": "constructive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1149
+    },
+    {
+      "name": "lam",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1150
+    },
+    {
+      "name": "cooperation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1151
+    },
+    {
+      "name": "reconciliation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1152
+    },
+    {
+      "name": "catalogue",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1153
+    },
+    {
+      "name": "gown",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1154
+    },
+    {
+      "name": "commencement",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1155
+    },
+    {
+      "name": "quiz",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1156
+    },
+    {
+      "name": "omit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1157
+    },
+    {
+      "name": "repetition",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1158
+    },
+    {
+      "name": "strangely",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1159
+    },
+    {
+      "name": "spontaneously",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1160
+    },
+    {
+      "name": "cooperator",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1161
+    },
+    {
+      "name": "interconnection",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1162
+    },
+    {
+      "name": "batch",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1163
+    },
+    {
+      "name": "leaflet",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1164
+    },
+    {
+      "name": "overlong",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1165
+    },
+    {
+      "name": "improper",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1166
+    },
+    {
+      "name": "hydrant",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1167
+    },
+    {
+      "name": "exit",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1168
+    },
+    {
+      "name": "collaborate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1169
+    },
+    {
+      "name": "allergic",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/allergic.mp3",
+      "id": 1170
+    },
+    {
+      "name": "tomb",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1171
+    },
+    {
+      "name": "velocity",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1172
+    },
+    {
+      "name": "rationally",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1173
+    },
+    {
+      "name": "addiction",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/addiction.mp3",
+      "id": 1174
+    },
+    {
+      "name": "demotion",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1175
+    },
+    {
+      "name": "liner",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1176
+    },
+    {
+      "name": "baseline",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1177
+    },
+    {
+      "name": "stationery",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1178
+    },
+    {
+      "name": "purity",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1179
+    },
+    {
+      "name": "inconclusive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1180
+    },
+    {
+      "name": "vie",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1181
+    },
+    {
+      "name": "librarian",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1182
+    },
+    {
+      "name": "reproductive",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1183
+    },
+    {
+      "name": "equip",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1184
+    },
+    {
+      "name": "devolution",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1185
+    },
+    {
+      "name": "calculator",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1186
+    },
+    {
+      "name": "worthy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1187
+    },
+    {
+      "name": "orchestra",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1188
+    },
+    {
+      "name": "choir",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1189
+    },
+    {
+      "name": "extracurricular",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1190
+    },
+    {
+      "name": "sovereignty",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1191
+    },
+    {
+      "name": "unsure",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1192
+    },
+    {
+      "name": "fingerprint",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1193
+    },
+    {
+      "name": "coverage",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1194
+    },
+    {
+      "name": "projection",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1195
+    },
+    {
+      "name": "policy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1196
+    },
+    {
+      "name": "guilty",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1197
+    },
+    {
+      "name": "ticket",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1198
+    },
+    {
+      "name": "team",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1199
+    },
+    {
+      "name": "feast",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1200
+    },
+    {
+      "name": "eventual",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1201
+    },
+    {
+      "name": "secretary",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1202
+    },
+    {
+      "name": "automate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1203
+    },
+    {
+      "name": "smoothly",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1204
+    },
+    {
+      "name": "boredom",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1205
+    },
+    {
+      "name": "outdoors",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1206
+    },
+    {
+      "name": "foliage",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1207
+    },
+    {
+      "name": "outlet",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1208
+    },
+    {
+      "name": "systematic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1209
+    },
+    {
+      "name": "criticize",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1210
+    },
+    {
+      "name": "traveler",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1211
+    },
+    {
+      "name": "harbor",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1212
+    },
+    {
+      "name": "deepen",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1213
+    },
+    {
+      "name": "alumnus",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/alumnus.mp3",
+      "id": 1214
+    },
+    {
+      "name": "cocoa",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1215
+    },
+    {
+      "name": "southeastern",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1216
+    },
+    {
+      "name": "incorrect",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1217
+    },
+    {
+      "name": "city",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1218
+    },
+    {
+      "name": "rugby",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1219
+    },
+    {
+      "name": "side",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1220
+    },
+    {
+      "name": "goggle",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1221
+    },
+    {
+      "name": "refrigerator",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1222
+    },
+    {
+      "name": "authorize",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1223
+    },
+    {
+      "name": "configuration",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1224
+    },
+    {
+      "name": "car",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1225
+    },
+    {
+      "name": "presenter",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1226
+    },
+    {
+      "name": "flask",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1227
+    },
+    {
+      "name": "recollection",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1228
+    },
+    {
+      "name": "continuously",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1229
+    },
+    {
+      "name": "add",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1230
+    },
+    {
+      "name": "dedication",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1231
+    },
+    {
+      "name": "emirate",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1232
+    },
+    {
+      "name": "catchment",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1233
+    },
+    {
+      "name": "unwell",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1234
+    },
+    {
+      "name": "political",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1235
+    },
+    {
+      "name": "least",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1236
+    },
+    {
+      "name": "system",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1237
+    },
+    {
+      "name": "offer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1238
+    },
+    {
+      "name": "discuss",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1239
+    },
+    {
+      "name": "effect",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1240
+    },
+    {
+      "name": "nation",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1241
+    },
+    {
+      "name": "drug",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1242
+    },
+    {
+      "name": "economic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1243
+    },
+    {
+      "name": "assess",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/ass/asses/assess__us_1.mp3",
+      "id": 1244
+    },
+    {
+      "name": "issue",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1245
+    },
+    {
+      "name": "parent",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1246
+    },
+    {
+      "name": "themselves",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1247
+    },
+    {
+      "name": "former",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1248
+    },
+    {
+      "name": "view",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1249
+    },
+    {
+      "name": "probably",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1250
+    },
+    {
+      "name": "canteen",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1251
+    },
+    {
+      "name": "rent",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1252
+    },
+    {
+      "name": "advertise",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/advertise.mp3",
+      "id": 1253
+    },
+    {
+      "name": "advertisement",
+      "meaning": "",
+      "audio_us": "https://www.ldoceonline.com/media/english/ameProns/advertisement.mp3",
+      "id": 1254
+    },
+    {
+      "name": "doubtful",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1255
+    },
+    {
+      "name": "guy",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1256
+    },
+    {
+      "name": "industrialize",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1257
+    },
+    {
+      "name": "partway",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1258
+    },
+    {
+      "name": "moment",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1259
+    },
+    {
+      "name": "send",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1260
+    },
+    {
+      "name": "mathematic",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1261
+    },
+    {
+      "name": "abidingly",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/a/abi/abidi/abiding__us_1.mp3",
+      "id": 1262
+    },
+    {
+      "name": "enrolment",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1263
+    },
+    {
+      "name": "spaceship",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1264
+    },
+    {
+      "name": "further",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1265
+    },
+    {
+      "name": "overabundant",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1266
+    },
+    {
+      "name": "off-road",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1267
+    },
+    {
+      "name": "gorgeously",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1268
+    },
+    {
+      "name": "homebuyer",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1269
+    },
+    {
+      "name": "abidance",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1270
+    },
+    {
+      "name": "easter",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1271
+    },
+    {
+      "name": "unattended",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1272
+    },
+    {
+      "name": "organizational",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1273
+    },
+    {
+      "name": "useable",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1274
+    },
+    {
+      "name": "specialization",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1275
+    },
+    {
+      "name": "neuron",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1276
+    },
+    {
+      "name": "premise",
+      "meaning": "",
+      "audio_us": "",
+      "id": 1277
+    }
+  ]
+}
