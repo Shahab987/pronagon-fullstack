@@ -2,14 +2,35 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import { FaPlay, FaStop } from "react-icons/fa";
-import { BsFillTrash3Fill } from "react-icons/bs";
+import {
+  FaCircle,
+  FaDotCircle,
+  FaGgCircle,
+  FaPlay,
+  FaStop,
+  FaTrash,
+  FaTrashAlt,
+} from "react-icons/fa";
+import {
+  BsBookmarkFill,
+  BsCCircle,
+  BsCircleFill,
+  BsFillTrash3Fill,
+} from "react-icons/bs";
+import axios from "axios";
+import { BASE_URL } from "../api/config";
+import { toast } from "react-hot-toast";
 
-function Word({ item, deleteItem }) {
+function Word({ item, deleteItem, FetchWords }) {
   const [playing, setPlaying] = useState(false);
   const [word, setWord] = useState({});
   const [ready, setReady] = useState(false);
   const [isSure, setIsSure] = useState(false);
+  const [level, setLevel] = useState(item?.level || 0);
+  const [levelColor, setLevelColor] = useState("text-stone-300");
+  const [didMount, setDidMount] = useState(false);
+  const [isSettingLevel, setIsSettingLevel] = useState(false);
+
   const audioRef = useRef();
   const [url, setUrl] = useState({
     l1: "",
@@ -87,7 +108,10 @@ function Word({ item, deleteItem }) {
     }
   };
 
-  const toggleSure = () => {
+  const toggleSure = (id) => {
+    if (id) {
+      deleteItem(id);
+    }
     setIsSure(!isSure);
   };
 
@@ -101,28 +125,103 @@ function Word({ item, deleteItem }) {
     }
   }, [ready]);
 
+  useEffect(() => {
+    switch (level) {
+      case 0:
+        setLevelColor("text-stone-300");
+        break;
+      case 1:
+        setLevelColor("text-lime-600");
+        break;
+      case 2:
+        setLevelColor("text-purple-600");
+        break;
+      case 3:
+        setLevelColor("text-yellow-500");
+        break;
+      case 4:
+        setLevelColor("text-red-600");
+        break;
+
+      default:
+        break;
+    }
+
+    if (didMount) {
+      setIsSettingLevel(false);
+      axios
+        .put(`${BASE_URL}/words/${item.id}`, {
+          ...item,
+          level,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            toast.success("Tag changed");
+            FetchWords();
+          }
+        });
+    } else {
+      setDidMount(true);
+    }
+  }, [level]);
+
+  const reset = (e) => {
+    if (isSettingLevel) {
+      setIsSettingLevel(false);
+    }
+    if (isSure) {
+      setIsSure(false);
+    }
+  };
+
   return (
-    <div className="relative flex items-center w-full m-1 p-3 border rounded-lg  hover:shadow-md hover:border-red-600">
+    <div
+      onClick={(e) => reset(e)}
+      className="relative flex items-center w-full m-1 p-3 border rounded-lg  hover:shadow-md hover:border-red-600"
+    >
       <p className="font-semibold text-xl">{item?.name}</p>
 
       {item.audio_us.search("uk_pron") !== -1 && (
-        <p className="text-red-600 font-bold ms-7">UK Pronounce</p>
+        <p className="text-red-600 font-bold ms-7">UK</p>
       )}
 
-      {!isSure && (
-        <button className="absolute right-14" onClick={toggleSure}>
-          <BsFillTrash3Fill className="text-gray-500 hover:text-red-700" />
+      <div className="icons flex items-center gap-6 ms-auto text-xl ">
+        <button onClick={() => setIsSettingLevel(true)}>
+          <BsBookmarkFill className={levelColor} />
         </button>
-      )}
-      {isSure && (
-        <div className="absolute bg-gray-100 border p-3 right-16 top-0 rounded-xl border-red-600 flex items-center justify-center gap-4">
-          <p>Sure?</p>
-          <button onClick={() => deleteItem(item.id)}>Yes</button>
-          <button onClick={toggleSure}>No</button>
-        </div>
-      )}
 
-      <div className="flex gap-5 absolute right-4">
+        {isSettingLevel && (
+          <div className="absolute right-24 bg-white border p-1 rounded-md shadow">
+            <button onClick={() => setLevel(0)}>
+              <BsBookmarkFill className="text-stone-300" />
+            </button>
+            <button onClick={() => setLevel(1)}>
+              <BsBookmarkFill className="text-lime-600" />
+            </button>
+            <button onClick={() => setLevel(2)}>
+              <BsBookmarkFill className="text-purple-600" />
+            </button>
+            <button onClick={() => setLevel(3)}>
+              <BsBookmarkFill className="text-yellow-500" />
+            </button>
+            <button onClick={() => setLevel(4)}>
+              <BsBookmarkFill className="text-red-600" />
+            </button>
+          </div>
+        )}
+
+        <button className="" onClick={() => toggleSure(null)}>
+          <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
+        </button>
+
+        {isSure && (
+          <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
+            <p>Sure?</p>
+            <button onClick={() => toggleSure(item.id)}>Yes</button>
+            <button onClick={() => toggleSure(false)}>No</button>
+          </div>
+        )}
+
         {!playing ? (
           <button disabled={!ready}>
             <FaPlay
@@ -183,6 +282,9 @@ function Word({ item, deleteItem }) {
             />
             <source
               src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}
             />
             <source
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__gb_1.mp3`}

@@ -1,10 +1,10 @@
-import BarChart from "./components/BarChart";
+import { Toaster } from "react-hot-toast";
 import EnglishDic from "./components/EnglishDic";
-import SignupForm from "./components/Todos/Formik/SignupForm";
 
 function App() {
   return (
     <div className="">
+      <Toaster />
       <EnglishDic />
     </div>
   );
