@@ -1,23 +1,10 @@
 import React from "react";
+import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useRef } from "react";
-import {
-  FaCircle,
-  FaDotCircle,
-  FaGgCircle,
-  FaPlay,
-  FaStop,
-  FaTrash,
-  FaTrashAlt,
-} from "react-icons/fa";
-import {
-  BsBookmarkFill,
-  BsCCircle,
-  BsCircleFill,
-  BsFillTrash3Fill,
-} from "react-icons/bs";
-import axios from "axios";
+import { FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
+import { BsBookmarkFill } from "react-icons/bs";
 import { BASE_URL } from "../api/config";
 import { toast } from "react-hot-toast";
 
@@ -177,19 +164,19 @@ function Word({ item, deleteItem, FetchWords }) {
   return (
     <div
       onClick={(e) => reset(e)}
-      className="relative flex items-center w-full m-1 p-3 border rounded-lg  hover:shadow-md hover:border-red-600"
+      className="relative flex items-center w-full p-3 border rounded-lg  hover:shadow-md hover:border-red-600"
     >
-      <p className="font-semibold text-xl">{item?.name}</p>
+      <p className="font-semibold  xs:text-lg ">{item?.name}</p>
 
       {item.audio_us.search("uk_pron") !== -1 && (
         <p className="text-red-600 font-bold ms-7">UK</p>
       )}
 
-      <div className="icons flex items-center gap-6 ms-auto text-xl ">
+      {/* ------------------------ buttons  */}
+      <div className="icons flex items-center gap-3 xs:gap-6 ms-auto text-xl ">
         <button onClick={() => setIsSettingLevel(true)}>
           <BsBookmarkFill className={levelColor} />
         </button>
-
         {isSettingLevel && (
           <div className="absolute right-24 bg-white border p-1 rounded-md shadow">
             <button onClick={() => setLevel(0)}>
@@ -213,7 +200,6 @@ function Word({ item, deleteItem, FetchWords }) {
         <button className="" onClick={() => toggleSure(null)}>
           <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
         </button>
-
         {isSure && (
           <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
             <p>Sure?</p>
