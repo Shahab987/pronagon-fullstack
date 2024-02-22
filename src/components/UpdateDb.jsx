@@ -14,7 +14,7 @@ const UpdateDb = () => {
       // Add new key-value pair to each object
       const updatedData = fetchedData.map((item) => ({
         ...item,
-        length: item.name.length, // Assuming length is the property to be added
+        level: 0, // Assuming length is the property to be added
       }));
       console.log(fetchedData);
       setData(updatedData); // Update state

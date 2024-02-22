@@ -8,14 +8,12 @@ import { LoaderIcon, toast } from "react-hot-toast";
 import { BsBookmarkFill } from "react-icons/bs";
 import {
   FaSearch,
-  FaSignal,
   FaSortAlphaDown,
   FaSortAlphaDownAlt,
-  FaSortAlphaUp,
   FaSortAmountDown,
   FaSortAmountDownAlt,
 } from "react-icons/fa";
-import { useLocation, useParams, useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 
 function EnglishDic() {
   const [words, setWords] = useState([]);
@@ -145,21 +143,21 @@ function EnglishDic() {
   useEffect(() => {
     FetchWords();
     setPageInput(page);
-    console.log("effect");
   }, [page, urlParams]);
 
   useEffect(() => {
     if (Math.ceil(totalCount / itemsPerPage) < page) {
       setPage(1);
     }
-    console.log(Math.ceil(totalCount / itemsPerPage));
   }, [totalCount]);
 
   return (
     <div className="w-full  px-5 md:px-10">
+      {/* ------------------------------------- Header  */}
       <div className="bg-lime-300 pb-3 pt-2 text-center rounded-b-2xl mb-3">
         <h1 className="text-3xl font-mono">Prona App</h1>
       </div>
+      {/* ------------------------------------- Add new words  */}
       <div className="flex items-center my-1">
         <input
           value={newWords}
@@ -187,6 +185,8 @@ function EnglishDic() {
           )}
         </button>
       </div>
+
+      {/* ------------------------------------- Filter & Sort  */}
       <div className="FilterBox flex p-2 border gap-4 ">
         <div className="flex gap-2">
           <p>Filter:</p>
@@ -241,6 +241,8 @@ function EnglishDic() {
           </button>
         </div>
       </div>
+
+      {/* ------------------------------------- Search  */}
       <div className="relative flex items-center w-1/2 mt-1">
         <input
           type="text"
@@ -254,7 +256,7 @@ function EnglishDic() {
       </div>
 
       <hr className="m-4 " />
-      {/* pagination  */}
+      {/* ------------------------------------- pagination  */}
       <div className="pagination flex justify-center items-center">
         <button
           disabled={page === 1}
@@ -288,6 +290,7 @@ function EnglishDic() {
 
       <p>Total Count : {totalCount}</p>
 
+      {/* ------------------------------------- Map Words  */}
       <div className="w-full mx-auto">
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1">
           {isLoading && <p>loading</p>}
