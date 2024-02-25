@@ -13,6 +13,8 @@ import {
   FaSortAmountDown,
   FaSortAmountDownAlt,
 } from "react-icons/fa";
+import { FcClearFilters } from "react-icons/fc";
+
 import { useLocation, useSearchParams } from "react-router-dom";
 
 function EnglishDic() {
@@ -43,8 +45,10 @@ function EnglishDic() {
         },
       })
       .then((res) => {
-        setTotalCount(res.headers["x-total-count"]);
-        setWords(res.data);
+        if (res.data) {
+          setTotalCount(res.data.pagination.totalCount);
+          setWords(res.data.data);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -65,7 +69,7 @@ function EnglishDic() {
 
   const handleAddAll = async () => {
     if (!newWords) {
-      console.log("empty");
+      toast.error("empty");
       return;
     }
     const wordsArr = newWords.replace(/\s+/g, " ").trim().split(" ");
@@ -74,36 +78,30 @@ function EnglishDic() {
       // Iterate over each item and send individual POST requests
       for (let i = 0; i < wordsArr.length; i++) {
         const item = wordsArr[i].toLowerCase();
-        const response = await fetch(`${BASE_URL}/words?name=${item}`).then(
-          (res) => res.json()
-        );
-        if (response.length == 0) {
-          const tmpNewWord = {
-            name: item,
-            meaning: "",
-            audio_us: "",
-            level: 0,
-            length: item.length,
-          };
-          await fetch(`${BASE_URL}/words`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(tmpNewWord),
-          });
-          // Log the response message after each item is successfully added
-          console.log(`Item ${JSON.stringify(item)} added successfully`);
-          setCounter((p) => p + 1);
-          // Add a 0.5 second delay between requests
-          await new Promise((resolve) => setTimeout(resolve, 100));
-        }
+
+        const tmpNewWord = {
+          name: item,
+          meaning: "",
+          audio_us: "",
+          level: 0,
+          length: item.length,
+        };
+        axios
+          .post(`${BASE_URL}/words`, tmpNewWord)
+          .then((res) =>
+            res.statusText === "Created" ? console.log("Added") : ""
+          );
+        // Log the response message after each item is successfully added
+        setCounter((p) => p + 1);
+        // Add a 0.5 second delay between requests
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
         // Log the final response message after all items have been successfully added
       }
       toast.success("All items added successfully");
       setNewWords("");
       setCounter(0);
-      FetchWords();
+      // FetchWords();
     } catch (error) {
       console.error("Error:", error);
     }
@@ -137,10 +135,10 @@ function EnglishDic() {
 
   const handleSearch = () => {
     if (searchInput) {
-      setSearchParams({ ...urlParams, name_like: searchInput });
+      setSearchParams({ ...urlParams, search: searchInput });
     } else {
-      if (searchParams.has("name_like")) {
-        searchParams.delete("name_like");
+      if (searchParams.has("search")) {
+        searchParams.delete("search");
         setSearchParams(searchParams);
       }
     }
@@ -153,7 +151,7 @@ function EnglishDic() {
   useEffect(() => {
     FetchWords();
     setPageInput(page);
-  }, [page, urlParams]);
+  }, [page, urlParams, itemsPerPage]);
 
   useEffect(() => {
     if (Math.ceil(totalCount / itemsPerPage) < page) {
@@ -236,14 +234,22 @@ function EnglishDic() {
             <p className="hidden xs:block">Sort:</p>
             <button
               onClick={() =>
-                setSearchParams({ ...urlParams, _sort: "name", _order: "asce" })
+                setSearchParams({
+                  ...urlParams,
+                  sortBy: "name",
+                  sortOrder: "asce",
+                })
               }
             >
               <FaSortAlphaDown />
             </button>
             <button
               onClick={() =>
-                setSearchParams({ ...urlParams, _sort: "name", _order: "desc" })
+                setSearchParams({
+                  ...urlParams,
+                  sortBy: "name",
+                  sortOrder: "desc",
+                })
               }
             >
               <FaSortAlphaDownAlt />
@@ -253,8 +259,8 @@ function EnglishDic() {
               onClick={() =>
                 setSearchParams({
                   ...urlParams,
-                  _sort: "length",
-                  _order: "asce",
+                  sortBy: "length",
+                  sortOrder: "asce",
                 })
               }
             >
@@ -264,12 +270,15 @@ function EnglishDic() {
               onClick={() =>
                 setSearchParams({
                   ...urlParams,
-                  _sort: "length",
-                  _order: "desc",
+                  sortBy: "length",
+                  sortOrder: "desc",
                 })
               }
             >
               <FaSortAmountDown />
+            </button>
+            <button className="text-xl" onClick={() => setSearchParams({})}>
+              <FcClearFilters />
             </button>
           </div>
         </div>
@@ -354,7 +363,7 @@ function EnglishDic() {
             ) : (
               words.map((item, index) => {
                 return (
-                  <div key={item.id}>
+                  <div key={item._id}>
                     <Word
                       item={item}
                       deleteItem={deleteItem}

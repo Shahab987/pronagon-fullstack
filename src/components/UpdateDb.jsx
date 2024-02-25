@@ -8,15 +8,18 @@ const UpdateDb = () => {
   // Function to fetch data, add new key-value pair, and update database
   const fetchDataAndUpdateDatabase = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/words`);
+      const response = await axios.get(`http://127.0.0.1:5000/words`);
       const fetchedData = response.data;
 
       // Add new key-value pair to each object
       const updatedData = fetchedData.map((item) => ({
-        ...item,
-        level: 0, // Assuming length is the property to be added
+        name: item.name,
+        meaning: "",
+        audio_us: item.audio_us,
+        level: 0,
+        length: item.length,
       }));
-      console.log(fetchedData);
+      console.log(updatedData);
       setData(updatedData); // Update state
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -27,12 +30,12 @@ const UpdateDb = () => {
     try {
       for (let i = 0; i < data.length; i++) {
         // Assuming you have an endpoint '/update-data/:id' to handle item updates
-        await axios.put(`${BASE_URL}/words/${data[i].id}`, data[i]);
-        console.log(`Item with ID ${data[i].id} updated successfully`);
+        await axios.post(`${BASE_URL}/words`, data[i]);
+        console.log(`Item name: ${data[i].name} updated successfully`);
 
         // Introduce a delay of 100ms between each PUT request
         if (i < data.length - 1) {
-          await new Promise((resolve) => setTimeout(resolve, 100));
+          await new Promise((resolve) => setTimeout(resolve, 30));
         }
       }
     } catch (error) {

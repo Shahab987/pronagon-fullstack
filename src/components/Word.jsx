@@ -33,16 +33,14 @@ function Word({ item, deleteItem, FetchWords }) {
   };
 
   const setAudioUrl = () => {
-    fetch(`http://127.0.0.1:5000/words/${item.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    console.log(item._id);
+    axios
+      .put(`${BASE_URL}/words/${item._id}`, {
         ...item,
         audio_us: audioRef.current.currentSrc,
-      }),
-    });
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
   };
 
   const genAudioUrl = () => {
@@ -137,7 +135,7 @@ function Word({ item, deleteItem, FetchWords }) {
     if (didMount) {
       setIsSettingLevel(false);
       axios
-        .put(`${BASE_URL}/words/${item.id}`, {
+        .put(`${BASE_URL}/words/${item._id}`, {
           ...item,
           level,
         })
@@ -203,7 +201,7 @@ function Word({ item, deleteItem, FetchWords }) {
         {isSure && (
           <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
             <p>Sure?</p>
-            <button onClick={() => toggleSure(item.id)}>Yes</button>
+            <button onClick={() => toggleSure(item._id)}>Yes</button>
             <button onClick={() => toggleSure(false)}>No</button>
           </div>
         )}

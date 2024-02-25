@@ -8462,7 +8462,7 @@
     {
       "name": "metabolic",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/met/metab/metabolic__us_1.mp3",
       "id": 1106,
       "length": 9,
       "level": 0
@@ -9086,7 +9086,7 @@
     {
       "name": "devolution",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/d/dev/devol/devolution__us_1.mp3",
       "id": 1185,
       "length": 10,
       "level": 0
@@ -9174,7 +9174,7 @@
     {
       "name": "policy",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pol/polic/policy__us_1.mp3",
       "id": 1196,
       "length": 6,
       "level": 0
@@ -9262,7 +9262,7 @@
     {
       "name": "foliage",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/f/fol/folia/foliage__us_1.mp3",
       "id": 1207,
       "length": 7,
       "level": 0
@@ -9486,7 +9486,7 @@
     {
       "name": "political",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pol/polit/political__us_1.mp3",
       "id": 1235,
       "length": 9,
       "level": 0
@@ -9710,7 +9710,7 @@
     {
       "name": "enrolment",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/e/enr/enrol/enrolment__us_1.mp3",
       "id": 1263,
       "length": 9,
       "level": 0
@@ -9814,7 +9814,7 @@
     {
       "name": "premise",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/p/pre/premi/premise__us_1.mp3",
       "id": 1277,
       "length": 7,
       "level": 0
@@ -9830,7 +9830,7 @@
     {
       "name": "kill",
       "meaning": "",
-      "audio_us": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/k/kil/kill_/kill__us_1.mp3",
       "id": 1279,
       "length": 4,
       "level": 0
@@ -9890,6 +9890,22 @@
       "level": 0,
       "length": 9,
       "id": 1286
+    },
+    {
+      "name": "older",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/o/old/older/older__us_1.mp3",
+      "level": 0,
+      "length": 5,
+      "id": 1287
+    },
+    {
+      "name": "miserable",
+      "meaning": "",
+      "audio_us": "https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/m/mis/miser/miserable__us_1.mp3",
+      "level": 0,
+      "length": 9,
+      "id": 1288
     }
   ]
 }
