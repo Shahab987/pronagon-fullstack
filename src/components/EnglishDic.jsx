@@ -355,26 +355,31 @@ function EnglishDic() {
         </div>
 
         {/* ------------------------------------- Map Words  */}
-        <div className="w-full ">
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1">
-            {isLoading && <p>loading</p>}
-            {!isLoading && words.length === 0 ? (
-              <p>list empty</p>
-            ) : (
-              words.map((item, index) => {
-                return (
-                  <div key={item._id}>
-                    <Word
-                      item={item}
-                      deleteItem={deleteItem}
-                      FetchWords={FetchWords}
-                    />
-                  </div>
-                );
-              })
-            )}
+        {isLoading ? (
+          <p className="flex items-center gap-3">
+            <LoaderIcon /> loading...
+          </p>
+        ) : (
+          <div className="w-full ">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1">
+              {!isLoading && words.length === 0 ? (
+                <p>list empty</p>
+              ) : (
+                words.map((item, index) => {
+                  return (
+                    <div key={item._id}>
+                      <Word
+                        item={item}
+                        deleteItem={deleteItem}
+                        FetchWords={FetchWords}
+                      />
+                    </div>
+                  );
+                })
+              )}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
