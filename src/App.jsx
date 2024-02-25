@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="">
       <Toaster />
+
       <EnglishDic />
     </div>
   );

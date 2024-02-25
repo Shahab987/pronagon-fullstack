@@ -30,7 +30,7 @@ function EnglishDic() {
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
   const [urlParams, setUrlParams] = useState(
-    Object.fromEntries(new URLSearchParams(location.search))
+    Object.fromEntries(new URLSearchParams(location?.search)) || {}
   );
 
   const FetchWords = async () => {
@@ -145,7 +145,7 @@ function EnglishDic() {
   };
 
   useEffect(() => {
-    setUrlParams(Object.fromEntries(new URLSearchParams(location.search)));
+    setUrlParams(Object.fromEntries(new URLSearchParams(location?.search)));
   }, [location]);
 
   useEffect(() => {
@@ -362,7 +362,7 @@ function EnglishDic() {
         ) : (
           <div className="w-full ">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1">
-              {!isLoading && words.length === 0 ? (
+              {!isLoading && words?.length === 0 ? (
                 <p>list empty</p>
               ) : (
                 words.map((item, index) => {

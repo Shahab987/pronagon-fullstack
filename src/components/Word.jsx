@@ -44,51 +44,51 @@ function Word({ item, deleteItem, FetchWords }) {
   };
 
   const genAudioUrl = () => {
-    if (item.name.length === 2) {
+    if (item?.name?.length === 2) {
       setUrl({
-        l1: item.name.slice(0, 1),
-        l3: item.name.slice(0, 3) + "_",
-        l5: item.name.slice(0, 5) + "__u",
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3) + "_",
+        l5: item?.name?.slice(0, 5) + "__u",
         word: item.name,
-        word2: item.name.slice(0, -2),
+        word2: item?.name?.slice(0, -2),
       });
     }
-    if (item.name.length === 3) {
+    if (item?.name?.length === 3) {
       setUrl({
-        l1: item.name.slice(0, 1),
-        l3: item.name.slice(0, 3),
-        l5: item.name.slice(0, 5) + "__",
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3),
+        l5: item?.name?.slice(0, 5) + "__",
         word: item.name,
-        word2: item.name.slice(0, -2),
-      });
-    }
-
-    if (item.name.length === 4) {
-      setUrl({
-        l1: item.name.slice(0, 1),
-        l3: item.name.slice(0, 3),
-        l5: item.name.slice(0, 5) + "_",
-        word: item.name,
-        word2: item.name.slice(0, -2),
+        word2: item?.name?.slice(0, -2),
       });
     }
 
-    if (item.name.length > 4) {
+    if (item?.name?.length === 4) {
       setUrl({
-        l1: item.name.slice(0, 1),
-        l3: item.name.slice(0, 3),
-        l5: item.name.slice(0, 5),
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3),
+        l5: item?.name?.slice(0, 5) + "_",
         word: item.name,
-        word2: item.name.slice(0, -2),
+        word2: item?.name?.slice(0, -2),
       });
     }
-    if (item.name.slice(0, 3) === "con") {
+
+    if (item?.name?.length > 4) {
+      setUrl({
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3),
+        l5: item?.name?.slice(0, 5),
+        word: item.name,
+        word2: item?.name?.slice(0, -2),
+      });
+    }
+    if (item?.name?.slice(0, 3) === "con") {
       setUrl({
         l1: "x",
-        l3: "x" + item.name.slice(0, 2),
-        l5: "x" + item.name.slice(0, 4),
+        l3: "x" + item?.name?.slice(0, 2),
+        l5: "x" + item?.name?.slice(0, 4),
         word: "x" + item.name,
-        word2: "x" + item.name.slice(0, -2),
+        word2: "x" + item?.name?.slice(0, -2),
       });
     }
   };
@@ -166,7 +166,7 @@ function Word({ item, deleteItem, FetchWords }) {
     >
       <p className="font-semibold  xs:text-lg ">{item?.name}</p>
 
-      {item.audio_us.search("uk_pron") !== -1 && (
+      {item?.audio_us?.search("uk_pron") !== -1 && (
         <p className="text-red-600 font-bold ms-7">UK</p>
       )}
 
