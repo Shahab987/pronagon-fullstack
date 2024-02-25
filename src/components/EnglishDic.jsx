@@ -356,9 +356,9 @@ function EnglishDic() {
 
         {/* ------------------------------------- Map Words  */}
         {isLoading ? (
-          <p className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
             <LoaderIcon /> loading...
-          </p>
+          </div>
         ) : (
           <div className="w-full ">
             <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1">
