@@ -286,7 +286,7 @@ function EnglishDic() {
             <div className="relative flex items-center  gap-3">
               <div
                 className={`absolute h-1 w-6 -top-3 rounded-b-full  
-                transition-all transform-gpu duration-500 bg-red-600 opacity-80 ${sortlinePos}`}
+                transition-all transform-gpu duration-500 bg-red-500 ${sortlinePos}`}
               />
               <button
                 onClick={() => {
