@@ -169,6 +169,7 @@ function EnglishDic() {
         break;
     }
 
+    console.log(urlParams.sortBy, " ", urlParams.sortOrder);
     switch (urlParams.sortBy + " " + urlParams.sortOrder) {
       case "name asce":
         setSortlinePos("-translate-x-1");
