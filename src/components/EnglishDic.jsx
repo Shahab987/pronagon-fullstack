@@ -5,7 +5,7 @@ import { BASE_URL } from "../api/config";
 import Word from "./Word";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 import { LoaderIcon, toast } from "react-hot-toast";
-import { BsBookmarkFill } from "react-icons/bs";
+import { BsBookmarkFill, BsSlashLg } from "react-icons/bs";
 import {
   FaSearch,
   FaSortAlphaDown,
@@ -14,6 +14,7 @@ import {
   FaSortAmountDownAlt,
 } from "react-icons/fa";
 import { FcClearFilters } from "react-icons/fc";
+import { VscWholeWord } from "react-icons/vsc";
 
 import { useLocation, useSearchParams } from "react-router-dom";
 
@@ -31,6 +32,7 @@ function EnglishDic() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [underlinePos, setUnderlinePos] = useState("opacity-0");
   const [sortlinePos, setSortlinePos] = useState("opacity-0");
+  const [exactMatch, setExactMatch] = useState(false);
   const [urlParams, setUrlParams] = useState(
     Object.fromEntries(new URLSearchParams(location?.search)) || {}
   );
@@ -80,30 +82,36 @@ function EnglishDic() {
       // Iterate over each item and send individual POST requests
       for (let i = 0; i < wordsArr.length; i++) {
         const item = wordsArr[i].toLowerCase();
-
-        const tmpNewWord = {
-          name: item,
-          meaning: "",
-          audio_us: "",
-          level: 0,
-          length: item.length,
-        };
-        axios
-          .post(`${BASE_URL}/words`, tmpNewWord)
-          .then((res) =>
-            res.statusText === "Created" ? console.log("Added") : ""
-          );
-        // Log the response message after each item is successfully added
-        setCounter((p) => p + 1);
-        // Add a 0.5 second delay between requests
-        await new Promise((resolve) => setTimeout(resolve, 100));
+        const itemExist = await axios
+          .get(`${BASE_URL}/words?exact=${item}`)
+          .then((res) => res?.data?.data?.length);
+        if (itemExist === 0) {
+          const tmpNewWord = {
+            name: item,
+            meaning: "",
+            audio_us: "",
+            level: 0,
+            length: item.length,
+          };
+          axios
+            .post(`${BASE_URL}/words`, tmpNewWord)
+            .then((res) =>
+              res.statusText === "Created" ? console.log("Added") : ""
+            );
+          // Log the response message after each item is successfully added
+          setCounter((p) => p + 1);
+          // Add a 0.5 second delay between requests
+          await new Promise((resolve) => setTimeout(resolve, 100));
+        } else {
+          toast.error(`${item} already exist`);
+        }
 
         // Log the final response message after all items have been successfully added
       }
       toast.success("All items added successfully");
       setNewWords("");
       setCounter(0);
-      // FetchWords();
+      FetchWords();
     } catch (error) {
       console.error("Error:", error);
     }
@@ -137,15 +145,28 @@ function EnglishDic() {
 
   const handleSearch = () => {
     if (searchInput) {
-      setSearchParams({ ...urlParams, search: searchInput });
+      if (exactMatch) {
+        searchParams.delete("search");
+        delete urlParams.search;
+        setSearchParams({ ...urlParams, exact: searchInput.trim() });
+      } else {
+        searchParams.delete("exact");
+        delete urlParams.exact;
+        setSearchParams({ ...urlParams, search: searchInput.trim() });
+      }
     } else {
       if (searchParams.has("search")) {
         searchParams.delete("search");
         setSearchParams(searchParams);
       }
+      if (searchParams.has("exact")) {
+        searchParams.delete("exact");
+        setSearchParams(searchParams);
+      }
     }
   };
 
+  //locate the current filter and sort
   const handleUnderlinePos = () => {
     switch (urlParams?.level) {
       case "0":
@@ -169,7 +190,6 @@ function EnglishDic() {
         break;
     }
 
-    console.log(urlParams.sortBy, " ", urlParams.sortOrder);
     switch (urlParams.sortBy + " " + urlParams.sortOrder) {
       case "name asce":
         setSortlinePos("-translate-x-1");
@@ -209,6 +229,10 @@ function EnglishDic() {
   useEffect(() => {
     handleSearch();
   }, []);
+
+  useEffect(() => {
+    handleSearch();
+  }, [exactMatch]);
 
   return (
     <div className="w-full  px-3 md:px-10">
@@ -337,7 +361,9 @@ function EnglishDic() {
             <button
               className="text-xl"
               onClick={() => {
-                setSearchParams({});
+                if (searchParams.toString() !== "") {
+                  setSearchParams({});
+                }
               }}
             >
               <FcClearFilters />
@@ -351,7 +377,7 @@ function EnglishDic() {
             type="text"
             name="search"
             placeholder="Search"
-            className="border p-2 w-full pe-10"
+            className="border p-2 w-full pe-20"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             onKeyUp={(e) => {
@@ -360,8 +386,23 @@ function EnglishDic() {
               }
             }}
           />
-          <button onClick={() => handleSearch()} className="absolute right-3">
+          <button onClick={() => handleSearch()} className="absolute right-11">
             <FaSearch />
+          </button>
+          <button
+            onClick={() => setExactMatch(!exactMatch)}
+            className={`absolute transition-all duration-300 text-2xl right-3 top-2 `}
+          >
+            <VscWholeWord
+              className={` transition-all duration-300 ${
+                !exactMatch ? "text-stone-300" : "text-red-700"
+              }`}
+            />
+            <BsSlashLg
+              className={`absolute transition-all duration-300 text-stone-300 right-0 top-0 ${
+                !exactMatch ? "opacity-75" : "opacity-0"
+              }`}
+            />
           </button>
         </div>
       </div>
