@@ -29,6 +29,8 @@ function EnglishDic() {
   const [counter, setCounter] = useState(0);
   const location = useLocation();
   const [searchParams, setSearchParams] = useSearchParams();
+  const [underlinePos, setUnderlinePos] = useState("opacity-0");
+  const [sortlinePos, setSortlinePos] = useState("opacity-0");
   const [urlParams, setUrlParams] = useState(
     Object.fromEntries(new URLSearchParams(location?.search)) || {}
   );
@@ -144,12 +146,56 @@ function EnglishDic() {
     }
   };
 
+  const handleUnderlinePos = () => {
+    switch (urlParams?.level) {
+      case "0":
+        setUnderlinePos("translate-x-0");
+        break;
+      case "1":
+        setUnderlinePos("translate-x-7");
+        break;
+      case "2":
+        setUnderlinePos("translate-x-14");
+        break;
+      case "3":
+        setUnderlinePos("translate-x-21");
+        break;
+      case "4":
+        setUnderlinePos("translate-x-28");
+        break;
+
+      default:
+        setUnderlinePos((p) => p + " opacity-0");
+        break;
+    }
+
+    switch (urlParams.sortBy + " " + urlParams.sortOrder) {
+      case "name asce":
+        setSortlinePos("-translate-x-1");
+        break;
+      case "name desc":
+        setSortlinePos("translate-x-6");
+        break;
+      case "length asce":
+        setSortlinePos("translate-x-13");
+        break;
+      case "length desc":
+        setSortlinePos("translate-x-20");
+        break;
+
+      default:
+        setSortlinePos((p) => p + " opacity-0");
+        break;
+    }
+  };
+
   useEffect(() => {
     setUrlParams(Object.fromEntries(new URLSearchParams(location?.search)));
   }, [location]);
 
   useEffect(() => {
     FetchWords();
+    handleUnderlinePos();
     setPageInput(page);
   }, [page, urlParams, itemsPerPage]);
 
@@ -202,7 +248,11 @@ function EnglishDic() {
         <div className="lg:w-1/2 flex p-2 border gap-4 ">
           <div className="flex gap-2">
             <p className="hidden xs:block">Filter:</p>
-            <div className="flex gap-2 text-lg ">
+            <div className="flex gap-2 text-xl relative">
+              <div
+                className={`absolute h-1 w-5 -top-2 left-0 rounded-b-full  
+                transition-all transform-gpu duration-500  bg-zinc-400  ${underlinePos}`}
+              />
               <button
                 onClick={() => setSearchParams({ ...urlParams, level: 0 })}
               >
@@ -230,54 +280,65 @@ function EnglishDic() {
               </button>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center  gap-3">
             <p className="hidden xs:block">Sort:</p>
-            <button
-              onClick={() =>
-                setSearchParams({
-                  ...urlParams,
-                  sortBy: "name",
-                  sortOrder: "asce",
-                })
-              }
-            >
-              <FaSortAlphaDown />
-            </button>
-            <button
-              onClick={() =>
-                setSearchParams({
-                  ...urlParams,
-                  sortBy: "name",
-                  sortOrder: "desc",
-                })
-              }
-            >
-              <FaSortAlphaDownAlt />
-            </button>
+            <div className="relative flex items-center  gap-3">
+              <div
+                className={`absolute h-1 w-6 -top-3 rounded-b-full  
+                transition-all transform-gpu duration-500 bg-red-600 opacity-80 ${sortlinePos}`}
+              />
+              <button
+                onClick={() => {
+                  setSearchParams({
+                    ...urlParams,
+                    sortBy: "name",
+                    sortOrder: "asce",
+                  });
+                }}
+              >
+                <FaSortAlphaDown />
+              </button>
+              <button
+                onClick={() => {
+                  setSearchParams({
+                    ...urlParams,
+                    sortBy: "name",
+                    sortOrder: "desc",
+                  });
+                }}
+              >
+                <FaSortAlphaDownAlt />
+              </button>
 
+              <button
+                onClick={() => {
+                  setSearchParams({
+                    ...urlParams,
+                    sortBy: "length",
+                    sortOrder: "asce",
+                  });
+                }}
+              >
+                <FaSortAmountDownAlt />
+              </button>
+              <button
+                onClick={() => {
+                  setSearchParams({
+                    ...urlParams,
+                    sortBy: "length",
+                    sortOrder: "desc",
+                  });
+                }}
+              >
+                <FaSortAmountDown />
+              </button>
+            </div>
             <button
-              onClick={() =>
-                setSearchParams({
-                  ...urlParams,
-                  sortBy: "length",
-                  sortOrder: "asce",
-                })
-              }
+              className="text-xl"
+              onClick={() => {
+                setSearchParams({});
+              }}
             >
-              <FaSortAmountDownAlt />
-            </button>
-            <button
-              onClick={() =>
-                setSearchParams({
-                  ...urlParams,
-                  sortBy: "length",
-                  sortOrder: "desc",
-                })
-              }
-            >
-              <FaSortAmountDown />
-            </button>
-            <button className="text-xl" onClick={() => setSearchParams({})}>
               <FcClearFilters />
             </button>
           </div>
@@ -315,13 +376,13 @@ function EnglishDic() {
             >
               <IoArrowBackCircle />
             </button>
-
+            <p className="hidden xs:block ">Page </p>
             <input
               name="page"
               type="number"
               value={pageInput}
-              className={`px-1 text-lg border-b py-0 border-stone-400
-           font-mono text-sky-700 ${
+              className={`px-1 text-lg font-bold border-b py-0 border-stone-400
+           font-mono text-red-700 ${
              pageInput < 9 ? "w-5" : pageInput < 100 ? "w-8" : "w-10"
            }`}
               onChange={(e) => handlePageInput(e)}
@@ -338,7 +399,7 @@ function EnglishDic() {
           </div>
 
           <div className="flex items-center">
-            <p>Showing : </p>
+            <p className="hidden 2xs:block ">Showing </p>
             <select
               className="w-10"
               name="items"
