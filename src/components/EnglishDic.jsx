@@ -33,6 +33,7 @@ function EnglishDic() {
   const [underlinePos, setUnderlinePos] = useState("opacity-0");
   const [sortlinePos, setSortlinePos] = useState("opacity-0");
   const [exactMatch, setExactMatch] = useState(false);
+  const [letsAdd, setLetsAdd] = useState(false);
   const [urlParams, setUrlParams] = useState(
     Object.fromEntries(new URLSearchParams(location?.search)) || {}
   );
@@ -49,9 +50,13 @@ function EnglishDic() {
         },
       })
       .then((res) => {
-        if (res.data) {
+        if (res.data.pagination.totalCount > 0) {
           setTotalCount(res.data.pagination.totalCount);
           setWords(res.data.data);
+        } else {
+          setTotalCount(res.data.pagination.totalCount);
+          setWords(res.data.data);
+          setLetsAdd(true);
         }
       })
       .catch((err) => {
@@ -76,39 +81,65 @@ function EnglishDic() {
       toast.error("empty");
       return;
     }
-    const wordsArr = newWords.replace(/\s+/g, " ").trim().split(" ");
+    const wordsArr = newWords
+      .replace(/[^\w\s]|_|\d+/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .split(" ");
 
+    let skippedWords = "";
+    let reapeated = "";
+    let wordCount = 0;
     try {
       // Iterate over each item and send individual POST requests
       for (let i = 0; i < wordsArr.length; i++) {
         const item = wordsArr[i].toLowerCase();
-        const itemExist = await axios
-          .get(`${BASE_URL}/words?exact=${item}`)
-          .then((res) => res?.data?.data?.length);
-        if (itemExist === 0) {
-          const tmpNewWord = {
-            name: item,
-            meaning: "",
-            audio_us: "",
-            level: 0,
-            length: item.length,
-          };
-          axios
-            .post(`${BASE_URL}/words`, tmpNewWord)
-            .then((res) =>
-              res.statusText === "Created" ? console.log("Added") : ""
-            );
-          // Log the response message after each item is successfully added
-          setCounter((p) => p + 1);
-          // Add a 0.5 second delay between requests
-          await new Promise((resolve) => setTimeout(resolve, 100));
-        } else {
-          toast.error(`${item} already exist`);
+        if (item.length > 4) {
+          const itemExist = await axios
+            .get(`${BASE_URL}/words?exact=${item}`)
+            .then((res) => res?.data?.data?.length);
+          if (itemExist === 0) {
+            const tmpNewWord = {
+              name: item,
+              meaning: "",
+              audio_us: "",
+              level: 0,
+              length: item.length,
+            };
+            axios
+              .post(`${BASE_URL}/words`, tmpNewWord)
+              .then((res) =>
+                res.statusText === "Created" ? console.log("Added") : ""
+              );
+            // Log the response message after each item is successfully added
+            setCounter((p) => p + 1);
+            wordCount = wordCount + 1;
+            // Add a 0.5 second delay between requests
+            await new Promise((resolve) => setTimeout(resolve, 100));
+          } else {
+            reapeated = `"${item}", ${reapeated}`;
+          }
+        } else if (item.length > 0) {
+          skippedWords = `"${item}", ${skippedWords}`;
         }
 
         // Log the final response message after all items have been successfully added
       }
-      toast.success("All items added successfully");
+      if (wordCount > 0) {
+        toast.success(`I ate ${wordCount} Words.`);
+      }
+      if (skippedWords) {
+        toast.error(
+          `Too short to feed me with: 
+          ${skippedWords}`
+        );
+      }
+      if (reapeated) {
+        toast.error(
+          `Already ate : 
+          ${reapeated}`
+        );
+      }
       setNewWords("");
       setCounter(0);
       FetchWords();
@@ -163,6 +194,15 @@ function EnglishDic() {
         searchParams.delete("exact");
         setSearchParams(searchParams);
       }
+    }
+  };
+
+  const handleLevel = (val) => {
+    if (urlParams.level !== val.toString()) {
+      setSearchParams({ ...urlParams, level: val });
+    } else {
+      delete urlParams.level;
+      setSearchParams({ ...urlParams });
     }
   };
 
@@ -238,18 +278,23 @@ function EnglishDic() {
     <div className="w-full  px-3 md:px-10">
       {/* ------------------------------------- Header  */}
       <div className="bg-lime-300 pb-3 pt-2 text-center rounded-b-2xl mb-3">
-        <h1 className="text-3xl font-mono">Prona App</h1>
+        <h1 className="text-3xl font-mono">Pronagon</h1>
       </div>
       {/* ------------------------------------- Add new words  */}
       <div className="flex items-center my-1">
         <input
           value={newWords}
           onChange={(e) => setNewWords(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              handleAddAll();
+            }
+          }}
           type="text"
           name="newWords"
           id="newWords"
           className="border p-2 w-full  "
-          placeholder="Enter new words split by space"
+          placeholder="Feed me a Word or a Paragraph!"
         />{" "}
         <button
           className="p-2 border w-32  bg-stone-100 text-gray-900 hover:bg-slate-950 hover:text-slate-300 font-semibold transition-all"
@@ -264,7 +309,7 @@ function EnglishDic() {
               </p>
             </div>
           ) : (
-            "Add"
+            "Yum!"
           )}
         </button>
       </div>
@@ -278,29 +323,19 @@ function EnglishDic() {
                 className={`absolute h-1 w-5 -top-2 left-0 rounded-b-full  
                 transition-all transform-gpu duration-500  bg-zinc-400  ${underlinePos}`}
               />
-              <button
-                onClick={() => setSearchParams({ ...urlParams, level: 0 })}
-              >
+              <button onClick={() => handleLevel(0)}>
                 <BsBookmarkFill className="text-stone-300" />
               </button>
-              <button
-                onClick={() => setSearchParams({ ...urlParams, level: 1 })}
-              >
+              <button onClick={() => handleLevel(1)}>
                 <BsBookmarkFill className="text-lime-600" />
               </button>
-              <button
-                onClick={() => setSearchParams({ ...urlParams, level: 2 })}
-              >
+              <button onClick={() => handleLevel(2)}>
                 <BsBookmarkFill className="text-purple-600" />
               </button>
-              <button
-                onClick={() => setSearchParams({ ...urlParams, level: 3 })}
-              >
+              <button onClick={() => handleLevel(3)}>
                 <BsBookmarkFill className="text-yellow-500" />
               </button>
-              <button
-                onClick={() => setSearchParams({ ...urlParams, level: 4 })}
-              >
+              <button onClick={() => handleLevel(4)}>
                 <BsBookmarkFill className="text-red-600" />
               </button>
             </div>
@@ -464,9 +499,34 @@ function EnglishDic() {
           </div>
         ) : (
           <div className="w-full ">
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-1 ">
               {!isLoading && words?.length === 0 ? (
-                <p>list empty</p>
+                <div>
+                  <p>
+                    No item to show
+                    {urlParams.level && (
+                      <span className="font-bold"> with current Filters</span>
+                    )}
+                    ...!
+                  </p>
+                  {letsAdd && searchInput && (
+                    <button
+                      className="p-2 m-2 border"
+                      onClick={() => {
+                        setNewWords(searchInput);
+                        if (newWords) {
+                          handleAddAll();
+                        }
+                      }}
+                    >
+                      Double click to Feed Pronagon with :{" "}
+                      <span className="font-bold text-lime-600">
+                        "{searchInput}"
+                      </span>{" "}
+                      ...!
+                    </button>
+                  )}
+                </div>
               ) : (
                 words.map((item, index) => {
                   return (
