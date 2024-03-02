@@ -17,6 +17,7 @@ import { FcClearFilters } from "react-icons/fc";
 import { VscWholeWord } from "react-icons/vsc";
 
 import { useLocation, useSearchParams } from "react-router-dom";
+import axiosApi from "../api/axiosApi";
 
 function EnglishDic() {
   const [words, setWords] = useState([]);
@@ -41,7 +42,7 @@ function EnglishDic() {
   const FetchWords = async () => {
     setIsLoading(true);
 
-    axios
+    axiosApi
       .get(`${BASE_URL}/words`, {
         params: {
           _page: page,
@@ -60,7 +61,7 @@ function EnglishDic() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        toast.error(err.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);

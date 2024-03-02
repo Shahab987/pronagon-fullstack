@@ -18,3 +18,7 @@ textarea:focus,
 input:focus {
   outline: none;
 }
+
+body {
+  background-color: #fefefe;
+}
