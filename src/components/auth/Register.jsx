@@ -19,7 +19,7 @@ function Register() {
     e.preventDefault();
 
     axios
-      .post(`${BASE_URL}/api/users/register`, formData)
+      .post(`${BASE_URL}/auth/register`, formData)
       .then((res) => {
         console.log(res);
         if (res.status === 201) {

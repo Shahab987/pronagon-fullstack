@@ -18,13 +18,14 @@ function Login() {
     e.preventDefault();
 
     axios
-      .post(`${BASE_URL}/api/users/login`, formData, {
+      .post(`${BASE_URL}/auth/login`, formData, {
         withCredentials: true,
       })
       .then((res) => {
         console.log(res);
         if (res.status === 200) {
           toast.success(res.data.message);
+          sessionStorage.setItem("token", res.data.token);
         } else {
           // Login failed
           // Show error message
