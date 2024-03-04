@@ -1,12 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const cors = require("cors");
+const path = require('path');
 require("dotenv").config();
 
 const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = process.env.PORT || 3003;
+
+app.use(express.static(path.join(__dirname)));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// Define a route to serve the React app
+app.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.use(cookieParser());
 
