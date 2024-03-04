@@ -18,6 +18,7 @@ import { VscWholeWord } from "react-icons/vsc";
 
 import { useLocation, useSearchParams } from "react-router-dom";
 import axiosApi from "../api/axiosApi";
+import { useSelector } from "react-redux";
 
 function EnglishDic() {
   const [words, setWords] = useState([]);
@@ -37,6 +38,10 @@ function EnglishDic() {
   const [letsAdd, setLetsAdd] = useState(false);
   const [urlParams, setUrlParams] = useState(
     Object.fromEntries(new URLSearchParams(location?.search)) || {}
+  );
+
+  const { loading, success, error, userToken, user } = useSelector(
+    (state) => state.auth
   );
 
   const FetchWords = async () => {
@@ -61,7 +66,7 @@ function EnglishDic() {
         }
       })
       .catch((err) => {
-        toast.error(err.response.data.message);
+        // toast.error(err.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -211,23 +216,23 @@ function EnglishDic() {
   const handleUnderlinePos = () => {
     switch (urlParams?.level) {
       case "0":
-        setUnderlinePos("translate-x-0");
+        setUnderlinePos("bg-stone-300 translate-x-0");
         break;
       case "1":
-        setUnderlinePos("translate-x-7");
+        setUnderlinePos("bg-lime-600 translate-x-7");
         break;
       case "2":
-        setUnderlinePos("translate-x-14");
+        setUnderlinePos("bg-purple-600 translate-x-14");
         break;
       case "3":
-        setUnderlinePos("translate-x-21");
+        setUnderlinePos("bg-yellow-500 translate-x-21");
         break;
       case "4":
-        setUnderlinePos("translate-x-28");
+        setUnderlinePos("bg-red-600 translate-x-28");
         break;
 
       default:
-        setUnderlinePos((p) => p + " opacity-0");
+        setUnderlinePos("translate-x-0 opacity-0");
         break;
     }
 
@@ -246,7 +251,7 @@ function EnglishDic() {
         break;
 
       default:
-        setSortlinePos((p) => p + " opacity-0");
+        setSortlinePos("-translate-x-1 opacity-0");
         break;
     }
   };
@@ -274,6 +279,15 @@ function EnglishDic() {
   useEffect(() => {
     handleSearch();
   }, [exactMatch]);
+
+  if (!success && !user.id) {
+    return (
+      <p className="text-center pt-4 text-3xl text-red-900">
+        Access Unauthorized ...!
+        <p>Please login first.</p>
+      </p>
+    );
+  }
 
   return (
     <div className="w-full  px-3 md:px-10">
@@ -322,7 +336,7 @@ function EnglishDic() {
             <div className="flex gap-2 text-xl relative">
               <div
                 className={`absolute h-1 w-5 -top-2 left-0 rounded-b-full  
-                transition-all transform-gpu duration-500  bg-zinc-400  ${underlinePos}`}
+                transition-all transform-gpu duration-500    ${underlinePos}`}
               />
               <button onClick={() => handleLevel(0)}>
                 <BsBookmarkFill className="text-stone-300" />
@@ -346,7 +360,7 @@ function EnglishDic() {
             <div className="relative flex items-center  gap-3">
               <div
                 className={`absolute h-1 w-6 -top-3 rounded-b-full  
-                transition-all transform-gpu duration-500 bg-red-500 ${sortlinePos}`}
+                transition-all transform-gpu duration-500 bg-sky-700 ${sortlinePos}`}
               />
               <button
                 onClick={() => {
