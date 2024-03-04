@@ -12,9 +12,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "18"
-      - name: update-liara
+
+      - name: Build Frontend
+        run: |
+          npm install
+          npm run build
+
+      - name: Go to Server Directory
+        run: cd server
+
+          - name: update-liara
         env:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
         run: |
+          "here i want to go to server dir"
           npm i -g @liara/cli@5
-          liara deploy --app="mosaleh" --api-token="$LIARA_TOKEN" --no-app-logs
+          liara deploy --app="mosaleh-node" --api-token="$LIARA_TOKEN" --no-app-logs --port=3003
