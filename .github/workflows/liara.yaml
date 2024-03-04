@@ -21,7 +21,7 @@ jobs:
       - name: Go to Server Directory
         run: cd server
 
-          - name: update-liara
+      - name: update-liara
         env:
           LIARA_TOKEN: ${{ secrets.LIARA_API_TOKEN }}
         run: |
