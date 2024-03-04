@@ -11,12 +11,12 @@ const PORT = process.env.PORT || 3003;
 app.use(cookieParser());
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: process.env.ALLOW_ORIGIN,
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.ALLOW_ORIGIN,
+//     credentials: true,
+//   })
+// );
 
 mongoose
   .connect(process.env.DATABASE_URL, {
