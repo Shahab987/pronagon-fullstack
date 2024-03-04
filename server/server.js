@@ -12,9 +12,7 @@ app.use(express.static(path.join(__dirname)));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Define a route to serve the React app
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
+
 
 app.use(cookieParser());
 
@@ -46,17 +44,9 @@ app.use("/api/words", wordRoutes);
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/auth", userRoutes);
 
-// Middleware to validate token
-function validateToken(req, res, next) {
-  const token = req.headers["authorization"];
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
-
-  jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
-    if (err) return res.status(403).json({ message: "Forbidden" });
-    req.user = decoded.user; // Attach decoded user information to request object
-    next();
-  });
-}
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
