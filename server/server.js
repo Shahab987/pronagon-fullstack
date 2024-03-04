@@ -30,13 +30,13 @@ mongoose
   });
 
 const wordRoutes = require("./routes/wordRoutes");
-app.use("/words", wordRoutes);
+app.use("/api/words", wordRoutes);
 
 // const wordRoutes = require('./routes/wordRoutes');
 // app.use('/words', validateToken, wordRoutes); // Protect routes with token validation middleware
 
 const userRoutes = require("./routes/userRoutes");
-app.use("/auth", userRoutes);
+app.use("/api/auth", userRoutes);
 
 // Middleware to validate token
 function validateToken(req, res, next) {
