@@ -15,7 +15,6 @@ import {
 } from "react-icons/fa";
 import { FcClearFilters } from "react-icons/fc";
 import { VscWholeWord } from "react-icons/vsc";
-
 import { useLocation, useSearchParams } from "react-router-dom";
 import axiosApi from "../api/axiosApi";
 import { useSelector } from "react-redux";
@@ -261,7 +260,9 @@ function EnglishDic() {
   }, [location]);
 
   useEffect(() => {
-    FetchWords();
+    if (success && user.id) {
+      FetchWords();
+    }
     handleUnderlinePos();
     setPageInput(page);
   }, [page, urlParams, itemsPerPage]);
@@ -282,10 +283,10 @@ function EnglishDic() {
 
   if (!success && !user.id) {
     return (
-      <p className="text-center pt-4 text-3xl text-red-900">
-        Access Unauthorized ...!
+      <div className="text-center pt-4 text-3xl text-red-900">
+        <p>Access Unauthorized ...!</p>
         <p>Please login first.</p>
-      </p>
+      </div>
     );
   }
 

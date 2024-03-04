@@ -60,7 +60,6 @@ export const loginUser = createAsyncThunk(
 export const tokenCheck = createAsyncThunk(
   "auth/tokenCheck",
   async (credentials, { rejectWithValue }) => {
-    console.log("checkkk");
     return await axiosApi
       .post(`${BASE_URL}/auth/checkToken`)
       .then((res) => {
