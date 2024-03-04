@@ -7,9 +7,7 @@ const User = require("../models/User");
 const cookieOptions = {
   httpOnly: true, // Cookie is only accessible on the server side
   maxAge: 7 * 24 * 60 * 60 * 1000, // Max age of the cookie set to one week
-  sameSite: "none",
-  secure: true,
-  path: "/",
+  
 };
 
 // Register
