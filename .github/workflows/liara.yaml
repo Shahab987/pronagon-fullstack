@@ -19,7 +19,7 @@ jobs:
 
       - name: Copy Build Files
         run: |
-          cp -r build/* server/
+          cp -r dist/* server/
 
       - name: update-liara
         env:
