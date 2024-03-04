@@ -265,7 +265,7 @@ function EnglishDic() {
     }
     handleUnderlinePos();
     setPageInput(page);
-  }, [page, urlParams, itemsPerPage]);
+  }, [page, urlParams, itemsPerPage, success]);
 
   useEffect(() => {
     if (Math.ceil(totalCount / itemsPerPage) < page) {
