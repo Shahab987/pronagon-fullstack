@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "../api/config";
+import axiosApi from "../api/axiosApi";
+import { dataNew } from "../db2";
 
 const UpdateDb = () => {
   const [data, setData] = useState([]);
@@ -8,19 +10,37 @@ const UpdateDb = () => {
   // Function to fetch data, add new key-value pair, and update database
   const fetchDataAndUpdateDatabase = async () => {
     try {
-      const response = await axios.get(`http://127.0.0.1:5000/words`);
-      const fetchedData = response.data;
+      const response = await axiosApi.get(`${BASE_URL}/words/all`);
+
+      const withNoMeaning = response.data
+        .filter((item) => item.meaning === "")
+        .map((item) => item.name);
+
+      const fetchedData = response.data.map((item) => {
+        const newWord = dataNew.find((i) => item.name === i.word);
+        if (newWord) {
+          return {
+            ...item,
+            meaning: newWord.meaning,
+            pronunciation: newWord.pronunciation,
+            example: newWord.example,
+          };
+        } else {
+          return item;
+        }
+      });
 
       // Add new key-value pair to each object
-      const updatedData = fetchedData.map((item) => ({
-        name: item.name,
-        meaning: "",
-        audio_us: item.audio_us,
-        level: 0,
-        length: item.length,
-      }));
-      console.log(updatedData);
-      setData(updatedData); // Update state
+      // const updatedData = fetchedData.map((item) => ({
+      //   name: item.name,
+      //   meaning: "",
+      //   audio_us: item.audio_us,
+      //   level: 0,
+      //   length: item.length,
+      // }));
+
+      console.log(withNoMeaning);
+      setData(fetchedData); // Update state
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -30,12 +50,15 @@ const UpdateDb = () => {
     try {
       for (let i = 0; i < data.length; i++) {
         // Assuming you have an endpoint '/update-data/:id' to handle item updates
-        await axios.post(`${BASE_URL}/words`, data[i]);
-        console.log(`Item name: ${data[i].name} updated successfully`);
 
-        // Introduce a delay of 100ms between each PUT request
-        if (i < data.length - 1) {
-          await new Promise((resolve) => setTimeout(resolve, 30));
+        if (data[i].meaning) {
+          await axiosApi.put(`${BASE_URL}/words/${data[i]._id}`, data[i]);
+          console.log(`Item name: ${data[i].name} updated successfully`);
+
+          // Introduce a delay of 100ms between each PUT request
+          if (i < data.length - 1) {
+            await new Promise((resolve) => setTimeout(resolve, 30));
+          }
         }
       }
     } catch (error) {

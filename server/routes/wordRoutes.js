@@ -62,15 +62,19 @@ router.get("/", async (req, res) => {
   });
 });
 
-// router.get('/all', async (req, res) => {
-//     try {
-//         const allWords = await WordModel.find({});
-//         res.json(allWords);
-//     } catch (error) {
-//         console.error('Error occurred while fetching all words from MongoDB', error);
-//         res.status(500).json({ message: 'Internal Server Error' });
-//     }
-// });
+router.get("/all", async (req, res) => {
+  try {
+    // const allWords = await WordModel.find({});
+    const words100 = await WordModel.find({ meaning: "" }).limit(100);
+    res.json(words100);
+  } catch (error) {
+    console.error(
+      "Error occurred while fetching all words from MongoDB",
+      error
+    );
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 router.post("/", async (req, res) => {
   try {

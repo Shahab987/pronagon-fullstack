@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require('path');
+const cors = require('cors')
 require("dotenv").config();
 
 const cookieParser = require("cookie-parser");
@@ -17,12 +18,12 @@ app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(cookieParser());
 
 app.use(express.json());
-// app.use(
-//   cors({
-//     origin: process.env.ALLOW_ORIGIN,
-//     credentials: true,
-//   })
-// );
+app.use(
+  cors({
+    origin: process.env.ALLOW_ORIGIN,
+    credentials: true,
+  })
+);
 
 mongoose
   .connect(process.env.DATABASE_URL, {

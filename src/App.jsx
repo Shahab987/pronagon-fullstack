@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 import Auth from "./pages/Auth";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import UpdateDb from "./components/UpdateDb";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="words" element={<EnglishDic />} />
+          {/* <Route path="update" element={<UpdateDb />} /> */}
         </Route>
       </Routes>
     </div>
