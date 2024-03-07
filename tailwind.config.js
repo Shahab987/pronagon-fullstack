@@ -7,6 +7,9 @@ module.exports = {
   theme: {
     fontFamily: {
       satoshi: ["Satoshi", "sans-serif"],
+      Vazir: ["Vazir", "sans-serif"],
+      IRYekan: ["IRYekan"],
+      IranSans: ["IranSans"],
     },
 
     extend: {

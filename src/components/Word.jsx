@@ -17,6 +17,7 @@ function Word({ item, deleteItem, FetchWords }) {
   const [levelColor, setLevelColor] = useState("text-stone-300");
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
+  const [expand, setExpand] = useState(false);
 
   const audioRef = useRef();
   const [url, setUrl] = useState({
@@ -113,19 +114,19 @@ function Word({ item, deleteItem, FetchWords }) {
   useEffect(() => {
     switch (level) {
       case 0:
-        setLevelColor("text-stone-300");
+        setLevelColor("bg-stone-300");
         break;
       case 1:
-        setLevelColor("text-lime-600");
+        setLevelColor("bg-lime-600");
         break;
       case 2:
-        setLevelColor("text-purple-600");
+        setLevelColor("bg-purple-600");
         break;
       case 3:
-        setLevelColor("text-yellow-500");
+        setLevelColor("bg-yellow-500");
         break;
       case 4:
-        setLevelColor("text-red-600");
+        setLevelColor("bg-red-600");
         break;
 
       default:
@@ -142,7 +143,6 @@ function Word({ item, deleteItem, FetchWords }) {
         .then((res) => {
           if (res.status === 200) {
             toast.success("Tag changed");
-            FetchWords();
           }
         });
     } else {
@@ -161,122 +161,141 @@ function Word({ item, deleteItem, FetchWords }) {
 
   return (
     <div
-      onClick={(e) => reset(e)}
-      className="relative flex items-center w-full p-3 border rounded-lg  hover:shadow-md hover:border-red-600"
+      onClick={(e) => {
+        reset(e);
+      }}
+      className="relative flex flex-col items-center w-full p-3
+       border rounded-lg gap-2  hover:shadow-md hover:bg-gray-50 "
     >
-      <p className="font-semibold  xs:text-lg ">{item?.name}</p>
+      <div
+        className={`h-full w-1 absolute rounded-s-lg left-0 top-0  ${levelColor}`}
+      ></div>
+      <div className="flex items-center w-full">
+        <p
+          onClick={() => setExpand(!expand)}
+          className="font-semibold  2xs:text-lg w-full h-full "
+        >
+          {item?.name}
+        </p>
 
-      {item?.audio_us?.search("uk_pron") !== -1 && (
-        <p className="text-red-600 font-bold ms-7">UK</p>
-      )}
+        {item?.audio_us?.search("uk_pron") !== -1 && (
+          <p className="text-red-600 font-bold ms-7">UK</p>
+        )}
 
-      {/* ------------------------ buttons  */}
-      <div className="icons flex items-center gap-3 xs:gap-6 ms-auto text-xl ">
-        <button onClick={() => setIsSettingLevel(true)}>
-          <BsBookmarkFill className={levelColor} />
-        </button>
-        {isSettingLevel && (
-          <div className="absolute right-24 bg-white border p-1 rounded-md shadow">
-            <button onClick={() => setLevel(0)}>
+        {/* ------------------------ buttons  */}
+        <div className="icons flex items-center gap-2 xs:gap-5 ms-auto text-xl ">
+          <div className="flex gap-0 xs:gap-1 text-xl">
+            <button onClick={(e) => setLevel(0)}>
               <BsBookmarkFill className="text-stone-300" />
             </button>
-            <button onClick={() => setLevel(1)}>
+            <button onClick={(e) => setLevel(1)}>
               <BsBookmarkFill className="text-lime-600" />
             </button>
-            <button onClick={() => setLevel(2)}>
+            <button onClick={(e) => setLevel(2)}>
               <BsBookmarkFill className="text-purple-600" />
             </button>
-            <button onClick={() => setLevel(3)}>
+            <button onClick={(e) => setLevel(3)}>
               <BsBookmarkFill className="text-yellow-500" />
             </button>
-            <button onClick={() => setLevel(4)}>
+            <button onClick={(e) => setLevel(4)}>
               <BsBookmarkFill className="text-red-600" />
             </button>
           </div>
-        )}
 
-        <button className="" onClick={() => toggleSure(null)}>
-          <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
-        </button>
-        {isSure && (
-          <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
-            <p>Sure?</p>
-            <button onClick={() => toggleSure(item._id)}>Yes</button>
-            <button onClick={() => toggleSure(false)}>No</button>
+          {!playing ? (
+            <button disabled={!ready}>
+              <FaPlay
+                className="hover:text-blue-700"
+                style={{ color: !ready && "gray" }}
+                onClick={() => audioRef.current.play()}
+              />{" "}
+            </button>
+          ) : (
+            <button disabled={!ready}>
+              <FaStop onClick={() => stop()} />
+            </button>
+          )}
+        </div>
+
+        <div id="audioTag">
+          {item?.audio_us && (
+            <audio
+              onCanPlay={() => setReady(true)}
+              ref={audioRef}
+              // preload="auto"
+              onPlay={() => {
+                setPlaying(true);
+              }}
+              onPause={() => {
+                setPlaying(false);
+              }}
+              type="audio/mpeg"
+            >
+              <source src={item.audio_us} />
+              Your browser does not support the audio tag.
+            </audio>
+          )}
+          {url.l1 && !item?.audio_us && (
+            <audio
+              onCanPlay={() => setReady(true)}
+              ref={audioRef}
+              // preload="auto"
+              onPlay={() => {
+                setPlaying(true);
+              }}
+              onPause={() => {
+                setPlaying(false);
+              }}
+              type="audio/mpeg"
+            >
+              <source
+                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__us_1.mp3`}
+              />
+              <source
+                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_1.mp3`}
+              />
+              <source
+                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
+              />
+              <source
+                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
+              />
+              <source
+                src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
+              />
+              <source
+                src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}
+              />
+              <source
+                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__gb_1.mp3`}
+              />
+              Your browser does not support the audio tag.
+            </audio>
+          )}
+        </div>
+      </div>
+      {expand && (
+        <>
+          <div className="flex items-center justify-between w-full bg-slate-50 px-2 py-1 rounded-md">
+            <p className="text-lg text-zinc-500 ">({item.pronunciation})</p>
+            <p className="font-IRYekan text-sm text-cyan-950">{item.meaning}</p>
           </div>
-        )}
+          <div className="flex items-center w-full">
+            <p>Ex: {item.example}</p>
 
-        {!playing ? (
-          <button disabled={!ready}>
-            <FaPlay
-              className="hover:text-blue-700"
-              style={{ color: !ready && "gray" }}
-              onClick={() => audioRef.current.play()}
-            />{" "}
-          </button>
-        ) : (
-          <button disabled={!ready}>
-            <FaStop onClick={() => stop()} />
-          </button>
-        )}
-      </div>
-
-      <div id="audioTag">
-        {item?.audio_us && (
-          <audio
-            onCanPlay={() => setReady(true)}
-            ref={audioRef}
-            // preload="auto"
-            onPlay={() => {
-              setPlaying(true);
-            }}
-            onPause={() => {
-              setPlaying(false);
-            }}
-            type="audio/mpeg"
-          >
-            <source src={item.audio_us} />
-            Your browser does not support the audio tag.
-          </audio>
-        )}
-        {url.l1 && !item?.audio_us && (
-          <audio
-            onCanPlay={() => setReady(true)}
-            ref={audioRef}
-            // preload="auto"
-            onPlay={() => {
-              setPlaying(true);
-            }}
-            onPause={() => {
-              setPlaying(false);
-            }}
-            type="audio/mpeg"
-          >
-            <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__us_1.mp3`}
-            />
-            <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_1.mp3`}
-            />
-            <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
-            />
-            <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
-            />
-            <source
-              src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
-            />
-            <source
-              src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}
-            />
-            <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__gb_1.mp3`}
-            />
-            Your browser does not support the audio tag.
-          </audio>
-        )}
-      </div>
+            <button className="text-xl" onClick={() => toggleSure(null)}>
+              <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
+            </button>
+            {isSure && (
+              <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
+                <p>Sure?</p>
+                <button onClick={() => toggleSure(item._id)}>Yes</button>
+                <button onClick={() => toggleSure(false)}>No</button>
+              </div>
+            )}
+          </div>{" "}
+        </>
+      )}
     </div>
   );
 }

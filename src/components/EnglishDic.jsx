@@ -515,7 +515,7 @@ function EnglishDic() {
           </div>
         ) : (
           <div className="w-full ">
-            <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-1 ">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 ">
               {!isLoading && words?.length === 0 ? (
                 <div>
                   <p>

@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "IRYekan";
+  src: url("https://db.onlinewebfonts.com/t/307afc3e58e8f1a07b1e60d4ad0b1ac2.eot");
+  src: url("https://db.onlinewebfonts.com/t/307afc3e58e8f1a07b1e60d4ad0b1ac2.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/307afc3e58e8f1a07b1e60d4ad0b1ac2.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/307afc3e58e8f1a07b1e60d4ad0b1ac2.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/307afc3e58e8f1a07b1e60d4ad0b1ac2.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/307afc3e58e8f1a07b1e60d4ad0b1ac2.svg#IRYekan")
+      format("svg");
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* background-color: #e5eeff; */
+
+  /* background: var(--background_blue); */
+
+  /* background: linear-gradient(
+    180deg,
+    rgba(0, 50, 75, 1) 8%,
+    rgba(96, 201, 255, 1) 100%
+  ); */
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
