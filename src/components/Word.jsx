@@ -170,10 +170,10 @@ function Word({ item, deleteItem, FetchWords }) {
       <div
         className={`h-full w-1 absolute rounded-s-lg left-0 top-0  ${levelColor}`}
       ></div>
-      <div className="flex items-center w-full">
+      <div className="flex items-center w-full py-0">
         <p
           onClick={() => setExpand(!expand)}
-          className="font-semibold  2xs:text-lg w-full h-full "
+          className="font-semibold  2xs:text-lg w-full cursor-pointer me-3"
         >
           {item?.name}
         </p>
