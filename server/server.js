@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const path = require("path");
 const cors = require("cors");
 require("dotenv").config();
-const axios = require("axios");
 
 const { generateResponse } = require("./openai");
 
