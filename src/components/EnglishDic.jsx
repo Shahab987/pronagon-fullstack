@@ -35,6 +35,7 @@ function EnglishDic() {
   const [sortlinePos, setSortlinePos] = useState("opacity-0");
   const [exactMatch, setExactMatch] = useState(false);
   const [letsAdd, setLetsAdd] = useState(false);
+  const [currentExpand, setCurrentExpand] = useState(-1);
   const [urlParams, setUrlParams] = useState(
     Object.fromEntries(new URLSearchParams(location?.search)) || {}
   );
@@ -282,20 +283,29 @@ function EnglishDic() {
   }, [exactMatch]);
 
   if (!success && !user.id) {
-    return (
-      <div className="text-center pt-4 text-3xl text-red-900">
-        <p>Access Unauthorized ...!</p>
-        <p>Please login first.</p>
-      </div>
-    );
+    if (loading) {
+      return (
+        <div className="flex text-xl justify-center items-center gap-3">
+          <div className="scale-150 mt-1">
+            <LoaderIcon />
+          </div>
+          Loading...
+        </div>
+      );
+    } else {
+      return (
+        <div className="text-center pt-4 text-2xl text-red-900">
+          <p>Access Unauthorized ...!</p>
+          <p>Please login first.</p>
+        </div>
+      );
+    }
   }
 
   return (
-    <div className="w-full  px-3 md:px-10">
+    <div className=" w-full  px-3 ">
       {/* ------------------------------------- Header  */}
-      <div className="bg-lime-300 pb-3 pt-2 text-center rounded-b-2xl mb-3">
-        <h1 className="text-3xl font-mono">Pronagon</h1>
-      </div>
+
       {/* ------------------------------------- Add new words  */}
       <div className="flex items-center my-1">
         <input
@@ -498,7 +508,9 @@ function EnglishDic() {
               name="items"
               id="items"
               onChange={(e) => setItemsPerPage(e.target.value)}
+              value={itemsPerPage}
             >
+              <option value="1">1</option>
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="15">15</option>
@@ -515,7 +527,7 @@ function EnglishDic() {
           </div>
         ) : (
           <div className="w-full ">
-            <div className="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-2 ">
+            <div className={`flex flex-col  gap-2`}>
               {!isLoading && words?.length === 0 ? (
                 <div>
                   <p>
@@ -548,15 +560,38 @@ function EnglishDic() {
                   return (
                     <div key={item._id}>
                       <Word
+                        itemsPerPage={itemsPerPage}
+                        currentExpand={currentExpand}
+                        setCurrentExpand={setCurrentExpand}
                         item={item}
                         deleteItem={deleteItem}
-                        FetchWords={FetchWords}
                       />
                     </div>
                   );
                 })
               )}
             </div>
+          </div>
+        )}
+        {/* -------------------- Single Pagination  */}
+
+        {itemsPerPage < 5 && (
+          <div className=" flex w-full items-center justify-center mt-4">
+            <button
+              disabled={page === 1}
+              className="text-9xl mx-3 text-lime-300"
+              style={{ color: page === 1 ? "gray" : "" }}
+              onClick={() => handlePage(-1)}
+            >
+              <IoArrowBackCircle />
+            </button>
+
+            <button
+              className="text-9xl mx-3 text-lime-300"
+              onClick={() => handlePage(1)}
+            >
+              <IoArrowForwardCircle />
+            </button>
           </div>
         )}
       </div>

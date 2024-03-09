@@ -8,7 +8,13 @@ import { BsBookmarkFill } from "react-icons/bs";
 import { BASE_URL } from "../api/config";
 import { toast } from "react-hot-toast";
 
-function Word({ item, deleteItem, FetchWords }) {
+function Word({
+  item,
+  deleteItem,
+  currentExpand,
+  setCurrentExpand,
+  itemsPerPage,
+}) {
   const [playing, setPlaying] = useState(false);
   const [word, setWord] = useState({});
   const [ready, setReady] = useState(false);
@@ -17,7 +23,6 @@ function Word({ item, deleteItem, FetchWords }) {
   const [levelColor, setLevelColor] = useState("text-stone-300");
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
-  const [expand, setExpand] = useState(false);
 
   const audioRef = useRef();
   const [url, setUrl] = useState({
@@ -165,26 +170,45 @@ function Word({ item, deleteItem, FetchWords }) {
         reset(e);
       }}
       className="relative flex flex-col items-center w-full p-3
-       border rounded-lg gap-2  hover:shadow-md hover:bg-gray-50 "
+       border rounded-lg gap-2  hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto"
     >
       <div
-        className={`h-full w-1 absolute rounded-s-lg left-0 top-0  ${levelColor}`}
+        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0  ${levelColor}`}
       ></div>
-      <div className="flex items-center w-full py-0">
+      <div className="flex items-center w-full py-0 ps-1">
         <p
-          onClick={() => setExpand(!expand)}
-          className="font-semibold  2xs:text-lg w-full cursor-pointer me-3"
+          onClick={() =>
+            setCurrentExpand((id) => {
+              if (id !== item._id) {
+                return item._id;
+              } else {
+                return -1;
+              }
+            })
+          }
+          className="font-semibold  2xs:text-lg w-full md:w-fit cursor-pointer me-3"
         >
           {item?.name}
         </p>
 
-        {item?.audio_us?.search("uk_pron") !== -1 && (
-          <p className="text-red-600 font-bold ms-7">UK</p>
-        )}
+        <p className="hidden md:block bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
+          ({item.pronunciation})
+        </p>
+
+        <p
+          dir="rtl"
+          className="hidden md:block text-sm bg-slate-100 rounded-md px-2 py-1 me-auto ms-5  font-IranSans  font-bold text-cyan-950"
+        >
+          {item.meaning}
+        </p>
 
         {/* ------------------------ buttons  */}
-        <div className="icons flex items-center gap-2 xs:gap-5 ms-auto text-xl ">
-          <div className="flex gap-0 xs:gap-1 text-xl">
+        <div
+          className={`icons flex items-center gap-2 xs:gap-5  text-xl ${
+            itemsPerPage === "1" ? "hidden" : ""
+          }`}
+        >
+          <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-xl `}>
             <button onClick={(e) => setLevel(0)}>
               <BsBookmarkFill className="text-stone-300" />
             </button>
@@ -205,7 +229,9 @@ function Word({ item, deleteItem, FetchWords }) {
           {!playing ? (
             <button disabled={!ready}>
               <FaPlay
-                className="hover:text-blue-700"
+                className={`hover:text-blue-700 ${
+                  itemsPerPage === "1" && "text-2xl"
+                }`}
                 style={{ color: !ready && "gray" }}
                 onClick={() => audioRef.current.play()}
               />{" "}
@@ -216,71 +242,19 @@ function Word({ item, deleteItem, FetchWords }) {
             </button>
           )}
         </div>
-
-        <div id="audioTag">
-          {item?.audio_us && (
-            <audio
-              onCanPlay={() => setReady(true)}
-              ref={audioRef}
-              // preload="auto"
-              onPlay={() => {
-                setPlaying(true);
-              }}
-              onPause={() => {
-                setPlaying(false);
-              }}
-              type="audio/mpeg"
-            >
-              <source src={item.audio_us} />
-              Your browser does not support the audio tag.
-            </audio>
-          )}
-          {url.l1 && !item?.audio_us && (
-            <audio
-              onCanPlay={() => setReady(true)}
-              ref={audioRef}
-              // preload="auto"
-              onPlay={() => {
-                setPlaying(true);
-              }}
-              onPause={() => {
-                setPlaying(false);
-              }}
-              type="audio/mpeg"
-            >
-              <source
-                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__us_1.mp3`}
-              />
-              <source
-                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_1.mp3`}
-              />
-              <source
-                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
-              />
-              <source
-                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
-              />
-              <source
-                src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
-              />
-              <source
-                src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}
-              />
-              <source
-                src={`https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__gb_1.mp3`}
-              />
-              Your browser does not support the audio tag.
-            </audio>
-          )}
-        </div>
       </div>
-      {expand && (
+      {/* ------------------------ details  */}
+      {(currentExpand === item._id || itemsPerPage === "1") && (
         <>
-          <div className="flex items-center justify-between w-full bg-slate-50 px-2 py-1 rounded-md">
-            <p className="text-lg text-zinc-500 ">({item.pronunciation})</p>
-            <p className="font-IRYekan text-sm text-cyan-950">{item.meaning}</p>
+          <div className="flex md:hidden items-center justify-between w-full bg-slate-100 px-2 py-1 mt-1 rounded-md">
+            <p className="text-lg text-zinc-500 w-full">
+              ({item.pronunciation})
+            </p>
+            <p dir="rtl" className="font-IranSans  font-bold text-cyan-950">
+              {item.meaning}
+            </p>
           </div>
-          <div className="flex items-center w-full">
+          <div className="flex items-center w-full justify-between ps-2 mt-1">
             <p>Ex: {item.example}</p>
 
             <button className="text-xl" onClick={() => toggleSure(null)}>
@@ -293,9 +267,104 @@ function Word({ item, deleteItem, FetchWords }) {
                 <button onClick={() => toggleSure(false)}>No</button>
               </div>
             )}
-          </div>{" "}
+          </div>
         </>
       )}
+      {/* ------------------------ Audio tag  */}
+      <div id="audioTag" className="absolute">
+        {item?.audio_us && (
+          <audio
+            onCanPlay={() => setReady(true)}
+            ref={audioRef}
+            // preload="auto"
+            onPlay={() => {
+              setPlaying(true);
+            }}
+            onPause={() => {
+              setPlaying(false);
+            }}
+            type="audio/mpeg"
+          >
+            <source src={item.audio_us} />
+            Your browser does not support the audio tag.
+          </audio>
+        )}
+        {url.l1 && !item?.audio_us && (
+          <audio
+            onCanPlay={() => setReady(true)}
+            ref={audioRef}
+            // preload="auto"
+            onPlay={() => {
+              setPlaying(true);
+            }}
+            onPause={() => {
+              setPlaying(false);
+            }}
+            type="audio/mpeg"
+          >
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__us_1.mp3`}
+            />
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_1.mp3`}
+            />
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
+            />
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
+            />
+            <source
+              src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__gb_1.mp3`}
+            />
+            Your browser does not support the audio tag.
+          </audio>
+        )}
+      </div>
+
+      <div
+        className={`icons flex items-center gap-6 mt-3   ${
+          itemsPerPage === "1" ? "" : "hidden"
+        }`}
+      >
+        <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-3xl `}>
+          <button onClick={(e) => setLevel(0)}>
+            <BsBookmarkFill className="text-stone-300" />
+          </button>
+          <button onClick={(e) => setLevel(1)}>
+            <BsBookmarkFill className="text-lime-600" />
+          </button>
+          <button onClick={(e) => setLevel(2)}>
+            <BsBookmarkFill className="text-purple-600" />
+          </button>
+          <button onClick={(e) => setLevel(3)}>
+            <BsBookmarkFill className="text-yellow-500" />
+          </button>
+          <button onClick={(e) => setLevel(4)}>
+            <BsBookmarkFill className="text-red-600" />
+          </button>
+        </div>
+
+        {!playing ? (
+          <button disabled={!ready}>
+            <FaPlay
+              className={`hover:text-blue-700 text-3xl`}
+              style={{ color: !ready && "gray" }}
+              onClick={() => audioRef.current.play()}
+            />{" "}
+          </button>
+        ) : (
+          <button disabled={!ready}>
+            <FaStop onClick={() => stop()} />
+          </button>
+        )}
+      </div>
     </div>
   );
 }

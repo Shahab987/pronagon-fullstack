@@ -33,31 +33,36 @@ function Layout() {
 
   return (
     <div>
-      <nav className="bg-lime-800 p-3 flex gap-3">
-        <NavLink className="text-lime-100" to="/">
-          Home
-        </NavLink>
-        {isLogedIn && (
-          <NavLink className="text-lime-100" to="/words">
-            Pronagon
+      <div className="bg-lime-800 ">
+        <nav className=" sm:container sm:mx-auto py-3 px-6  flex gap-3 ">
+          <NavLink className="text-lime-100" to="/">
+            Home
           </NavLink>
-        )}
-        {!isLogedIn && (
-          <NavLink className="text-lime-100 ms-auto" to="/Auth/login">
-            Login
-          </NavLink>
-        )}
-        {isLogedIn && (
-          <NavLink
-            onClick={() => logoutHandler()}
-            className="text-lime-100 ms-auto flex items-center gap-2"
-            to="/"
-          >
-            <p>Logout</p> <FaSignOutAlt />
-          </NavLink>
-        )}
-      </nav>
-      <Outlet />
+          {isLogedIn && (
+            <NavLink className="text-lime-100" to="/words">
+              Pronagon
+            </NavLink>
+          )}
+          {!isLogedIn && (
+            <NavLink className="text-lime-100 ms-auto" to="/Auth/login">
+              Login
+            </NavLink>
+          )}
+          {isLogedIn && (
+            <NavLink
+              onClick={() => logoutHandler()}
+              className="text-lime-100 ms-auto flex items-center gap-2"
+              to="/"
+            >
+              <p>Logout</p> <FaSignOutAlt />
+            </NavLink>
+          )}
+        </nav>
+      </div>
+      <div className="sm:container sm:mx-auto">
+        <Outlet />
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3"></div>
     </div>
   );
 }
