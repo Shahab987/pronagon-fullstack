@@ -83,6 +83,7 @@ function EnglishDic() {
   };
 
   const handleAddAll = async () => {
+    setIsLoading(true);
     if (!newWords) {
       toast.error("empty");
       return;
@@ -101,22 +102,48 @@ function EnglishDic() {
       for (let i = 0; i < wordsArr.length; i++) {
         const item = wordsArr[i].toLowerCase();
         if (item.length > 4) {
-          const itemExist = await axios
+          const itemExist = await axiosApi
             .get(`${BASE_URL}/words?exact=${item}`)
             .then((res) => res?.data?.data?.length);
           if (itemExist === 0) {
-            const tmpNewWord = {
+            let openAiResponse = {};
+            let tmpNewWord = {
               name: item,
               meaning: "",
               audio_us: "",
               level: 0,
               length: item.length,
             };
-            axios
-              .post(`${BASE_URL}/words`, tmpNewWord)
-              .then((res) =>
-                res.statusText === "Created" ? console.log("Added") : ""
-              );
+
+            try {
+              await axios
+                .get(`${BASE_URL}/openai`, {
+                  params: {
+                    word: item,
+                  },
+                })
+                .then((response) => {
+                  console.log(response.data.choices[0].message.content);
+                  openAiResponse = JSON.parse(
+                    response.data.choices[0].message.content
+                  );
+                  tmpNewWord = {
+                    ...tmpNewWord,
+                    meaning: openAiResponse.meaning,
+                    pronunciation: openAiResponse.pronunciation,
+                    example: openAiResponse.example,
+                  };
+                  console.log(tmpNewWord);
+                  axios
+                    .post(`${BASE_URL}/words`, tmpNewWord)
+                    .then((res) =>
+                      res.statusText === "Created" ? console.log("Added") : ""
+                    );
+                });
+            } catch (error) {
+              console.error("Error fetching data:", error);
+            }
+
             // Log the response message after each item is successfully added
             setCounter((p) => p + 1);
             wordCount = wordCount + 1;
@@ -149,6 +176,7 @@ function EnglishDic() {
       setNewWords("");
       setCounter(0);
       FetchWords();
+      setIsLoading(false);
     } catch (error) {
       console.error("Error:", error);
     }

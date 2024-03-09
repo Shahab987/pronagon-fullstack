@@ -19,7 +19,7 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="words" element={<EnglishDic />} />
-          {/* <Route path="update" element={<UpdateDb />} /> */}
+          <Route path="update" element={<UpdateDb />} />
         </Route>
       </Routes>
     </div>

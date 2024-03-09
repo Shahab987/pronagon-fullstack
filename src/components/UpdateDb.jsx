@@ -46,6 +46,19 @@ const UpdateDb = () => {
     }
   };
 
+  const OpenAiReq = async (word) => {
+    try {
+      const response = await axios.get(`${BASE_URL}/openai`, {
+        params: {
+          word: word,
+        },
+      });
+      console.log(response.data.choices[0].message.content);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   const updateDatabase = async () => {
     try {
       for (let i = 0; i < data.length; i++) {
@@ -69,7 +82,8 @@ const UpdateDb = () => {
   return (
     <>
       <div onClick={fetchDataAndUpdateDatabase}>fetch</div>
-      <div onClick={updateDatabase}>Update</div>
+      {/* <div onClick={updateDatabase}>Update</div> */}
+      <div onClick={OpenAiReq}>open Ai req</div>
     </>
   );
 };

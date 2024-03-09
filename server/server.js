@@ -1,8 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require('path');
-const cors = require('cors')
+const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
+const axios = require("axios");
+
+const { generateResponse } = require("./openai");
 
 const cookieParser = require("cookie-parser");
 
@@ -10,10 +13,9 @@ const app = express();
 const PORT = process.env.PORT || 3003;
 
 app.use(express.static(path.join(__dirname)));
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 // Define a route to serve the React app
-
 
 app.use(cookieParser());
 
@@ -45,8 +47,18 @@ app.use("/api/words", wordRoutes);
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/auth", userRoutes);
 
-app.get('*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'index.html'));
+app.get("/api/openai", async (req, res) => {
+  try {
+    const result = await generateResponse(req.query.word);
+    res.json(result);
+  } catch (error) {
+    console.error("Error calling OpenAI endpoint:", error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "index.html"));
 });
 
 app.listen(PORT, () => {
