@@ -39,12 +39,17 @@ function Layout() {
             Home
           </NavLink>
           {isLogedIn && (
+            <NavLink className="text-lime-100" to="/update">
+              Update
+            </NavLink>
+          )}
+          {isLogedIn && (
             <NavLink className="text-lime-100" to="/words">
               Pronagon
             </NavLink>
           )}
           {!isLogedIn && (
-            <NavLink className="text-lime-100 ms-auto" to="/Auth/login">
+            <NavLink className="text-lime-100 ms-auto" to="/auth/login">
               Login
             </NavLink>
           )}

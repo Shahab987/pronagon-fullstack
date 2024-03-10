@@ -5,6 +5,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const { generateResponse } = require("./openai");
+const { generateResponseArray } = require("./openaiArr");
 
 const cookieParser = require("cookie-parser");
 
@@ -49,6 +50,16 @@ app.use("/api/auth", userRoutes);
 app.get("/api/openai", async (req, res) => {
   try {
     const result = await generateResponse(req.query.word);
+    res.json(result);
+  } catch (error) {
+    console.error("Error calling OpenAI endpoint:", error);
+    res.status(500).json({ error: "An error occurred" });
+  }
+});
+
+app.get("/api/openaiarr", async (req, res) => {
+  try {
+    const result = await generateResponseArray(req.query.word);
     res.json(result);
   } catch (error) {
     console.error("Error calling OpenAI endpoint:", error);

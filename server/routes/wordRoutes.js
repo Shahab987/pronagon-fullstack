@@ -65,8 +65,8 @@ router.get("/", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     // const allWords = await WordModel.find({});
-    const words100 = await WordModel.find({ meaning: "" }).limit(100);
-    res.json(words100);
+    const words6 = await WordModel.find({ meaning: "" }).limit(6);
+    res.json(words6);
   } catch (error) {
     console.error(
       "Error occurred while fetching all words from MongoDB",

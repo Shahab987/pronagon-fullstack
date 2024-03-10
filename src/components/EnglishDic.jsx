@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { BASE_URL } from "../api/config";
-import Word from "./Word";
+import Word from "./Word2";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 import { LoaderIcon, toast } from "react-hot-toast";
 import { BsBookmarkFill, BsSlashLg } from "react-icons/bs";
@@ -116,30 +116,30 @@ function EnglishDic() {
             };
 
             try {
-              await axios
-                .get(`${BASE_URL}/openai`, {
-                  params: {
-                    word: item,
-                  },
-                })
-                .then((response) => {
-                  console.log(response.data.choices[0].message.content);
-                  openAiResponse = JSON.parse(
-                    response.data.choices[0].message.content
-                  );
-                  tmpNewWord = {
-                    ...tmpNewWord,
-                    meaning: openAiResponse.meaning,
-                    pronunciation: openAiResponse.pronunciation,
-                    example: openAiResponse.example,
-                  };
-                  console.log(tmpNewWord);
-                  axios
-                    .post(`${BASE_URL}/words`, tmpNewWord)
-                    .then((res) =>
-                      res.statusText === "Created" ? console.log("Added") : ""
-                    );
-                });
+              // await axios
+              //   .get(`${BASE_URL}/openai`, {
+              //     params: {
+              //       word: item,
+              //     },
+              //   })
+              //   .then((response) => {
+              //     console.log(response.data.choices[0].message.content);
+              //     openAiResponse = JSON.parse(
+              //       response.data.choices[0].message.content
+              //     );
+              //     tmpNewWord = {
+              //       ...tmpNewWord,
+              //       meaning: openAiResponse.meaning,
+              //       pronunciation: openAiResponse.pronunciation,
+              //       example: openAiResponse.example,
+              //     };
+              //     console.log(tmpNewWord);
+              axios
+                .post(`${BASE_URL}/words`, tmpNewWord)
+                .then((res) =>
+                  res.statusText === "Created" ? console.log("Added") : ""
+                );
+              //   });
             } catch (error) {
               console.error("Error fetching data:", error);
             }
@@ -148,7 +148,7 @@ function EnglishDic() {
             setCounter((p) => p + 1);
             wordCount = wordCount + 1;
             // Add a 0.5 second delay between requests
-            await new Promise((resolve) => setTimeout(resolve, 100));
+            // await new Promise((resolve) => setTimeout(resolve, 100));
           } else {
             reapeated = `"${item}", ${reapeated}`;
           }
@@ -498,7 +498,8 @@ function EnglishDic() {
       <div className="border p-2 mt-2 w-full">
         {/* ------------------------------------- pagination  */}
         <div className="flex w-full items-center justify-center mt-1 mb-3">
-          <div className="pagination flex  items-center">
+          {/* Pagination Controls */}
+          <div className="pagination flex items-center">
             <button
               disabled={page === 1}
               className="text-2xl mx-3"
@@ -507,15 +508,14 @@ function EnglishDic() {
             >
               <IoArrowBackCircle />
             </button>
-            <p className="hidden xs:block ">Page </p>
+            <p className="hidden xs:block">Page </p>
             <input
               name="page"
               type="number"
               value={pageInput}
-              className={`px-1 text-lg font-bold border-b py-0 border-stone-400
-           font-mono text-red-700 ${
-             pageInput < 9 ? "w-5" : pageInput < 100 ? "w-8" : "w-10"
-           }`}
+              className={`px-1 text-lg font-bold border-b py-0 border-stone-400 font-mono text-red-700 ${
+                pageInput < 9 ? "w-5" : pageInput < 100 ? "w-8" : "w-10"
+              }`}
               onChange={(e) => handlePageInput(e)}
               maxLength={3}
               min={1}
@@ -529,8 +529,9 @@ function EnglishDic() {
             </button>
           </div>
 
+          {/* Items Per Page Selector */}
           <div className="flex items-center">
-            <p className="hidden 2xs:block ">Showing </p>
+            <p className="hidden 2xs:block">Showing </p>
             <select
               className="w-10"
               name="items"
@@ -538,11 +539,11 @@ function EnglishDic() {
               onChange={(e) => setItemsPerPage(e.target.value)}
               value={itemsPerPage}
             >
-              <option value="1">1</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
+              {[1, 5, 10, 15, 20].map((value) => (
+                <option key={value} value={value}>
+                  {value}
+                </option>
+              ))}
             </select>
             <p>of {totalCount}</p>
           </div>
