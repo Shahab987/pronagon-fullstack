@@ -4,7 +4,7 @@ import { FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
 import { BsBookmarkFill, BsPencil } from "react-icons/bs";
 import { BiSolidEdit } from "react-icons/bi";
 
-import { BASE_URL } from "../api/config";
+import { BASE_URL, MEDIA_ENV_URL } from "../api/config";
 import { toast } from "react-hot-toast";
 import Modal from "./Modal/Modal";
 import EditWord from "./EditWord";
@@ -288,7 +288,7 @@ function Word({
       </div>
       {/* ------------------------ Audio tag  */}
       <div id="audioTag" className="absolute">
-        {item?.audio_us && (
+        {item?.audio_src && (
           <audio
             onCanPlay={() => setReady(true)}
             ref={audioRef}
@@ -301,7 +301,7 @@ function Word({
             }}
             type="audio/mpeg"
           >
-            <source src={item.audio_us} />
+            <source src={`${MEDIA_ENV_URL}${item.audio_src}`} />
             Your browser does not support the audio tag.
           </audio>
         )}
