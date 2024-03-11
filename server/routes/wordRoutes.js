@@ -32,7 +32,9 @@ router.get("/", async (req, res) => {
         let sort = {};
         if (req.query.sortBy) {
           sort[req.query.sortBy] = req.query.sortOrder === "desc" ? -1 : 1;
-          sort.name = 1;
+          if (req.query.sortBy === "length") {
+            sort.name = 1;
+          }
         }
 
         const words = await WordModel.find(query)
