@@ -20,13 +20,19 @@ import axiosApi from "../api/axiosApi";
 import { useSelector } from "react-redux";
 
 function EnglishDic() {
+  const storedUserSituation = JSON.parse(localStorage.getItem("userSituation"));
+
   const [words, setWords] = useState([]);
   const [newWords, setNewWords] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [totalCount, setTotalCount] = useState(0);
-  const [page, setPage] = useState(1);
-  const [pageInput, setPageInput] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [page, setPage] = useState(storedUserSituation?.page || 1);
+  const [pageInput, setPageInput] = useState(
+    parseInt(storedUserSituation?.page) || 1
+  );
+  const [itemsPerPage, setItemsPerPage] = useState(
+    storedUserSituation?.itemsPerPage || 5
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [counter, setCounter] = useState(0);
   const location = useLocation();
@@ -37,7 +43,9 @@ function EnglishDic() {
   const [letsAdd, setLetsAdd] = useState(false);
   const [currentExpand, setCurrentExpand] = useState(-1);
   const [urlParams, setUrlParams] = useState(
-    Object.fromEntries(new URLSearchParams(location?.search)) || {}
+    storedUserSituation?.urlParams ||
+      Object.fromEntries(new URLSearchParams(location?.search)) ||
+      {}
   );
 
   const { loading, success, error, userToken, user } = useSelector(
@@ -46,7 +54,6 @@ function EnglishDic() {
 
   const FetchWords = async () => {
     setIsLoading(true);
-
     axiosApi
       .get(`${BASE_URL}/words`, {
         params: {
@@ -74,12 +81,32 @@ function EnglishDic() {
   };
 
   const handlePage = (go) => {
+    const maxPage = Math.ceil(totalCount / itemsPerPage);
     if (go === 1 && page <= totalCount / itemsPerPage) {
-      setPage((p) => p + go);
+      setPage((p) => {
+        setPageInput(p + go);
+        return p + go;
+      });
+    } else if (go === -1 && page > 1) {
+      setPage((p) => {
+        setPageInput(p + go);
+        return p + go;
+      });
+    } else if (go > maxPage && maxPage !== 0) {
+      setPage(maxPage);
+      setPageInput(maxPage);
+    } else if (go < 1) {
+      setPage(1);
+      setPageInput(1);
     }
-    if (go === -1 && page > 1) {
-      setPage((p) => p + go);
-    }
+    // const maxPage = Math.ceil(totalCount / itemsPerPage);
+    // let newPage = Math.min(Math.max(1, page + go), maxPage);
+    // if (page > maxPage && maxPage > 0) {
+    //   newPage = maxPage;
+    // }
+    // console.log("newPage: ", newPage);
+    // setPage(newPage);
+    // setPageInput(newPage);
   };
 
   const handleAddAll = async () => {
@@ -196,15 +223,18 @@ function EnglishDic() {
 
   const handlePageInput = async (e) => {
     setPageInput(e.target.value);
+    const maxPage = Math.ceil(totalCount / itemsPerPage);
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    if (e.target.value > Math.ceil(totalCount / itemsPerPage)) {
-      setPage(Math.ceil(totalCount / itemsPerPage));
-      toast.error("Out of range");
-    } else if (e.target.value < 1) {
-      setPage(1);
-      toast.error("Out of range");
-    } else {
-      setPage(+e.target.value);
+    if (e.target.value) {
+      if (e.target.value > maxPage && maxPage > 0) {
+        setPage(maxPage);
+        setPageInput(maxPage);
+      } else if (e.target.value < 1) {
+        setPage(1);
+        setPageInput(1);
+      } else {
+        setPage(+e.target.value);
+      }
     }
   };
 
@@ -293,14 +323,19 @@ function EnglishDic() {
       FetchWords();
     }
     handleUnderlinePos();
-    setPageInput(page);
-  }, [page, urlParams, itemsPerPage, success]);
+    const userSituation = {
+      page: page,
+      itemsPerPage: itemsPerPage,
+      urlParams: urlParams,
+    };
+    localStorage.setItem("userSituation", JSON.stringify(userSituation));
+  }, [page, urlParams, success, itemsPerPage]);
 
   useEffect(() => {
-    if (Math.ceil(totalCount / itemsPerPage) < page) {
-      setPage(1);
+    if (page > 1) {
+      handlePage(page);
     }
-  }, [totalCount]);
+  }, [itemsPerPage]);
 
   useEffect(() => {
     handleSearch();
@@ -514,7 +549,13 @@ function EnglishDic() {
               type="number"
               value={pageInput}
               className={`px-1 text-lg font-bold border-b py-0 border-stone-400 font-mono text-red-700 ${
-                pageInput < 9 ? "w-5" : pageInput < 100 ? "w-8" : "w-10"
+                pageInput < 9
+                  ? "w-5"
+                  : pageInput < 100
+                  ? "w-8"
+                  : pageInput < 1000
+                  ? "w-10"
+                  : "w-13"
               }`}
               onChange={(e) => handlePageInput(e)}
               maxLength={3}

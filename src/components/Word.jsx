@@ -64,38 +64,51 @@ function Word({
   };
 
   const genAudioUrl = () => {
-    const length = item?.name?.length;
-    const l1 = item?.name?.slice(0, 1);
-    const l3 = item?.name?.slice(0, 3);
-    const l5 = item?.name?.slice(0, 5);
-    const word = item?.name;
-    const word2 = item?.name?.slice(0, -2);
-
-    if (length === 2) {
+    if (item?.name?.length === 2) {
       setUrl({
-        l1,
-        l3: l3 + "_",
-        l5: l5 + "__u",
-        word,
-        word2,
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3) + "_",
+        l5: item?.name?.slice(0, 5) + "__u",
+        word: item.name,
+        word2: item?.name?.slice(0, -2),
       });
-    } else if (length >= 3) {
+    }
+    if (item?.name?.length === 3) {
       setUrl({
-        l1,
-        l3,
-        l5: length === 3 ? l5 : l5 + "_",
-        word,
-        word2,
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3),
+        l5: item?.name?.slice(0, 5) + "__",
+        word: item.name,
+        word2: item?.name?.slice(0, -2),
       });
     }
 
-    if (l3 === "con") {
+    if (item?.name?.length === 4) {
+      setUrl({
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3),
+        l5: item?.name?.slice(0, 5) + "_",
+        word: item.name,
+        word2: item?.name?.slice(0, -2),
+      });
+    }
+
+    if (item?.name?.length > 4) {
+      setUrl({
+        l1: item?.name?.slice(0, 1),
+        l3: item?.name?.slice(0, 3),
+        l5: item?.name?.slice(0, 5),
+        word: item.name,
+        word2: item?.name?.slice(0, -2),
+      });
+    }
+    if (item?.name?.slice(0, 3) === "con") {
       setUrl({
         l1: "x",
-        l3: "x" + l3.slice(0, 2),
-        l5: "x" + l5.slice(0, 4),
-        word: "x" + word,
-        word2: "x" + word2,
+        l3: "x" + item?.name?.slice(0, 2),
+        l5: "x" + item?.name?.slice(0, 4),
+        word: "x" + item.name,
+        word2: "x" + item?.name?.slice(0, -2),
       });
     }
   };
@@ -196,7 +209,7 @@ function Word({
             <Button
               onClick={() => audioRef.current.play()}
               icon={<FaPlay />}
-              iconClass={ready ? "hover:text-blue-700" : "gray"}
+              iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
             />
           ) : (
             <Button onClick={stop} icon={<FaStop />} />
@@ -266,7 +279,8 @@ function Word({
           <Button
             onClick={() => audioRef.current.play()}
             icon={<FaPlay />}
-            iconClass={ready ? "text-blue-700" : "gray"}
+            iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
+            btnClass="text-3xl"
           />
         ) : (
           <Button onClick={stop} icon={<FaStop />} />

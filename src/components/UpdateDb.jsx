@@ -50,6 +50,25 @@ const UpdateDb = () => {
     }
   };
 
+  const fetchAll = async () => {
+    try {
+      await axiosApi.get(`${BASE_URL}/words/allaudio`).then((res) => {
+        const wordsArray = res.data.filter(
+          (item) => item.audio_us !== "" && item.audio_src === undefined
+        );
+        console.log(wordsArray);
+        if (wordsArray.length > 0) {
+          // setDataNoDetail(res.data);
+          wordsArray.forEach((item) => {
+            handleDownload(item);
+          });
+        }
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
   const OpenAiReq = async (wordArr, dataNoDetail) => {
     try {
       await axiosApi
@@ -112,11 +131,40 @@ const UpdateDb = () => {
     }
   };
 
+  const handleDownload = (item) => {
+    const url = item.audio_us;
+    const path = `./media/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`;
+
+    axiosApi
+      .post(`${BASE_URL}/saveaudio`, { url, path })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("File downloaded successfully");
+          axiosApi
+            .put(`${BASE_URL}/words/${item._id}`, {
+              ...item,
+              audio_src: `/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`,
+            })
+            .then((res) => {
+              console.log(`Item updated successfully`);
+            });
+        } else {
+          console.error("Error downloading file:");
+          console.log("Error downloading file");
+        }
+      })
+      .catch((error) => {
+        console.error("Error downloading file:", error);
+        console.log("Error downloading file");
+      });
+  };
+
   return (
     <>
       <div onClick={fetchDataAndUpdateDatabase}>fetch</div>
       <div onClick={updateDatabase}>Update</div>
       <div onClick={OpenAiReq}>open Ai req</div>
+      <div onClick={fetchAll}>save MP3</div>
     </>
   );
 };

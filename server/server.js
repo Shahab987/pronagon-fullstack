@@ -8,14 +8,14 @@ const { generateResponse } = require("./openai");
 const { generateResponseArray } = require("./openaiArr");
 
 const cookieParser = require("cookie-parser");
+const axios = require("axios");
+const fs = require("fs");
 
 const app = express();
 const PORT = process.env.PORT || 3003;
 
 app.use(express.static(path.join(__dirname)));
 app.use("/assets", express.static(path.join(__dirname, "assets")));
-
-// Define a route to serve the React app
 
 app.use(cookieParser());
 
@@ -41,9 +41,6 @@ mongoose
 const wordRoutes = require("./routes/wordRoutes");
 app.use("/api/words", wordRoutes);
 
-// const wordRoutes = require('./routes/wordRoutes');
-// app.use('/words', validateToken, wordRoutes); // Protect routes with token validation middleware
-
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/auth", userRoutes);
 
@@ -64,6 +61,43 @@ app.get("/api/openaiarr", async (req, res) => {
   } catch (error) {
     console.error("Error calling OpenAI endpoint:", error);
     res.status(500).json({ error: "An error occurred" });
+  }
+});
+
+// Define a route to handle file download request
+app.post("/api/saveaudio", async (req, res) => {
+  const { url, path: filePath } = req.body;
+
+  try {
+    const response = await axios({
+      url: url,
+      method: "GET",
+      responseType: "stream",
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36", // Specify user-agent header to avoid issues
+      },
+    });
+    const directory = path.dirname(filePath);
+    if (!fs.existsSync(directory)) {
+      fs.mkdirSync(directory, { recursive: true });
+    }
+
+    const writer = fs.createWriteStream(filePath);
+
+    response.data.pipe(writer);
+
+    writer.on("finish", () => {
+      res.status(200).send("File downloaded successfully");
+    });
+
+    writer.on("error", (err) => {
+      console.error("Error downloading file:", err);
+      res.status(500).send("Error downloading file");
+    });
+  } catch (err) {
+    console.error("Error downloading file:", err);
+    res.status(500).send("Error downloading file");
   }
 });
 
