@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { BASE_URL } from "../api/config";
-import Word from "./Word2";
+import Word from "./Word";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 import { LoaderIcon, toast } from "react-hot-toast";
 import { BsBookmarkFill, BsSlashLg } from "react-icons/bs";
@@ -594,6 +594,7 @@ function EnglishDic() {
                         setCurrentExpand={setCurrentExpand}
                         item={item}
                         deleteItem={deleteItem}
+                        FetchWords={FetchWords}
                       />
                     </div>
                   );

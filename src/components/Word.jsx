@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
-import { BsBookmarkFill } from "react-icons/bs";
+import { BsBookmarkFill, BsPencil } from "react-icons/bs";
+import { BiSolidEdit } from "react-icons/bi";
+
 import { BASE_URL } from "../api/config";
 import { toast } from "react-hot-toast";
+import Modal from "./Modal/Modal";
+import EditWord from "./EditWord";
 
-const Button = ({ onClick, icon, color }) => (
-  <button onClick={onClick}>
-    {icon && <icon.type className={`text-${color}`} />}
+const Button = ({ onClick, icon, iconClass, btnClass }) => (
+  <button onClick={onClick} className={btnClass}>
+    {icon && <icon.type className={`${iconClass}`} />}
   </button>
 );
 
@@ -17,10 +21,12 @@ function Word({
   currentExpand,
   setCurrentExpand,
   itemsPerPage,
+  FetchWords,
 }) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [isSure, setIsSure] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [level, setLevel] = useState(item?.level || 0);
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
@@ -161,6 +167,7 @@ function Word({
         >
           {item.meaning}
         </p>
+        {/* ---------------------- Buttons  */}
         <div
           onClick={(e) => e.stopPropagation()}
           className={`icons flex items-center gap-2 xs:gap-5 text-xl ${
@@ -173,13 +180,13 @@ function Word({
                 key={num}
                 onClick={() => setLevel(num)}
                 icon={<BsBookmarkFill />}
-                color={
+                iconClass={
                   [
-                    "stone-300",
-                    "lime-600",
-                    "purple-600",
-                    "yellow-500",
-                    "red-600",
+                    "text-stone-300",
+                    "text-lime-600",
+                    "text-purple-600",
+                    "text-yellow-500",
+                    "text-red-600",
                   ][num]
                 }
               />
@@ -189,35 +196,46 @@ function Word({
             <Button
               onClick={() => audioRef.current.play()}
               icon={<FaPlay />}
-              color={ready ? "blue-700" : "gray"}
+              iconClass={ready ? "hover:text-blue-700" : "gray"}
             />
           ) : (
             <Button onClick={stop} icon={<FaStop />} />
           )}
         </div>
       </div>
+      {/* ---------------------- Details  */}
       {(currentExpand === item._id || itemsPerPage === "1") && (
-        <div className="w-full" onClick={(e) => e.stopPropagation()}>
-          <div className="flex md:hidden items-center justify-between w-full bg-slate-100 px-2 py-1 mt-1 rounded-md">
-            <p className="text-lg text-zinc-500 w-full">
-              ({item.pronunciation})
-            </p>
-            <p dir="rtl" className="font-IranSans font-bold text-cyan-950">
+        <div className="w-full text" onClick={(e) => e.stopPropagation()}>
+          <div className="flex md:hidden items-center justify-between flex-wrap w-full bg-slate-100 px-2 py-1 mt-1 rounded-md">
+            <p className="text-lg text-zinc-500 ">({item.pronunciation})</p>
+            <p
+              dir="rtl"
+              className="font-IranSans font-bold text-cyan-950 me-auto"
+            >
               {item.meaning}
             </p>
           </div>
-          <div className="flex items-center w-full justify-between ps-2 mt-1">
+          <div className="flex items-center w-full justify-between ps-2 mt-1 ">
             <p>Ex: {item.example}</p>
-            <button className="text-xl" onClick={() => toggleSure(null)}>
-              <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
-            </button>
-            {isSure && (
-              <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
-                <p>Sure?</p>
-                <button onClick={() => toggleSure(item._id)}>Yes</button>
-                <button onClick={() => toggleSure(false)}>No</button>
-              </div>
-            )}
+            <div className="flex items-center gap-3">
+              <Button
+                onClick={() => setShowModal(true)}
+                icon={<BiSolidEdit />}
+                iconClass="text-sky-950 hover:text-sky-700 mt-[2px]"
+                btnClass="text-2xl"
+              />
+
+              <button className="text-xl" onClick={() => toggleSure(null)}>
+                <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
+              </button>
+              {isSure && (
+                <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
+                  <p>Sure?</p>
+                  <button onClick={() => toggleSure(item._id)}>Yes</button>
+                  <button onClick={() => toggleSure(false)}>No</button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
@@ -232,13 +250,13 @@ function Word({
               key={num}
               onClick={() => setLevel(num)}
               icon={<BsBookmarkFill />}
-              color={
+              iconClass={
                 [
-                  "stone-300",
-                  "lime-600",
-                  "purple-600",
-                  "yellow-500",
-                  "red-600",
+                  "text-stone-300",
+                  "text-lime-600",
+                  "text-purple-600",
+                  "text-yellow-500",
+                  "text-red-600",
                 ][num]
               }
             />
@@ -248,7 +266,7 @@ function Word({
           <Button
             onClick={() => audioRef.current.play()}
             icon={<FaPlay />}
-            color={ready ? "blue-700" : "gray"}
+            iconClass={ready ? "text-blue-700" : "gray"}
           />
         ) : (
           <Button onClick={stop} icon={<FaStop />} />
@@ -311,6 +329,15 @@ function Word({
           </audio>
         )}
       </div>
+      {showModal && (
+        <Modal setShowModal={setShowModal}>
+          <EditWord
+            setShowModal={setShowModal}
+            FetchWords={FetchWords}
+            item={item}
+          />
+        </Modal>
+      )}
     </div>
   );
 }

@@ -8,7 +8,7 @@ import { BsBookmarkFill } from "react-icons/bs";
 import { BASE_URL } from "../api/config";
 import { toast } from "react-hot-toast";
 
-function Word({
+function Word2({
   item,
   deleteItem,
   currentExpand,
@@ -375,4 +375,4 @@ function Word({
   );
 }
 
-export default Word;
+export default Word2;
