@@ -8,6 +8,7 @@ import { BASE_URL, MEDIA_ENV_URL } from "../api/config";
 import { toast } from "react-hot-toast";
 import Modal from "./Modal/Modal";
 import EditWord from "./EditWord";
+import axiosApi from "../api/axiosApi";
 
 const Button = ({ onClick, icon, iconClass, btnClass }) => (
   <button onClick={onClick} className={btnClass}>
@@ -59,8 +60,40 @@ function Word({
         ...item,
         audio_us: audioRef.current.currentSrc,
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.status === 200) {
+          handleDownload(res.data);
+        }
+      })
       .catch((err) => console.error(err));
+  };
+
+  const handleDownload = (item) => {
+    const url = item.audio_us;
+    const path = `./media/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`;
+
+    axiosApi
+      .post(`${BASE_URL}/saveaudio`, { url, path })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("File downloaded successfully");
+          axiosApi
+            .put(`${BASE_URL}/words/${item._id}`, {
+              ...item,
+              audio_src: `/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`,
+            })
+            .then((res) => {
+              console.log(`Item updated successfully`);
+            });
+        } else {
+          console.error("Error downloading file:");
+          console.log("Error downloading file");
+        }
+      })
+      .catch((error) => {
+        console.error("Error downloading file:", error);
+        console.log("Error downloading file");
+      });
   };
 
   const genAudioUrl = () => {

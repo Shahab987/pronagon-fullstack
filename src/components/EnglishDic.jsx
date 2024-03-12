@@ -73,7 +73,7 @@ function EnglishDic() {
         }
       })
       .catch((err) => {
-        // toast.error(err.response.data.message);
+        console.log(err.response.data.message);
       })
       .finally(() => {
         setIsLoading(false);
@@ -99,14 +99,6 @@ function EnglishDic() {
       setPage(1);
       setPageInput(1);
     }
-    // const maxPage = Math.ceil(totalCount / itemsPerPage);
-    // let newPage = Math.min(Math.max(1, page + go), maxPage);
-    // if (page > maxPage && maxPage > 0) {
-    //   newPage = maxPage;
-    // }
-    // console.log("newPage: ", newPage);
-    // setPage(newPage);
-    // setPageInput(newPage);
   };
 
   const handleAddAll = async () => {
