@@ -1,12 +1,12 @@
 {
-  "name": "todoapp-rtk",
+  "name": "pronagon-app",
   "private": true,
   "version": "0.0.0",
   "scripts": {
     "dev": "vite --port 3001",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "json-server server/db.json --watch -p 5000 --host 127.0.0.1"
+    "server": "cd server && npm run dev"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
