@@ -195,7 +195,9 @@ function Word({
         reset();
         toggleExpand();
       }}
-      className="relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto"
+      className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
+        ready && "bg-green-700"
+      }`}
     >
       <div
         className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0  ${levelColors[level]}`}
@@ -250,7 +252,7 @@ function Word({
         </div>
       </div>
       {/* ---------------------- Details  */}
-      {(currentExpand === item._id || itemsPerPage === "1") && (
+      {(currentExpand === item._id || itemsPerPage === "1" || true) && (
         <div className="w-full text" onClick={(e) => e.stopPropagation()}>
           <div className="flex md:hidden items-center justify-between flex-wrap w-full bg-slate-100 px-2 py-1 mt-1 rounded-md">
             <p className="text-lg text-zinc-500 ">({item.pronunciation})</p>
