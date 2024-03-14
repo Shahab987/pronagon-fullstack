@@ -196,7 +196,7 @@ function Word({
         toggleExpand();
       }}
       className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
-        ready && "bg-green-700"
+        ready && ""
       }`}
     >
       <div

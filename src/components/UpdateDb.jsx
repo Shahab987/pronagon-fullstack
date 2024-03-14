@@ -49,6 +49,28 @@ const UpdateDb = () => {
       console.error("Error fetching data:", error);
     }
   };
+  const checkmeaning = async () => {
+    try {
+      await axiosApi.get(`${BASE_URL}/words/checkmeaning`).then((res) => {
+        const wordsArray = res.data
+          .map((item) => {
+            const meaningsArr = item.meaning.split("،");
+            if (
+              meaningsArr[1] &&
+              meaningsArr[1].trim() === meaningsArr[0].trim()
+            ) {
+              return { ...item, meaning: meaningsArr[1].trim() };
+            } else {
+              return false;
+            }
+          })
+          .filter((item) => item !== false);
+        console.log(wordsArray);
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const fetchAll = async () => {
     try {
@@ -165,6 +187,7 @@ const UpdateDb = () => {
       <div onClick={updateDatabase}>Update</div>
       <div onClick={OpenAiReq}>open Ai req</div>
       <div onClick={fetchAll}>save MP3</div>
+      <div onClick={checkmeaning}>check meaning</div>
     </>
   );
 };

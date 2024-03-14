@@ -78,6 +78,19 @@ router.get("/all", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+router.get("/checkmeaning", async (req, res) => {
+  try {
+    // const allWords = await WordModel.find({});
+    const words6 = await WordModel.find({});
+    res.json(words6);
+  } catch (error) {
+    console.error(
+      "Error occurred while fetching all words from MongoDB",
+      error
+    );
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 router.get("/allaudio", async (req, res) => {
   try {
     // const allWords = await WordModel.find({});
