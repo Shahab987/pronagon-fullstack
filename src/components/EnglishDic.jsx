@@ -120,7 +120,7 @@ function EnglishDic() {
       // Iterate over each item and send individual POST requests
       for (let i = 0; i < wordsArr.length; i++) {
         const item = wordsArr[i].toLowerCase();
-        if (item.length > 4) {
+        if (item.length > 3) {
           const itemExist = await axiosApi
             .get(`${BASE_URL}/words?exact=${item}`)
             .then((res) => res?.data?.data?.length);
