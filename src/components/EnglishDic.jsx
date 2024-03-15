@@ -609,7 +609,7 @@ function EnglishDic() {
                         }
                       }}
                     >
-                      Double click to Feed Pronagon with :{" "}
+                      Double click to Feed Phonegon with :{" "}
                       <span className="font-bold text-lime-600">
                         "{searchInput}"
                       </span>{" "}

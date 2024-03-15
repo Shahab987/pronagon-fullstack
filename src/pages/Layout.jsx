@@ -45,7 +45,7 @@ function Layout() {
           )}
           {isLogedIn && (
             <NavLink className="text-lime-100" to="/words">
-              Pronagon
+              Phonegon
             </NavLink>
           )}
           {!isLogedIn && (
