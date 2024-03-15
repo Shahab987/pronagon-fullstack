@@ -33,30 +33,30 @@ function Layout() {
 
   return (
     <div>
-      <div className="bg-lime-800 ">
-        <nav className=" sm:container sm:mx-auto py-3 px-6  flex gap-3 ">
-          <NavLink className="text-lime-100" to="/">
+      <div className="bg-lime-700 ">
+        <nav className=" sm:container sm:mx-auto py-4 px-5  flex justify-center items-center gap-3 text-lime-100">
+          <NavLink className="" to="/">
             Home
           </NavLink>
           {isLogedIn && (
-            <NavLink className="text-lime-100" to="/update">
+            <NavLink className="" to="/update">
               Update
             </NavLink>
           )}
           {isLogedIn && (
-            <NavLink className="text-lime-100" to="/words">
-              Phonegon
+            <NavLink className="" to="/words">
+              <div className="flex">Phonegon</div>
             </NavLink>
           )}
           {!isLogedIn && (
-            <NavLink className="text-lime-100 ms-auto" to="/auth/login">
+            <NavLink className=" ms-auto" to="/auth/login">
               Login
             </NavLink>
           )}
           {isLogedIn && (
             <NavLink
               onClick={() => logoutHandler()}
-              className="text-lime-100 ms-auto flex items-center gap-2"
+              className=" ms-auto flex items-center gap-2"
               to="/"
             >
               <p>Logout</p> <FaSignOutAlt />
