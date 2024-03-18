@@ -66,6 +66,8 @@ function EnglishDic() {
         if (res.data.pagination.totalCount > 0) {
           setTotalCount(res.data.pagination.totalCount);
           setWords(res.data.data);
+          if (urlParams.search || urlParams.exact) {
+          }
         } else {
           setTotalCount(res.data.pagination.totalCount);
           setWords(res.data.data);
@@ -82,15 +84,15 @@ function EnglishDic() {
 
   const handlePage = (go) => {
     const maxPage = Math.ceil(totalCount / itemsPerPage);
-    if (go === 1 && page <= totalCount / itemsPerPage) {
+    if (go === "forward" && page <= totalCount / itemsPerPage) {
       setPage((p) => {
-        setPageInput(p + go);
-        return p + go;
+        setPageInput(p + 1);
+        return p + 1;
       });
-    } else if (go === -1 && page > 1) {
+    } else if (go === "backward" && page > 1) {
       setPage((p) => {
-        setPageInput(p + go);
-        return p + go;
+        setPageInput(p - 1);
+        return p - 1;
       });
     } else if (go > maxPage && maxPage !== 0) {
       setPage(maxPage);
@@ -320,14 +322,16 @@ function EnglishDic() {
       itemsPerPage: itemsPerPage,
       urlParams: urlParams,
     };
-    localStorage.setItem("userSituation", JSON.stringify(userSituation));
+    if (!urlParams.search && !urlParams.exact) {
+      localStorage.setItem("userSituation", JSON.stringify(userSituation));
+    }
   }, [page, urlParams, success, itemsPerPage]);
 
   useEffect(() => {
     if (page > 1) {
       handlePage(page);
     }
-  }, [itemsPerPage]);
+  }, [itemsPerPage, totalCount]);
 
   useEffect(() => {
     handleSearch();
@@ -479,6 +483,7 @@ function EnglishDic() {
               onClick={() => {
                 if (searchParams.toString() !== "") {
                   setSearchParams({});
+                  setSearchInput("");
                 }
               }}
             >
@@ -531,7 +536,7 @@ function EnglishDic() {
               disabled={page === 1}
               className="text-2xl mx-3"
               style={{ color: page === 1 ? "gray" : "" }}
-              onClick={() => handlePage(-1)}
+              onClick={() => handlePage("backward")}
             >
               <IoArrowBackCircle />
             </button>
@@ -557,7 +562,10 @@ function EnglishDic() {
             <p className="cursor-default">
               of {Math.ceil(totalCount / itemsPerPage)}
             </p>
-            <button className="text-2xl mx-3" onClick={() => handlePage(1)}>
+            <button
+              className="text-2xl mx-3"
+              onClick={() => handlePage("forward")}
+            >
               <IoArrowForwardCircle />
             </button>
           </div>
@@ -592,14 +600,35 @@ function EnglishDic() {
             <div className={`flex flex-col  gap-2`}>
               {!isLoading && words?.length === 0 ? (
                 <div>
-                  <p>
+                  <div>
                     No item to show
                     {urlParams.level && (
-                      <span className="font-bold"> with current Filters</span>
+                      <span>
+                        <span className="font-bold">
+                          {" "}
+                          with current Filters ...!
+                        </span>
+                        <p
+                          onClick={() => {
+                            if (searchParams.toString() !== "") {
+                              setSearchParams((prev) => {
+                                const temp = new URLSearchParams(
+                                  prev.toString()
+                                );
+                                temp.delete("level");
+                                return temp;
+                              });
+                            }
+                          }}
+                          className="cursor-pointer underline font-bold text-lime-600"
+                        >
+                          Clear Filters
+                        </p>
+                        to search among all words
+                      </span>
                     )}
-                    ...!
-                  </p>
-                  {letsAdd && searchInput && (
+                  </div>
+                  {!urlParams.level && letsAdd && searchInput && (
                     <button
                       className="p-2 m-2 border"
                       onClick={() => {
