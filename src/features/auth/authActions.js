@@ -12,7 +12,6 @@ export const registerUser = createAsyncThunk(
       .then((res) => {
         if (res.status === 200) {
           toast.success(res.data.message);
-          sessionStorage.setItem("token", res.data.token);
           return res.data;
         } else {
           return rejectWithValue(res.message);

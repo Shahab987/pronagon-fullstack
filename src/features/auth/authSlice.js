@@ -33,9 +33,6 @@ const authSlice = createSlice({
     [registerUser.fulfilled]: (state, { payload }) => {
       state.success = true; // registration successful
       state.loading = false;
-      state.user = { id: payload.id, email: payload.email };
-      state.userToken = payload.token;
-      state.isLogedIn = true;
     },
     [registerUser.rejected]: (state, { payload }) => {
       state.loading = false;

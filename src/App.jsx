@@ -6,6 +6,7 @@ import Auth from "./pages/Auth";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import UpdateDb from "./components/UpdateDb";
+import ActivationSuccess from "./pages/ActivationSuccess";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           </Route>
           <Route path="words" element={<EnglishDic />} />
           <Route path="update" element={<UpdateDb />} />
+          <Route path="activation-success" element={<ActivationSuccess />} />
         </Route>
       </Routes>
     </div>
