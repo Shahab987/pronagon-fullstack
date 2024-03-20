@@ -38,11 +38,18 @@ router.post("/register", async (req, res) => {
       "host"
     )}/api/auth/activate/${activationToken}`;
 
+    const now = new Date();
+    const expirationTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
+    const expireDate = expirationTime.toLocaleString();
+
     await sendEmail(
       "security-noreply@mosaleh.ir",
       user.email,
       "Account Activation",
-      `<p>Click <a href="${activationLink}">here</a> to activate your account.</p>`
+      `<p>Thank You for your registration.</p>
+      <p><a href="${activationLink}">Click here</a> to activate your account.</p>
+      <p>This link will expire at ${expireDate}</p>
+      `
     ).then((resp) => console.log(resp));
 
     res.json({
