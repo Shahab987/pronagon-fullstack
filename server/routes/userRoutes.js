@@ -43,7 +43,7 @@ router.post("/register", async (req, res) => {
       user.email,
       "Account Activation",
       `<p>Click <a href="${activationLink}">here</a> to activate your account.</p>`
-    );
+    ).then((resp) => console.log(resp));
 
     res.json({
       message: "Register Successful. Activation email sent.",
