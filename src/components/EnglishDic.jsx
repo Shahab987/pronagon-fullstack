@@ -17,7 +17,8 @@ import { FcClearFilters } from "react-icons/fc";
 import { VscWholeWord } from "react-icons/vsc";
 import { useLocation, useSearchParams } from "react-router-dom";
 import axiosApi from "../api/axiosApi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../features/auth/authActions";
 
 function EnglishDic() {
   const storedUserSituation = JSON.parse(localStorage.getItem("userSituation"));
@@ -52,6 +53,8 @@ function EnglishDic() {
     (state) => state.auth
   );
 
+  const dispatch = useDispatch();
+
   const FetchWords = async () => {
     setIsLoading(true);
     axiosApi
@@ -75,7 +78,10 @@ function EnglishDic() {
         }
       })
       .catch((err) => {
-        console.log(err.response.data.message);
+        console.log(err.response.data.message, err.response);
+        if (err.response.status === 401) {
+          dispatch(logout());
+        }
       })
       .finally(() => {
         setIsLoading(false);

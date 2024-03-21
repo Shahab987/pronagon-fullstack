@@ -3,10 +3,7 @@ import { useEffect } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
-import axiosApi from "../api/axiosApi";
-import { BASE_URL } from "../api/config";
-import { tokenCheck } from "../features/auth/authActions";
-import { logout } from "../features/auth/authSlice";
+import { logout, tokenCheck } from "../features/auth/authActions";
 
 function Layout() {
   const { loading, success, error, userToken, user, isLogedIn } = useSelector(
@@ -20,15 +17,7 @@ function Layout() {
   }, []);
 
   const logoutHandler = () => {
-    axiosApi
-      .post(`${BASE_URL}/auth/logout`)
-      .then((res) => {
-        if (res.status === 200) {
-          sessionStorage.removeItem("token");
-          dispatch(logout());
-        }
-      })
-      .catch((err) => console.log(err));
+    dispatch(logout());
   };
 
   return (

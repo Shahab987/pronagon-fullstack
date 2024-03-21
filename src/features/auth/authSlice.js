@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { loginUser, registerUser, tokenCheck } from "./authActions";
+import { loginUser, registerUser, tokenCheck, logout } from "./authActions";
 
 const initialState = {
   loading: false,
@@ -14,16 +14,7 @@ const initialState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    logout: (state) => {
-      state.loading = false;
-      state.user = {};
-      state.userToken = null;
-      state.error = null;
-      state.isLogedIn = false;
-      state.success = false;
-    },
-  },
+  reducers: {},
   extraReducers: {
     [registerUser.pending]: (state) => {
       state.success = false;
@@ -47,7 +38,7 @@ const authSlice = createSlice({
     [loginUser.fulfilled]: (state, { payload }) => {
       state.success = true; // login successful
       state.loading = false;
-      state.user = { id: payload.id, email: payload.email };
+      state.user = payload;
       state.userToken = payload.token;
       state.isLogedIn = true;
     },
@@ -73,8 +64,25 @@ const authSlice = createSlice({
       state.error = payload;
       state.isLogedIn = false;
     },
+    [logout.pending]: (state) => {
+      state.success = false;
+      state.loading = true;
+      state.error = null;
+    },
+    [logout.fulfilled]: (state) => {
+      state.loading = false;
+      state.user = {};
+      state.userToken = null;
+      state.error = null;
+      state.isLogedIn = false;
+      state.success = false;
+    },
+    [logout.rejected]: (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+      state.isLogedIn = false;
+    },
   },
 });
 
-export const { logout } = authSlice.actions;
 export default authSlice.reducer;

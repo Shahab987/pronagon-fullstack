@@ -39,6 +39,7 @@ export const loginUser = createAsyncThunk(
         if (res.status === 200) {
           sessionStorage.setItem("token", res.data.token);
           toast.success(res.data.message);
+          console.log(res.data);
           return res.data;
         } else {
           return rejectWithValue(res.message);
@@ -69,6 +70,27 @@ export const tokenCheck = createAsyncThunk(
           return res.data;
         } else {
           return rejectWithValue(res.message);
+        }
+      })
+      .catch((error) => {
+        if (error.response && error.response.data.message) {
+          return rejectWithValue(error.response.data.message);
+        } else {
+          return rejectWithValue(error.message);
+        }
+      });
+  }
+);
+
+export const logout = createAsyncThunk(
+  "auth/logout",
+  async (credentials, { rejectWithValue }) => {
+    return await axiosApi
+      .post(`${BASE_URL}/auth/logout`)
+      .then((res) => {
+        if (res.status === 200) {
+          sessionStorage.removeItem("token");
+          return true;
         }
       })
       .catch((error) => {

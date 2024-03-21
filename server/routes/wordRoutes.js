@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
       // Token verification failed
       console.error("Token verification failed:", err);
       // Handle unauthorized access (e.g., send a 401 response)
-      res.status(401).json({ message: "Unauthorized" });
+      res.status(401).json({ message: "Unauthorized User" });
     } else {
       try {
         const page = parseInt(req.query._page) || 1;
@@ -78,6 +78,7 @@ router.get("/all", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 router.get("/checkmeaning", async (req, res) => {
   try {
     // const allWords = await WordModel.find({});
@@ -91,6 +92,7 @@ router.get("/checkmeaning", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
 router.get("/allaudio", async (req, res) => {
   try {
     // const allWords = await WordModel.find({});
