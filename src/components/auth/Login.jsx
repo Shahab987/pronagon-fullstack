@@ -49,11 +49,10 @@ function Login() {
   }, [success]);
 
   return (
-    <div>
-      <form
-        className="flex flex-col gap-5 max-w-100 mx-auto border px-5 py-10 rounded-xl mt-10"
-        onSubmit={handleSubmit}
-      >
+    <div className="max-w-100 mx-auto border px-5 pb-10 pt-5 rounded-xl mt-10">
+      <h1 className="mb-5 ms-2 text-xl text-gray-400">Login</h1>
+
+      <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <input
           className="border-b p-2 bg-white"
           type="email"

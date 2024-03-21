@@ -38,7 +38,7 @@ const authSlice = createSlice({
     [loginUser.fulfilled]: (state, { payload }) => {
       state.success = true; // login successful
       state.loading = false;
-      state.user = payload;
+      state.user = payload.user;
       state.userToken = payload.token;
       state.isLogedIn = true;
     },

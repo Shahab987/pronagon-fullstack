@@ -138,8 +138,13 @@ router.post("/login", async (req, res) => {
         res.json({
           message: "Login Successful",
           token,
-          id: user._id,
-          email: user.email,
+          user: {
+            id: user._id,
+            email: user.email,
+            isActive: user.isActive,
+            role: user.role,
+            status: user.status,
+          },
         });
       }
     );
