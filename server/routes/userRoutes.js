@@ -10,6 +10,33 @@ const cookieOptions = {
   maxAge: 7 * 24 * 60 * 60 * 1000, // Max age of the cookie set to one week
 };
 
+async function sendActivatingLink(user, req) {
+  // Generate an activation token
+  const activationToken = jwt.sign(
+    { userId: user._id },
+    process.env.JWT_SECRET,
+    { expiresIn: "30d" } // Token expires in 1 day
+  );
+
+  const activationLink = `${req.protocol}://${req.get(
+    "host"
+  )}/api/auth/activate/${activationToken}`;
+
+  const now = new Date();
+  const expirationTime = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
+  const expireDate = expirationTime.toLocaleString();
+
+  await sendEmail(
+    "security-noreply@mosaleh.ir",
+    user.email,
+    "Account Activation",
+    `<p>Thank You for your registration.</p>
+    <p><a href="${activationLink}">Click here</a> to activate your account.</p>
+    <p>This link will expire at ${expireDate}</p>
+    `
+  ).then((resp) => console.log(resp));
+}
+
 // Register
 router.post("/register", async (req, res) => {
   try {
@@ -27,33 +54,11 @@ router.post("/register", async (req, res) => {
     // Save user to database
     await user.save();
 
-    // Generate an activation token
-    const activationToken = jwt.sign(
-      { userId: user._id },
-      process.env.JWT_SECRET,
-      { expiresIn: "1d" } // Token expires in 1 day
-    );
-
-    const activationLink = `${req.protocol}://${req.get(
-      "host"
-    )}/api/auth/activate/${activationToken}`;
-
-    const now = new Date();
-    const expirationTime = new Date(now.getTime() + 24 * 60 * 60 * 1000);
-    const expireDate = expirationTime.toLocaleString();
-
-    await sendEmail(
-      "security-noreply@mosaleh.ir",
-      user.email,
-      "Account Activation",
-      `<p>Thank You for your registration.</p>
-      <p><a href="${activationLink}">Click here</a> to activate your account.</p>
-      <p>This link will expire at ${expireDate}</p>
-      `
-    ).then((resp) => console.log(resp));
+    await sendActivatingLink(user, req);
 
     res.json({
-      message: "Register Successful. Activation email sent.",
+      message: `Successful. Activation link sent to:
+      "${user.email}"`,
     });
   } catch (error) {
     console.error(error.message);
@@ -63,16 +68,12 @@ router.post("/register", async (req, res) => {
 
 router.get("/activate/:token", async (req, res) => {
   const { token } = req.params;
-
+  const decodedToken = jwt.decode(token);
+  const userIdcheck = decodedToken?.userId;
+  let user = await User.findById(userIdcheck);
   try {
     // Verify the activation token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-    // Extract user ID from the decoded token
-    const userId = decoded.userId;
-
-    // Find the user by ID in the database
-    const user = await User.findById(userId);
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -86,7 +87,11 @@ router.get("/activate/:token", async (req, res) => {
     res.redirect("/activation-success");
   } catch (error) {
     console.error(error.message);
-    res.status(400).json({ message: "Invalid or expired token" });
+    if (user) {
+      await sendActivatingLink(user, req);
+    }
+
+    res.redirect(`/activation-failed?message=${error.message}`);
   }
 });
 
