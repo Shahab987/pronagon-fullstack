@@ -4,7 +4,7 @@ import { FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
 import { BsBookmarkFill, BsPencil } from "react-icons/bs";
 import { BiSolidEdit } from "react-icons/bi";
 
-import { BASE_URL, MEDIA_ENV_URL } from "../api/config";
+import { BASE_URL, MEDIA_ENV_URL, MEDIA_LOCAL_URL } from "../api/config";
 import { toast } from "react-hot-toast";
 import Modal from "./Modal/Modal";
 import EditWord from "./EditWord";
@@ -72,7 +72,9 @@ function Word({
 
   const handleDownload = (item) => {
     const url = item.audio_us;
-    const path = `/media/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`;
+    const path = `${MEDIA_LOCAL_URL}/media/phonetic/${item.name.slice(0, 1)}/${
+      item.name
+    }.mp3`;
 
     axiosApi
       .post(`${BASE_URL}/saveaudio`, { url, path })
