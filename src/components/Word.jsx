@@ -198,7 +198,6 @@ function Word({
       onClick={(e) => {
         reset();
         toggleExpand();
-        handleDownload(item);
       }}
       className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
         ready && ""
