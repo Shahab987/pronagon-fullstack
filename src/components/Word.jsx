@@ -344,6 +344,23 @@ function Word({
             Your browser does not support the audio tag.
           </audio>
         )}
+        {!item.audio_src && item?.audio_us && (
+          <audio
+            onCanPlay={() => setReady(true)}
+            ref={audioRef}
+            // preload="auto"
+            onPlay={() => {
+              setPlaying(true);
+            }}
+            onPause={() => {
+              setPlaying(false);
+            }}
+            type="audio/mpeg"
+          >
+            <source src={item.audio_us} />
+            Your browser does not support the audio tag.
+          </audio>
+        )}
         {url.l1 && !item?.audio_us && (
           <audio
             onCanPlay={() => setReady(true)}
