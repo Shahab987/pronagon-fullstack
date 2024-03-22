@@ -24,6 +24,7 @@ import { useLocation, useSearchParams } from "react-router-dom";
 import axiosApi from "../api/axiosApi";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authActions";
+import { BiToggleLeft, BiToggleRight } from "react-icons/bi";
 
 function EnglishDic() {
   const storedUserSituation = JSON.parse(localStorage.getItem("userSituation"));
@@ -380,8 +381,6 @@ function EnglishDic() {
 
   return (
     <div className=" w-full  px-3 ">
-      {/* ------------------------------------- Header  */}
-
       {/* ------------------------------------- Add new words  */}
       {user.role === "ADMIN" && (
         <div className="flex items-center my-1">
@@ -417,9 +416,9 @@ function EnglishDic() {
           </button>
         </div>
       )}
-      <div className="flex flex-col lg:flex-row mt-2">
+      <div className="flex flex-col lg:flex-row lg:gap-1 mt-2">
         {/* ------------------------------------- Filter & Sort  */}
-        <div className="lg:w-1/2 flex p-2 border gap-4 ">
+        <div className="lg:w-1/2 flex p-2 border gap-4 h-11">
           <div className="flex gap-2">
             <p className="hidden xs:block">Filter:</p>
             <div className="flex gap-2 text-xl relative">
@@ -510,40 +509,65 @@ function EnglishDic() {
             </button>
           </div>
         </div>
-
-        {/* ------------------------------------- Search  */}
-        <div className="relative flex items-center w-full lg:w-1/2 mt-1 lg:mt-0  ">
-          <input
-            type="text"
-            name="search"
-            placeholder="Search"
-            className="border p-2 w-full pe-20"
-            value={searchInput}
-            onChange={(e) => setSearchInput(e.target.value)}
-            onKeyUp={(e) => {
-              if (e.key === "Enter") {
-                handleSearch();
-              }
-            }}
-          />
-          <button onClick={() => handleSearch()} className="absolute right-11">
-            <FaSearch />
-          </button>
-          <button
-            onClick={() => setExactMatch(!exactMatch)}
-            className={`absolute transition-all duration-300 text-2xl right-3 top-2 `}
-          >
-            <VscWholeWord
-              className={` transition-all duration-300 ${
-                !exactMatch ? "text-stone-300" : "text-red-700"
-              }`}
+        <div className="flex flex-col gap-1 mt-1 lg:mt-0 md:flex-row md:gap-1  lg:w-1/2 ">
+          {/* ------------------------------------- Search  */}
+          <div className="relative flex items-center w-full md:w-1/2 border h-11 lg:mt-0  ">
+            <input
+              type="text"
+              name="search"
+              placeholder="Search"
+              className=" p-2 w-full pe-20 h-full"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch();
+                }
+              }}
             />
-            <BsSlashLg
-              className={`absolute transition-all duration-300 text-stone-300 right-0 top-0 ${
-                !exactMatch ? "opacity-75" : "opacity-0"
-              }`}
-            />
-          </button>
+            <button
+              onClick={() => handleSearch()}
+              className="absolute right-11"
+            >
+              <FaSearch />
+            </button>
+            <button
+              onClick={() => setExactMatch(!exactMatch)}
+              className={`absolute transition-all duration-300 text-2xl right-3 top-2 `}
+            >
+              <VscWholeWord
+                className={` transition-all duration-300 ${
+                  !exactMatch ? "text-stone-300" : "text-red-700"
+                }`}
+              />
+              <BsSlashLg
+                className={`absolute transition-all duration-300 text-stone-300 right-0 top-0 ${
+                  !exactMatch ? "opacity-75" : "opacity-0"
+                }`}
+              />
+            </button>
+          </div>
+          {/* ---------------------------------- Expand & Focus */}
+          <div className="relative flex items-center w-full md:w-1/2  lg:mt-0  border h-11 px-2 ">
+            <p>Expand</p>
+            <button
+              className="text-3xl text-slate-800 ms-1 transition-all pt-1"
+              onClick={() => {
+                setExpandAll((p) => !p);
+              }}
+            >
+              {expandAll ? <BiToggleRight /> : <BiToggleLeft />}
+            </button>
+            <p className="ms-5">Focus</p>
+            <button
+              className="text-3xl text-slate-800 ms-1 transition-all pt-1"
+              onClick={() => {
+                setItemsPerPage((p) => (p === 1 ? 5 : 1));
+              }}
+            >
+              {itemsPerPage === 1 ? <BiToggleRight /> : <BiToggleLeft />}
+            </button>
+          </div>
         </div>
       </div>
       <div className="border p-2 mt-2 w-full">
@@ -607,14 +631,6 @@ function EnglishDic() {
               ))}
             </select>
             <p>of {totalCount}</p>
-            <button
-              className="text-3xl text-blue-900 ms-3 transition-all "
-              onClick={() => {
-                setExpandAll((p) => !p);
-              }}
-            >
-              {expandAll ? <BsToggleOn /> : <BsToggleOff />}
-            </button>
           </div>
         </div>
 

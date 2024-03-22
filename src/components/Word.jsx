@@ -223,7 +223,7 @@ function Word({
         <div
           onClick={(e) => e.stopPropagation()}
           className={`icons flex items-center gap-2 xs:gap-5 text-xl ${
-            itemsPerPage === "1" ? "hidden" : ""
+            itemsPerPage === 1 ? "hidden" : ""
           }`}
         >
           <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-xl `}>
@@ -256,7 +256,7 @@ function Word({
         </div>
       </div>
       {/* ---------------------- Details  */}
-      {(currentExpand === item._id || itemsPerPage === "1" || expandAll) && (
+      {(currentExpand === item._id || itemsPerPage === 1 || expandAll) && (
         <div className="w-full text" onClick={(e) => e.stopPropagation()}>
           <div className="flex md:hidden items-center justify-between flex-wrap w-full bg-slate-100 px-2 py-1 mt-1 rounded-md">
             <p className="text-lg text-zinc-500 ">({item.pronunciation})</p>
@@ -295,7 +295,7 @@ function Word({
       )}
       <div
         className={`icons flex items-center gap-6 mt-3 ${
-          itemsPerPage === "1" ? "" : "hidden"
+          itemsPerPage === 1 ? "" : "hidden"
         }`}
       >
         <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-3xl `}>
