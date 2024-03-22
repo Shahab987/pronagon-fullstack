@@ -86,7 +86,7 @@ app.post("/api/saveaudio", async (req, res) => {
     const writer = fs.createWriteStream(filePath);
 
     response.data.pipe(writer);
-
+    console.log(directory);
     writer.on("finish", () => {
       res.status(200).send("File downloaded successfully");
     });

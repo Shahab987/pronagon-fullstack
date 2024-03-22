@@ -72,7 +72,7 @@ function Word({
 
   const handleDownload = (item) => {
     const url = item.audio_us;
-    const path = `./media/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`;
+    const path = `/media/phonetic/${item.name.slice(0, 1)}/${item.name}.mp3`;
 
     axiosApi
       .post(`${BASE_URL}/saveaudio`, { url, path })
@@ -196,6 +196,7 @@ function Word({
       onClick={(e) => {
         reset();
         toggleExpand();
+        handleDownload(item);
       }}
       className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
         ready && ""
