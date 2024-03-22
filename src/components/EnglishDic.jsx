@@ -703,14 +703,14 @@ function EnglishDic() {
               disabled={page === 1}
               className="text-9xl mx-3 text-lime-300"
               style={{ color: page === 1 ? "gray" : "" }}
-              onClick={() => handlePage(-1)}
+              onClick={() => handlePage("backward")}
             >
               <IoArrowBackCircle />
             </button>
 
             <button
               className="text-9xl mx-3 text-lime-300"
-              onClick={() => handlePage(1)}
+              onClick={() => handlePage("forward")}
             >
               <IoArrowForwardCircle />
             </button>
