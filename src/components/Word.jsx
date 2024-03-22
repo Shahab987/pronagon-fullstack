@@ -23,6 +23,8 @@ function Word({
   setCurrentExpand,
   itemsPerPage,
   FetchWords,
+  user,
+  expandAll,
 }) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
@@ -252,7 +254,7 @@ function Word({
         </div>
       </div>
       {/* ---------------------- Details  */}
-      {(currentExpand === item._id || itemsPerPage === "1" || true) && (
+      {(currentExpand === item._id || itemsPerPage === "1" || expandAll) && (
         <div className="w-full text" onClick={(e) => e.stopPropagation()}>
           <div className="flex md:hidden items-center justify-between flex-wrap w-full bg-slate-100 px-2 py-1 mt-1 rounded-md">
             <p className="text-lg text-zinc-500 ">({item.pronunciation})</p>
@@ -265,25 +267,27 @@ function Word({
           </div>
           <div className="flex items-center w-full justify-between ps-2 mt-1 ">
             <p>Ex: {item.example}</p>
-            <div className="flex items-center gap-3">
-              <Button
-                onClick={() => setShowModal(true)}
-                icon={<BiSolidEdit />}
-                iconClass="text-sky-950 hover:text-sky-700 mt-[2px]"
-                btnClass="text-2xl"
-              />
+            {user.role === "ADMIN" && (
+              <div className="flex items-center gap-3">
+                <Button
+                  onClick={() => setShowModal(true)}
+                  icon={<BiSolidEdit />}
+                  iconClass="text-sky-950 hover:text-sky-700 mt-[2px]"
+                  btnClass="text-2xl"
+                />
 
-              <button className="text-xl" onClick={() => toggleSure(null)}>
-                <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
-              </button>
-              {isSure && (
-                <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
-                  <p>Sure?</p>
-                  <button onClick={() => toggleSure(item._id)}>Yes</button>
-                  <button onClick={() => toggleSure(false)}>No</button>
-                </div>
-              )}
-            </div>
+                <button className="text-xl" onClick={() => toggleSure(null)}>
+                  <FaTrashAlt className="text-zinc-600 hover:text-red-700" />
+                </button>
+                {isSure && (
+                  <div className="absolute bg-gray-100 border p-3 right-20  rounded-xl border-gray-700 flex items-center justify-center gap-4">
+                    <p>Sure?</p>
+                    <button onClick={() => toggleSure(item._id)}>Yes</button>
+                    <button onClick={() => toggleSure(false)}>No</button>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -5,7 +5,12 @@ import { BASE_URL } from "../api/config";
 import Word from "./Word";
 import { IoArrowBackCircle, IoArrowForwardCircle } from "react-icons/io5";
 import { LoaderIcon, toast } from "react-hot-toast";
-import { BsBookmarkFill, BsSlashLg } from "react-icons/bs";
+import {
+  BsBookmarkFill,
+  BsSlashLg,
+  BsToggleOff,
+  BsToggleOn,
+} from "react-icons/bs";
 import {
   FaSearch,
   FaSortAlphaDown,
@@ -13,7 +18,7 @@ import {
   FaSortAmountDown,
   FaSortAmountDownAlt,
 } from "react-icons/fa";
-import { FcClearFilters } from "react-icons/fc";
+import { FcClearFilters, FcViewDetails } from "react-icons/fc";
 import { VscWholeWord } from "react-icons/vsc";
 import { useLocation, useSearchParams } from "react-router-dom";
 import axiosApi from "../api/axiosApi";
@@ -43,6 +48,7 @@ function EnglishDic() {
   const [exactMatch, setExactMatch] = useState(false);
   const [letsAdd, setLetsAdd] = useState(false);
   const [currentExpand, setCurrentExpand] = useState(-1);
+  const [expandAll, setExpandAll] = useState(false);
   const [urlParams, setUrlParams] = useState(
     storedUserSituation?.urlParams ||
       Object.fromEntries(new URLSearchParams(location?.search)) ||
@@ -377,39 +383,41 @@ function EnglishDic() {
       {/* ------------------------------------- Header  */}
 
       {/* ------------------------------------- Add new words  */}
-      <div className="flex items-center my-1">
-        <input
-          value={newWords}
-          onChange={(e) => setNewWords(e.target.value)}
-          onKeyUp={(e) => {
-            if (e.key === "Enter") {
-              handleAddAll();
-            }
-          }}
-          type="text"
-          name="newWords"
-          id="newWords"
-          className="border p-2 w-full  "
-          placeholder="Feed me a Word or a Paragraph!"
-        />{" "}
-        <button
-          className="p-2 border w-32  bg-stone-100 text-gray-900 hover:bg-slate-950 hover:text-slate-300 font-semibold transition-all"
-          onClick={handleAddAll}
-          disabled={counter > 0}
-        >
-          {counter > 0 ? (
-            <div className="flex items-center justify-evenly">
-              <LoaderIcon />
-              <p>
-                {counter} item{counter > 1 && "s"}
-              </p>
-            </div>
-          ) : (
-            "Yum!"
-          )}
-        </button>
-      </div>
-      <div className="flex flex-col lg:flex-row">
+      {user.role === "ADMIN" && (
+        <div className="flex items-center my-1">
+          <input
+            value={newWords}
+            onChange={(e) => setNewWords(e.target.value)}
+            onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                handleAddAll();
+              }
+            }}
+            type="text"
+            name="newWords"
+            id="newWords"
+            className="border p-2 w-full  "
+            placeholder="Feed me a Word or a Paragraph!"
+          />{" "}
+          <button
+            className="p-2 border w-32  bg-stone-100 text-gray-900 hover:bg-slate-950 hover:text-slate-300 font-semibold transition-all"
+            onClick={handleAddAll}
+            disabled={counter > 0}
+          >
+            {counter > 0 ? (
+              <div className="flex items-center justify-evenly">
+                <LoaderIcon />
+                <p>
+                  {counter} item{counter > 1 && "s"}
+                </p>
+              </div>
+            ) : (
+              "Yum!"
+            )}
+          </button>
+        </div>
+      )}
+      <div className="flex flex-col lg:flex-row mt-2">
         {/* ------------------------------------- Filter & Sort  */}
         <div className="lg:w-1/2 flex p-2 border gap-4 ">
           <div className="flex gap-2">
@@ -542,6 +550,7 @@ function EnglishDic() {
         {/* ------------------------------------- pagination  */}
         <div className="flex w-full items-center justify-center mt-1 mb-3">
           {/* Pagination Controls */}
+
           <div className="pagination flex items-center">
             <button
               disabled={page === 1}
@@ -583,7 +592,7 @@ function EnglishDic() {
 
           {/* Items Per Page Selector */}
           <div className="flex items-center">
-            <p className="hidden 2xs:block">Showing </p>
+            <p className="hidden sm:block">Showing </p>
             <select
               className="w-10"
               name="items"
@@ -598,6 +607,14 @@ function EnglishDic() {
               ))}
             </select>
             <p>of {totalCount}</p>
+            <button
+              className="text-3xl text-blue-900 ms-3 transition-all "
+              onClick={() => {
+                setExpandAll((p) => !p);
+              }}
+            >
+              {expandAll ? <BsToggleOn /> : <BsToggleOff />}
+            </button>
           </div>
         </div>
 
@@ -668,6 +685,8 @@ function EnglishDic() {
                         item={item}
                         deleteItem={deleteItem}
                         FetchWords={FetchWords}
+                        user={user}
+                        expandAll={expandAll}
                       />
                     </div>
                   );
