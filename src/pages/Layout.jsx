@@ -27,7 +27,7 @@ function Layout() {
           <NavLink className="" to="/">
             Home
           </NavLink>
-          {isLogedIn && (
+          {isLogedIn && user.role === "ADMIN" && (
             <NavLink className="" to="/update">
               Update
             </NavLink>

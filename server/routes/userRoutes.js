@@ -168,7 +168,13 @@ router.post("/checkToken", (req, res) => {
     } else {
       // Token is valid
       console.log("Decoded token:", decoded);
-      const user = await User.findOne(decoded.id);
+
+      let user = null;
+      if (decoded.user.id) {
+        user = await User.findOne({ _id: decoded.user.id });
+      }
+      console.log(user);
+
       if (!user) {
         res
           .status(400)
@@ -177,8 +183,13 @@ router.post("/checkToken", (req, res) => {
         res.json({
           message: "Wellcome Back",
           token: authToken,
-          id: user._id,
-          email: user.email,
+          user: {
+            id: user._id,
+            email: user.email,
+            isActive: user.isActive,
+            role: user.role,
+            status: user.status,
+          },
         });
       }
     }

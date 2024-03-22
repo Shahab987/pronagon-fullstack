@@ -360,11 +360,16 @@ function EnglishDic() {
     } else {
       return (
         <div className="text-center pt-4 text-2xl text-red-900">
-          <p>Access Unauthorized ...!</p>
           <p>Please login first.</p>
         </div>
       );
     }
+  } else if (!user.isActive) {
+    return (
+      <div className="text-center pt-4 text-2xl text-red-900">
+        <p>Please Activate your account first.</p>
+      </div>
+    );
   }
 
   return (

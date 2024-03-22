@@ -55,7 +55,7 @@ const authSlice = createSlice({
     [tokenCheck.fulfilled]: (state, { payload }) => {
       state.success = true; //token found
       state.loading = false;
-      state.user = { id: payload.id, email: payload.email };
+      state.user = payload.user;
       state.userToken = payload.token;
       state.isLogedIn = true;
     },
