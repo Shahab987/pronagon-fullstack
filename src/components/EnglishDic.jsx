@@ -551,7 +551,7 @@ function EnglishDic() {
           <div className="relative flex items-center w-full md:w-1/2  lg:mt-0  border h-11 px-2 ">
             <p>Expand</p>
             <button
-              className="text-3xl text-slate-800 ms-1 transition-all pt-1"
+              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
               onClick={() => {
                 setExpandAll((p) => !p);
               }}
@@ -560,7 +560,7 @@ function EnglishDic() {
             </button>
             <p className="ms-5">Focus</p>
             <button
-              className="text-3xl text-slate-800 ms-1 transition-all pt-1"
+              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
               onClick={() => {
                 setItemsPerPage((p) => (p === 1 ? 5 : 1));
               }}
