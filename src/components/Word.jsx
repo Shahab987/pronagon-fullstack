@@ -72,7 +72,7 @@ function Word({
 
   const handleDownload = (item) => {
     const url = item.audio_us;
-    const path = `${MEDIA_LOCAL_URL}/media/phonetic/${item.name.slice(0, 1)}/${
+    const path = `/uploads/media/phonetic/${item.name.slice(0, 1)}/${
       item.name
     }.mp3`;
 
