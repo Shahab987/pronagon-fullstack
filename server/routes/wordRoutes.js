@@ -20,7 +20,7 @@ router.get("/", async (req, res) => {
 
         let query = {};
         if (req.query.search) {
-          query.name = { $regex: req.query.search, $options: "i" };
+          query.name = { $regex: "^" + req.query.search, $options: "i" };
         }
         if (req.query.exact) {
           query.name = req.query.exact;

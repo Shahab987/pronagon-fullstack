@@ -37,6 +37,11 @@ function Layout() {
               <div className="flex">Phonegon</div>
             </NavLink>
           )}
+          {isLogedIn && (
+            <NavLink className="" to="/reader">
+              <div className="flex">Reader</div>
+            </NavLink>
+          )}
           {!isLogedIn && (
             <NavLink className=" ms-auto" to="/auth/login">
               Login

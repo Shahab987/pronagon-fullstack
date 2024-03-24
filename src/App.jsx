@@ -8,6 +8,7 @@ import Register from "./components/auth/Register";
 import UpdateDb from "./components/UpdateDb";
 import ActivationSuccess from "./pages/ActivationSuccess";
 import ActivationFailed from "./pages/ActivationFailed";
+import Reader from "./components/Reader";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="words" element={<EnglishDic />} />
+          <Route path="reader" element={<Reader />} />
           <Route path="update" element={<UpdateDb />} />
           <Route path="activation-success" element={<ActivationSuccess />} />
           <Route path="activation-failed" element={<ActivationFailed />} />
