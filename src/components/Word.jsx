@@ -57,17 +57,19 @@ function Word({
   };
 
   const setAudioUrl = () => {
-    axios
-      .put(`${BASE_URL}/words/${item._id}`, {
-        ...item,
-        audio_us: audioRef.current.currentSrc,
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          handleDownload(res.data);
-        }
-      })
-      .catch((err) => console.error(err));
+    if (audioRef.current?.currentSrc) {
+      axios
+        .put(`${BASE_URL}/words/${item._id}`, {
+          ...item,
+          audio_us: audioRef.current.currentSrc,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            handleDownload(res.data);
+          }
+        })
+        .catch((err) => console.error(err));
+    }
   };
 
   const handleDownload = (item) => {
@@ -163,7 +165,7 @@ function Word({
 
   useEffect(() => {
     genAudioUrl();
-    if (ready && !item.audio_us) {
+    if ((ready && !item.audio_us) || !item.audio_src) {
       setAudioUrl();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -343,7 +345,7 @@ function Word({
             type="audio/mpeg"
           >
             <source src={`${MEDIA_ENV_URL}${item.audio_src}`} />
-            Your browser does not support the audio tag.
+            Your browser does not support the audio tag. src
           </audio>
         )}
         {!item.audio_src && item?.audio_us && (
