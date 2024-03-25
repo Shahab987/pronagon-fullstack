@@ -47,111 +47,60 @@ function Reader() {
         if (res.data.pagination.totalCount > 0) {
           console.log();
           setFoundItem(res.data.data[0]);
+          setIsLoading(false);
         } else {
-          axiosApi
-            .get(`${BASE_URL}/words`, {
-              params: {
-                _page: 1,
-                _limit: 5,
-                search: explodedText[searchIndex],
-              },
-            })
-            .then((res) => {
-              if (res.data.pagination.totalCount > 0) {
-                setFoundItem(res.data.data[0]);
-              } else {
-                console.log("not found");
-              }
-            });
+          handleAddAll();
         }
       })
       .catch((err) => {
         console.log(err.response?.data?.message, err?.response);
-        // if (err.response.status === 401) {
-        //   dispatch(logout());
-        // }
-      })
-      .finally(() => {
         setIsLoading(false);
-      });
+      })
+      .finally(() => {});
   };
 
   const handleAddAll = async () => {
     setIsLoading(true);
-
-    const wordsArr = newWords
+    console.log(isLoading);
+    const newWord = explodedText[searchIndex]
+      .toLowerCase()
       .replace(/[^\w\s]|_|\d+/g, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .split(" ");
+      .replace(/\s+/g, " ");
 
-    let skippedWords = "";
-    let reapeated = "";
-    let wordCount = 0;
-    try {
-      // Iterate over each item and send individual POST requests
-      for (let i = 0; i < wordsArr.length; i++) {
-        const item = wordsArr[i].toLowerCase();
-        if (item.length > 3) {
-          const itemExist = await axiosApi
-            .get(`${BASE_URL}/words?exact=${item}`)
-            .then((res) => res?.data?.data?.length);
-          if (itemExist === 0) {
-            let openAiResponse = {};
-            let tmpNewWord = {
-              name: item,
-              meaning: "",
-              audio_us: "",
-              level: 0,
-              length: item.length,
-            };
+    if (newWord.length > 3) {
+      let openAiResponse = {};
+      let tmpNewWord = {
+        name: newWord,
+        meaning: "",
+        audio_us: "",
+        level: 0,
+        length: newWord.length,
+      };
 
+      try {
+        await axiosApi.post(`${BASE_URL}/words`, tmpNewWord).then((res) => {
+          if (res.statusText === "Created") {
+            // OPEN AI REQ
             try {
-              axios
-                .post(`${BASE_URL}/words`, tmpNewWord)
-                .then((res) =>
-                  res.statusText === "Created" ? console.log("Added") : ""
-                );
-              //   });
+              axiosApi
+                .get(`${BASE_URL}/openai`, {
+                  params: {
+                    word: newWord,
+                  },
+                })
+                .then((res) => {
+                  setFoundItem(res.data);
+                  setIsLoading(false);
+                });
             } catch (error) {
               console.error("Error fetching data:", error);
             }
-
-            // Log the response message after each item is successfully added
-            setCounter((p) => p + 1);
-            wordCount = wordCount + 1;
-            // Add a 0.5 second delay between requests
-            // await new Promise((resolve) => setTimeout(resolve, 100));
-          } else {
-            reapeated = `"${item}", ${reapeated}`;
           }
-        } else if (item.length > 0) {
-          skippedWords = `"${item}", ${skippedWords}`;
-        }
-
-        // Log the final response message after all items have been successfully added
+        });
+        //   });
+      } catch (error) {
+        console.error("Error adding data:", error);
       }
-      if (wordCount > 0) {
-        toast.success(`I ate ${wordCount} Words.`);
-      }
-      if (skippedWords) {
-        toast.error(
-          `Too short to feed me with: 
-          ${skippedWords}`
-        );
-      }
-      if (reapeated) {
-        toast.error(
-          `Already ate : 
-          ${reapeated}`
-        );
-      }
-      setNewWords("");
-      setCounter(0);
-      FetchWords();
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Error:", error);
     }
   };
 
@@ -173,7 +122,7 @@ function Reader() {
 
   return (
     <div className="p-2">
-      <div className="flex flex-col">
+      <div className="flex flex-col ">
         <textarea
           className="w-full p-2 border text-sm"
           name="textarea"
@@ -184,7 +133,7 @@ function Reader() {
           onChange={(e) => handleChange(e)}
           placeholder="Paste your text here"
         />
-        <div>
+        <div className="mt-2">
           {foundItem && (
             <ReaderWord
               isLoading={isLoading}

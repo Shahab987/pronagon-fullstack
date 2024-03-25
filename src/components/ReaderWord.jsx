@@ -9,14 +9,16 @@ import { toast } from "react-hot-toast";
 import Modal from "./Modal/Modal";
 import EditWord from "./EditWord";
 import axiosApi from "../api/axiosApi";
-
+import { zoomies } from "ldrs";
 const Button = ({ onClick, icon, iconClass, btnClass }) => (
   <button onClick={onClick} className={btnClass}>
     {icon && <icon.type className={`${iconClass}`} />}
   </button>
 );
 
-function ReaderWord({ item, deleteItem, user }) {
+zoomies.register();
+
+function ReaderWord({ item, deleteItem, user, isLoading }) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [isSure, setIsSure] = useState(false);
@@ -189,6 +191,20 @@ function ReaderWord({ item, deleteItem, user }) {
     }
   }, [item.name]);
 
+  if (isLoading) {
+    return (
+      <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
+        <l-zoomies
+          size="300"
+          stroke="10"
+          bg-opacity="0.1"
+          speed="4"
+          color="#aaa"
+        ></l-zoomies>
+      </div>
+    );
+  }
+
   return (
     <div
       onClick={(e) => {
@@ -201,22 +217,55 @@ function ReaderWord({ item, deleteItem, user }) {
       <div
         className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0  ${levelColors[level]}`}
       ></div>
-      <div className="flex items-center w-full py-0 ps-1">
-        <p
-          onClick={() => setExpand((p) => !p)}
-          className="font-semibold  2xs:text-lg w-fit cursor-pointer me-3"
-        >
-          {item?.name}
-        </p>
-        <p className=" bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
-          ({item.pronunciation})
-        </p>
-        <p
-          dir="rtl"
-          className=" text-sm bg-slate-100 rounded-md px-2 py-1 me-auto ms-5  font-IranSans  font-bold text-cyan-950"
-        >
-          {item.meaning}
-        </p>
+      <div className="flex flex-col md:flex-row items-center w-full py-0 ps-1">
+        <div className="flex w-full ">
+          <p
+            onClick={() => setExpand((p) => !p)}
+            className="font-semibold  2xs:text-lg w-fit cursor-pointer me-3"
+          >
+            {item?.name}
+          </p>
+          <p className=" bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
+            ({item.pronunciation})
+          </p>
+          <p
+            dir="rtl"
+            className=" text-sm bg-slate-100 rounded-md px-2 py-1 me-auto ms-5  font-IranSans  font-bold text-cyan-950"
+          >
+            {item.meaning}
+          </p>
+        </div>
+
+        <div className={`icons flex items-center gap-6 mt-2 md:mt-0`}>
+          <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-2xl `}>
+            {[0, 1, 2, 3, 4].map((num) => (
+              <Button
+                key={num}
+                onClick={() => setLevel(num)}
+                icon={<BsBookmarkFill />}
+                iconClass={
+                  [
+                    "text-stone-300",
+                    "text-lime-600",
+                    "text-purple-600",
+                    "text-yellow-500",
+                    "text-red-600",
+                  ][num]
+                }
+              />
+            ))}
+          </div>
+          {!playing ? (
+            <Button
+              onClick={() => audioRef.current.play()}
+              icon={<FaPlay />}
+              iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
+              btnClass="text-2xl"
+            />
+          ) : (
+            <Button onClick={stop} icon={<FaStop />} />
+          )}
+        </div>
       </div>
       {/* ---------------------- Details  */}
 
@@ -249,36 +298,7 @@ function ReaderWord({ item, deleteItem, user }) {
         </div>
       )}
       {/* ------------------------ Icons  */}
-      <div className={`icons flex items-center gap-6 mt-2`}>
-        <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-2xl `}>
-          {[0, 1, 2, 3, 4].map((num) => (
-            <Button
-              key={num}
-              onClick={() => setLevel(num)}
-              icon={<BsBookmarkFill />}
-              iconClass={
-                [
-                  "text-stone-300",
-                  "text-lime-600",
-                  "text-purple-600",
-                  "text-yellow-500",
-                  "text-red-600",
-                ][num]
-              }
-            />
-          ))}
-        </div>
-        {!playing ? (
-          <Button
-            onClick={() => audioRef.current.play()}
-            icon={<FaPlay />}
-            iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
-            btnClass="text-2xl"
-          />
-        ) : (
-          <Button onClick={stop} icon={<FaStop />} />
-        )}
-      </div>
+
       {/* ------------------------ Audio tag  */}
       <div id="audioTag" className="absolute">
         {item?.audio_src && (

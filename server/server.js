@@ -42,12 +42,26 @@ const wordRoutes = require("./routes/wordRoutes");
 app.use("/api/words", wordRoutes);
 
 const userRoutes = require("./routes/userRoutes");
+const WordModel = require("./models/Word");
 app.use("/api/auth", userRoutes);
 
 app.get("/api/openai", async (req, res) => {
   try {
     const result = await generateResponse(req.query.word);
-    res.json(result);
+    console.log("AI result: ", result);
+    const existingObject = await WordModel.findOne({ name: result.word });
+    console.log("existingObject: ", existingObject);
+
+    if (!existingObject) {
+      throw new Error("Object not found"); // Throw an error if the object is not found
+    }
+
+    const updatedObject = { ...existingObject.toObject(), ...result };
+
+    // Save the updated object
+    await WordModel.updateOne({ _id: existingObject._id }, updatedObject);
+
+    res.json(updatedObject);
   } catch (error) {
     console.error("Error calling OpenAI endpoint:", error);
     res.status(500).json({ error: "An error occurred" });

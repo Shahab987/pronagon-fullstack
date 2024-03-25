@@ -123,7 +123,9 @@ const UpdateDb = () => {
         });
     } catch (error) {
       console.error("Error fetching data:", error);
-      fetchDataAndUpdateDatabase();
+      if (error.response.status !== 500) {
+        fetchDataAndUpdateDatabase();
+      }
     }
   };
 

@@ -11,7 +11,7 @@ async function generateResponse(word) {
       messages: [
         {
           role: "user",
-          content: `make a JSON string object with word ""${word} including its meaning in Persian(Farsi), its standard US phonetic and an example sentence. use this pattern: { "word":  \"\" , "meaning" : \"\" ,  "pronunciation" : \"\", "example" : \"\" }`,
+          content: `generate a JSON string object with word "${word}" including its Farsi meaning, its standard US International Phonetic Alphabet (IPA) and an example sentence. use this pattern: { "word":  \"\" , "meaning" : \"\" ,  "pronunciation" : \"\", "example" : \"\" }`,
         },
       ],
       temperature: 1,
@@ -21,7 +21,9 @@ async function generateResponse(word) {
       presence_penalty: 0,
     });
 
-    return response;
+    const parsedData = JSON.parse(response.choices[0].message.content);
+
+    return parsedData;
   } catch (error) {
     console.error("Error generating response from OpenAI:", error);
     throw error;
