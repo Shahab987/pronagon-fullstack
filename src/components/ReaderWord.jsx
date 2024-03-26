@@ -191,20 +191,6 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
     }
   }, [item.name]);
 
-  if (isLoading) {
-    return (
-      <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
-        <l-zoomies
-          size="300"
-          stroke="10"
-          bg-opacity="0.1"
-          speed="4"
-          color="#aaa"
-        ></l-zoomies>
-      </div>
-    );
-  }
-
   return (
     <div
       onClick={(e) => {

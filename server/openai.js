@@ -11,7 +11,7 @@ async function generateResponse(word) {
       messages: [
         {
           role: "user",
-          content: `generate a JSON string object with word "${word}" including its Farsi meaning, its standard US International Phonetic Alphabet (IPA) and an example sentence. use this pattern: { "word":  \"\" , "meaning" : \"\" ,  "pronunciation" : \"\", "example" : \"\" }`,
+          content: `generate a JSON string object with word "${word}" including its Farsi meaning, its standard US International Phonetic Alphabet (IPA) and an example sentence. make word singular if it's plural. use this pattern: { "word":  \"\" , "meaning" : \"\" ,  "pronunciation" : \"\", "example" : \"\" }`,
         },
       ],
       temperature: 1,

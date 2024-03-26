@@ -49,19 +49,19 @@ app.get("/api/openai", async (req, res) => {
   try {
     const result = await generateResponse(req.query.word);
     console.log("AI result: ", result);
-    const existingObject = await WordModel.findOne({ name: result.word });
-    console.log("existingObject: ", existingObject);
+    const wordExist = await WordModel.findOne({ name: result.word });
+    if (!wordExist) {
+      const newWord = await WordModel.create({
+        name: result.word,
+        ...result,
+        length: result.word.length,
+      });
+      console.log("existingObject: ", newWord);
 
-    if (!existingObject) {
-      throw new Error("Object not found"); // Throw an error if the object is not found
+      res.json(newWord);
+    } else {
+      res.json(wordExist);
     }
-
-    const updatedObject = { ...existingObject.toObject(), ...result };
-
-    // Save the updated object
-    await WordModel.updateOne({ _id: existingObject._id }, updatedObject);
-
-    res.json(updatedObject);
   } catch (error) {
     console.error("Error calling OpenAI endpoint:", error);
     res.status(500).json({ error: "An error occurred" });

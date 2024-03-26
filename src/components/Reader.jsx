@@ -33,14 +33,25 @@ function Reader() {
   );
 
   const searchWord = async () => {
-    setIsLoading(true);
+    // setIsLoading(true);
+
+    let singularWord = singularize(
+      explodedText[searchIndex]
+        .toLowerCase()
+        .replace(/[^\w\s\-]|_|\d+/g, "")
+        .replace(/\s+/g, " ")
+        .replace(/[’']s$/, "")
+    );
+    console.log(singularWord);
 
     axiosApi
       .get(`${BASE_URL}/words`, {
         params: {
           _page: 1,
           _limit: 5,
-          exact: explodedText[searchIndex],
+          search: singularWord,
+          sortBy: "length",
+          sortOrder: "asce",
         },
       })
       .then((res) => {
@@ -49,7 +60,7 @@ function Reader() {
           setFoundItem(res.data.data[0]);
           setIsLoading(false);
         } else {
-          handleAddAll();
+          addWord(explodedText[searchIndex]);
         }
       })
       .catch((err) => {
@@ -59,16 +70,16 @@ function Reader() {
       .finally(() => {});
   };
 
-  const handleAddAll = async () => {
+  const addWord = async (word) => {
     setIsLoading(true);
     console.log(isLoading);
-    const newWord = explodedText[searchIndex]
+    const newWord = word
       .toLowerCase()
-      .replace(/[^\w\s]|_|\d+/g, "")
-      .replace(/\s+/g, " ");
+      .replace(/[^\w\s\-]|_|\d+/g, "")
+      .replace(/\s+/g, " ")
+      .replace(/[’']s$/, "");
 
     if (newWord.length > 3) {
-      let openAiResponse = {};
       let tmpNewWord = {
         name: newWord,
         meaning: "",
@@ -77,32 +88,48 @@ function Reader() {
         length: newWord.length,
       };
 
+      // OPEN AI REQ
       try {
-        await axiosApi.post(`${BASE_URL}/words`, tmpNewWord).then((res) => {
-          if (res.statusText === "Created") {
-            // OPEN AI REQ
-            try {
-              axiosApi
-                .get(`${BASE_URL}/openai`, {
-                  params: {
-                    word: newWord,
-                  },
-                })
-                .then((res) => {
-                  setFoundItem(res.data);
-                  setIsLoading(false);
-                });
-            } catch (error) {
-              console.error("Error fetching data:", error);
-            }
-          }
-        });
-        //   });
+        axiosApi
+          .get(`${BASE_URL}/openai`, {
+            params: {
+              word: newWord,
+            },
+          })
+          .then((res) => {
+            setFoundItem(res.data);
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            console.log(err);
+            setIsLoading(false);
+          });
       } catch (error) {
-        console.error("Error adding data:", error);
+        console.error("Error adding data status:", error.message);
+        setIsLoading(false);
       }
     }
   };
+
+  function singularize(word) {
+    const rulesAndExceptions = [
+      [/([^aeiou])ies$/, "$1y"], // Change 'ies' to 'y'
+      [/([^aeiou])xes$/, "$1x"], // Change 'xes' to 'x'
+      [/([^aeiou])es$/, "$1"], // Remove 'es' except for specific cases
+      [/([^aeiou])s$/, "$1"], // Remove 's'
+      [/^(bus)(es)$/, "$1"], // Exception for buses
+    ];
+
+    // Apply rules and exceptions
+    for (let [pattern, replacement] of rulesAndExceptions) {
+      if (pattern.test(word)) {
+        return word.replace(pattern, replacement);
+      }
+    }
+
+    // Return unchanged if no match found
+    return word.replace(/(es|s|d)$/, "");
+  }
 
   useEffect(() => {
     if (searchIndex !== -1) {
@@ -134,7 +161,18 @@ function Reader() {
           placeholder="Paste your text here"
         />
         <div className="mt-2">
-          {foundItem && (
+          {isLoading && (
+            <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
+              <l-zoomies
+                size="300"
+                stroke="10"
+                bg-opacity="0.1"
+                speed="4"
+                color="#aaa"
+              ></l-zoomies>
+            </div>
+          )}
+          {foundItem && !isLoading && (
             <ReaderWord
               isLoading={isLoading}
               item={foundItem}
