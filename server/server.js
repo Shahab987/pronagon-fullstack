@@ -45,6 +45,9 @@ app.use("/api/words", wordRoutes);
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/auth", userRoutes);
 
+const essayRoutes = require("./routes/essayRoutes");
+app.use("/api/essay", essayRoutes);
+
 app.get("/api/openai", async (req, res) => {
   try {
     const result = await generateResponse(req.query.word);

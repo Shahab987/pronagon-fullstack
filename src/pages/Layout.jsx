@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Outlet } from "react-router-dom";
+import MyLink from "../components/ui/MyLink";
 import { logout, tokenCheck } from "../features/auth/authActions";
 
 function Layout() {
@@ -24,23 +25,35 @@ function Layout() {
     <div>
       <div className="bg-lime-700 ">
         <nav className=" sm:container sm:mx-auto py-4 px-5  flex justify-center items-center gap-3 text-lime-100">
-          <NavLink className="" to="/">
+          <MyLink activeStyle="text-lime-950 font-semibold" className="" to="/">
             Home
-          </NavLink>
+          </MyLink>
           {isLogedIn && user.role === "ADMIN" && (
-            <NavLink className="" to="/update">
+            <MyLink
+              activeStyle="text-lime-950 font-semibold"
+              className=""
+              to="/update"
+            >
               Update
-            </NavLink>
+            </MyLink>
           )}
           {isLogedIn && (
-            <NavLink className="" to="/words">
+            <MyLink
+              activeStyle="text-lime-950 font-semibold"
+              className=""
+              to="/words"
+            >
               <div className="flex">Phonegon</div>
-            </NavLink>
+            </MyLink>
           )}
           {isLogedIn && (
-            <NavLink className="" to="/reader">
+            <MyLink
+              activeStyle="text-lime-950 font-semibold"
+              className=""
+              to="/reader"
+            >
               <div className="flex">Reader</div>
-            </NavLink>
+            </MyLink>
           )}
           {!isLogedIn && (
             <NavLink className=" ms-auto" to="/auth/login">

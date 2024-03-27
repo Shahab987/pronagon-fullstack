@@ -1,32 +1,23 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-hot-toast";
 import { useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
-import axiosApi from "../api/axiosApi";
-import { BASE_URL } from "../api/config";
-import ReaderWord from "./ReaderWord";
-import SubText from "./SubText";
+import axiosApi from "../../api/axiosApi";
+import { BASE_URL } from "../../api/config";
 
-function Reader() {
-  const [text, setText] =
-    useState(`With its capacity for bringing down governments and scarring political careers, 
-  the onion plays an explosive role in Indian politics. This week, reports of rising 
-  onion prices have made front-page news and absorbed the attention of the 
-  governing elite. 
-  The most vital / staple ingredient in Indian cooking, the basic element with 
-  which all dishes begin and, normally, the cheapest vegetable available, the 
-  pink onion is an essential item in the shopping basket of families of all classes.
-  But in recent weeks, the onion has started to seem an unaffordable luxury for 
-  India’s poor. Over the past few days, another sharp surge / increase in prices 
-  has begun to unsettle the influential urban middle classes.
-  The sudden spike in prices has been caused by large exports to neighboring
-  countries and a shortage of supply. But the increase follows a trend of rising 
-  consumer prices across the board — from diesel fuel to cement, from milk to 
-  lentils.`);
+import ReaderWord from "../ReaderWord";
+import SubText from "../SubText";
+import LoaderButton from "../ui/LoaderButton";
+import ActiveParaghraph from "./ActiveParaghraph";
+
+function AddEssay() {
+  const [text, setText] = useState("");
+  const [title, setTitle] = useState("");
   const [explodedText, setExplodedText] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchIndex, setSearchIndex] = useState(-1);
   const [foundItem, setFoundItem] = useState(null);
+  const [saveLoading, setSaveLoading] = useState(false);
 
   const { loading, success, error, userToken, user } = useSelector(
     (state) => state.auth
@@ -34,15 +25,16 @@ function Reader() {
 
   const searchWord = async () => {
     // setIsLoading(true);
-
+    if (explodedText[searchIndex].word.length < 3) {
+      return;
+    }
     let singularWord = singularize(
-      explodedText[searchIndex]
+      explodedText[searchIndex].word
         .toLowerCase()
         .replace(/[^\w\s\-]|_|\d+/g, "")
         .replace(/\s+/g, " ")
         .replace(/[’']s$/, "")
     );
-    console.log(singularWord);
 
     axiosApi
       .get(`${BASE_URL}/words`, {
@@ -70,10 +62,10 @@ function Reader() {
       .finally(() => {});
   };
 
-  const addWord = async (word) => {
+  const addWord = async (wordObj) => {
     setIsLoading(true);
     console.log(isLoading);
-    const newWord = word
+    const newWord = wordObj.word
       .toLowerCase()
       .replace(/[^\w\s\-]|_|\d+/g, "")
       .replace(/\s+/g, " ")
@@ -102,6 +94,7 @@ function Reader() {
           })
           .catch((err) => {
             console.log(err);
+            toast.error("not found : 500");
             setIsLoading(false);
           });
       } catch (error) {
@@ -143,23 +136,94 @@ function Reader() {
     let splitText = tempText
       .replace(/\n/g, " ")
       .replace(/([.,?!'"'])/g, " $1 ")
-      .split(" ");
+      .split(" ")
+      .map((item) => ({ word: item, highlight: false }));
     setExplodedText(splitText);
   };
 
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+  function unifyText(expTextArr) {
+    const tempArr = expTextArr
+      .filter((obj) => obj.word !== "")
+      .map((wordObj) =>
+        wordObj.highlight ? "@**" + wordObj.word : wordObj.word
+      )
+      .join(" ");
+    return tempArr;
+  }
+
+  const handleSaveEssay = (e) => {
+    e.preventDefault();
+    setSaveLoading(true);
+    if (title && text && explodedText.length > 0) {
+      console.log(text, explodedText, title);
+      const unifiedText = unifyText(explodedText);
+
+      // return;
+      axiosApi
+        .post(`${BASE_URL}/essay/add`, {
+          title: title,
+          content: unifiedText,
+        })
+        .then((res) => console.log(res))
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setSaveLoading(false);
+        });
+    } else {
+      toast.error("Fill Title and Essay");
+      setSaveLoading(false);
+    }
+  };
+
+  const setHighlight = (index) => {
+    if (explodedText[index].word.length < 3) {
+      return;
+    }
+    const tempArr = explodedText.map((wordObj, i) =>
+      i === index ? { ...wordObj, highlight: !wordObj.highlight } : wordObj
+    );
+
+    setExplodedText(tempArr);
+  };
+
   return (
-    <div className="p-2">
+    <div className="pt-3">
       <div className="flex flex-col ">
-        <textarea
-          className="w-full p-2 border text-sm"
-          name="textarea"
-          id="textarea"
-          cols="50"
-          rows="8"
-          value={text}
-          onChange={(e) => handleChange(e)}
-          placeholder="Paste your text here"
-        />
+        {/* ------------------------ texarea input  */}
+        <form onSubmit={(e) => handleSaveEssay(e)}>
+          <input
+            type="text"
+            name="title"
+            value={title}
+            onChange={(e) => handleChangeTitle(e)}
+            className="p-2 border mb-2 w-full sm:w-150"
+            placeholder="Title"
+          />
+          <textarea
+            className="w-full p-2 border text-sm"
+            name="textarea"
+            id="textarea"
+            cols="50"
+            rows="8"
+            value={text}
+            onChange={(e) => handleChange(e)}
+            placeholder="Paste your text here"
+          />
+          <div className="text-center mt-2">
+            <LoaderButton
+              loading={saveLoading}
+              style="border w-50 p-2 bg-lime-600 text-lime-50"
+              type="submit"
+              text="Save"
+            />
+          </div>
+        </form>
+
+        {/* --------------------- word box  */}
         <div className="mt-2">
           {isLoading && (
             <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
@@ -181,23 +245,15 @@ function Reader() {
             />
           )}
         </div>
-        <div className="mt-5 p-3 bg-gray-50">
-          <p className="text-lg font-bold text-lime-800">Active Text :</p>
-          <p className="w-full  font-semibold text-stone-700">
-            {explodedText.map((sub, index) => (
-              <span key={index}>
-                <SubText
-                  subText={sub}
-                  index={index}
-                  setSearchIndex={setSearchIndex}
-                />{" "}
-              </span>
-            ))}
-          </p>
-        </div>
+        {/* ---------------------- paragraph box  */}
+        <ActiveParaghraph
+          explodedText={explodedText}
+          setSearchIndex={setSearchIndex}
+          setHighlight={setHighlight}
+        />
       </div>
     </div>
   );
 }
 
-export default Reader;
+export default AddEssay;

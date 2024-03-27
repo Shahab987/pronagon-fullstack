@@ -1,6 +1,6 @@
 import React from "react";
 
-function SubText({ subText, index, setSearchIndex }) {
+function SubText({ wordObj, index, setSearchIndex, setHighlight }) {
   const requestData = () => {};
   const handleClick = () => {
     setSearchIndex(index);
@@ -8,10 +8,14 @@ function SubText({ subText, index, setSearchIndex }) {
 
   return (
     <span
-      onClick={(e) => handleClick(e)}
-      className="cursor-pointer hover:text-red-800 hover:border-b-4"
+      onClick={(e) => setHighlight(index)}
+      onDoubleClick={(e) => handleClick(e)}
+      className={`cursor-pointer hover:text-red-800 hover:border-b-4 ${
+        wordObj.highlight && "bg-amber-200"
+      }`}
+      style={{ userSelect: "none" }}
     >
-      {subText}
+      {wordObj.word}
     </span>
   );
 }

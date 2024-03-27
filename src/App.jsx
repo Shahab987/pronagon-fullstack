@@ -8,7 +8,9 @@ import Register from "./components/auth/Register";
 import UpdateDb from "./components/UpdateDb";
 import ActivationSuccess from "./pages/ActivationSuccess";
 import ActivationFailed from "./pages/ActivationFailed";
-import Reader from "./components/Reader";
+import Reader from "./pages/Reader";
+import AddEssay from "./components/reader/AddEssay";
+import EssayList from "./components/reader/EssayList";
 
 function App() {
   return (
@@ -22,7 +24,10 @@ function App() {
             <Route path="register" element={<Register />} />
           </Route>
           <Route path="words" element={<EnglishDic />} />
-          <Route path="reader" element={<Reader />} />
+          <Route path="reader" element={<Reader />}>
+            <Route path="list" element={<EssayList />} />
+            <Route path="add-essay" element={<AddEssay />} />
+          </Route>
           <Route path="update" element={<UpdateDb />} />
           <Route path="activation-success" element={<ActivationSuccess />} />
           <Route path="activation-failed" element={<ActivationFailed />} />
