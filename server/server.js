@@ -39,10 +39,10 @@ mongoose
   });
 
 const wordRoutes = require("./routes/wordRoutes");
+const WordModel = require("./models/Word");
 app.use("/api/words", wordRoutes);
 
 const userRoutes = require("./routes/userRoutes");
-const WordModel = require("./models/Word");
 app.use("/api/auth", userRoutes);
 
 app.get("/api/openai", async (req, res) => {
