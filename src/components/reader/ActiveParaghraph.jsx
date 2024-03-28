@@ -141,7 +141,7 @@ function ActiveParaghraph({
   return (
     <div>
       {/* --------------------- word box  */}
-      <div className="mt-1">
+      <div className="mt-1 ">
         {isLoading && (
           <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
             <l-zoomies
@@ -162,7 +162,7 @@ function ActiveParaghraph({
           />
         )}
       </div>
-      <div className=" px-3 bg-gray-50">
+      <div className=" px-3 bg-gray-50 pb-10">
         <p className="text-lg font-bold text-lime-800">{title}</p>
         <p className="w-full  font-semibold text-stone-700">
           {explodedText.map((wordObj, index) => (
