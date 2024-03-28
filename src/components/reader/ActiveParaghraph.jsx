@@ -128,7 +128,7 @@ function ActiveParaghraph({
   }, [searchIndex]);
 
   const setHighlight = (index) => {
-    if (explodedText[index].word.length < 3) {
+    if (explodedText[index].word.length < 2) {
       return;
     }
     const tempArr = explodedText.map((wordObj, i) =>
