@@ -54,7 +54,6 @@ function AddEssay() {
     e.preventDefault();
     setSaveLoading(true);
     if (title && text && explodedText.length > 0) {
-      console.log(text, explodedText, title);
       const unifiedText = arrToStr(explodedText);
 
       // return;
@@ -112,6 +111,7 @@ function AddEssay() {
           explodedText={explodedText}
           setExplodedText={setExplodedText}
           title={title}
+          setIsEditing={() => {}}
         />
       </div>
     </div>

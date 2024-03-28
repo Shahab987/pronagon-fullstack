@@ -6,7 +6,12 @@ import { BASE_URL } from "../../api/config";
 import ReaderWord from "../ReaderWord";
 import { useSelector } from "react-redux";
 
-function ActiveParaghraph({ explodedText, setExplodedText, title }) {
+function ActiveParaghraph({
+  explodedText,
+  setExplodedText,
+  title,
+  setIsEditing,
+}) {
   const [searchIndex, setSearchIndex] = useState(-1);
   const [isLoading, setIsLoading] = useState(false);
   const [foundItem, setFoundItem] = useState(null);
@@ -129,14 +134,14 @@ function ActiveParaghraph({ explodedText, setExplodedText, title }) {
     const tempArr = explodedText.map((wordObj, i) =>
       i === index ? { ...wordObj, highlight: !wordObj.highlight } : wordObj
     );
-
+    setIsEditing(true);
     setExplodedText(tempArr);
   };
 
   return (
     <div>
       {/* --------------------- word box  */}
-      <div className="mt-2">
+      <div className="mt-1">
         {isLoading && (
           <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
             <l-zoomies
@@ -157,7 +162,7 @@ function ActiveParaghraph({ explodedText, setExplodedText, title }) {
           />
         )}
       </div>
-      <div className="mt-5 p-3 bg-gray-50">
+      <div className=" px-3 bg-gray-50">
         <p className="text-lg font-bold text-lime-800">{title}</p>
         <p className="w-full  font-semibold text-stone-700">
           {explodedText.map((wordObj, index) => (

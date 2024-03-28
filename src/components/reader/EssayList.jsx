@@ -1,6 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { LoaderIcon } from "react-hot-toast";
+import { BiSolidEdit, BiSolidSave, BiXCircle } from "react-icons/bi";
+import { BsSave } from "react-icons/bs";
 import axiosApi from "../../api/axiosApi";
 import { BASE_URL } from "../../api/config";
 import ActiveParaghraph from "./ActiveParaghraph";
@@ -9,6 +12,9 @@ function EssayList() {
   const [essays, setEssays] = useState([]);
   const [explodedText, setExplodedText] = useState([]);
   const [title, setTitle] = useState("");
+  const [selectedEssay, setSelectedEssay] = useState({});
+  const [saveLoading, setSaveLoading] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const loadEssays = () => {
     axiosApi
@@ -36,10 +42,48 @@ function EssayList() {
       }));
   }
 
+  function arrToStr(expTextArr) {
+    return expTextArr
+      .filter((obj) => obj.word !== "")
+      .map((wordObj) =>
+        wordObj.highlight ? "@**" + wordObj.word : wordObj.word
+      )
+      .join(" ");
+  }
+
   const handleSelectEssay = (essay) => {
-    console.log(essay);
     setTitle(essay.title);
     setExplodedText(strToArr(essay.content));
+    setSelectedEssay(essay);
+    setIsEditing(false);
+  };
+
+  const handleSaveEssay = (e) => {
+    e.preventDefault();
+    setSaveLoading(true);
+    if (title && explodedText.length > 0) {
+      const unifiedText = arrToStr(explodedText);
+
+      // return;
+      axiosApi
+        .put(`${BASE_URL}/essay/${selectedEssay._id}`, {
+          title: title,
+          content: unifiedText,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            setIsEditing(false);
+            loadEssays();
+          }
+        })
+        .catch((err) => console.log(err))
+        .finally(() => {
+          setSaveLoading(false);
+        });
+    } else {
+      toast.error("Fill Title and Essay");
+      setSaveLoading(false);
+    }
   };
 
   if (essays.length === 0) {
@@ -57,17 +101,58 @@ function EssayList() {
               className="cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2"
             >
               <p>{index + 1}-</p>
-              <p className="">{essay.title}</p>
+              <p
+                className={
+                  title === essay.title ? "font-bold text-purple-700" : ""
+                }
+              >
+                {essay.title}
+              </p>
             </div>
           );
         })}
       </div>
 
-      <div>
+      <div className="mt-3">
+        {/* ------------------------ Buttons  */}
+        {title && (
+          <div className="w-full bg-slate-50 flex items-center py-1 px-2 gap-3 text-stone-900 border ">
+            <button
+              disabled={saveLoading || !isEditing}
+              onClick={handleSaveEssay}
+              className="text-2xl"
+            >
+              <abbr title="Save Highlights">
+                {saveLoading ? (
+                  <LoaderIcon className="w-5 h-5 me-1" />
+                ) : (
+                  <BiSolidSave className={!isEditing ? "text-stone-400" : ""} />
+                )}
+              </abbr>
+            </button>
+            <button className="text-2xl">
+              <abbr title="Edit Essay">
+                <BiSolidEdit />
+              </abbr>
+            </button>
+            <button
+              onClick={() => {
+                setExplodedText([]);
+                setTitle("");
+              }}
+              className="text-2xl ms-auto"
+            >
+              <abbr title="Close Essay">
+                <BiXCircle />
+              </abbr>
+            </button>
+          </div>
+        )}
         <ActiveParaghraph
           explodedText={explodedText}
           setExplodedText={setExplodedText}
           title={title}
+          setIsEditing={setIsEditing}
         />
       </div>
     </div>
