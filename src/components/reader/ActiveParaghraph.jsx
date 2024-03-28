@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import { BASE_URL } from "../../api/config";
 import ReaderWord from "../ReaderWord";
 import { useSelector } from "react-redux";
+import { BiX, BiXCircle } from "react-icons/bi";
 
 function ActiveParaghraph({
   explodedText,
@@ -141,7 +142,7 @@ function ActiveParaghraph({
   return (
     <div>
       {/* --------------------- word box  */}
-      <div className="mt-1 ">
+      <div className="mt-1 relative">
         {isLoading && (
           <div className="flex p-5 justify-center bg-slate-100 rounded-md h-15 items-center">
             <l-zoomies
@@ -154,12 +155,24 @@ function ActiveParaghraph({
           </div>
         )}
         {foundItem && !isLoading && (
-          <ReaderWord
-            isLoading={isLoading}
-            item={foundItem}
-            deleteItem={() => {}}
-            user={user}
-          />
+          <div>
+            <button
+              onClick={() => {
+                setFoundItem(null);
+              }}
+              className="text-2xl ms-auto absolute right-0 z-20 text-stone-500"
+            >
+              <abbr title="Close Word">
+                <BiX />
+              </abbr>
+            </button>
+            <ReaderWord
+              isLoading={isLoading}
+              item={foundItem}
+              deleteItem={() => {}}
+              user={user}
+            />
+          </div>
         )}
       </div>
       <div className=" px-3 bg-gray-50 pb-10">

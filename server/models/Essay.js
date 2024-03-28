@@ -9,6 +9,10 @@ const essaySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isRead: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const EssayModel = mongoose.model("Essay", essaySchema);

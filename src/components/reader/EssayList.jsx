@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { LoaderIcon } from "react-hot-toast";
-import { BiSolidEdit, BiSolidSave, BiXCircle } from "react-icons/bi";
+import { BiCheck, BiSolidEdit, BiSolidSave, BiXCircle } from "react-icons/bi";
 import { BsSave } from "react-icons/bs";
 import axiosApi from "../../api/axiosApi";
 import { BASE_URL } from "../../api/config";
@@ -69,6 +69,7 @@ function EssayList() {
         .put(`${BASE_URL}/essay/${selectedEssay._id}`, {
           title: title,
           content: unifiedText,
+          isRead: selectedEssay?.isRead,
         })
         .then((res) => {
           if (res.status === 200) {
@@ -84,6 +85,27 @@ function EssayList() {
       toast.error("Fill Title and Essay");
       setSaveLoading(false);
     }
+  };
+
+  const handleIsRead = (e, essay) => {
+    e.stopPropagation();
+
+    // return;
+    axiosApi
+      .put(`${BASE_URL}/essay/${essay._id}`, {
+        ...essay,
+        isRead: !essay.isRead,
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          setIsEditing(false);
+          loadEssays();
+        }
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setSaveLoading(false);
+      });
   };
 
   if (essays.length === 0) {
@@ -109,6 +131,18 @@ function EssayList() {
               >
                 {essay.title}
               </p>
+              <button
+                onClick={(e) => handleIsRead(e, essay)}
+                className="text-2xl ms-auto pe-2"
+              >
+                <abbr title="Done Reading">
+                  <BiCheck
+                    className={
+                      essay?.isRead ? "text-green-700" : "text-stone-200"
+                    }
+                  />
+                </abbr>
+              </button>
             </div>
           );
         })}
