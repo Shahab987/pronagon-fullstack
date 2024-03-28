@@ -92,11 +92,12 @@ function EssayList() {
 
   return (
     <div className="mt-2">
-      <div>
+      <div className="h-50 overflow-y-scroll  border shadow-inner  ">
         {essays.map((essay, index) => {
           return (
             <div
               key={essay._id}
+              id={"essay_" + index + 1}
               onClick={() => handleSelectEssay(essay)}
               className="cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2"
             >

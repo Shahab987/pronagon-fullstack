@@ -15,7 +15,7 @@ router.get("/", async (req, res) => {
     } else {
       try {
         const page = parseInt(req.query._page) || 1;
-        const limit = parseInt(req.query._limit) || 10;
+        const limit = parseInt(req.query._limit) || 2000;
         const skip = (page - 1) * limit;
 
         let query = {};

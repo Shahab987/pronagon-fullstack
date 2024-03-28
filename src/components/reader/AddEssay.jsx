@@ -22,6 +22,7 @@ function AddEssay() {
   function strToArr(txt) {
     return txt
       .replace(/\n/g, " ")
+      .replace(/￾/g, "-")
       .replace(/([.,?!'"'])/g, " $1 ")
       .split(" ")
       .map((item) => ({
@@ -62,8 +63,15 @@ function AddEssay() {
           title: title,
           content: unifiedText,
         })
-        .then((res) => console.log(res))
-        .catch((err) => console.log(err))
+        .then((res) => {
+          if (res.status === 201) {
+            toast.success("Created");
+            setText("");
+            setTitle("");
+            setExplodedText([]);
+          }
+        })
+        .catch((err) => toast.error(err?.data?.message))
         .finally(() => {
           setSaveLoading(false);
         });
