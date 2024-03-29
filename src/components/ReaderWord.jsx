@@ -177,7 +177,6 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
     } else {
       setDidMount(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [level]);
 
   const reset = () => {
@@ -188,6 +187,10 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.load(); // Load the new audio source
+    }
+    if (item.level !== level) {
+      setDidMount(false);
+      setLevel(item.level);
     }
   }, [item.name]);
 
@@ -201,7 +204,7 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
       }`}
     >
       <div
-        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0  ${levelColors[level]}`}
+        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0 ${levelColors[level]}`}
       ></div>
       <div className="flex flex-col md:flex-row items-center w-full py-0 ps-1">
         <div className="flex w-full ">

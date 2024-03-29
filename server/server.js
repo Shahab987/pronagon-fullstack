@@ -58,6 +58,7 @@ app.get("/api/openai", async (req, res) => {
         name: result.word,
         ...result,
         length: result.word.length,
+        level: 0,
       });
       console.log("existingObject: ", newWord);
 

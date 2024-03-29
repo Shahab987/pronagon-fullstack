@@ -30,7 +30,7 @@ function ActiveParaghraph({
       .replace(/\s+/g, " ")
       .replace(/[’']s$/, "");
 
-    if (newWord.length > 3) {
+    if (newWord.length > 2) {
       let tmpNewWord = {
         name: newWord,
         meaning: "",
@@ -64,12 +64,13 @@ function ActiveParaghraph({
   };
 
   const searchWord = async () => {
+    const wordToSearch = explodedText[searchIndex];
     // setIsLoading(true);
-    if (explodedText[searchIndex].word.length < 3) {
+    if (wordToSearch.word.length < 3) {
       return;
     }
     let singularWord = singularize(
-      explodedText[searchIndex].word
+      wordToSearch.word
         .toLowerCase()
         .replace(/[^\w\s\-]|_|\d+/g, "")
         .replace(/\s+/g, " ")
@@ -88,11 +89,15 @@ function ActiveParaghraph({
       })
       .then((res) => {
         if (res.data.pagination.totalCount > 0) {
-          console.log();
-          setFoundItem(res.data.data[0]);
-          setIsLoading(false);
+          const firstSimilar = res.data.data[0];
+          if (firstSimilar.name.length <= wordToSearch.word.length + 1) {
+            setFoundItem(res.data.data[0]);
+            setIsLoading(false);
+          } else {
+            addWord(wordToSearch);
+          }
         } else {
-          addWord(explodedText[searchIndex]);
+          addWord(wordToSearch);
         }
       })
       .catch((err) => {
