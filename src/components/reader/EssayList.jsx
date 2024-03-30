@@ -34,7 +34,7 @@ function EssayList() {
   function strToArr(txt) {
     return txt
       .replace(/\n/g, " ")
-      .replace(/([.,?!'"'])/g, " $1 ")
+      .replace(/([.,?!'"'-])/g, " $1 ")
       .split(" ")
       .map((item) => ({
         word: item.slice(0, 3) === "@**" ? item.substring(3) : item,

@@ -76,7 +76,7 @@ function ActiveParaghraph({
         .replace(/\s+/g, " ")
         .replace(/[’']s$/, "")
     );
-
+    console.log(singularWord);
     axiosApi
       .get(`${BASE_URL}/words`, {
         params: {
@@ -90,7 +90,7 @@ function ActiveParaghraph({
       .then((res) => {
         if (res.data.pagination.totalCount > 0) {
           const firstSimilar = res.data.data[0];
-          if (firstSimilar.name.length <= wordToSearch.word.length + 1) {
+          if (firstSimilar.name.length <= singularWord.length + 1) {
             setFoundItem(res.data.data[0]);
             setIsLoading(false);
           } else {
@@ -162,7 +162,7 @@ function ActiveParaghraph({
         {foundItem && !isLoading && (
           <div>
             <button
-              onClick={() => {
+              onDoubleClick={() => {
                 setFoundItem(null);
               }}
               className="text-2xl ms-auto absolute right-0 z-20 text-stone-500"

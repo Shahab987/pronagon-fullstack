@@ -158,6 +158,7 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
     if ((ready && !item.audio_us) || !item.audio_src) {
       setAudioUrl();
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
@@ -225,7 +226,7 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
           </p>
         </div>
 
-        <div className={`icons flex items-center gap-6 mt-2 md:mt-0`}>
+        <div className={`icons flex items-center gap-6 mt-2 md:mt-0 me-3`}>
           <div className={`flex gap-1 2xs:gap-2 xs:gap-3 text-2xl `}>
             {[0, 1, 2, 3, 4].map((num) => (
               <Button
@@ -252,7 +253,7 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
               btnClass="text-2xl"
             />
           ) : (
-            <Button onClick={stop} icon={<FaStop />} />
+            <Button btnClass="text-xl me-1" onClick={stop} icon={<FaStop />} />
           )}
         </div>
       </div>
@@ -292,7 +293,10 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
       <div id="audioTag" className="absolute">
         {item?.audio_src && (
           <audio
-            onCanPlay={() => setReady(true)}
+            onCanPlay={() => {
+              setReady(true);
+              audioRef?.current.play();
+            }}
             ref={audioRef}
             // preload="auto"
             onPlay={() => {
