@@ -23,6 +23,7 @@ function EditWord({ item, setShowModal, FetchWords }) {
         if (res.status === 200) {
           toast.success("Saved...");
           FetchWords();
+          setShowModal(false);
         }
       })
       .catch((err) => console.error(err));

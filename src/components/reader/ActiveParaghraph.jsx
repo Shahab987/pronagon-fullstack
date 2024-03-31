@@ -176,6 +176,7 @@ function ActiveParaghraph({
               item={foundItem}
               deleteItem={() => {}}
               user={user}
+              searchWord={searchWord}
             />
           </div>
         )}

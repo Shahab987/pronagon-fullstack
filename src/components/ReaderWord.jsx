@@ -18,7 +18,7 @@ const Button = ({ onClick, icon, iconClass, btnClass }) => (
 
 zoomies.register();
 
-function ReaderWord({ item, deleteItem, user, isLoading }) {
+function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [isSure, setIsSure] = useState(false);
@@ -370,7 +370,7 @@ function ReaderWord({ item, deleteItem, user, isLoading }) {
         <Modal setShowModal={setShowModal}>
           <EditWord
             setShowModal={setShowModal}
-            FetchWords={FetchWords}
+            FetchWords={() => searchWord(item.name)}
             item={item}
           />
         </Modal>
