@@ -4,6 +4,7 @@ function SubText({ wordObj, index, setSearchIndex, setHighlight }) {
   const requestData = () => {};
   const handleClick = () => {
     setSearchIndex(index);
+    navigator.clipboard.writeText(wordObj.word);
   };
 
   return (

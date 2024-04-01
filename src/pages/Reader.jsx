@@ -1,8 +1,14 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useNavigate } from "react-router-dom";
 import MyLink from "../components/ui/MyLink";
 
 function Reader() {
+  const nav = useNavigate();
+  useEffect(() => {
+    nav("list");
+  }, []);
+
   return (
     <div className="p-2">
       <div className=" ps-3 flex gap-2 border-b text-stone-500">

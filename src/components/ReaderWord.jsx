@@ -199,6 +199,7 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
     <div
       onClick={(e) => {
         reset();
+        navigator.clipboard.writeText(item.name);
       }}
       className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-1 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
         ready && ""
