@@ -200,6 +200,7 @@ function Word({
       onClick={(e) => {
         reset();
         toggleExpand();
+        navigator.clipboard.writeText(item.name);
       }}
       className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
         ready && ""
@@ -385,13 +386,16 @@ function Word({
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_1.mp3`}
             />
             <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
-            />
-            <source
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
             />
             <source
               src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.ldoceonline.com/media/english/ameProns/ld41${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
             />
             <source
               src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}

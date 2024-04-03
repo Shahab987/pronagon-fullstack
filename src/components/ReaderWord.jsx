@@ -349,13 +349,16 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_1.mp3`}
             />
             <source
-              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
-            />
-            <source
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
             />
             <source
               src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.ldoceonline.com/media/english/ameProns/ld41${item.name}.mp3`}
+            />
+            <source
+              src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
             />
             <source
               src={`https://www.farsidic.com/Content/Voice/${item.name}.mp3`}

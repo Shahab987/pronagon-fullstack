@@ -76,7 +76,35 @@ function ActiveParaghraph({
         .replace(/\s+/g, " ")
         .replace(/[’']s$/, "")
     );
-    console.log(singularWord);
+
+    const isFound = await axiosApi
+      .get(`${BASE_URL}/words`, {
+        params: {
+          _page: 1,
+          _limit: 5,
+          exact: wordToSearch.word,
+          sortBy: "length",
+          sortOrder: "asce",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.pagination.totalCount > 0) {
+          setFoundItem(res.data.data[0]);
+          setIsLoading(false);
+          return true;
+        } else {
+          return false;
+        }
+      })
+      .catch((err) => {
+        return false;
+      });
+
+    if (isFound) {
+      return;
+    }
+
     axiosApi
       .get(`${BASE_URL}/words`, {
         params: {
