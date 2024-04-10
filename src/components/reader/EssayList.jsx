@@ -3,10 +3,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { LoaderIcon } from "react-hot-toast";
 import { BiCheck, BiSolidEdit, BiSolidSave, BiXCircle } from "react-icons/bi";
+import { MdGTranslate } from "react-icons/md";
 import { BsSave } from "react-icons/bs";
 import axiosApi from "../../api/axiosApi";
 import { BASE_URL } from "../../api/config";
 import ActiveParaghraph from "./ActiveParaghraph";
+import { FaBook } from "react-icons/fa";
+import Modal from "../Modal/Modal";
+import EditEssay from "./EditEssay";
 
 function EssayList() {
   const [essays, setEssays] = useState([]);
@@ -15,6 +19,7 @@ function EssayList() {
   const [selectedEssay, setSelectedEssay] = useState({});
   const [saveLoading, setSaveLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const loadEssays = () => {
     axiosApi
@@ -108,6 +113,24 @@ function EssayList() {
       });
   };
 
+  function googleTranslate() {
+    navigator.clipboard.readText().then((text) => {
+      if (text) {
+        window.open(
+          `https://translate.google.com/?sl=en&tl=fa&text=${text}%20&op=translate`,
+          "_blank"
+        );
+      }
+    });
+  }
+  function longmanTranslate() {
+    navigator.clipboard.readText().then((text) => {
+      if (text) {
+        window.open(`https://www.ldoceonline.com/dictionary/${text}`, "_blank");
+      }
+    });
+  }
+
   if (essays.length === 0) {
     return <p className="p-3">List is Empty...</p>;
   }
@@ -126,7 +149,9 @@ function EssayList() {
               <p>{index + 1}-</p>
               <p
                 className={
-                  title === essay.title ? "font-bold text-purple-700" : ""
+                  selectedEssay._id === essay._id
+                    ? "font-bold text-purple-700"
+                    : ""
                 }
               >
                 {essay.title}
@@ -151,11 +176,11 @@ function EssayList() {
       <div className="mt-3">
         {/* ------------------------ Buttons  */}
         {title && (
-          <div className="w-full bg-slate-50 flex items-center py-1 px-2 gap-3 text-stone-900 border ">
+          <div className="w-full bg-slate-50 flex items-center py-1 px-2 gap-3 text-stone-900  border ">
             <button
               disabled={saveLoading || !isEditing}
               onClick={handleSaveEssay}
-              className="text-2xl"
+              className="hover:text-sky-800 text-2xl"
             >
               <abbr title="Save Highlights">
                 {saveLoading ? (
@@ -165,9 +190,28 @@ function EssayList() {
                 )}
               </abbr>
             </button>
-            <button className="text-2xl">
+            <button
+              onClick={() => setShowModal(true)}
+              className="hover:text-sky-800 text-2xl"
+            >
               <abbr title="Edit Essay">
                 <BiSolidEdit />
+              </abbr>
+            </button>
+            <button
+              onClick={() => googleTranslate()}
+              className="hover:text-sky-800 text-lg"
+            >
+              <abbr title="Google Translate the clipboard">
+                <MdGTranslate />
+              </abbr>
+            </button>
+            <button
+              onClick={() => longmanTranslate()}
+              className="hover:text-sky-800 text-lg"
+            >
+              <abbr title="Longman Translate the clipboard">
+                <FaBook />
               </abbr>
             </button>
             <button
@@ -190,6 +234,16 @@ function EssayList() {
           setIsEditing={setIsEditing}
         />
       </div>
+      {showModal && (
+        <Modal setShowModal={setShowModal}>
+          <EditEssay
+            setShowModal={setShowModal}
+            essay={selectedEssay}
+            loadEssays={loadEssays}
+            handleSelectEssay={handleSelectEssay}
+          />
+        </Modal>
+      )}
     </div>
   );
 }
