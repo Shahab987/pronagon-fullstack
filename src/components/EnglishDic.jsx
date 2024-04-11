@@ -62,6 +62,19 @@ function EnglishDic() {
 
   const dispatch = useDispatch();
 
+  const handleShortcuts = (event) => {
+    if (event.ctrlKey && event.key === "h") {
+      // Handle CTRL+H key combination
+      console.log("CTRL+H pressed");
+    }
+    if (event.code === "ArrowLeft") {
+      handlePage("backward");
+    }
+    if (event.code === "ArrowRight") {
+      handlePage("forward");
+    }
+  };
+
   const FetchWords = async () => {
     setIsLoading(true);
     axiosApi
@@ -380,7 +393,11 @@ function EnglishDic() {
   }
 
   return (
-    <div className=" w-full  px-3 ">
+    <div
+      className=" w-full  px-3 outline-none"
+      onKeyDown={(e) => handleShortcuts(e)}
+      tabIndex="0"
+    >
       {/* ------------------------------------- Add new words  */}
       {user.role === "ADMIN" && (
         <div className="flex items-center my-1">

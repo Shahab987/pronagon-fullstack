@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
+import { FaBook, FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
 import { BsBookmarkFill, BsPencil } from "react-icons/bs";
 import { BiSolidEdit } from "react-icons/bi";
 
@@ -9,6 +9,7 @@ import { toast } from "react-hot-toast";
 import Modal from "./Modal/Modal";
 import EditWord from "./EditWord";
 import axiosApi from "../api/axiosApi";
+import { MdGTranslate } from "react-icons/md";
 
 const Button = ({ onClick, icon, iconClass, btnClass }) => (
   <button onClick={onClick} className={btnClass}>
@@ -163,6 +164,24 @@ function Word({
     setCurrentExpand((prev) => (prev !== item._id ? item._id : -1));
   };
 
+  function googleTranslate() {
+    navigator.clipboard.readText().then((text) => {
+      if (text) {
+        window.open(
+          `https://translate.google.com/?sl=en&tl=fa&text=${text}%20&op=translate`,
+          "_blank"
+        );
+      }
+    });
+  }
+  function longmanTranslate() {
+    navigator.clipboard.readText().then((text) => {
+      if (text) {
+        window.open(`https://www.ldoceonline.com/dictionary/${text}`, "_blank");
+      }
+    });
+  }
+
   useEffect(() => {
     genAudioUrl();
     if ((ready && !item.audio_us) || !item.audio_src) {
@@ -202,7 +221,7 @@ function Word({
         toggleExpand();
         navigator.clipboard.writeText(item.name);
       }}
-      className={`relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
+      className={`outline-none relative flex flex-col items-center w-full p-3 border rounded-lg gap-2 hover:shadow-md hover:bg-gray-50 max-w-3xl mx-auto ${
         ready && ""
       }`}
     >
@@ -274,6 +293,22 @@ function Word({
             <p>Ex: {item.example}</p>
             {user.role === "ADMIN" && (
               <div className="flex items-center gap-3">
+                <button
+                  onClick={() => googleTranslate()}
+                  className="hover:text-sky-800 text-lg"
+                >
+                  <abbr title="Google Translate the clipboard">
+                    <MdGTranslate />
+                  </abbr>
+                </button>
+                <button
+                  onClick={() => longmanTranslate()}
+                  className="hover:text-sky-800 text-lg"
+                >
+                  <abbr title="Longman Translate the clipboard">
+                    <FaBook />
+                  </abbr>
+                </button>
                 <Button
                   onClick={() => setShowModal(true)}
                   icon={<BiSolidEdit />}
