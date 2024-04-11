@@ -144,7 +144,9 @@ function EssayList() {
               key={essay._id}
               id={"essay_" + index + 1}
               onClick={() => handleSelectEssay(essay)}
-              className="cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2"
+              className={`cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2 ${
+                selectedEssay._id === essay._id ? "bg-amber-100" : ""
+              }`}
             >
               <p>{index + 1}-</p>
               <p
