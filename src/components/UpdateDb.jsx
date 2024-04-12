@@ -111,9 +111,9 @@ const UpdateDb = () => {
             if (newWord) {
               return {
                 ...item,
-                meaning: newWord.meaning,
-                pronunciation: newWord.pronunciation,
-                example: newWord.example,
+                meaning: newWord?.meaning,
+                pronunciation: newWord?.pronunciation,
+                example: newWord?.example,
               };
             } else {
               return newWord;

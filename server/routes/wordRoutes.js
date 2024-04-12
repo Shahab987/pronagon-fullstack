@@ -35,6 +35,9 @@ router.get("/", async (req, res) => {
           if (req.query.sortBy === "length") {
             sort.name = 1;
           }
+        } else {
+          sort["lastModified"] = 1;
+          sort["_id"] = 1;
         }
 
         const words = await WordModel.find(query)
@@ -119,6 +122,11 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
+    const currentTimestamp = new Date();
+
+    // Set the lastModified field in the request body
+    req.body.lastModified = currentTimestamp;
+
     const updatedWord = await WordModel.findByIdAndUpdate(
       req.params.id,
       req.body,

@@ -358,6 +358,9 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
               src={`https://www.ldoceonline.com/media/english/ameProns/ld41${item.name}.mp3`}
             />
             <source
+              src={`https://www.ldoceonline.com/media/english/ameProns/laad${item.name}.mp3`}
+            />
+            <source
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
             />
             <source

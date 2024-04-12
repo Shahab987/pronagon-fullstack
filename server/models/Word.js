@@ -11,6 +11,15 @@ const wordSchema = new mongoose.Schema({
   pronunciation: String,
   example: String,
   details: Object,
+  lastModified: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+wordSchema.pre("save", function (next) {
+  this.lastModified = new Date();
+  next();
 });
 
 // Define model
