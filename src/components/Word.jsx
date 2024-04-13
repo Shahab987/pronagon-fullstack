@@ -165,27 +165,29 @@ function Word({
   };
 
   function googleTranslate() {
-    navigator.clipboard.readText().then((text) => {
-      if (text) {
-        window.open(
-          `https://translate.google.com/?sl=en&tl=fa&text=${text}%20&op=translate`,
-          "_blank"
-        );
-      }
-    });
+    if (item.name) {
+      window.open(
+        `https://translate.google.com/?sl=en&tl=fa&text=${item.name}%20&op=translate`,
+        "_blank"
+      );
+    }
   }
   function longmanTranslate() {
-    navigator.clipboard.readText().then((text) => {
-      if (text) {
-        window.open(`https://www.ldoceonline.com/dictionary/${text}`, "_blank");
-      }
-    });
+    if (item.name) {
+      window.open(
+        `https://www.ldoceonline.com/dictionary/${item.name}`,
+        "_blank"
+      );
+    }
   }
 
   useEffect(() => {
     genAudioUrl();
     if ((ready && !item.audio_us) || !item.audio_src) {
       setAudioUrl();
+    }
+    if (itemsPerPage === 1) {
+      audioRef.current.play();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
@@ -403,7 +405,9 @@ function Word({
         )}
         {url.l1 && !item?.audio_us && (
           <audio
-            onCanPlay={() => setReady(true)}
+            onCanPlay={() => {
+              setReady(true);
+            }}
             ref={audioRef}
             // preload="auto"
             onPlay={() => {

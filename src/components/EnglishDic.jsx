@@ -638,7 +638,7 @@ function EnglishDic() {
               className="w-10"
               name="items"
               id="items"
-              onChange={(e) => setItemsPerPage(e.target.value)}
+              onChange={(e) => setItemsPerPage(Number(e.target.value))}
               value={itemsPerPage}
             >
               {[1, 5, 10, 15, 20].map((value) => (
