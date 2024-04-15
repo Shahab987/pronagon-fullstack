@@ -25,6 +25,11 @@ import axiosApi from "../api/axiosApi";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../features/auth/authActions";
 import { BiToggleLeft, BiToggleRight } from "react-icons/bi";
+import {
+  MdContentPaste,
+  MdContentPasteGo,
+  MdContentPasteSearch,
+} from "react-icons/md";
 
 function EnglishDic() {
   const storedUserSituation = JSON.parse(localStorage.getItem("userSituation"));
@@ -281,6 +286,21 @@ function EnglishDic() {
     }
   };
 
+  function pasteAndSearch() {
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .readText()
+        .then((text) => {
+          setSearchInput(text);
+        })
+        .catch((err) => {
+          console.error("Failed to read text from clipboard:", err);
+        });
+    } else {
+      console.error("Clipboard API is not supported by the browser.");
+    }
+  }
+
   const handleLevel = (val) => {
     if (urlParams.level !== val.toString()) {
       setSearchParams({ ...urlParams, level: val });
@@ -361,7 +381,7 @@ function EnglishDic() {
 
   useEffect(() => {
     handleSearch();
-  }, []);
+  }, [searchInput]);
 
   useEffect(() => {
     handleSearch();
@@ -536,12 +556,21 @@ function EnglishDic() {
               className=" p-2 w-full pe-20 h-full"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
+              onFocus={() => setSearchInput("")}
               onKeyUp={(e) => {
                 if (e.key === "Enter") {
                   handleSearch();
                 }
               }}
             />
+            <button
+              onClick={() => pasteAndSearch()}
+              className="absolute right-18  hover:text-sky-800 text-xl"
+            >
+              <abbr title="Paste and go">
+                <MdContentPasteSearch />
+              </abbr>
+            </button>
             <button
               onClick={() => handleSearch()}
               className="absolute right-11"
