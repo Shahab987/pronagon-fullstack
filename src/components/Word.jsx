@@ -10,6 +10,7 @@ import Modal from "./Modal/Modal";
 import EditWord from "./EditWord";
 import axiosApi from "../api/axiosApi";
 import { MdGTranslate } from "react-icons/md";
+import { TbSum } from "react-icons/tb";
 
 const Button = ({ onClick, icon, iconClass, btnClass }) => (
   <button onClick={onClick} className={btnClass}>
@@ -180,6 +181,20 @@ function Word({
       );
     }
   }
+  function searchItemInEssays() {
+    axiosApi
+      .get(`${BASE_URL}/essay`, {
+        params: {
+          searchcontent: item.name,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          toast.success(res.data.pagination.totalCount);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 
   useEffect(() => {
     genAudioUrl();
@@ -297,6 +312,14 @@ function Word({
             <p>Ex: {item.example}</p>
             {user.role === "ADMIN" && (
               <div className="flex items-center gap-3">
+                <button
+                  onClick={() => searchItemInEssays()}
+                  className="text-orange-600 hover:text-sky-800 text-2xl"
+                >
+                  <abbr title="Count in essays">
+                    <TbSum />
+                  </abbr>
+                </button>
                 <button
                   onClick={() => googleTranslate()}
                   className="hover:text-sky-800 text-lg"

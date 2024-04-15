@@ -22,6 +22,9 @@ router.get("/", async (req, res) => {
         if (req.query.search) {
           query.title = { $regex: req.query.search, $options: "i" };
         }
+        if (req.query.searchcontent) {
+          query.content = { $regex: req.query.searchcontent, $options: "i" };
+        }
 
         const essays = await EssayModel.find(query).skip(skip).limit(limit);
 
