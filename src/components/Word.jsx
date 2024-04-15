@@ -186,7 +186,7 @@ function Word({
     if ((ready && !item.audio_us) || !item.audio_src) {
       setAudioUrl();
     }
-    if (itemsPerPage === 1) {
+    if (itemsPerPage === 1 && audioRef.current) {
       audioRef.current.play();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -195,10 +195,13 @@ function Word({
   useEffect(() => {
     if (didMount) {
       setIsSettingLevel(false);
+      const currentTimestamp = new Date();
+
       axios
         .put(`${BASE_URL}/words/${item._id}`, {
           ...item,
           level,
+          lastModified: currentTimestamp,
         })
         .then((res) => {
           if (res.status === 200) {
@@ -208,7 +211,6 @@ function Word({
     } else {
       setDidMount(true);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [level]);
 
   const reset = () => {
@@ -455,6 +457,7 @@ function Word({
             setShowModal={setShowModal}
             FetchWords={FetchWords}
             item={item}
+            level={level}
           />
         </Modal>
       )}

@@ -122,11 +122,6 @@ router.post("/", async (req, res) => {
 
 router.put("/:id", async (req, res) => {
   try {
-    const currentTimestamp = new Date();
-
-    // Set the lastModified field in the request body
-    req.body.lastModified = currentTimestamp;
-
     const updatedWord = await WordModel.findByIdAndUpdate(
       req.params.id,
       req.body,

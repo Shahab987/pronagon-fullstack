@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 import axiosApi from "../api/axiosApi";
 import { BASE_URL } from "../api/config";
 
-function EditWord({ item, setShowModal, FetchWords }) {
+function EditWord({ item, setShowModal, FetchWords, level }) {
   const [word, setWord] = useState(item);
 
   function handleChange(e) {
@@ -13,6 +13,7 @@ function EditWord({ item, setShowModal, FetchWords }) {
       return {
         ...p,
         [e.target.name]: e.target.value,
+        level,
       };
     });
   }
