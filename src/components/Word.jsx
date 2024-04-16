@@ -35,6 +35,7 @@ function Word({
   const [level, setLevel] = useState(item?.level || 0);
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
+  const [repeatCount, setRepeatCount] = useState(0);
   const [url, setUrl] = useState({
     l1: "",
     l3: "",
@@ -190,7 +191,8 @@ function Word({
       })
       .then((res) => {
         if (res.status === 200) {
-          toast.success(res.data.pagination.totalCount);
+          console.log(res.data.data);
+          setRepeatCount(res.data.pagination.totalCount);
         }
       })
       .catch((err) => console.log(err));
@@ -225,6 +227,7 @@ function Word({
         });
     } else {
       setDidMount(true);
+      searchItemInEssays();
     }
   }, [level]);
 
@@ -249,7 +252,7 @@ function Word({
       ></div>
       <div className="flex items-center w-full py-0 ps-1">
         <p className="font-semibold  2xs:text-lg w-full md:w-fit cursor-pointer me-3">
-          {item?.name}
+          {item?.name} ({repeatCount})
         </p>
         <p className="hidden md:block bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
           ({item.pronunciation})

@@ -556,7 +556,6 @@ function EnglishDic() {
               className=" p-2 w-full pe-20 h-full"
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
-              onFocus={() => setSearchInput("")}
               onKeyUp={(e) => {
                 if (e.key === "Enter") {
                   handleSearch();
