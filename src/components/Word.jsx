@@ -36,6 +36,7 @@ function Word({
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
   const [repeatCount, setRepeatCount] = useState(0);
+  const [repeatCountExact, setRepeatCountExact] = useState(0);
   const [url, setUrl] = useState({
     l1: "",
     l3: "",
@@ -182,7 +183,22 @@ function Word({
       );
     }
   }
+
   function searchItemInEssays() {
+    axiosApi
+      .get(`${BASE_URL}/essay`, {
+        params: {
+          exactcontent: item.name,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data.data);
+          setRepeatCountExact(res.data.pagination.totalCount);
+        }
+      })
+      .catch((err) => console.log(err));
+
     axiosApi
       .get(`${BASE_URL}/essay`, {
         params: {
@@ -227,9 +243,14 @@ function Word({
         });
     } else {
       setDidMount(true);
-      searchItemInEssays();
     }
   }, [level]);
+
+  useEffect(() => {
+    if (currentExpand === item._id || itemsPerPage === 1) {
+      searchItemInEssays();
+    }
+  }, [currentExpand, itemsPerPage]);
 
   const reset = () => {
     if (isSettingLevel) setIsSettingLevel(false);
@@ -252,7 +273,7 @@ function Word({
       ></div>
       <div className="flex items-center w-full py-0 ps-1">
         <p className="font-semibold  2xs:text-lg w-full md:w-fit cursor-pointer me-3">
-          {item?.name} ({repeatCount})
+          {item?.name} ({repeatCount}) ({repeatCountExact})
         </p>
         <p className="hidden md:block bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
           ({item.pronunciation})

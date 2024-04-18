@@ -26,6 +26,11 @@ router.get("/", async (req, res) => {
           query.content = { $regex: req.query.searchcontent, $options: "i" };
         }
 
+        if (req.query.exactcontent) {
+          const searchTerm = "\\b" + req.query.exactcontent + "\\b"; // \b ensures exact word match
+          query.content = { $regex: new RegExp(searchTerm, "i") };
+        }
+
         const essays = await EssayModel.find(query).skip(skip).limit(limit);
 
         const totalCount = await EssayModel.countDocuments(query);

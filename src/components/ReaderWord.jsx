@@ -27,6 +27,8 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
   const [level, setLevel] = useState(item?.level || 0);
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
+  const [repeatCount, setRepeatCount] = useState(0);
+  const [repeatCountExact, setRepeatCountExact] = useState(0);
   const [url, setUrl] = useState({
     l1: "",
     l3: "",
@@ -153,12 +155,42 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
     setIsSure(!isSure);
   };
 
+  function searchItemInEssays() {
+    axiosApi
+      .get(`${BASE_URL}/essay`, {
+        params: {
+          exactcontent: item.name,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data.data);
+          setRepeatCountExact(res.data.pagination.totalCount);
+        }
+      })
+      .catch((err) => console.log(err));
+
+    axiosApi
+      .get(`${BASE_URL}/essay`, {
+        params: {
+          searchcontent: item.name,
+        },
+      })
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.data.data);
+          setRepeatCount(res.data.pagination.totalCount);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
+
   useEffect(() => {
     genAudioUrl();
     if ((ready && !item.audio_us) || !item.audio_src) {
       setAudioUrl();
     }
-
+    searchItemInEssays();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
@@ -214,7 +246,7 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
             onClick={() => setExpand((p) => !p)}
             className="font-semibold  2xs:text-lg w-fit cursor-pointer me-3"
           >
-            {item?.name}
+            {item?.name} ({repeatCount})({repeatCountExact})
           </p>
           <p className=" bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
             ({item.pronunciation})
