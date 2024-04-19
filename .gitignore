@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 server/db.json
 src/db.js
-
+media
