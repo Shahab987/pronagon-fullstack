@@ -23,7 +23,10 @@ router.get("/", async (req, res) => {
           query.title = { $regex: req.query.search, $options: "i" };
         }
         if (req.query.searchcontent) {
-          query.content = { $regex: req.query.searchcontent, $options: "i" };
+          query.content = {
+            $regex: "(?<=\\s|@\\*\\*)" + req.query.searchcontent,
+            $options: "i",
+          };
         }
 
         if (req.query.exactcontent) {
