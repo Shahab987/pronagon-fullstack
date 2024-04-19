@@ -24,6 +24,7 @@ router.get("/", async (req, res) => {
         }
         if (req.query.searchcontent) {
           query.content = {
+            // search if a space or "@**" is behind the term
             $regex: "(?<=\\s|@\\*\\*)" + req.query.searchcontent,
             $options: "i",
           };

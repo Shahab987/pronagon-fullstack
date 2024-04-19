@@ -16,6 +16,7 @@ function ActiveParaghraph({
   const [searchIndex, setSearchIndex] = useState(-1);
   const [isLoading, setIsLoading] = useState(false);
   const [foundItem, setFoundItem] = useState(null);
+  const [userLevels, setUserLevels] = useState({});
 
   const { loading, success, error, userToken, user } = useSelector(
     (state) => state.auth
@@ -88,9 +89,9 @@ function ActiveParaghraph({
         },
       })
       .then((res) => {
-        console.log(res.data);
         if (res.data.pagination.totalCount > 0) {
           setFoundItem(res.data.data[0]);
+          setUserLevels(res.data.userLevels);
           setIsLoading(false);
           return true;
         } else {
@@ -120,6 +121,7 @@ function ActiveParaghraph({
           const firstSimilar = res.data.data[0];
           if (firstSimilar.name.length <= singularWord.length + 1) {
             setFoundItem(res.data.data[0]);
+            setUserLevels(res.data.userLevels);
             setIsLoading(false);
           } else {
             addWord(wordToSearch);
@@ -205,6 +207,7 @@ function ActiveParaghraph({
               deleteItem={() => {}}
               user={user}
               searchWord={searchWord}
+              userLevels={userLevels}
             />
           </div>
         )}

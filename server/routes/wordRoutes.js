@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const WordModel = require("../models/Word");
 const jwt = require("jsonwebtoken");
+const User = require("../models/User");
 
 router.get("/", async (req, res) => {
   const authToken = req.cookies.authToken;
@@ -18,6 +19,8 @@ router.get("/", async (req, res) => {
         const limit = parseInt(req.query._limit) || 10;
         const skip = (page - 1) * limit;
 
+        const user = await User.findOne({ _id: decoded.user.id });
+
         let query = {};
         if (req.query.search) {
           query.name = { $regex: "^" + req.query.search, $options: "i" };
@@ -25,8 +28,13 @@ router.get("/", async (req, res) => {
         if (req.query.exact) {
           query.name = req.query.exact;
         }
-        if (req.query.level) {
-          query.level = req.query.level;
+        // if (req.query.level) {
+        //   query.level = req.query.level;
+        // }
+        let idArrays = [];
+        if (user && user.level && Array.isArray(user.level[req.query.level])) {
+          idArrays = user.level[req.query.level];
+          query._id = { $in: idArrays };
         }
 
         let sort = {};
@@ -36,20 +44,35 @@ router.get("/", async (req, res) => {
             sort.name = 1;
           }
         } else {
-          sort["lastModified"] = 1;
-          sort["_id"] = 1;
+          // sort["lastModified"] = 1;
+          // sort["_id"] = 1;
         }
 
-        const words = await WordModel.find(query)
-          .sort(sort)
-          .skip(skip)
-          .limit(limit);
+        const words = await WordModel.find(query).sort(sort).lean();
+
+        let sortedWords = [];
+
+        if (idArrays.length > 0 && !req.query.sortBy) {
+          sortedWords = words
+            .sort((a, b) => {
+              const indexA = idArrays.indexOf(a._id.toString());
+
+              const indexB = idArrays.indexOf(b._id.toString());
+
+              return indexA - indexB;
+            })
+            .slice(skip)
+            .slice(0, limit);
+        } else {
+          sortedWords = words.slice(skip).slice(0, limit);
+        }
 
         const totalCount = await WordModel.countDocuments(query);
         const totalPages = Math.ceil(totalCount / limit);
 
         res.json({
-          data: words,
+          data: sortedWords,
+          userLevels: user.level,
           pagination: {
             page,
             limit,

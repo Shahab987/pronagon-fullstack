@@ -27,12 +27,15 @@ function Word({
   FetchWords,
   user,
   expandAll,
+  urlParams,
+  userLevels,
 }) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [isSure, setIsSure] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [level, setLevel] = useState(item?.level || 0);
+  const [level, setLevel] = useState(-1);
+  const [levelColor, setLevelColor] = useState(0);
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
   const [repeatCount, setRepeatCount] = useState(0);
@@ -164,15 +167,18 @@ function Word({
   };
 
   const toggleExpand = () => {
-    setCurrentExpand((prev) => (prev !== item._id ? item._id : -1));
+    if (itemsPerPage !== 1) {
+      setCurrentExpand((prev) => (prev !== item._id ? item._id : -1));
+    }
   };
 
   function googleTranslate() {
     if (item.name) {
-      window.open(
-        `https://translate.google.com/?sl=en&tl=fa&text=${item.name}%20&op=translate`,
-        "_blank"
-      );
+      // window.open(
+      //   `https://translate.google.com/?sl=en&tl=fa&text=${item.name}%20&op=translate`,
+      //   "_blank"
+      // );
+      window.open(`https://abadis.ir/entofa/${item.name}/`, "_blank");
     }
   }
   function longmanTranslate() {
@@ -193,7 +199,7 @@ function Word({
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           setRepeatCountExact(res.data.pagination.totalCount);
         }
       })
@@ -207,7 +213,7 @@ function Word({
       })
       .then((res) => {
         if (res.status === 200) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           setRepeatCount(res.data.pagination.totalCount);
         }
       })
@@ -226,19 +232,43 @@ function Word({
   }, [ready]);
 
   useEffect(() => {
+    for (const subLevel in userLevels) {
+      if (userLevels[subLevel].includes(item._id)) {
+        setLevelColor(subLevel);
+      }
+    }
+
     if (didMount) {
       setIsSettingLevel(false);
       const currentTimestamp = new Date();
 
-      axios
-        .put(`${BASE_URL}/words/${item._id}`, {
-          ...item,
-          level,
-          lastModified: currentTimestamp,
+      // axiosApi
+      //   .put(`${BASE_URL}/words/${item._id}`, {
+      //     ...item,
+      //     lastModified: currentTimestamp,
+      //   })
+      //   .then((res) => {
+      //     if (res.status === 200) {
+      //       if (urlParams.level) {
+      //         FetchWords();
+      //       }
+      //       toast.success("Tag changed");
+      //     }
+      //   });
+
+      axiosApi
+        .post(`${BASE_URL}/auth/changelevel`, {
+          userId: user.id,
+          wordId: item._id,
+          newLevel: level,
         })
         .then((res) => {
           if (res.status === 200) {
-            toast.success("Tag changed");
+            setLevelColor(level);
+            if (urlParams.level) {
+              FetchWords();
+            }
+            toast.success("user tag changed");
           }
         });
     } else {
@@ -269,7 +299,7 @@ function Word({
       }`}
     >
       <div
-        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0  ${levelColors[level]}`}
+        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0  ${levelColors[levelColor]}`}
       ></div>
       <div className="flex items-center w-full py-0 ps-1">
         <p className="font-semibold  2xs:text-lg w-full md:w-fit cursor-pointer me-3">

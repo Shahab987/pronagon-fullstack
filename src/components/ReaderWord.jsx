@@ -18,13 +18,22 @@ const Button = ({ onClick, icon, iconClass, btnClass }) => (
 
 zoomies.register();
 
-function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
+function ReaderWord({
+  item,
+  deleteItem,
+  user,
+  isLoading,
+  searchWord,
+  userLevels,
+}) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [isSure, setIsSure] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [expand, setExpand] = useState(false);
-  const [level, setLevel] = useState(item?.level || 0);
+  const [level, setLevel] = useState(0);
+  const [userLevel, setUserLevel] = useState(userLevels);
+  const [levelColor, setLevelColor] = useState(0);
   const [didMount, setDidMount] = useState(false);
   const [isSettingLevel, setIsSettingLevel] = useState(false);
   const [repeatCount, setRepeatCount] = useState(0);
@@ -195,16 +204,32 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
   }, [ready]);
 
   useEffect(() => {
+    setLevelColor(level);
     if (didMount) {
       setIsSettingLevel(false);
-      axios
-        .put(`${BASE_URL}/words/${item._id}`, {
-          ...item,
-          level,
+      // const currentTimestamp = new Date();
+
+      // axiosApi
+      //   .put(`${BASE_URL}/words/${item._id}`, {
+      //     ...item,
+      //     lastModified: currentTimestamp,
+      //   })
+      //   .then((res) => {
+      //     if (res.status === 200) {
+      //       toast.success("modify");
+      //     }
+      //   });
+
+      axiosApi
+        .post(`${BASE_URL}/auth/changelevel`, {
+          userId: user.id,
+          wordId: item._id,
+          newLevel: level,
         })
         .then((res) => {
           if (res.status === 200) {
-            toast.success("Tag changed");
+            setUserLevel(res.data.userLevels);
+            toast.success("user tag changed");
           }
         });
     } else {
@@ -221,9 +246,17 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
     if (audioRef.current) {
       audioRef.current.load(); // Load the new audio source
     }
-    if (item.level !== level) {
-      setDidMount(false);
-      setLevel(item.level);
+    // if (item.level !== level) {
+    //   setDidMount(false);
+    //   setLevel(item.level);
+    // }
+
+    for (const subLevel in userLevel) {
+      if (userLevel[subLevel].includes(item._id)) {
+        setLevelColor(subLevel);
+      } else if (subLevel === "4") {
+        setLevelColor(0);
+      }
     }
   }, [item.name]);
 
@@ -238,15 +271,16 @@ function ReaderWord({ item, deleteItem, user, isLoading, searchWord }) {
       }`}
     >
       <div
-        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0 ${levelColors[level]}`}
+        className={`h-full w-[6px] md:w-2 absolute rounded-s-lg left-0 top-0 ${levelColors[levelColor]}`}
       ></div>
       <div className="flex flex-col md:flex-row items-center w-full py-0 ps-1">
         <div className="flex w-full ">
           <p
             onClick={() => setExpand((p) => !p)}
-            className="font-semibold  2xs:text-lg w-fit cursor-pointer me-3"
+            className="font-semibold 2xs:text-lg w-fit cursor-pointer me-3"
+            dir="ltr"
           >
-            {item?.name} ({repeatCount})({repeatCountExact})
+            {item?.name} ({repeatCount}) ({repeatCountExact})
           </p>
           <p className=" bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
             ({item.pronunciation})

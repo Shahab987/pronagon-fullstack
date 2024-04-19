@@ -13,6 +13,23 @@ const UserSchema = new mongoose.Schema(
     isActive: { type: Boolean, default: false },
     status: { type: Number, required: true, default: 1, enum: [0, 1, 2] }, // 0, 1, 2
     role: { type: String, default: "USER" },
+    level: {
+      _id: false,
+      type: {
+        0: [{ type: String }],
+        1: [{ type: String }],
+        2: [{ type: String }],
+        3: [{ type: String }],
+        4: [{ type: String }],
+      },
+      default: {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+      },
+    },
   },
   {
     timestamps: true,

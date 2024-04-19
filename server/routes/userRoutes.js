@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const { sendEmail } = require("../mailsender");
+const mongoose = require("mongoose");
 
 const cookieOptions = {
   httpOnly: true, // Cookie is only accessible on the server side
@@ -206,6 +207,45 @@ router.post("/logout", async (req, res) => {
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ message: "Server Error" });
+  }
+});
+
+router.post("/changelevel", async (req, res) => {
+  try {
+    const { userId, wordId, newLevel } = req.body;
+
+    // Retrieve the user document
+    const user = await User.findById(userId);
+    const userObject = await User.findById(userId).lean();
+
+    const levelArrays = userObject.level;
+
+    for (const level in levelArrays) {
+      const levelArr = userObject.level[level];
+
+      if (levelArr.includes(wordId)) {
+        // Filtering out the wordId from the current level array
+        userObject.level[level] = levelArr.filter((id) => id !== wordId);
+        break; // Exiting the loop since the wordId is found and removed
+      }
+    }
+
+    // Add the wordId to the new level array
+    userObject.level[newLevel].push(wordId);
+
+    // Save the updated user document
+    await User.updateOne({ _id: userId }, { $set: userObject });
+    const updatedUser = await User.findById(userId);
+
+    res
+      .status(200)
+      .json({
+        message: "Level changed successfully",
+        userLevels: updatedUser.level,
+      });
+  } catch (err) {
+    console.error("Error changing level:", err);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

@@ -66,7 +66,7 @@ function Layout() {
               className=" ms-auto flex items-center gap-2"
               to="/"
             >
-              <p>Logout</p> <FaSignOutAlt />
+              <p>{user.email.split("@")[0]}</p> <FaSignOutAlt />
             </NavLink>
           )}
         </nav>

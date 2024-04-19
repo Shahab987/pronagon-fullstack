@@ -35,6 +35,7 @@ function EnglishDic() {
   const storedUserSituation = JSON.parse(localStorage.getItem("userSituation"));
 
   const [words, setWords] = useState([]);
+  const [userLevels, setUserLevels] = useState({});
   const [newWords, setNewWords] = useState("");
   const [searchInput, setSearchInput] = useState("");
   const [totalCount, setTotalCount] = useState(0);
@@ -94,6 +95,7 @@ function EnglishDic() {
         if (res.data.pagination.totalCount > 0) {
           setTotalCount(res.data.pagination.totalCount);
           setWords(res.data.data);
+          setUserLevels(res.data.userLevels);
           if (urlParams.search || urlParams.exact) {
           }
         } else {
@@ -748,6 +750,8 @@ function EnglishDic() {
                         FetchWords={FetchWords}
                         user={user}
                         expandAll={expandAll}
+                        urlParams={urlParams}
+                        userLevels={userLevels}
                       />
                     </div>
                   );
