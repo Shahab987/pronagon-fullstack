@@ -199,7 +199,6 @@ function ReaderWord({
     if ((ready && !item.audio_us) || !item.audio_src) {
       setAudioUrl();
     }
-    searchItemInEssays();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [ready]);
 
@@ -258,6 +257,8 @@ function ReaderWord({
         setLevelColor(0);
       }
     }
+
+    searchItemInEssays();
   }, [item.name]);
 
   return (
