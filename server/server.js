@@ -49,9 +49,10 @@ const essayRoutes = require("./routes/essayRoutes");
 app.use("/api/essay", essayRoutes);
 
 app.get("/api/openai", async (req, res) => {
-  try {
-    const result = await generateResponse(req.query.word);
+  const result = await generateResponse(req.query.word);
+  if (result) {
     console.log("AI result: ", result);
+
     const wordExist = await WordModel.findOne({ name: result.word });
     if (!wordExist) {
       const newWord = await WordModel.create({
@@ -66,9 +67,20 @@ app.get("/api/openai", async (req, res) => {
     } else {
       res.json(wordExist);
     }
-  } catch (error) {
-    console.error("Error calling OpenAI endpoint:", error);
-    res.status(500).json({ error: "An error occurred" });
+  } else {
+    try {
+      const newWord = await WordModel.create({
+        name: req.query.word,
+        length: req.query.word.length,
+        level: 0,
+      });
+      console.log("existingObject: ", newWord);
+
+      res.json(newWord);
+    } catch (err) {
+      console.error("Error calling OpenAI endpoint", err);
+      res.status(500).json({ error: "An error occurred" });
+    }
   }
 });
 

@@ -26,7 +26,7 @@ async function generateResponse(word) {
     return parsedData;
   } catch (error) {
     console.error("Error generating response from OpenAI:", error);
-    throw error;
+    return false;
   }
 }
 
