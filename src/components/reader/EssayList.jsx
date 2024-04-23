@@ -62,6 +62,9 @@ function EssayList() {
       .map((item) => ({
         word: item.slice(0, 3) === "@**" ? item.substring(3) : item,
         highlight: item.slice(0, 3) === "@**" ? true : false,
+        searchContent:
+          searchContent &&
+          item.toLowerCase().includes(searchContent.toLowerCase()),
       }));
   }
 
@@ -188,7 +191,7 @@ function EssayList() {
 
   return (
     <div className="">
-      <div className="flex items-center p-2 flex-col gap-1 sm:flex-row sm:justify-between">
+      <div className="flex items-start p-2 flex-col gap-1 sm:flex-row sm:justify-between">
         <div className="flex items-center">
           <button
             className="text-3xl text-lime-800 ms-1 transition-all pt-1"
