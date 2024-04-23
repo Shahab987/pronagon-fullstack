@@ -33,6 +33,7 @@ function EssayList() {
   const [filterRead, setFilterRead] = useState(false);
   const [searchTitle, setSearchTitle] = useState("");
   const [searchContent, setSearchContent] = useState("");
+  const [filteredEssays, setFilteredEssays] = useState([]);
 
   const loadEssays = () => {
     setLoading(true);
@@ -141,6 +142,7 @@ function EssayList() {
       }
     });
   }
+
   function longmanTranslate() {
     navigator.clipboard.readText().then((text) => {
       if (text) {
@@ -148,6 +150,28 @@ function EssayList() {
       }
     });
   }
+
+  function filterEssays() {
+    const filtered = essays
+      .filter((item) => (filterRead ? item.isRead === false : item))
+      .filter((item) =>
+        searchTitle
+          ? item.title.toLowerCase().includes(searchTitle.toLowerCase())
+          : item
+      )
+      .filter((item) =>
+        searchContent
+          ? item.content.toLowerCase().includes(searchContent.toLowerCase())
+          : item
+      );
+    console.log(filtered);
+
+    setFilteredEssays(filtered);
+  }
+
+  useEffect(() => {
+    filterEssays();
+  }, [essays, filterRead, searchTitle, searchContent]);
 
   if (essays.length === 0) {
     if (loading) {
@@ -164,7 +188,7 @@ function EssayList() {
 
   return (
     <div className="">
-      <div className="flex items-center gap-3 p-2">
+      <div className="flex items-center p-2 flex-col gap-1 sm:flex-row sm:justify-between">
         <div className="flex items-center">
           <button
             className="text-3xl text-lime-800 ms-1 transition-all pt-1"
@@ -174,7 +198,7 @@ function EssayList() {
           >
             {filterRead ? <BiToggleRight /> : <BiToggleLeft />}
           </button>
-          <p className="ps-1">Displaying {!filterRead ? "All" : "Not Done"}</p>
+          <p className="ps-1">Show {!filterRead ? "All" : "Not Done"}</p>
         </div>
         <div className="flex gap-2 items-center">
           <input
@@ -194,57 +218,41 @@ function EssayList() {
         </div>
       </div>
       <div className="h-50 overflow-y-scroll  border shadow-inner  ">
-        {essays
-          .filter((item) => (filterRead ? item.isRead === false : item))
-          .filter((item) =>
-            searchTitle
-              ? item.title
-                  .toLowerCase()
-                  .includes(searchTitle.toLocaleLowerCase())
-              : item
-          )
-          .filter((item) =>
-            searchContent
-              ? item.content
-                  .toLowerCase()
-                  .includes(searchContent.toLocaleLowerCase())
-              : item
-          )
-          .map((essay, index) => {
-            return (
-              <div
-                key={essay._id}
-                id={"essay_" + index + 1}
-                onClick={() => handleSelectEssay(essay)}
-                className={`cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2 ${
-                  selectedEssay._id === essay._id ? "bg-amber-100" : ""
-                }`}
+        {filteredEssays.map((essay, index) => {
+          return (
+            <div
+              key={essay._id}
+              id={"essay_" + index + 1}
+              onClick={() => handleSelectEssay(essay)}
+              className={`cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2 ${
+                selectedEssay._id === essay._id ? "bg-amber-100" : ""
+              }`}
+            >
+              <p>{index + 1}-</p>
+              <p
+                className={
+                  selectedEssay._id === essay._id
+                    ? "font-bold text-purple-700"
+                    : ""
+                }
               >
-                <p>{index + 1}-</p>
-                <p
-                  className={
-                    selectedEssay._id === essay._id
-                      ? "font-bold text-purple-700"
-                      : ""
-                  }
-                >
-                  {essay.title}
-                </p>
-                <button
-                  onClick={(e) => handleIsRead(e, essay)}
-                  className="text-2xl ms-auto pe-2"
-                >
-                  <abbr title="Done Reading">
-                    <BiCheck
-                      className={
-                        essay?.isRead ? "text-green-700" : "text-stone-200"
-                      }
-                    />
-                  </abbr>
-                </button>
-              </div>
-            );
-          })}
+                {essay.title}
+              </p>
+              <button
+                onClick={(e) => handleIsRead(e, essay)}
+                className="text-2xl ms-auto pe-2"
+              >
+                <abbr title="Done Reading">
+                  <BiCheck
+                    className={
+                      essay?.isRead ? "text-green-700" : "text-stone-200"
+                    }
+                  />
+                </abbr>
+              </button>
+            </div>
+          );
+        })}
       </div>
 
       <div className="mt-3">
