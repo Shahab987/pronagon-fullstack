@@ -123,10 +123,11 @@ function EssayList() {
   function googleTranslate() {
     navigator.clipboard.readText().then((text) => {
       if (text) {
-        window.open(
-          `https://translate.google.com/?sl=en&tl=fa&text=${text}%20&op=translate`,
-          "_blank"
-        );
+        // window.open(
+        //   `https://translate.google.com/?sl=en&tl=fa&text=${text}%20&op=translate`,
+        //   "_blank"
+        // );
+        window.open(`https://abadis.ir/entofa/${text}/`, "_blank");
       }
     });
   }
