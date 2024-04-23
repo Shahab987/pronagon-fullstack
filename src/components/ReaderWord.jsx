@@ -252,9 +252,11 @@ function ReaderWord({
 
     for (const subLevel in userLevel) {
       if (userLevel[subLevel].includes(item._id)) {
-        setLevelColor(subLevel);
+        setLevelColor(Number(subLevel));
+        setLevel(Number(subLevel));
       } else if (subLevel === "4") {
         setLevelColor(0);
+        setLevel(0);
       }
     }
 
