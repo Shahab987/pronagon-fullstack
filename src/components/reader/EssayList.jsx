@@ -3,14 +3,16 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { LoaderIcon } from "react-hot-toast";
 import { BiCheck, BiSolidEdit, BiSolidSave, BiXCircle } from "react-icons/bi";
+import { dotPulse } from "ldrs";
 import { MdGTranslate } from "react-icons/md";
-import { BsSave } from "react-icons/bs";
 import axiosApi from "../../api/axiosApi";
 import { BASE_URL } from "../../api/config";
 import ActiveParaghraph from "./ActiveParaghraph";
 import { FaBook } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import EditEssay from "./EditEssay";
+
+dotPulse.register();
 
 function EssayList() {
   const [essays, setEssays] = useState([]);
@@ -20,8 +22,10 @@ function EssayList() {
   const [saveLoading, setSaveLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const loadEssays = () => {
+    setLoading(true);
     axiosApi
       .get(`${BASE_URL}/essay`)
       .then((res) => {
@@ -29,7 +33,10 @@ function EssayList() {
           setEssays(res.data.data);
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -132,7 +139,16 @@ function EssayList() {
   }
 
   if (essays.length === 0) {
-    return <p className="p-3">List is Empty...</p>;
+    if (loading) {
+      return (
+        <div className="flex items-baseline p-4 ">
+          <p className="pe-1 text-lg font-semibold text-lime-700">Loading </p>
+          <l-dot-pulse size="20" speed="1.3" color="#555"></l-dot-pulse>
+        </div>
+      );
+    } else {
+      return <p className="p-3">List is Empty...</p>;
+    }
   }
 
   return (
