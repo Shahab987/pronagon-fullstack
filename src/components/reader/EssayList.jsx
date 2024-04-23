@@ -2,7 +2,14 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { LoaderIcon } from "react-hot-toast";
-import { BiCheck, BiSolidEdit, BiSolidSave, BiXCircle } from "react-icons/bi";
+import {
+  BiCheck,
+  BiSolidEdit,
+  BiSolidSave,
+  BiToggleLeft,
+  BiToggleRight,
+  BiXCircle,
+} from "react-icons/bi";
 import { dotPulse } from "ldrs";
 import { MdGTranslate } from "react-icons/md";
 import axiosApi from "../../api/axiosApi";
@@ -23,6 +30,9 @@ function EssayList() {
   const [isEditing, setIsEditing] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [filterRead, setFilterRead] = useState(false);
+  const [searchTitle, setSearchTitle] = useState("");
+  const [searchContent, setSearchContent] = useState("");
 
   const loadEssays = () => {
     setLoading(true);
@@ -153,43 +163,88 @@ function EssayList() {
   }
 
   return (
-    <div className="mt-2">
+    <div className="">
+      <div className="flex items-center gap-3 p-2">
+        <div className="flex items-center">
+          <button
+            className="text-3xl text-lime-800 ms-1 transition-all pt-1"
+            onClick={() => {
+              setFilterRead(!filterRead);
+            }}
+          >
+            {filterRead ? <BiToggleRight /> : <BiToggleLeft />}
+          </button>
+          <p className="ps-1">Displaying {!filterRead ? "All" : "Not Done"}</p>
+        </div>
+        <div className="flex gap-2 items-center">
+          <input
+            className="border p-1 rounded"
+            type="text"
+            onChange={(e) => setSearchTitle(e.target.value)}
+            value={searchTitle}
+            placeholder="Search Title"
+          />
+          <input
+            className="border p-1 rounded"
+            type="text"
+            onChange={(e) => setSearchContent(e.target.value)}
+            value={searchContent}
+            placeholder="Search Content"
+          />
+        </div>
+      </div>
       <div className="h-50 overflow-y-scroll  border shadow-inner  ">
-        {essays.map((essay, index) => {
-          return (
-            <div
-              key={essay._id}
-              id={"essay_" + index + 1}
-              onClick={() => handleSelectEssay(essay)}
-              className={`cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2 ${
-                selectedEssay._id === essay._id ? "bg-amber-100" : ""
-              }`}
-            >
-              <p>{index + 1}-</p>
-              <p
-                className={
-                  selectedEssay._id === essay._id
-                    ? "font-bold text-purple-700"
-                    : ""
-                }
+        {essays
+          .filter((item) => (filterRead ? item.isRead === false : item))
+          .filter((item) =>
+            searchTitle
+              ? item.title
+                  .toLowerCase()
+                  .includes(searchTitle.toLocaleLowerCase())
+              : item
+          )
+          .filter((item) =>
+            searchContent
+              ? item.content
+                  .toLowerCase()
+                  .includes(searchContent.toLocaleLowerCase())
+              : item
+          )
+          .map((essay, index) => {
+            return (
+              <div
+                key={essay._id}
+                id={"essay_" + index + 1}
+                onClick={() => handleSelectEssay(essay)}
+                className={`cursor-pointer flex gap-2 font-semibold hover:text-lime-700 hover:bg-lime-50 w-full border-b p-1 ps-2 ${
+                  selectedEssay._id === essay._id ? "bg-amber-100" : ""
+                }`}
               >
-                {essay.title}
-              </p>
-              <button
-                onClick={(e) => handleIsRead(e, essay)}
-                className="text-2xl ms-auto pe-2"
-              >
-                <abbr title="Done Reading">
-                  <BiCheck
-                    className={
-                      essay?.isRead ? "text-green-700" : "text-stone-200"
-                    }
-                  />
-                </abbr>
-              </button>
-            </div>
-          );
-        })}
+                <p>{index + 1}-</p>
+                <p
+                  className={
+                    selectedEssay._id === essay._id
+                      ? "font-bold text-purple-700"
+                      : ""
+                  }
+                >
+                  {essay.title}
+                </p>
+                <button
+                  onClick={(e) => handleIsRead(e, essay)}
+                  className="text-2xl ms-auto pe-2"
+                >
+                  <abbr title="Done Reading">
+                    <BiCheck
+                      className={
+                        essay?.isRead ? "text-green-700" : "text-stone-200"
+                      }
+                    />
+                  </abbr>
+                </button>
+              </div>
+            );
+          })}
       </div>
 
       <div className="mt-3">
