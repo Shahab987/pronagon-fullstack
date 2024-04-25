@@ -7,9 +7,7 @@ const UpdateDb = () => {
   const fetchDataAndUpdateDatabase = async () => {
     try {
       await axiosApi.get(`${BASE_URL}/words/all`).then((res) => {
-        const wordsArray = res.data
-          .filter((item) => item.meaning === "")
-          .map((item) => item.name);
+        const wordsArray = res.data.map((item) => item.name);
         console.log(wordsArray);
         if (wordsArray.length > 0) {
           // setDataNoDetail(res.data);

@@ -76,6 +76,7 @@ app.get("/api/openai", async (req, res) => {
       const newWord = await WordModel.create({
         name: req.query.word,
         length: req.query.word.length,
+        meaning: "",
         level: 0,
       });
       console.log("existingObject: ", newWord);
