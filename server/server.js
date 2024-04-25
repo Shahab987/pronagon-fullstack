@@ -53,6 +53,10 @@ app.get("/api/openai", async (req, res) => {
   if (result) {
     console.log("AI result: ", result);
 
+    if (Array.isArray(result.meaning)) {
+      result.meaning = result.meaning.join(" ");
+    }
+
     const wordExist = await WordModel.findOne({ name: result.word });
     if (!wordExist) {
       const newWord = await WordModel.create({
