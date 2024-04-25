@@ -11,10 +11,10 @@ async function generateResponse(word) {
       messages: [
         {
           role: "user",
-          content: `Generate a JSON object for singular form of "${word}" with its Persian meaning, US IPA, and an example sentence. Follow: { "word": "", "meaning": "", "pronunciation": "", "example": "" }`,
+          content: `Generate a JSON object for singular form of "${word}" with its short Persian(Farsi) meaning, US IPA, and an example sentence. Follow: { "word": "${word}", "meaning": "", "pronunciation": "", "example": "" }`,
         },
       ],
-      temperature: 1,
+      temperature: 0.5,
       max_tokens: 256,
       top_p: 1,
       frequency_penalty: 0,
