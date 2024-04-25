@@ -258,7 +258,7 @@ function EssayList() {
         })}
       </div>
 
-      <div className="mt-3">
+      <div className="mt-3 pb-22">
         {/* ------------------------ Buttons  */}
         {title && (
           <div className="w-full bg-slate-50 flex items-center py-1 px-2 gap-3 text-stone-900  border ">
