@@ -3,7 +3,7 @@ import axiosApi from "../../api/axiosApi";
 import SubText from "../SubText";
 import { toast } from "react-hot-toast";
 import { BASE_URL } from "../../api/config";
-import ReaderWord from "../ReaderWord";
+import ReaderWord from "./ReaderWord";
 import { useSelector } from "react-redux";
 import { BiX, BiXCircle } from "react-icons/bi";
 

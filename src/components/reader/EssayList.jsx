@@ -50,6 +50,25 @@ function EssayList() {
       });
   };
 
+  function pasteAndSearch(input) {
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .readText()
+        .then((text) => {
+          if (input === "title") {
+            setSearchTitle(text);
+          } else {
+            setSearchContent(text);
+          }
+        })
+        .catch((err) => {
+          console.error("Failed to read text from clipboard:", err);
+        });
+    } else {
+      console.error("Clipboard API is not supported by the browser.");
+    }
+  }
+
   useEffect(() => {
     loadEssays();
   }, []);
@@ -207,11 +226,13 @@ function EssayList() {
           <input
             className="border p-1 rounded"
             type="text"
+            onFocus={() => pasteAndSearch("title")}
             onChange={(e) => setSearchTitle(e.target.value)}
             value={searchTitle}
             placeholder="Search Title"
           />
           <input
+            onFocus={() => pasteAndSearch("content")}
             className="border p-1 rounded"
             type="text"
             onChange={(e) => setSearchContent(e.target.value)}

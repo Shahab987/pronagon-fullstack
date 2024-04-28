@@ -4,11 +4,11 @@ import { FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
 import { BsBookmarkFill, BsPencil } from "react-icons/bs";
 import { BiSolidEdit } from "react-icons/bi";
 
-import { BASE_URL, MEDIA_ENV_URL, MEDIA_LOCAL_URL } from "../api/config";
+import { BASE_URL, MEDIA_ENV_URL, MEDIA_LOCAL_URL } from "../../api/config";
 import { toast } from "react-hot-toast";
-import Modal from "./Modal/Modal";
-import EditWord from "./EditWord";
-import axiosApi from "../api/axiosApi";
+import Modal from "../Modal/Modal";
+import EditWord from "../EditWord";
+import axiosApi from "../../api/axiosApi";
 import { zoomies } from "ldrs";
 const Button = ({ onClick, icon, iconClass, btnClass }) => (
   <button onClick={onClick} className={btnClass}>
@@ -254,6 +254,7 @@ function ReaderWord({
       if (userLevel[subLevel].includes(item._id)) {
         setLevelColor(Number(subLevel));
         setLevel(Number(subLevel));
+        break;
       } else if (subLevel === "4") {
         setLevelColor(0);
         setLevel(0);

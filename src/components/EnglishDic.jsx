@@ -650,7 +650,13 @@ function EnglishDic() {
               min={1}
               max={Math.ceil(totalCount / itemsPerPage)}
             />
-            <p className="cursor-default">
+            <p
+              onClick={() => {
+                setPage(Math.ceil(totalCount / itemsPerPage));
+                setPageInput(Math.ceil(totalCount / itemsPerPage));
+              }}
+              className="cursor-default"
+            >
               of {Math.ceil(totalCount / itemsPerPage)}
             </p>
             <button
