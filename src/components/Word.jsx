@@ -42,6 +42,7 @@ function Word({
   const [repeatCountExact, setRepeatCountExact] = useState(0);
   const [url, setUrl] = useState({
     l1: "",
+    l2: "",
     l3: "",
     l5: "",
     word: "",
@@ -64,7 +65,7 @@ function Word({
   };
 
   const setAudioUrl = () => {
-    if (audioRef.current?.currentSrc) {
+    if (ready && audioRef.current?.currentSrc) {
       axios
         .put(`${BASE_URL}/words/${item._id}`, {
           ...item,
@@ -113,6 +114,7 @@ function Word({
     if (item?.name?.length === 2) {
       setUrl({
         l1: item?.name?.slice(0, 1),
+        l2: item?.name?.slice(0, 2),
         l3: item?.name?.slice(0, 3) + "_",
         l5: item?.name?.slice(0, 5) + "__u",
         word: item.name,
@@ -122,6 +124,7 @@ function Word({
     if (item?.name?.length === 3) {
       setUrl({
         l1: item?.name?.slice(0, 1),
+        l2: item?.name?.slice(0, 2),
         l3: item?.name?.slice(0, 3),
         l5: item?.name?.slice(0, 5) + "__",
         word: item.name,
@@ -132,6 +135,7 @@ function Word({
     if (item?.name?.length === 4) {
       setUrl({
         l1: item?.name?.slice(0, 1),
+        l2: item?.name?.slice(0, 2),
         l3: item?.name?.slice(0, 3),
         l5: item?.name?.slice(0, 5) + "_",
         word: item.name,
@@ -142,6 +146,7 @@ function Word({
     if (item?.name?.length > 4) {
       setUrl({
         l1: item?.name?.slice(0, 1),
+        l2: item?.name?.slice(0, 2),
         l3: item?.name?.slice(0, 3),
         l5: item?.name?.slice(0, 5),
         word: item.name,
@@ -507,6 +512,30 @@ function Word({
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__1_us_2.mp3`}
             />
             <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}__us_1.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}_1_us_1.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}__us_2.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}__us_3.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}__us_4.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}_1_us_3.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}_1_us_4.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}__gb_1.mp3`}
+            />
+            <source
               src={`https://www.ldoceonline.com/media/english/ameProns/${item.name}.mp3`}
             />
             <source
@@ -516,6 +545,9 @@ function Word({
               src={`https://www.ldoceonline.com/media/english/ameProns/laad${item.name}.mp3`}
             />
             <source
+              src={`https://www.ldoceonline.com/media/english/ameProns/lpd_${item.name}.mp3`}
+            />
+            <source
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/us_pron/${url.l1}/${url.l3}/${url.l5}/${url.word2}__us_1.mp3`}
             />
             <source
@@ -523,6 +555,9 @@ function Word({
             />
             <source
               src={`https://www.oxfordlearnersdictionaries.com/us/media/english/uk_pron/${url.l1}/${url.l3}/${url.l5}/${url.word}__gb_1.mp3`}
+            />
+            <source
+              src={`https://s3.eu-west-1.amazonaws.com/com.idmgroup.oed100.sounds.prod/mp3/${url.l1}/${url.l2}/${url.l3}/${url.word}__gb_2.mp3`}
             />
             Your browser does not support the audio tag.
           </audio>

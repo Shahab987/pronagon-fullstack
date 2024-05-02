@@ -14,7 +14,7 @@ import EssayList from "./components/reader/EssayList";
 
 function App() {
   return (
-    <div className="">
+    <div className="pb-15">
       <Toaster />
 
       <Routes>

@@ -11,6 +11,7 @@ const wordSchema = new mongoose.Schema({
   pronunciation: String,
   example: String,
   details: Object,
+  source: String,
   lastModified: {
     type: Date,
     default: Date.now,

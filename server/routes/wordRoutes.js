@@ -28,6 +28,17 @@ router.get("/", async (req, res) => {
         if (req.query.exact) {
           query.name = req.query.exact;
         }
+        if (req.query.audio_us) {
+          query = { audio_us: "" };
+        }
+        if (req.query.audio_src) {
+          query = {
+            audio_src: { $exists: false },
+          };
+        }
+        if (req.query.source) {
+          query.source = req.query.source;
+        }
         // if (req.query.level) {
         //   query.level = req.query.level;
         // }
