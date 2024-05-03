@@ -29,6 +29,7 @@ function Word({
   expandAll,
   urlParams,
   userLevels,
+  studyMode,
 }) {
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
@@ -317,7 +318,11 @@ function Word({
           dir="rtl"
           className="hidden md:block text-sm bg-slate-100 rounded-md px-2 py-1 me-auto ms-5  font-IranSans  font-bold text-cyan-950"
         >
-          {item.meaning}
+          <span
+            className={studyMode ? "text-slate-100 hover:text-cyan-950" : ""}
+          >
+            {item.meaning}
+          </span>
         </p>
         {/* ---------------------- Buttons  */}
         <div

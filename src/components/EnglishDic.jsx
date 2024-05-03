@@ -56,6 +56,7 @@ function EnglishDic() {
   const [letsAdd, setLetsAdd] = useState(false);
   const [currentExpand, setCurrentExpand] = useState(-1);
   const [expandAll, setExpandAll] = useState(false);
+  const [studyMode, setStudyMode] = useState(false);
   const [urlParams, setUrlParams] = useState(
     storedUserSituation?.urlParams ||
       Object.fromEntries(new URLSearchParams(location?.search)) ||
@@ -457,7 +458,7 @@ function EnglishDic() {
       )}
       <div className="flex flex-col lg:flex-row lg:gap-1 mt-2">
         {/* ------------------------------------- Filter & Sort  */}
-        <div className="lg:w-1/2 flex p-2 border gap-4 h-11">
+        <div className=" flex p-2 border gap-4 h-11 ">
           <div className="flex gap-2">
             <p className="hidden xs:block">Filter:</p>
             <div className="flex gap-2 text-xl relative">
@@ -548,9 +549,39 @@ function EnglishDic() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col gap-1 mt-1 lg:mt-0 md:flex-row md:gap-1  lg:w-1/2 ">
+        <div className="flex flex-col gap-1 mt-1 lg:mt-0 md:flex-row md:gap-1  grow">
+          {/* ---------------------------------- Expand & Focus & study*/}
+          <div className="relative flex items-center w-full md:w-1/2   lg:mt-0  border h-11 px-2 ">
+            <p>Expand</p>
+            <button
+              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
+              onClick={() => {
+                setExpandAll((p) => !p);
+              }}
+            >
+              {expandAll ? <BiToggleRight /> : <BiToggleLeft />}
+            </button>
+            <p className="ms-5">Focus</p>
+            <button
+              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
+              onClick={() => {
+                setItemsPerPage((p) => (p === 1 ? 5 : 1));
+              }}
+            >
+              {itemsPerPage === 1 ? <BiToggleRight /> : <BiToggleLeft />}
+            </button>
+            <p className="ms-5">Study</p>
+            <button
+              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
+              onClick={() => {
+                setStudyMode((p) => !p);
+              }}
+            >
+              {studyMode ? <BiToggleRight /> : <BiToggleLeft />}
+            </button>
+          </div>
           {/* ------------------------------------- Search  */}
-          <div className="relative flex items-center w-full md:w-1/2 border h-11 lg:mt-0  ">
+          <div className="relative flex items-center w-full md:w-1/2 lg:w-full  grow border h-11 lg:mt-0  ">
             <input
               type="text"
               name="search"
@@ -592,27 +623,6 @@ function EnglishDic() {
                   !exactMatch ? "opacity-75" : "opacity-0"
                 }`}
               />
-            </button>
-          </div>
-          {/* ---------------------------------- Expand & Focus */}
-          <div className="relative flex items-center w-full md:w-1/2  lg:mt-0  border h-11 px-2 ">
-            <p>Expand</p>
-            <button
-              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
-              onClick={() => {
-                setExpandAll((p) => !p);
-              }}
-            >
-              {expandAll ? <BiToggleRight /> : <BiToggleLeft />}
-            </button>
-            <p className="ms-5">Focus</p>
-            <button
-              className="text-3xl text-lime-800 ms-1 transition-all pt-1"
-              onClick={() => {
-                setItemsPerPage((p) => (p === 1 ? 5 : 1));
-              }}
-            >
-              {itemsPerPage === 1 ? <BiToggleRight /> : <BiToggleLeft />}
             </button>
           </div>
         </div>
@@ -758,6 +768,7 @@ function EnglishDic() {
                         expandAll={expandAll}
                         urlParams={urlParams}
                         userLevels={userLevels}
+                        studyMode={studyMode}
                       />
                     </div>
                   );
