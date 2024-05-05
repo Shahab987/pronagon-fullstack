@@ -16,11 +16,14 @@ const EssayPlayer = ({ explodedText }) => {
   const [duration, setDuration] = useState(1000);
 
   async function playWordsAudio(item) {
-    const audio = new Audio(
+    let audio = new Audio(
       `${MEDIA_ENV_URL}/phonetic/${item.slice(0, 1)}/${item}.mp3`
     );
+
     audio.onerror = (error) => {
-      setCurrentIndex((p) => p + 1);
+      audio.src = `${MEDIA_ENV_URL}/phonetic/n/next.mp3`;
+      console.log(audio);
+      audio.play();
     };
     audio.play();
   }
@@ -74,6 +77,10 @@ const EssayPlayer = ({ explodedText }) => {
       );
     }
   }, [explodedText]);
+
+  useEffect(() => {
+    console.log(items.map((i) => i.word));
+  }, [items]);
 
   return (
     <div className="flex gap-2 text-2xl px-3 ms-2 border-x-2">
