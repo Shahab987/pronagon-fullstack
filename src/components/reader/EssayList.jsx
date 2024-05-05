@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { LoaderIcon } from "react-hot-toast";
 import {
   BiCheck,
+  BiPlayCircle,
   BiSolidEdit,
   BiSolidSave,
   BiToggleLeft,
@@ -13,11 +14,12 @@ import {
 import { dotPulse } from "ldrs";
 import { MdGTranslate } from "react-icons/md";
 import axiosApi from "../../api/axiosApi";
-import { BASE_URL } from "../../api/config";
+import { BASE_URL, MEDIA_ENV_URL } from "../../api/config";
 import ActiveParaghraph from "./ActiveParaghraph";
 import { FaBook } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import EditEssay from "./EditEssay";
+import EssayPlayer from "./EssayPlayer";
 
 dotPulse.register();
 
@@ -34,6 +36,8 @@ function EssayList() {
   const [searchTitle, setSearchTitle] = useState("");
   const [searchContent, setSearchContent] = useState("");
   const [filteredEssays, setFilteredEssays] = useState([]);
+  const [playEssay, setPlayEssay] = useState(false);
+  const isLoopRunning = useRef(false);
 
   const loadEssays = () => {
     setLoading(true);
@@ -192,6 +196,43 @@ function EssayList() {
   }
 
   useEffect(() => {
+    let timeoutIds = []; // Keep track of timeout IDs for the current loop
+
+    // Function to clear all timeouts
+    const clearAllTimeouts = () => {
+      timeoutIds.forEach((timeoutId) => clearTimeout(timeoutId));
+      timeoutIds = [];
+    };
+
+    if (playEssay) {
+      isLoopRunning.current = true;
+      const filteredArray = explodedText.filter(
+        (item) => item.word.replace(/[^a-zA-Z]/g, "").length > 3
+      );
+      clearAllTimeouts(); // Clear any previous timeouts before starting new loop
+      filteredArray.forEach((item, index) => {
+        const timeoutId = setTimeout(() => {
+          if (isLoopRunning.current) {
+            playWordsAudio(item.word);
+          }
+          if (index === filteredArray.length - 1) {
+            isLoopRunning.current = false;
+          }
+        }, index * 500);
+        timeoutIds.push(timeoutId); // Store the timeout ID
+      });
+    } else {
+      isLoopRunning.current = false;
+      clearAllTimeouts(); // Clear timeouts if playEssay is false
+    }
+
+    // Cleanup function
+    return () => {
+      clearAllTimeouts(); // Ensure timeouts are cleared when component unmounts or playEssay changes
+    };
+  }, [playEssay]);
+
+  useEffect(() => {
     filterEssays();
   }, [essays, filterRead, searchTitle, searchContent]);
 
@@ -320,6 +361,17 @@ function EssayList() {
                 <FaBook />
               </abbr>
             </button>
+            {/* <button
+              onClick={() => {
+                setPlayEssay((p) => !p);
+              }}
+              className="text-2xl "
+            >
+              <abbr title="Say it!">
+                <BiPlayCircle />
+              </abbr>
+            </button> */}
+            <EssayPlayer explodedText={explodedText} />
             <button
               onClick={() => {
                 setExplodedText([]);

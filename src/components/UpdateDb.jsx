@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../api/config";
 import axiosApi from "../api/axiosApi";
+import { toast } from "react-hot-toast";
 
 const UpdateDb = () => {
   // Function to fetch data, add new key-value pair, and update database
@@ -8,7 +9,7 @@ const UpdateDb = () => {
     try {
       await axiosApi.get(`${BASE_URL}/words/all`).then((res) => {
         const wordsArray = res.data.map((item) => item.name);
-        console.log(wordsArray);
+        toast.success(wordsArray);
         if (wordsArray.length > 0) {
           // setDataNoDetail(res.data);
           OpenAiReq(wordsArray, res.data);
@@ -107,6 +108,11 @@ const UpdateDb = () => {
             ).find((i) => item.name === i.word);
 
             if (newWord) {
+              toast.success(
+                `${JSON.stringify(newWord?.word)} : ${JSON.stringify(
+                  newWord?.meaning
+                )}`
+              );
               return {
                 ...item,
                 meaning: newWord?.meaning,

@@ -101,7 +101,7 @@ router.post("/login", async (req, res) => {
   const authToken = req.cookies.authToken;
   if (authToken) {
     // Authentication logic using authToken
-    console.log("Auth token:", authToken);
+    console.log("Auth token found");
   } else {
     console.log("Auth token not found");
   }
@@ -168,13 +168,13 @@ router.post("/checkToken", (req, res) => {
       res.status(401).json({ message: "Unauthorized" });
     } else {
       // Token is valid
-      console.log("Decoded token:", decoded);
+      console.log("Decoded token successful");
 
       let user = null;
       if (decoded.user.id) {
         user = await User.findOne({ _id: decoded.user.id });
       }
-      console.log(user);
+      // console.log(user);
 
       if (!user) {
         res
@@ -231,18 +231,16 @@ router.post("/changelevel", async (req, res) => {
     }
 
     // Add the wordId to the new level array
-    userObject.level[newLevel].push(wordId);
+    userObject?.level[newLevel].push(wordId);
 
     // Save the updated user document
     await User.updateOne({ _id: userId }, { $set: userObject });
     const updatedUser = await User.findById(userId);
 
-    res
-      .status(200)
-      .json({
-        message: "Level changed successfully",
-        userLevels: updatedUser.level,
-      });
+    res.status(200).json({
+      message: "Level changed successfully",
+      userLevels: updatedUser.level,
+    });
   } catch (err) {
     console.error("Error changing level:", err);
     res.status(500).json({ error: "Internal server error" });

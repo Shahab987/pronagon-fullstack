@@ -672,6 +672,11 @@ function EnglishDic() {
             <button
               className="text-2xl mx-3"
               onClick={() => handlePage("forward")}
+              disabled={Math.ceil(totalCount / itemsPerPage) === page}
+              style={{
+                color:
+                  Math.ceil(totalCount / itemsPerPage) === page ? "gray" : "",
+              }}
             >
               <IoArrowForwardCircle />
             </button>

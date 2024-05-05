@@ -11,7 +11,7 @@ async function generateResponseArray(words) {
       messages: [
         {
           role: "user",
-          content: `make a JSON Array of objects with this list of words ${words} including each word's short meaning in Persian(Farsi), its standard US International Phonetic Alphabet (IPA) and an example sentence using this pattern: [{ "word":  \"\" , "meaning" : \"\" ,  "pronunciation" : \"\", "example" : \"\" }]`,
+          content: `make a JSON Array of objects with this list of words ${words} including each word's precise and brief Persian meaning, its standard US International Phonetic Alphabet (IPA) and an example sentence using this pattern: [{ "word":  \"\" , "meaning" : \"\" ,  "pronunciation" : \"\", "example" : \"\" }]`,
         },
       ],
       temperature: 1,
