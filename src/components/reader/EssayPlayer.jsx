@@ -19,7 +19,9 @@ const EssayPlayer = ({ explodedText }) => {
     const audio = new Audio(
       `${MEDIA_ENV_URL}/phonetic/${item.slice(0, 1)}/${item}.mp3`
     );
-
+    audio.onerror = (error) => {
+      setCurrentIndex((p) => p + 1);
+    };
     audio.play();
   }
 
@@ -67,7 +69,7 @@ const EssayPlayer = ({ explodedText }) => {
     if (explodedText) {
       setItems(
         explodedText.filter(
-          (item) => item.word.replace(/[^a-zA-Z]/g, "").length > 3
+          (item) => item.word.replace(/[^a-zA-Z]/g, "").length > 2
         )
       );
     }
@@ -111,9 +113,15 @@ const EssayPlayer = ({ explodedText }) => {
       >
         <BiLeftArrowCircle />
       </button>
-      <p className="text-base select-none">
-        {currentIndex > -1 ? currentIndex + 1 : "0"}
-      </p>
+      <input
+        type="number"
+        value={currentIndex}
+        className="text-base p-0 w-8 text-center"
+        onChange={(e) => {
+          setCurrentIndex(Number(e.target.value));
+        }}
+      />
+
       <button
         className="hover:text-sky-700"
         onClick={() => {
