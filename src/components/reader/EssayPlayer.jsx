@@ -62,7 +62,7 @@ const EssayPlayer = ({ explodedText }) => {
   }, [intervalId]);
 
   useEffect(() => {
-    if (currentIndex > -1) {
+    if (currentIndex > -1 && currentIndex < items.length) {
       playWordsAudio(items[currentIndex].word);
     }
   }, [currentIndex]);
@@ -125,7 +125,13 @@ const EssayPlayer = ({ explodedText }) => {
         value={currentIndex}
         className="text-base p-0 w-8 text-center"
         onChange={(e) => {
-          setCurrentIndex(Number(e.target.value));
+          if (Number(e.target.value) > items.length - 1) {
+            setCurrentIndex(items.length - 1);
+          } else if (Number(e.target.value) < 0) {
+            setCurrentIndex(0);
+          } else {
+            setCurrentIndex(Number(e.target.value));
+          }
         }}
       />
 
@@ -133,7 +139,7 @@ const EssayPlayer = ({ explodedText }) => {
         className="hover:text-sky-700"
         onClick={() => {
           pause();
-          setCurrentIndex((p) => (p < items.length ? p + 1 : p));
+          setCurrentIndex((p) => (p < items.length - 1 ? p + 1 : p));
         }}
       >
         <BiRightArrowCircle />
