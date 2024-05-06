@@ -62,8 +62,13 @@ const EssayPlayer = ({ explodedText }) => {
   }, [intervalId]);
 
   useEffect(() => {
+    if (currentIndex === items.length - 1) {
+      pause();
+    }
     if (currentIndex > -1 && currentIndex < items.length) {
       playWordsAudio(items[currentIndex].word);
+    } else {
+      pause();
     }
   }, [currentIndex]);
 
