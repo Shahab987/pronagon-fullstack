@@ -692,7 +692,7 @@ function EnglishDic() {
               onChange={(e) => setItemsPerPage(Number(e.target.value))}
               value={itemsPerPage}
             >
-              {[1, 5, 10, 15, 20].map((value) => (
+              {[1, 5, 10, 15, 20, 100].map((value) => (
                 <option key={value} value={value}>
                   {value}
                 </option>
