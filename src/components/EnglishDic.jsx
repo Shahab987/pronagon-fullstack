@@ -382,9 +382,9 @@ function EnglishDic() {
     }
   }, [itemsPerPage, totalCount]);
 
-  useEffect(() => {
-    handleSearch();
-  }, [searchInput]);
+  // useEffect(() => {
+  // handleSearch();
+  // }, [searchInput]);
 
   useEffect(() => {
     handleSearch();
