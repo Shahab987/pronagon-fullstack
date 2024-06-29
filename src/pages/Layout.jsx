@@ -55,6 +55,15 @@ function Layout() {
               <div className="flex">Reader</div>
             </MyLink>
           )}
+          {isLogedIn && (
+            <MyLink
+              activeStyle="text-lime-950 font-semibold"
+              className=""
+              to="/typing"
+            >
+              <div className="flex">Typing</div>
+            </MyLink>
+          )}
           {!isLogedIn && (
             <NavLink className=" ms-auto" to="/auth/login">
               Login

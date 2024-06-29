@@ -11,6 +11,7 @@ import ActivationFailed from "./pages/ActivationFailed";
 import Reader from "./pages/Reader";
 import AddEssay from "./components/reader/AddEssay";
 import EssayList from "./components/reader/EssayList";
+import Typing from "./pages/Typing";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="add-essay" element={<AddEssay />} />
           </Route>
           <Route path="update" element={<UpdateDb />} />
+          <Route path="typing" element={<Typing />} />
           <Route path="activation-success" element={<ActivationSuccess />} />
           <Route path="activation-failed" element={<ActivationFailed />} />
         </Route>
