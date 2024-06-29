@@ -27,4 +27,4 @@ jobs:
         run: |
           cd server
           npm i -g @liara/cli@5
-          liara deploy --app="mosaleh-node" --api-token="$LIARA_TOKEN" --no-app-logs --port=3003
+          liara deploy --app="mosaleh-node" --api-token="$LIARA_TOKEN" --no-app-logs --port=3003 --debug
