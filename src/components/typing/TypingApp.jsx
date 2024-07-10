@@ -111,6 +111,7 @@ export function Compare({textareaValue}) {
   const handleCompare = () => {
     if(textareaValue === compareValue){
       toast.success("Successful")
+      setConclude([{item:"Great Job! Everything is Correct" , condition:"correct"}])
     } else {
       let baseArr = textareaValue.split(" ")
       let usrArr = compareValue.split(" ")
@@ -129,12 +130,8 @@ export function Compare({textareaValue}) {
 
             tmpConclude.push({ item : baseArr[i] , condition : "correct"})
             tmpConclude.push({ item : usrArr[i] , condition : "differ"})
-        } else {
-           
-          }
-          
-        
-        
+        } 
+ 
       }
       setConclude(tmpConclude)
     }
