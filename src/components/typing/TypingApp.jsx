@@ -87,7 +87,7 @@ To conclude, as for myself, as the saying goes "all's well that ends well," afte
       </div>
        </div>
       
-<Compare textareaValue={textareaValue} />
+    <Compare textareaValue={textareaValue} />
 
     </div>
   )
@@ -138,9 +138,10 @@ export function Compare({textareaValue}) {
   }
 
   return (
-    <div>
+    <div className=' border-t border-t-gray-3 mt-8'>
 
-      <textarea onChange={e=>handleInput(e)} value={compareValue} className='w-full shadow-sm' name="input2" id="" cols="60" placeholder='Type Text Here'/>
+      <textarea onChange={e=>handleInput(e)} value={compareValue} className='w-full shadow-sm h-50'
+      name="input2" id="" cols="60" placeholder='Type Text Here'/>
       <div className='my-4 flex gap-3'>
         <button onClick={()=>handleCompare()} className='py-1 px-4 rounded shadow border border-stone-400 bg-blue-200 '>Compare</button>
         <button onClick={()=>{setCompareValue("")}} className='py-1 px-4 rounded shadow border border-stone-400 bg-red-200 '>Clear</button>
