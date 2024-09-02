@@ -5,16 +5,23 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
-          node-version: "18"
+          node-version: "18"        
+      - name: Build Frontend
+        run: |
+            npm install
+            npm run build 
+      - name: Copy Build Files
+        run: |
+            cp -r dist/* server/
       - name: update-chabokan
         env:
           CHABOKAN_TOKEN: ${{ secrets.CHABOKAN_TOKEN }}
         run: |
+          cd server  
           npm install -g @chabokan.net/cli
           chabok login -t $CHABOKAN_TOKEN
           chabok deploy -s mosaleh
