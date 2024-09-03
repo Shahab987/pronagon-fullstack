@@ -6,22 +6,35 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
         with:
-          node-version: "18"        
+          node-version: "18"
+          
       - name: Build Frontend
         run: |
-            npm install
-            npm run build 
-      - name: Copy Build Files
+          npm install
+          npm run build
+
+      - name: Copy Build Files to Server Directory
         run: |
-            cp -r dist/* server/
-      - name: update-chabokan
+          mkdir -p server
+          cp -r dist/* server/
+
+      - name: Commit and Push to New Repository
         env:
-          CHABOKAN_TOKEN: ${{ secrets.CHABOKAN_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TARGET_REPO: Shahab987/phonegon-union
+          TARGET_BRANCH: main
         run: |
-          cd server  
-          npm install -g @chabokan.net/cli
-          chabok login -t $CHABOKAN_TOKEN
-          chabok deploy -s mosaleh
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git clone --single-branch --branch $TARGET_BRANCH https://github.com/$TARGET_REPO.git output-repo
+          cp -r server/* output-repo/
+          cd output-repo
+          git add .
+          git commit -m "Update built files"
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/$TARGET_REPO.git $TARGET_BRANCH
