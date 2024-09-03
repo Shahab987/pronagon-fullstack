@@ -38,7 +38,7 @@ jobs:
 
       - name: Commit and Push to New Repository
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #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
           TARGET_REPO: Shahab987/phonegon-union  # Your target repo
           TARGET_BRANCH: main  # Your target branch
         run: |
