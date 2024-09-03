@@ -24,6 +24,18 @@ jobs:
           mkdir -p server
           cp -r dist/* server/
 
+      - name: Print Current Directory
+        run: |
+          pwd
+          ls -al
+
+      - name: Print GitHub Token
+        run: echo ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify Repository Access
+        run: |
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" https://api.github.com/repos/Shahab987/phonegon-union
+
       - name: Commit and Push to New Repository
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
