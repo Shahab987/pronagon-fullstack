@@ -23,12 +23,12 @@ jobs:
         run: |
           mkdir -p server
           cp -r dist/* server/
-          
+
       - name: Commit and Push to New Repository
         env:
           PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
           TARGET_REPO: Shahab987/phonegon-union  # Your target repo
-          TARGET_BRANCH: main  # Your target branch
+          TARGET_BRANCH: main  # Your target branch 
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
