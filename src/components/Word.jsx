@@ -363,6 +363,7 @@ function Word({
                 if (ready) {
                   audioRef.current.play();
                 } else {
+                  audioRef.current.play();
                   if (item.audio_src) {
                     handleDownload(item);
                   } else {
@@ -477,6 +478,7 @@ function Word({
               if (ready) {
                 audioRef.current.play();
               } else {
+                audioRef.current.play();
                 handleDownload(item);
               }
             }}
