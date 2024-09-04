@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { FaBook, FaPlay, FaStop, FaTrashAlt, FaDownload } from "react-icons/fa";
+import {
+  FaBook,
+  FaPlay,
+  FaStop,
+  FaTrashAlt,
+  FaDownload,
+  FaCircleNotch,
+} from "react-icons/fa";
 import { BsBookmarkFill, BsPencil } from "react-icons/bs";
 import { BiSolidEdit } from "react-icons/bi";
 
@@ -11,6 +18,7 @@ import EditWord from "./EditWord";
 import axiosApi from "../api/axiosApi";
 import { MdGTranslate } from "react-icons/md";
 import { TbSum } from "react-icons/tb";
+import { VscRunErrors } from "react-icons/vsc";
 
 const Button = ({ onClick, icon, iconClass, btnClass }) => (
   <button onClick={onClick} className={btnClass}>
@@ -357,10 +365,22 @@ function Word({
                 if (ready) {
                   audioRef.current.play();
                 } else {
-                  handleDownload(item);
+                  if (item.audio_src) {
+                    handleDownload(item);
+                  } else {
+                    toast.error("No audio available!")
+                  }
                 }
               }}
-              icon={ ready ? <FaPlay /> : <FaDownload /> }
+              icon={
+                ready ? (
+                  <FaPlay />
+                ) : item.audio_src ? (
+                  <FaDownload />
+                ) : (
+                  <VscRunErrors />
+                )
+              }
               iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
             />
           ) : (
@@ -462,7 +482,7 @@ function Word({
                 handleDownload(item);
               }
             }}
-            icon={ ready ? <FaPlay /> : <FaDownload /> }
+            icon={ready ? <FaPlay /> : <FaDownload />}
             iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
             btnClass="text-3xl"
           />
