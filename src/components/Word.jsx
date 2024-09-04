@@ -90,8 +90,6 @@ function Word({
   };
 
   const handleDownload = (item) => {
-    console.log("DL");
-
     const url = item.audio_us;
     const path = `${MEDIA_LOCAL_URL}/media/phonetic/${item.name.slice(0, 1)}/${
       item.name
@@ -319,7 +317,7 @@ function Word({
       ></div>
       <div className="flex items-center w-full py-0 ps-1">
         <p className="font-semibold  2xs:text-lg w-full md:w-fit cursor-pointer me-3">
-          {item?.name} ({repeatCount}) ({repeatCountExact})
+          {item?.name} {repeatCount !== 0 && <span>({repeatCount}) ({repeatCountExact})</span>}
         </p>
         <p className="hidden md:block bg-slate-100 rounded-md px-2 text-lg text-zinc-500 ">
           ({item.pronunciation})
