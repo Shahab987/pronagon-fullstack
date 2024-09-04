@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import { FaBook, FaPlay, FaStop, FaTrashAlt } from "react-icons/fa";
+import { FaBook, FaPlay, FaStop, FaTrashAlt, FaDownload } from "react-icons/fa";
 import { BsBookmarkFill, BsPencil } from "react-icons/bs";
 import { BiSolidEdit } from "react-icons/bi";
 
@@ -82,6 +82,8 @@ function Word({
   };
 
   const handleDownload = (item) => {
+    console.log("DL");
+
     const url = item.audio_us;
     const path = `${MEDIA_LOCAL_URL}/media/phonetic/${item.name.slice(0, 1)}/${
       item.name
@@ -351,8 +353,14 @@ function Word({
           </div>
           {!playing ? (
             <Button
-              onClick={() => audioRef.current.play()}
-              icon={<FaPlay />}
+              onClick={() => {
+                if (ready) {
+                  audioRef.current.play();
+                } else {
+                  handleDownload(item);
+                }
+              }}
+              icon={ ready ? <FaPlay /> : <FaDownload /> }
               iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
             />
           ) : (
@@ -447,8 +455,14 @@ function Word({
         </div>
         {!playing ? (
           <Button
-            onClick={() => audioRef.current.play()}
-            icon={<FaPlay />}
+            onClick={() => {
+              if (ready) {
+                audioRef.current.play();
+              } else {
+                handleDownload(item);
+              }
+            }}
+            icon={ ready ? <FaPlay /> : <FaDownload /> }
             iconClass={ready ? "hover:text-blue-700" : "text-gray-400"}
             btnClass="text-3xl"
           />
