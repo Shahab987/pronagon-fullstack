@@ -64,7 +64,7 @@ function Layout() {
               <div className="flex">Typing</div>
             </MyLink>
           )}
-          {!isLogedIn && (
+          {isLogedIn && (
             <NavLink className=" ms-auto" to="/auth/login">
               Login
             </NavLink>

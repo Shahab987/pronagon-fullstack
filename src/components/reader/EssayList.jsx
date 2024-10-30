@@ -16,7 +16,7 @@ import { MdGTranslate } from "react-icons/md";
 import axiosApi from "../../api/axiosApi";
 import { BASE_URL, MEDIA_ENV_URL } from "../../api/config";
 import ActiveParaghraph from "./ActiveParaghraph";
-import { FaBook } from "react-icons/fa";
+import { FaBook, FaPaste } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import EditEssay from "./EditEssay";
 import EssayPlayer from "./EssayPlayer";
@@ -264,22 +264,38 @@ function EssayList() {
           <p className="ps-1">Show {!filterRead ? "All" : "Not Done"}</p>
         </div>
         <div className="flex gap-2 items-center">
-          <input
-            className="border p-1 rounded"
-            type="text"
-            onFocus={() => pasteAndSearch("title")}
-            onChange={(e) => setSearchTitle(e.target.value)}
-            value={searchTitle}
-            placeholder="Search Title"
-          />
-          <input
-            onFocus={() => pasteAndSearch("content")}
-            className="border p-1 rounded"
-            type="text"
-            onChange={(e) => setSearchContent(e.target.value)}
-            value={searchContent}
-            placeholder="Search Content"
-          />
+          <div className="border p-1 rounded">
+            <input
+              type="text"
+              onChange={(e) => setSearchTitle(e.target.value)}
+              value={searchTitle}
+              placeholder="Search Title"
+            />
+            <button
+              className="text-gray-400 "
+              onClick={() => pasteAndSearch("title")}
+            >
+              <abbr title="Paste">
+                <FaPaste />
+              </abbr>
+            </button>
+          </div>
+          <div className="border p-1 rounded">
+            <input
+              type="text"
+              onChange={(e) => setSearchContent(e.target.value)}
+              value={searchContent}
+              placeholder="Search Content"
+            />
+            <button
+              className="text-gray-400 "
+              onClick={() => pasteAndSearch("Content")}
+            >
+              <abbr title="Paste">
+                <FaPaste />
+              </abbr>
+            </button>
+          </div>
         </div>
       </div>
       <div className="h-50 overflow-y-scroll  border shadow-inner  ">

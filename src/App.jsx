@@ -12,6 +12,7 @@ import Reader from "./pages/Reader";
 import AddEssay from "./components/reader/AddEssay";
 import EssayList from "./components/reader/EssayList";
 import Typing from "./pages/Typing";
+import EasyType from "./components/EasyType/EasyType";
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<EasyType />} />
           <Route path="auth" element={<Auth />}>
             <Route path="login" element={<Login />} />
-            <Route path="register" element={<Register />} />
+            <Route path="register" element={<Login />} />
           </Route>
           <Route path="words" element={<EnglishDic />} />
           <Route path="reader" element={<Reader />}>
