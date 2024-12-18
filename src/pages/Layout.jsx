@@ -22,12 +22,18 @@ function Layout() {
   };
 
   return (
-    <div onContextMenu={(e)=>e.preventDefault()}>
+    <div onContextMenu={(e) => e.preventDefault()}>
       <div className="bg-lime-700 ">
         <nav className=" sm:container sm:mx-auto py-4 px-5  flex justify-center items-center gap-3 text-lime-100">
-          <MyLink activeStyle="text-lime-950 font-semibold" className="" to="/">
-            Home
-          </MyLink>
+          {!isLogedIn && (
+            <MyLink
+              activeStyle="text-lime-950 font-semibold"
+              className=""
+              to="/"
+            >
+              Home
+            </MyLink>
+          )}
           {isLogedIn && user.role === "ADMIN" && (
             <MyLink
               activeStyle="text-lime-950 font-semibold"
