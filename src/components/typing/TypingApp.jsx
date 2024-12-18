@@ -6,10 +6,7 @@ function TypingApp() {
   const [inputArrayWords, setInputArrayWords] = useState([])
   const [typeArrayLetters, setTypeArrayLetters] = useState([])
   const [wordIndex, setWordIndex] = useState(-1)
-  const [textareaValue, setTextareaValue] = useState(`Recently, Topic has sparked an ongoing controversy, which inevitably leads to a moot question "is it advantageous or not?". Whereas it is a widely held view that x1 is highly beneficial, I will discuss controversial aspects of that throughout this essay. 
-From the psychological standpoint, x1 is bound up inextricably with x2, which indicates they lead to y1. As a well-known example, a longitudinal study conducted by eminent scientists in 2014 demonstrates the relationship between y1 and y2. Consequently, my empirical evidence presented thus far supports the contention that the likelihood of y3 is correlated positively with x1. 
-Within the realm of sociology, without the slightest doubt, x2 attribute to x1, in that it would come down to y1. A salient example of such attribution is y1, which is a cause for concern since it was mistaken to take y2 for granted. Had there been a paradigm shift earlier, scholars might have had the opportunity to pinpoint social problems. Hence, it is reasonable to infer the pivotal role of Topic. 
-To conclude, as for myself, as the saying goes "all's well that ends well," after analyzing what elaborated above, I firmly believe that the advantages of Topic are of more significance.`)
+  const [textareaValue, setTextareaValue] = useState(`Recently, ...`)
 
   const handleInput = (e) => {
     setInputArrayLetters(e.target.value.split(""));

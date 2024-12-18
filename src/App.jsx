@@ -24,7 +24,7 @@ function App() {
           <Route index element={<EasyType />} />
           <Route path="auth" element={<Auth />}>
             <Route path="login" element={<Login />} />
-            <Route path="register" element={<Login />} />
+            <Route path="register" element={<Register />} />
           </Route>
           <Route path="words" element={<EnglishDic />} />
           <Route path="reader" element={<Reader />}>
