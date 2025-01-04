@@ -21,27 +21,38 @@ router.get("/", async (req, res) => {
 
         const user = await User.findOne({ _id: decoded.user.id });
 
-        let query = {};
-        if (req.query.search) {
-          query.name = { $regex: "^" + req.query.search, $options: "i" };
+        const query = {};
+
+      // Dynamically handle query parameters
+      Object.entries(req.query).forEach(([key, value]) => {
+        switch (key) {
+          case "search":
+            query.name = { $regex: "^" + value, $options: "i" };
+            break;
+          case "exact":
+            query.name = value;
+            break;
+          case "audio_us":
+            query.audio_us = "";
+            break;
+          case "audio_src":
+            query.audio_src = { $exists: false };
+            break;
+          case "source":
+            query.source = value;
+            break;
+          // Add cases for known keys here
+          default:
+            // Optionally include unknown keys in the query object
+            if(key !== "_limit" && key !== "_page"){
+              console.warn(`Unknown query parameter: ${key}`);
+
+              query[key] = value;
+            }
+            break;
         }
-        if (req.query.exact) {
-          query.name = req.query.exact;
-        }
-        if (req.query.audio_us) {
-          query = { audio_us: "" };
-        }
-        if (req.query.audio_src) {
-          query = {
-            audio_src: { $exists: false },
-          };
-        }
-        if (req.query.source) {
-          query.source = req.query.source;
-        }
-        // if (req.query.level) {
-        //   query.level = req.query.level;
-        // }
+      });
+
         let idArrays = [];
         if (user && user.level && Array.isArray(user.level[req.query.level])) {
           idArrays = user.level[req.query.level];

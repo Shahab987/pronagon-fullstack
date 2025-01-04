@@ -49,11 +49,14 @@ const UpdateDb = () => {
     }
   };
   const checkmeaning = async () => {
+    // checks for repeated meanings 
     try {
       await axiosApi.get(`${BASE_URL}/words/checkmeaning`).then((res) => {
+        
         const wordsArray = res.data
           .map((item) => {
-            const meaningsArr = item.meaning.split("،");
+
+            const meaningsArr = item.meaning ? item.meaning.split("،") : [];
             if (
               meaningsArr[1] &&
               meaningsArr[1].trim() === meaningsArr[0].trim()
