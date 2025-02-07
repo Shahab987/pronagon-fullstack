@@ -6,6 +6,10 @@ require("dotenv").config();
 
 const { generateResponse } = require("./openai");
 const { generateResponseArray } = require("./openaiArr");
+const { huggingfaceApi } = require("./huggingFace");
+
+const { deepSeek } = require("./deepSeek");
+
 
 const cookieParser = require("cookie-parser");
 const axios = require("axios");
@@ -47,6 +51,9 @@ app.use("/api/auth", userRoutes);
 
 const essayRoutes = require("./routes/essayRoutes");
 app.use("/api/essay", essayRoutes);
+
+const playwrightRoutes = require('./routes/playwrightRoutes');
+app.use('/api/playwright', playwrightRoutes);
 
 app.get("/api/openai", async (req, res) => {
   const result = await generateResponse(req.query.word);
@@ -96,6 +103,27 @@ app.get("/api/openaiarr", async (req, res) => {
   } catch (error) {
     console.error("Error calling OpenAI endpoint:", error);
     res.status(500).json({ error: "An error occurred" });
+  }
+});
+
+
+app.get("/api/hfapi", async (req, res) => {
+  try {
+    const result = await huggingfaceApi(req.query.prompt); // Call the huggingFaceApi function
+    res.json(result); // Send the Hugging Face response back to the client
+  } catch (error) {
+    console.error("Error calling AI endpoint:", error);
+    res.status(500).json({ error: "An error occurred while processing the request." });
+  }
+});
+
+app.get("/api/deepseekapi", async (req, res) => {
+  try {
+    const result = await deepSeek(req.query.prompt); // Call the huggingFaceApi function
+    res.json(result); // Send the Hugging Face response back to the client
+  } catch (error) {
+    console.error("Error calling AI endpoint:", error);
+    res.status(500).json({ error: "An error occurred while processing the request." });
   }
 });
 

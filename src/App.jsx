@@ -14,6 +14,7 @@ import EssayList from "./components/reader/EssayList";
 import Typing from "./pages/Typing";
 import EasyType from "./components/EasyType/EasyType";
 import DirectionType from "./components/EasyType/DirectionType";
+import Spinner from "./components/games/Spinner";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
           </Route>
           <Route path="update" element={<UpdateDb />} />
           <Route path="typing" element={<Typing />} />
+          <Route path="dare" element={<Spinner />} />
           <Route path="activation-success" element={<ActivationSuccess />} />
           <Route path="activation-failed" element={<ActivationFailed />} />
         </Route>

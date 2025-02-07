@@ -7,12 +7,13 @@ const UpdateDb = () => {
   // Function to fetch data, add new key-value pair, and update database
   const fetchDataAndUpdateDatabase = async () => {
     try {
-      await axiosApi.get(`${BASE_URL}/words/all`).then((res) => {
+      await axiosApi.get(`${BASE_URL}/words/all6`).then((res) => {
         const wordsArray = res.data.map((item) => item.name);
         toast.success(wordsArray);
         if (wordsArray.length > 0) {
-          // setDataNoDetail(res.data);
-          OpenAiReq(wordsArray, res.data);
+          console.log(wordsArray);
+
+          OpenAiReqArr(wordsArray, res.data);
         }
       });
 
@@ -48,14 +49,13 @@ const UpdateDb = () => {
       console.error("Error fetching data:", error);
     }
   };
+
   const checkmeaning = async () => {
-    // checks for repeated meanings 
+    // checks for repeated meanings
     try {
       await axiosApi.get(`${BASE_URL}/words/checkmeaning`).then((res) => {
-        
         const wordsArray = res.data
           .map((item) => {
-
             const meaningsArr = item.meaning ? item.meaning.split("،") : [];
             if (
               meaningsArr[1] &&
@@ -82,7 +82,6 @@ const UpdateDb = () => {
         );
         console.log(wordsArray);
         if (wordsArray.length > 0) {
-          // setDataNoDetail(res.data);
           wordsArray.forEach((item) => {
             handleDownload(item);
           });
@@ -93,12 +92,54 @@ const UpdateDb = () => {
     }
   };
 
-  const OpenAiReq = async (wordArr, dataNoDetail) => {
+  const OpenAiReqArr = async (wordArr, dataNoDetail) => {
     try {
       await axiosApi
         .get(`${BASE_URL}/openaiarr`, {
           params: {
             word: JSON.stringify(wordArr),
+          },
+        })
+        .then((res) => {
+          console.log(JSON.parse(res.data.choices[0].message.content));
+
+          const withDetailData = dataNoDetail.map((item) => {
+            const newWord = JSON.parse(
+              res.data.choices[0].message.content
+            ).find((i) => item.name === i.word);
+
+            if (newWord) {
+              toast.success(
+                `${JSON.stringify(newWord?.word)} : ${JSON.stringify(
+                  newWord?.meaning
+                )}`
+              );
+              return {
+                ...item,
+                meaning: newWord?.meaning,
+                pronunciation: newWord?.pronunciation,
+                example: newWord?.example,
+              };
+            } else {
+              return newWord;
+            }
+          });
+          updateDatabase(withDetailData);
+        });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      if (error.response.status !== 500) {
+        fetchDataAndUpdateDatabase();
+      }
+    }
+  };
+
+  const OpenAiSingleReq = async (word, dataNoDetail) => {
+    try {
+      await axiosApi
+        .get(`${BASE_URL}/openai`, {
+          params: {
+            word: JSON.stringify(word),
           },
         })
         .then((res) => {
@@ -191,14 +232,92 @@ const UpdateDb = () => {
       });
   };
 
+  const scrapeData = async () => {
+
+    try {
+      const response = await axiosApi.get(`${BASE_URL}/hfapi`);
+      console.log(response.data);
+    } catch (error) {
+      setError("Error fetching data");
+      console.error("Error scraping data:", error);
+    }
+  };
+
+  const HFAPI = async () => {
+    try {
+      const response = await axiosApi.get(`${BASE_URL}/hfapi`);
+      console.log(response.data);
+    } catch (error) {
+      
+      console.error("Error scraping data:", error);
+    }
+  };
+
+  const deepSeekApi = async () => {
+    try {
+      const response = await axiosApi.get(`${BASE_URL}/deepseekapi`, {
+        params: {
+          prompt: "say hello in five different languages",
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      
+      console.error("Error deep data:", error);
+    }
+  };
+
   return (
-    <>
-      <div onClick={fetchDataAndUpdateDatabase}>fetch</div>
-      <div onClick={updateDatabase}>Update</div>
-      <div onClick={OpenAiReq}>open Ai req</div>
-      <div onClick={fetchAll}>save MP3</div>
-      <div onClick={checkmeaning}>check meaning</div>
-    </>
+    <div className="flex gap-4 mt-5">
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={fetchDataAndUpdateDatabase}
+      >
+        fetch
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={updateDatabase}
+      >
+        Update
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={OpenAiReqArr}
+      >
+        open Ai req
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={fetchAll}
+      >
+        save MP3
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={checkmeaning}
+      >
+        check meaning
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={scrapeData}
+      >
+        scrape
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={HFAPI}
+      >
+        Hf api
+      </div>
+      <div
+        className="cursor-pointer p-2 w-32 bg-slate-50 shadow-2 hover:bg-slate-200 text-center border rounded-md"
+        onClick={deepSeekApi}
+      >
+        Deep
+      </div>
+    </div>
   );
 };
 

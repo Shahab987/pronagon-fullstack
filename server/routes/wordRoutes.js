@@ -113,7 +113,7 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.get("/all", async (req, res) => {
+router.get("/all6", async (req, res) => {
   try {
     // const allWords = await WordModel.find({});
     const words6 = await WordModel.find({ meaning: "" }).limit(6);
