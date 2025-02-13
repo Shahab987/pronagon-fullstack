@@ -23,42 +23,40 @@ router.get("/", async (req, res) => {
 
         const query = {};
 
-      // Dynamically handle query parameters
-      Object.entries(req.query).forEach(([key, value]) => {
-        switch (key) {
-          case "search":
-            query.name = { $regex: "^" + value, $options: "i" };
-            break;
-          case "exact":
-            query.name = value;
-            break;
-          case "audio_us":
-            query.audio_us = "";
-            break;
-          case "audio_src":
-            query.audio_src = { $exists: false };
-            break;
-          case "source":
-            query.source = value;
-            break;
-          // Add cases for known keys here
-          default:
-            // Optionally include unknown keys in the query object
-            if(key !== "_limit" && key !== "_page" && key !== "level"){
-              console.warn(`Unknown query parameter: ${key}`);
+        // Dynamically handle query parameters
+        Object.entries(req.query).forEach(([key, value]) => {
+          switch (key) {
+            case "search":
+              query.name = { $regex: "^" + value, $options: "i" };
+              break;
+            case "exact":
+              query.name = value;
+              break;
+            case "audio_us":
+              query.audio_us = "";
+              break;
+            case "audio_src":
+              query.audio_src = { $exists: false };
+              break;
+            case "source":
+              query.source = value;
+              break;
+            // Add cases for known keys here
+            default:
+              // Optionally include unknown keys in the query object
+              if (key !== "_limit" && key !== "_page" && key !== "level") {
+                console.warn(`Unknown query parameter: ${key}`);
 
-              query[key] = value;
-            }
-            break;
-        }
-      });
+                query[key] = value;
+              }
+              break;
+          }
+        });
 
         let idArrays = [];
         if (user && user.level && Array.isArray(user.level[req.query.level])) {
           idArrays = user.level[req.query.level];
           query._id = { $in: idArrays };
-          console.log(query);
-          
         }
 
         let sort = {};
@@ -73,8 +71,7 @@ router.get("/", async (req, res) => {
         }
 
         const words = await WordModel.find(query).sort(sort).lean();
-        
-        
+
         let sortedWords = [];
 
         if (idArrays.length > 0 && !req.query.sortBy) {
