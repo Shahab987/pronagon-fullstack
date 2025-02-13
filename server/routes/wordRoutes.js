@@ -44,7 +44,7 @@ router.get("/", async (req, res) => {
           // Add cases for known keys here
           default:
             // Optionally include unknown keys in the query object
-            if(key !== "_limit" && key !== "_page"){
+            if(key !== "_limit" && key !== "_page" && key !== "level"){
               console.warn(`Unknown query parameter: ${key}`);
 
               query[key] = value;
@@ -57,6 +57,8 @@ router.get("/", async (req, res) => {
         if (user && user.level && Array.isArray(user.level[req.query.level])) {
           idArrays = user.level[req.query.level];
           query._id = { $in: idArrays };
+          console.log(query);
+          
         }
 
         let sort = {};
@@ -71,7 +73,8 @@ router.get("/", async (req, res) => {
         }
 
         const words = await WordModel.find(query).sort(sort).lean();
-
+        
+        
         let sortedWords = [];
 
         if (idArrays.length > 0 && !req.query.sortBy) {

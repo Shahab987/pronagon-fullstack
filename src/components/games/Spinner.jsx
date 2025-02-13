@@ -15,9 +15,19 @@ const Spinner = () => {
     // Calculate target position
     const anglePerPlayer = 360 / totalPlayers;
     const targetNumber = Math.floor(Math.random() * totalPlayers) + 1;
-    const targetNumber2 = Math.floor(Math.random() * totalPlayers) + 1;
+    let targetNumber2 = Math.floor(Math.random() * totalPlayers) + 1;
+    console.log(targetNumber,targetNumber2);
+    
     if (targetNumber === targetNumber2){
+      console.log("equal");
+      
       targetNumber2 = Math.floor(Math.random() * totalPlayers) + 1;
+      if (targetNumber === targetNumber2){
+        console.log("equal 2");
+        
+        targetNumber2 = Math.floor(Math.random() * totalPlayers) + 1;
+        
+      }
     }
     const targetAngle = (targetNumber - 1) * anglePerPlayer;
     const targetAngle2 = (targetNumber2 - 1) * anglePerPlayer;
@@ -42,7 +52,7 @@ const Spinner = () => {
       setSpinning(false);
       setResult(targetNumber);
       setResult2(targetNumber2);
-    }, 5000);
+    }, 500);
   };
 
   const handleInput=(e)=>{
@@ -74,7 +84,7 @@ const Spinner = () => {
 
         {/* Arrow */}
         <div
-          className="absolute left-1/2 top-1/2 w-2 h-24 bg-blue-800 origin-bottom rounded-full transition-transform duration-[2000ms] ease-out"
+          className="absolute left-1/2 top-1/2 w-2 h-24 bg-blue-800 origin-bottom rounded-full transition-transform duration-[200ms] ease-out"
           style={{ transform: `translate(-50%, -100%) rotate(${rotation}deg)` }}
         >
           {/* Arrowhead */}
@@ -83,7 +93,7 @@ const Spinner = () => {
 
         {/* Arrow 2 */}
         {isChallenge && <div
-          className="absolute left-1/2 top-1/2 w-2 h-24 bg-orange-500 origin-bottom rounded-full transition-transform duration-[5000ms] ease-out"
+          className="absolute left-1/2 top-1/2 w-2 h-24 bg-orange-500 origin-bottom rounded-full transition-transform duration-[500ms] ease-out"
           style={{ transform: `translate(-50%, -100%) rotate(${rotation2}deg)` }}
         >
           {/* Arrowhead */}
