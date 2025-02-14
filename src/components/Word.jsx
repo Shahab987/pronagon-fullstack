@@ -415,7 +415,7 @@ function Word({
                   onClick={() => googleTranslate()}
                   className="hover:text-sky-800 text-lg"
                 >
-                  <abbr title="Google Translate the clipboard">
+                  <abbr title="Translate">
                     <MdGTranslate />
                   </abbr>
                 </button>

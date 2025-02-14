@@ -3,6 +3,7 @@ const router = express.Router();
 const WordModel = require("../models/Word");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const {getTextFromURL} = require('../utils/scraper')
 
 router.get("/", async (req, res) => {
   const authToken = req.cookies.authToken;
@@ -44,7 +45,7 @@ router.get("/", async (req, res) => {
             // Add cases for known keys here
             default:
               // Optionally include unknown keys in the query object
-              if (key !== "_limit" && key !== "_page" && key !== "level") {
+              if (!['_limit', '_page', 'level', 'sortOrder', 'sortBy'].includes(key) ) {
                 console.warn(`Unknown query parameter: ${key}`);
 
                 query[key] = value;
@@ -157,7 +158,12 @@ router.get("/allaudio", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const newWord = await WordModel.create(req.body);
+    
+    const meaning = await getTextFromURL(`https://abadis.ir/entofa/${req.body.name}/`)
+    console.log("meaning: ",meaning);
+    const tempWord = {...req.body , meaning:meaning}
+    const newWord = await WordModel.create(tempWord);
+    //res.status(201).json(newWord);
     res.status(201).json(newWord);
   } catch (error) {
     console.error("Error occurred while creating a word in MongoDB", error);

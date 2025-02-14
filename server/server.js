@@ -7,9 +7,8 @@ require("dotenv").config();
 const { generateResponse } = require("./openai");
 const { generateResponseArray } = require("./openaiArr");
 const { huggingfaceApi } = require("./huggingFace");
-
+const {getTextFromURL} = require("./utils/scraper")
 const { deepSeek } = require("./deepSeek");
-
 
 const cookieParser = require("cookie-parser");
 const axios = require("axios");
@@ -52,10 +51,15 @@ app.use("/api/auth", userRoutes);
 const essayRoutes = require("./routes/essayRoutes");
 app.use("/api/essay", essayRoutes);
 
-const playwrightRoutes = require('./routes/playwrightRoutes');
-app.use('/api/playwright', playwrightRoutes);
+const playwrightRoutes = require("./routes/playwrightRoutes");
+app.use("/api/playwright", playwrightRoutes);
 
 app.get("/api/openai", async (req, res) => {
+  const wordExist = await WordModel.findOne({ name: req.query.word });
+  if (wordExist) {
+    res.json(wordExist);
+    return;
+  }
   const result = await generateResponse(req.query.word);
   if (result) {
     console.log("AI result: ", result);
@@ -64,7 +68,6 @@ app.get("/api/openai", async (req, res) => {
       result.meaning = result.meaning.join(" ");
     }
 
-    const wordExist = await WordModel.findOne({ name: result.word });
     if (!wordExist) {
       const newWord = await WordModel.create({
         name: result.word,
@@ -80,13 +83,17 @@ app.get("/api/openai", async (req, res) => {
     }
   } else {
     try {
+      const meaning = await getTextFromURL(
+        `https://abadis.ir/entofa/${req.query.word}/`
+      );
+
       const newWord = await WordModel.create({
         name: req.query.word,
         length: req.query.word.length,
-        meaning: "",
+        meaning: meaning,
         level: 0,
       });
-      console.log("existingObject: ", newWord);
+      console.log("existingObject22: ", newWord);
 
       res.json(newWord);
     } catch (err) {
@@ -95,6 +102,7 @@ app.get("/api/openai", async (req, res) => {
     }
   }
 });
+
 
 app.get("/api/openaiarr", async (req, res) => {
   try {
@@ -106,14 +114,15 @@ app.get("/api/openaiarr", async (req, res) => {
   }
 });
 
-
 app.get("/api/hfapi", async (req, res) => {
   try {
     const result = await huggingfaceApi(req.query.prompt); // Call the huggingFaceApi function
     res.json(result); // Send the Hugging Face response back to the client
   } catch (error) {
     console.error("Error calling AI endpoint:", error);
-    res.status(500).json({ error: "An error occurred while processing the request." });
+    res
+      .status(500)
+      .json({ error: "An error occurred while processing the request." });
   }
 });
 
@@ -123,7 +132,9 @@ app.get("/api/deepseekapi", async (req, res) => {
     res.json(result); // Send the Hugging Face response back to the client
   } catch (error) {
     console.error("Error calling AI endpoint:", error);
-    res.status(500).json({ error: "An error occurred while processing the request." });
+    res
+      .status(500)
+      .json({ error: "An error occurred while processing the request." });
   }
 });
 
