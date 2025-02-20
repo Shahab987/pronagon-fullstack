@@ -84,7 +84,7 @@ const Spinner = () => {
 
         {/* Arrow */}
         <div
-          className="absolute left-1/2 top-1/2 w-2 h-24 bg-blue-800 origin-bottom rounded-full transition-transform duration-[2000ms] ease-out"
+          className="absolute left-1/2 top-1/2 w-2 h-24 bg-lime-800 origin-bottom rounded-full transition-transform duration-[2000ms] ease-out"
           style={{ transform: `translate(-50%, -100%) rotate(${rotation}deg)` }}
         >
           {/* Arrowhead */}
@@ -93,7 +93,7 @@ const Spinner = () => {
 
         {/* Arrow 2 */}
         {isChallenge && <div
-          className="absolute left-1/2 top-1/2 w-2 h-24 bg-orange-500 origin-bottom rounded-full transition-transform duration-[2500ms] ease-out"
+          className="absolute left-1/2 top-1/2 w-2 h-24 bg-red-500 origin-bottom rounded-full transition-transform duration-[2500ms] ease-out"
           style={{ transform: `translate(-50%, -100%) rotate(${rotation2}deg)` }}
         >
           {/* Arrowhead */}
