@@ -84,7 +84,7 @@ const Spinner = () => {
 
         {/* Arrow */}
         <div
-          className="absolute left-1/2 top-1/2 w-2 h-24 bg-blue-800 origin-bottom rounded-full transition-transform duration-[200ms] ease-out"
+          className="absolute left-1/2 top-1/2 w-2 h-24 bg-blue-800 origin-bottom rounded-full transition-transform duration-[2000ms] ease-out"
           style={{ transform: `translate(-50%, -100%) rotate(${rotation}deg)` }}
         >
           {/* Arrowhead */}
