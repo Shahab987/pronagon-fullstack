@@ -52,7 +52,7 @@ const Spinner = () => {
       setSpinning(false);
       setResult(targetNumber);
       setResult2(targetNumber2);
-    }, 500);
+    }, 2000);
   };
 
   const handleInput=(e)=>{
@@ -93,7 +93,7 @@ const Spinner = () => {
 
         {/* Arrow 2 */}
         {isChallenge && <div
-          className="absolute left-1/2 top-1/2 w-2 h-24 bg-orange-500 origin-bottom rounded-full transition-transform duration-[500ms] ease-out"
+          className="absolute left-1/2 top-1/2 w-2 h-24 bg-orange-500 origin-bottom rounded-full transition-transform duration-[2500ms] ease-out"
           style={{ transform: `translate(-50%, -100%) rotate(${rotation2}deg)` }}
         >
           {/* Arrowhead */}
