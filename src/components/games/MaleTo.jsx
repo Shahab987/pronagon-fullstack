@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-
-const socket = io("http://localhost:3003");
+import { SOCKET_URL } from "../../api/config";
+const socket = io(SOCKET_URL);
 
 function MaleTo() {
   const navigate = useNavigate();

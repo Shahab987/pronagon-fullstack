@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
-
-// Move socket outside component to maintain connection
-const socket = io("http://localhost:3003");
+import { SOCKET_URL } from "../../api/config";
+const socket = io(SOCKET_URL);
 
 function GameRoom() {
   const navigate = useNavigate();
