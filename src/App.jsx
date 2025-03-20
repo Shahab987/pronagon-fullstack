@@ -15,6 +15,8 @@ import Typing from "./pages/Typing";
 import EasyType from "./components/EasyType/EasyType";
 import DirectionType from "./components/EasyType/DirectionType";
 import Spinner from "./components/games/Spinner";
+import MaleTo from "./components/games/MaleTo";
+import GameRoom from "./components/games/GameRoom";
 
 function App() {
   return (
@@ -36,8 +38,10 @@ function App() {
           <Route path="update" element={<UpdateDb />} />
           <Route path="typing" element={<Typing />} />
           <Route path="dare" element={<Spinner />} />
+          <Route path="yours" element={<MaleTo />} />
           <Route path="activation-success" element={<ActivationSuccess />} />
           <Route path="activation-failed" element={<ActivationFailed />} />
+          <Route path="game/:gameCode" element={<GameRoom />} />
         </Route>
       </Routes>
     </div>

@@ -1,0 +1,14 @@
+I want to build a game with these features:
+the game should randomly deal certain roles to some players 
+this game is designd for four up to twenty players . 
+first a form should get a player's name and also a game code
+based on the game code players join to the same session.
+first players would be the admin of the game that can change settings, remove players and start the game.
+each player should connect to the game session using his own device (mobile phone) so consider a database table using the game code to store the game session, players names, settings, role of each player, and so on.  
+show all players at the top for every one. 
+the admin sets the number of players and has a cross button beside each player's name so that can remove the player.  
+admin should have a start and a restart button.
+roles to assign to each player : [boodoon, nadoon, sheytoon, parioon] . there is only one nadoon and one sheytoon and one parioon , the rest of players would be boodoon.if the number of players is more than 10, "nadoon" should be two person.
+after assigning the roles,randomly open a text input for one of boodoon players to write a word. this word should be shown to all other players except for "nadoon"
+
+ 
