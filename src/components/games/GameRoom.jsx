@@ -10,7 +10,7 @@ function GameRoom() {
   const navigate = useNavigate();
   const { gameCode } = useParams();
   const location = useLocation();
-  const { playerName, isAdmin } = location.state || {};
+  const { playerName } = location.state || {};
   const [gameState, setGameState] = useState({
     players: [],
     status: "waiting",
@@ -20,6 +20,8 @@ function GameRoom() {
       wordSetBy: "",
     },
   });
+
+  const [isAdmin, setIsAdmin] = useState(false);
 
   const [error, setError] = useState(null);
   const [word, setWord] = useState("");
@@ -57,22 +59,11 @@ function GameRoom() {
     };
   }, [gameCode, playerName, navigate]);
 
-  // useEffect(() => {
-  //   console.log("Socket connection status:", socket.connected);
-
-  //   socket.on("connect", () => {
-  //     console.log("Reconnected! Socket ID:", socket.id);
-  //   });
-
-  //   socket.on("disconnect", (reason) => {
-  //     console.log("Disconnected:", reason);
-  //   });
-
-  //   return () => {
-  //     socket.off("connect");
-  //     socket.off("disconnect");
-  //   };
-  // }, []);
+  useEffect(() => {
+    if (gameState.players.length > 0) {
+      setIsAdmin(gameState.players.find((p) => p.name === playerName)?.isAdmin);
+    }
+  }, [gameState]);
 
   const removePlayer = (playerToRemove) => {
     if (!isAdmin) return;
@@ -154,7 +145,7 @@ function GameRoom() {
         <div className="mb-6 flex justify-center">
           <button
             onClick={startGame}
-            className="bg-lime-600 text-white px-4 py-2 rounded mr-2"
+            className="bg-lime-600 text-white px-4 py-2 rounded mr-2 "
             disabled={gameState.players.length < 4}
           >
             Start Game{" "}
@@ -167,7 +158,7 @@ function GameRoom() {
         <div className="mb-6 flex justify-center">
           <button
             onClick={restartGame}
-            className="bg-blue-600 text-white px-4 py-2 rounded"
+            className="bg-blue-600 text-white px-4 py-2 rounded active:bg-blue-950 hover:bg-blue-700"
           >
             Restart Game
           </button>

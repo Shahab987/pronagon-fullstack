@@ -331,6 +331,29 @@ io.on("connection", (socket) => {
     }
   });
 
+  socket.on("removePlayer", async ({ gameCode, playerName }) => {
+    try {
+      const game = await Game.findOneAndUpdate(
+        { gameCode },
+        { $pull: { players: { name: playerName } } },
+        { new: true }
+      );
+
+      if (game) {
+        // If there are still players and no admin, make the first player admin
+        if (game.players.length > 0 && !game.players.some((p) => p.isAdmin)) {
+          game.players[0].isAdmin = true;
+          await game.save();
+        }
+
+        // Broadcast updated state to all players
+        io.to(gameCode).emit("gameStateUpdate", game);
+      }
+    } catch (error) {
+      console.error("Error handling player leave:", error);
+    }
+  });
+
   // Handle disconnections
   socket.on("disconnect", async () => {
     const playerData = activePlayers.get(socket.id);
