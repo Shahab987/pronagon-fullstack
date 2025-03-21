@@ -197,7 +197,6 @@ io.on("connection", (socket) => {
 
   socket.on("createGame", async ({ gameCode, playerName }) => {
     try {
-      await Game.deleteOne({ gameCode });
       // Check if game already exists
       const existingGame = await Game.findOne({ gameCode });
       if (existingGame) {
@@ -290,6 +289,7 @@ io.on("connection", (socket) => {
       const updatedGame = await Game.findOne({ gameCode }); // Fetch fresh data
       console.log("✅ Updated game state:", updatedGame);
       io.to(gameCode).emit("gameStateUpdate", updatedGame);
+
       console.log("Player joined:", playerName);
     } catch (error) {
       console.error("Error joining game:", error);

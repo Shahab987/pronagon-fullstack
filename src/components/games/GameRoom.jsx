@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 import { SOCKET_URL } from "../../api/config";
+import { FaConnectdevelop } from "react-icons/fa";
+import { TbPlugConnectedX } from "react-icons/tb";
 const socket = io(SOCKET_URL);
 
 function GameRoom() {
@@ -18,7 +20,9 @@ function GameRoom() {
       wordSetBy: "",
     },
   });
+
   const [error, setError] = useState(null);
+  const [word, setWord] = useState("");
 
   useEffect(() => {
     if (!playerName) {
@@ -26,17 +30,9 @@ function GameRoom() {
       return;
     }
 
-    console.log("Socket connection status:", socket.connected);
-    console.log("Current socket ID:", socket.id);
-
     // Set up listeners for game updates
     const handleGameUpdate = (newGameState) => {
-      console.log("Received game update:", newGameState);
       setGameState(newGameState); // Replace entire state object
-      let currentPlayer = newGameState.players.filter(
-        (p) => p.name === playerName
-      );
-      console.log("---------------------", currentPlayer);
     };
 
     const handleError = (errorMessage) => {
@@ -48,43 +44,35 @@ function GameRoom() {
     socket.on("gameStateUpdate", handleGameUpdate);
     socket.on("error", handleError);
 
-    // Request initial game state immediately
-    console.log("Requesting game state for code:", gameCode);
-    socket.emit("getGameState", { gameCode });
+    const interval = setInterval(() => {
+      socket.emit("getGameState", { gameCode });
+    }, 1000); // 1 seconds
 
     // Cleanup function
     return () => {
       socket.off("gameStateUpdate", handleGameUpdate);
       socket.off("error", handleError);
       socket.emit("leaveGame", { gameCode, playerName });
+      clearInterval(interval);
     };
   }, [gameCode, playerName, navigate]);
 
-  useEffect(() => {
-    console.log("Socket connection status:", socket.connected);
+  // useEffect(() => {
+  //   console.log("Socket connection status:", socket.connected);
 
-    socket.on("connect", () => {
-      console.log("Reconnected! Socket ID:", socket.id);
-    });
+  //   socket.on("connect", () => {
+  //     console.log("Reconnected! Socket ID:", socket.id);
+  //   });
 
-    socket.on("disconnect", (reason) => {
-      console.log("Disconnected:", reason);
-    });
+  //   socket.on("disconnect", (reason) => {
+  //     console.log("Disconnected:", reason);
+  //   });
 
-    return () => {
-      socket.off("connect");
-      socket.off("disconnect");
-    };
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      console.log("Requesting game state...");
-      socket.emit("getGameState", { gameCode });
-    }, 5000); // 5 seconds
-
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [gameCode]); // Runs when `gameCode` changes
+  //   return () => {
+  //     socket.off("connect");
+  //     socket.off("disconnect");
+  //   };
+  // }, []);
 
   const removePlayer = (playerToRemove) => {
     if (!isAdmin) return;
@@ -100,6 +88,12 @@ function GameRoom() {
     if (!isAdmin) return;
     socket.emit("restartGame", { gameCode });
   };
+  const reConnect = () => {
+    socket.emit("joinGame", {
+      gameCode: gameCode,
+      playerName: playerName,
+    });
+  };
 
   const submitWord = (word) => {
     if (gameState.settings.wordSetBy !== playerName) return;
@@ -111,27 +105,32 @@ function GameRoom() {
   console.log("Current players:", gameState.players);
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-2">
       {/* Game Code Display */}
-      <div className="mb-4 text-center">
-        <h2 className="text-xl font-bold">Game Code: {gameCode}</h2>
-        <p>Your Name: {playerName}</p>
-        {isAdmin && <p className="text-green-600">You are the admin</p>}
+      <div className="flex font-semibold justify-center gap-2 mb-4 text-center">
+        <p>{playerName}</p>
+        {isAdmin && <p className="text-green-600">- admin</p>}
+        <p className="ms-5">Players ({gameState.players.length})</p>
+        {!gameState.players.find((p) => p.name === playerName) && (
+          <button
+            className="px-2 bg-orange-200 rounded ms-2 "
+            onClick={reConnect}
+          >
+            <TbPlugConnectedX />
+          </button>
+        )}
       </div>
 
       {/* Player List */}
-      <div className="mb-6">
-        <h2 className="text-xl font-bold mb-3">
-          Players ({gameState.players.length})
-        </h2>
-        <div className="grid grid-cols-2 gap-2">
+      <div className="mb-4">
+        <div className="flex gap-2 flex-wrap">
           {Array.isArray(gameState.players) &&
             gameState.players.map((player) => (
               <div
                 key={player.id}
-                className="flex justify-between items-center p-2 bg-gray-100 rounded"
+                className="flex text-sm justify-between items-center p-1 bg-gray-100 rounded"
               >
-                <span>
+                <span className="pe-3">
                   {player.name}
                   {player.isAdmin && (
                     <span className="text-green-600"> (Admin)</span>
@@ -152,7 +151,7 @@ function GameRoom() {
 
       {/* Admin Controls */}
       {isAdmin && gameState.status === "waiting" && (
-        <div className="mb-6">
+        <div className="mb-6 flex justify-center">
           <button
             onClick={startGame}
             className="bg-lime-600 text-white px-4 py-2 rounded mr-2"
@@ -165,7 +164,7 @@ function GameRoom() {
       )}
 
       {isAdmin && gameState.status === "playing" && (
-        <div className="mb-6">
+        <div className="mb-6 flex justify-center">
           <button
             onClick={restartGame}
             className="bg-blue-600 text-white px-4 py-2 rounded"
@@ -183,31 +182,52 @@ function GameRoom() {
               <h3 className="font-bold mb-2">Enter a word:</h3>
               <input
                 type="text"
-                className="border border-lime-700 rounded p-2"
-                onKeyPress={(e) => {
+                className="border border-r-0 border-lime-700 rounded-l-md p-2"
+                value={word}
+                onKeyUp={(e) => {
                   if (e.key === "Enter") {
                     submitWord(e.target.value);
                     e.target.value = "";
                   }
                 }}
+                onChange={(e) => setWord(e.target.value)}
               />
+              <button
+                className="border border-lime-700 rounded-r-md p-2 px-4 font-semibold bg-lime-600 text-gray-50"
+                onClick={() => {
+                  if (word) {
+                    submitWord(word);
+                  }
+                }}
+              >
+                Go
+              </button>
             </div>
           ) : gameState.settings.currentWord &&
             gameState.players.find((p) => p.name === playerName)?.role !==
               "nadoon" ? (
             <div>
               <h3 className="font-bold mb-2">The word is:</h3>
-              <p className="text-xl">{gameState.settings.currentWord}</p>
+              <p className="text-2xl ">{gameState.settings.currentWord}</p>
             </div>
           ) : null}
 
           {/* Show role to current player */}
-          <div className="mt-4">
-            <h3 className="font-bold">Your Role:</h3>
-            <p className="text-xl">
-              {gameState.players.find((p) => p.name === playerName)?.role ||
-                "Waiting for game to start..."}
-            </p>
+          <div className="mt-4 flex flex-col justify-center items-center">
+            <div className="flex gap-3 items-center">
+              <h3 className="font-bold">Role:</h3>
+              <p className="text-xl">
+                {gameState.players.find((p) => p.name === playerName)?.role ||
+                  "Waiting for game to start..."}
+              </p>
+            </div>
+            <img
+              className="w-8/12 rounded-2xl"
+              src={`/${
+                gameState.players.find((p) => p.name === playerName)?.role
+              }.png`}
+            />
+            {/* <img className="w-8/12 rounded-2xl" src={`/nadoon.png`} /> */}
           </div>
         </div>
       )}
