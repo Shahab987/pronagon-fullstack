@@ -3,7 +3,7 @@ import { FaCrow, FaCrown } from "react-icons/fa";
 import { IoClose, IoHandRight } from "react-icons/io5";
 import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-import soundFile from "/audio/start.mp3";
+import soundFile from "./start.mp3";
 import toast from "react-hot-toast";
 
 const Mine = () => {
