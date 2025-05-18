@@ -4,6 +4,7 @@ import { IoClose, IoHandRight } from "react-icons/io5";
 import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
 import soundFile from "/audio/start.mp3";
+import toast from "react-hot-toast";
 
 const Mine = () => {
   const { code } = useParams();
@@ -56,13 +57,22 @@ const Mine = () => {
 
       setGame(updatedGame);
       const admin = updatedGame.players.find((p) => p.isAdmin);
+      const pname = localStorage.getItem("playerName");
       const currntPlayerTemp = updatedGame.players.find(
-        (p) => p.name === playerName
+        (p) => p.name === pname
       );
-      setCurrentPlayer(currntPlayerTemp);
+      console.log("naam", currntPlayerTemp);
 
+      if (currntPlayerTemp) {
+        setCurrentPlayer(currntPlayerTemp);
+      } else {
+        localStorage.clear();
+        setPlayerName("");
+        return;
+      }
       localStorage.clear();
-      localStorage.setItem(`playerName`, playerName);
+
+      localStorage.setItem(`playerName`, pname);
 
       if (admin.name === playerName) {
         console.log("setting local admin");
@@ -75,7 +85,8 @@ const Mine = () => {
     });
 
     socket.on("error", (error) => {
-      alert(error);
+      toast.error(error);
+      // alert(error);
     });
 
     if (playerName && code) {
@@ -140,7 +151,15 @@ const Mine = () => {
     socket.emit("removeMinePlayer", playerToRemove, code);
   };
 
-  if (!game) {
+  const handleExit = () => {
+    if (!socket) return;
+
+    setCurrentPlayer(null);
+
+    socket.emit("removeMinePlayer", currentPlayer.name, code);
+  };
+
+  if (!game || !currentPlayer) {
     return (
       <div className="flex flex-col justify-center items-center">
         <p className="text-3xl mt-10 mb-5 text-gray-500">Mine Game Room</p>
@@ -163,6 +182,9 @@ const Mine = () => {
 
   return (
     <div className="p-3">
+      <button onClick={handleExit} className="absolute right-2">
+        Exit
+      </button>
       {isAdmin && (
         <div className="admin-panel">
           <div className="flex justify-center">
@@ -182,10 +204,10 @@ const Mine = () => {
               key={player.name}
               onClick={() => {
                 if (isAdmin) {
-                  socket.emit("MineChangeAdmin", {
-                    name: player.name,
-                    code,
-                  });
+                  // socket.emit("MineChangeAdmin", {
+                  //   name: player.name,
+                  //   code,
+                  // });
                 } else {
                   setNok(!nok);
                 }

@@ -546,10 +546,13 @@ io.on("connection", (socket) => {
           disconnected: false,
           role: null,
         });
-      } else {
+      } else if (player.disconnected) {
         console.log("reconnect");
-
         player.disconnected = false;
+      } else if (!player.disconnected) {
+        console.log("name is taken");
+        socket.emit("error", "This name is already taken in the room.");
+        return;
       }
 
       await game.save();
@@ -565,6 +568,10 @@ io.on("connection", (socket) => {
       const game = await Game.findOne({ gameCode: data.code });
       if (!game) {
         socket.emit("error", "Room not found");
+        return;
+      }
+      if (game.players.length < 4) {
+        socket.emit("error", `need ${4 - game.players.length} player to go`);
         return;
       }
 
@@ -646,8 +653,8 @@ io.on("connection", (socket) => {
         const hasAdmin = game.players.some((p) => p.isAdmin);
         if (!hasAdmin) {
           game.players[0].isAdmin = true;
-          await game.save();
         }
+        await game.save();
         io.to(code).emit("MineGameUpdated", game);
       } else if (game && game.players.length === 0) {
         // Delete empty game
@@ -693,7 +700,9 @@ io.on("connection", (socket) => {
 
       player.disconnected = true;
       console.log(game.players);
-      if (!game.players.find((p) => p.disconnected === false)) {
+      if (
+        !game.players.find((p) => p.disconnected === false || !p.disconnected)
+      ) {
         await Game.deleteOne({ gameCode: code });
         return;
       }
