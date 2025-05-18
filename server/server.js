@@ -54,6 +54,8 @@ mongoose
 
 const wordRoutes = require("./routes/wordRoutes");
 const WordModel = require("./models/Word");
+const MineGame = require("./models/MineGame");
+
 app.use("/api/words", wordRoutes);
 
 const userRoutes = require("./routes/userRoutes");
@@ -194,6 +196,7 @@ const activePlayers = new Map();
 
 io.on("connection", (socket) => {
   console.log("New connection:", socket.id);
+  let currentPlayerData = {};
 
   socket.on("createGame", async ({ gameCode, playerName }) => {
     try {
@@ -302,6 +305,7 @@ io.on("connection", (socket) => {
       const game = await Game.findOne({ gameCode });
       if (game) {
         socket.emit("gameStateUpdate", game);
+        io.to(gameCode).emit("gameStateUpdate", game);
       }
     } catch (error) {
       console.error("Error getting game state:", error);
@@ -355,35 +359,35 @@ io.on("connection", (socket) => {
   });
 
   // Handle disconnections
-  socket.on("disconnect", async () => {
-    const playerData = activePlayers.get(socket.id);
-    if (playerData) {
-      const { gameCode } = playerData;
-      try {
-        const game = await Game.findOneAndUpdate(
-          { gameCode },
-          { $pull: { players: { id: socket.id } } },
-          { new: true }
-        );
+  // socket.on("disconnect", async () => {
+  //   const playerData = activePlayers.get(socket.id);
+  //   if (playerData) {
+  //     const { gameCode } = playerData;
+  //     try {
+  //       const game = await Game.findOneAndUpdate(
+  //         { gameCode },
+  //         { $pull: { players: { id: socket.id } } },
+  //         { new: true }
+  //       );
 
-        if (game && game.players.length > 0) {
-          // If admin disconnected, assign new admin
-          const hasAdmin = game.players.some((p) => p.isAdmin);
-          if (!hasAdmin) {
-            game.players[0].isAdmin = true;
-            await game.save();
-          }
-          io.to(gameCode).emit("gameStateUpdate", game);
-        } else if (game && game.players.length === 0) {
-          // Delete empty game
-          await Game.deleteOne({ gameCode });
-        }
-      } catch (error) {
-        console.error("Error handling disconnect:", error);
-      }
-      activePlayers.delete(socket.id);
-    }
-  });
+  //       if (game && game.players.length > 0) {
+  //         // If admin disconnected, assign new admin
+  //         const hasAdmin = game.players.some((p) => p.isAdmin);
+  //         if (!hasAdmin) {
+  //           game.players[0].isAdmin = true;
+  //           await game.save();
+  //         }
+  //         io.to(gameCode).emit("gameStateUpdate", game);
+  //       } else if (game && game.players.length === 0) {
+  //         // Delete empty game
+  //         await Game.deleteOne({ gameCode });
+  //       }
+  //     } catch (error) {
+  //       console.error("Error handling disconnect:", error);
+  //     }
+  //     activePlayers.delete(socket.id);
+  //   }
+  // });
 
   socket.on("startGame", async ({ gameCode }) => {
     try {
@@ -466,6 +470,241 @@ io.on("connection", (socket) => {
       console.error("Error restarting game:", error);
       socket.emit("error", "Failed to restart game: " + error.message);
     }
+  });
+
+  // Add new Mine game socket events
+  socket.on("createMineRoom", async (data) => {
+    currentPlayerData = data;
+    console.log("creating Mine room: ", socket.id);
+    const game = await Game.findOne({ gameCode: data.code });
+    if (game) {
+      console.log("game is found");
+      const player = game.players.find((p) => p.name === data.name);
+      if (player) {
+        console.log("reconnect admin");
+
+        player.disconnected = false;
+
+        await game.save();
+        socket.join(data.code.toString());
+        io.to(data.code.toString()).emit("MineGameUpdated", game);
+
+        return;
+      } else {
+        socket.emit("error", "Room already exists");
+        return;
+      }
+    }
+    try {
+      const game = new Game({
+        gameCode: data.code,
+        players: [
+          {
+            id: socket.id,
+            name: data.name,
+            isAdmin: true,
+            disconnected: false,
+            role: null,
+          },
+        ],
+        status: "waiting",
+        settings: {
+          maxPlayers: 20,
+          currentWord: "",
+          wordSetBy: "",
+        },
+      });
+      await game.save();
+
+      socket.join(data.code.toString());
+      io.to(data.code.toString()).emit("MineRoomCreated", game);
+    } catch (error) {
+      socket.emit("error", error.message);
+    }
+  });
+
+  socket.on("joinMineRoom", async (data) => {
+    console.log("on join");
+
+    currentPlayerData = data;
+    console.log(currentPlayerData);
+
+    try {
+      const game = await Game.findOne({ gameCode: data.code });
+      if (!game) {
+        socket.emit("error", "Room not found");
+        return;
+      }
+      const player = game.players.find((p) => p.name === data.name);
+      console.log("finding player");
+
+      if (!player) {
+        game.players.push({
+          id: socket.id,
+          name: data.name,
+          isAdmin: false,
+          disconnected: false,
+          role: null,
+        });
+      } else {
+        console.log("reconnect");
+
+        player.disconnected = false;
+      }
+
+      await game.save();
+      socket.join(data.code.toString());
+      io.to(data.code.toString()).emit("MineGameUpdated", game);
+    } catch (error) {
+      socket.emit("error", error.message);
+    }
+  });
+
+  socket.on("startMineGame", async (data) => {
+    try {
+      const game = await Game.findOne({ gameCode: data.code });
+      if (!game) {
+        socket.emit("error", "Room not found");
+        return;
+      }
+
+      const playerCount = game.players.length;
+      const roles = distributeRoles(playerCount);
+
+      // Assign roles to players
+      game.players = game.players.map((player, index) => ({
+        ...player,
+        role: roles[index],
+        word: "",
+      }));
+
+      // Select a random boodoon player for word input
+      const boodoonPlayers = game.players.filter((p) => p.role === "boodoon");
+      const randomBoodoon =
+        boodoonPlayers[Math.floor(Math.random() * boodoonPlayers.length)];
+
+      game.status = "playing";
+      game.selectedWord = "";
+      game.settings.wordSetBy = randomBoodoon.name;
+
+      game.assignedRoles = game.players.map((player, index) => ({
+        playerName: player.name,
+        role: player.role,
+      }));
+
+      await game.save();
+      io.to(data.code.toString()).emit("MineGameUpdated", game);
+    } catch (error) {
+      console.log(error);
+
+      socket.emit("error", error.message);
+    }
+  });
+  socket.on("submitWordMineGame", async (data) => {
+    const { code, playerName, word } = data;
+    try {
+      const game = await Game.findOne({ gameCode: code });
+      if (!game) {
+        socket.emit("error", "Room not found");
+        return;
+      }
+
+      // Assign roles to players
+      game.players = game.players.map((player) => {
+        return {
+          ...player,
+          word: player.name === playerName ? word : player.word,
+        };
+      });
+
+      const isSettingWord = game.players.find((p) => p.word === "");
+
+      if (!isSettingWord) {
+        const words = game.players.map((p) => p.word);
+        game.selectedWord = words[Math.floor(Math.random() * words.length)];
+      }
+
+      await game.save();
+      io.to(data.code.toString()).emit("MineGameUpdated", game);
+    } catch (error) {
+      console.log(error);
+
+      socket.emit("error", error.message);
+    }
+  });
+
+  socket.on("removeMinePlayer", async (name, code) => {
+    try {
+      const game = await Game.findOneAndUpdate(
+        { gameCode: code },
+        { $pull: { players: { name: name } } },
+        { new: true }
+      );
+
+      if (game && game.players.length > 0) {
+        // If admin disconnected, assign new admin
+        const hasAdmin = game.players.some((p) => p.isAdmin);
+        if (!hasAdmin) {
+          game.players[0].isAdmin = true;
+          await game.save();
+        }
+        io.to(code).emit("MineGameUpdated", game);
+      } else if (game && game.players.length === 0) {
+        // Delete empty game
+        await Game.deleteOne({ gameCode: code });
+      }
+    } catch (error) {
+      console.error("Error handling disconnect:", error);
+    }
+  });
+
+  socket.on("MineChangeAdmin", async ({ name, code }) => {
+    console.log("changing admin", name, code);
+
+    try {
+      const game = await Game.findOne({ gameCode: code });
+
+      if (game && game.players.length > 0) {
+        // If admin disconnected, assign new admin
+        game.players.find((p) => p.isAdmin).isAdmin = false;
+        game.players.find((p) => p.name === name).isAdmin = true;
+        console.log(game.assignedRoles.filter((r) => r.playerName === name));
+
+        await game.save();
+        io.to(code).emit("MineGameUpdated", game);
+      }
+    } catch (error) {
+      console.error("Error handling disconnect:", error);
+    }
+  });
+
+  socket.on("disconnect", async () => {
+    const { name, code } = currentPlayerData;
+    console.log("disconnected", name, code);
+    let game = null;
+    try {
+      game = await Game.findOne({ gameCode: code });
+      if (!game) {
+        socket.emit("error", "Room not found");
+        return;
+      }
+
+      const player = game.players.find((p) => p.name === name);
+
+      player.disconnected = true;
+      console.log(game.players);
+      if (!game.players.find((p) => p.disconnected === false)) {
+        await Game.deleteOne({ gameCode: code });
+        return;
+      }
+
+      await game.save();
+
+      io.to(game.gameCode.toString()).emit("MineGameUpdated", game);
+    } catch (error) {
+      socket.emit("error", error.message);
+    }
+    return;
   });
 });
 
