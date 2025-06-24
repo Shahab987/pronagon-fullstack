@@ -3,8 +3,10 @@ import { FaCrow, FaCrown } from "react-icons/fa";
 import { IoClose, IoHandRight } from "react-icons/io5";
 import { useParams, useNavigate } from "react-router-dom";
 import io from "socket.io-client";
-import soundFile from "./start.mp3";
+import startSoundFile from "./start.mp3";
+import crowMedia from "./crow.mp3";
 import toast from "react-hot-toast";
+import SlotMachine from "./SlotMachine";
 
 const Mine = () => {
   const { code } = useParams();
@@ -14,6 +16,8 @@ const Mine = () => {
   const [currentPlayer, setCurrentPlayer] = useState({});
   const [role, setRole] = useState("");
   const [nok, setNok] = useState(false);
+  const [start, setStart] = useState(false);
+  const [target, setTarget] = useState(null);
   const [word, setWord] = useState("");
   const [isAdmin, setIsAdmin] = useState(
     JSON.parse(localStorage.getItem(`isAdmin-${code}`)) || false
@@ -29,9 +33,13 @@ const Mine = () => {
       wordSetBy: "",
     }
   );
-  const playSound = () => {
-    const audio = new Audio(soundFile);
+  const playStartSound = () => {
+    const audio = new Audio(startSoundFile);
     audio.play();
+  };
+  const playCrow = () => {
+    const audioCrow = new Audio(crowMedia);
+    audioCrow.play();
   };
   useEffect(() => {
     console.log(import.meta.env.VITE_SOCKET_URL);
@@ -52,8 +60,20 @@ const Mine = () => {
       setGame(updatedGame);
     });
 
+    socket.on("targetCardMine", ({ code, st, tr }) => {
+      console.log("target:", code);
+      setStart(st);
+      setTarget(tr);
+      console.log(tr);
+
+      //setGame(updatedGame);
+    });
+
     socket.on("MineGameUpdated", (updatedGame) => {
       console.log("Game updated:", updatedGame);
+      playStartSound();
+      setStart(false);
+      setTarget(null);
 
       setGame(updatedGame);
       const admin = updatedGame.players.find((p) => p.isAdmin);
@@ -96,6 +116,7 @@ const Mine = () => {
     return () => {
       socket.off("MineRoomCreated");
       socket.off("MineGameUpdated");
+      socket.off("targetCardMine");
       socket.off("error");
     };
   }, [socket, code, navigate]);
@@ -135,9 +156,9 @@ const Mine = () => {
 
   const startGame = () => {
     if (!socket) return;
-    playSound();
 
     localStorage.setItem("MineSettings", JSON.stringify(settings));
+
     socket.emit("startMineGame", { code, settings });
   };
   const submitWord = () => {
@@ -157,6 +178,13 @@ const Mine = () => {
     setCurrentPlayer(null);
 
     socket.emit("removeMinePlayer", currentPlayer.name, code);
+  };
+
+  const shuffleCard = () => {
+    if (!socket) return;
+    console.log(start);
+    const totalCards = 5;
+    socket.emit("shuffleCardMine", code, !start, totalCards);
   };
 
   if (!game || !currentPlayer) {
@@ -210,6 +238,7 @@ const Mine = () => {
                   // });
                 } else {
                   setNok(!nok);
+                  playCrow();
                 }
               }}
               className={`relative flex gap-1 min-w-20 items-center justify-center text-zinc-700 font-semibold py-1 px-2 border rounded ${
@@ -222,13 +251,21 @@ const Mine = () => {
                 </span>
               )}
               {player.name === playerName && !player.isAdmin && (
-                <span className="absolute -top-3 right-1 ">
-                  <FaCrow className={` ${nok ? "rotate-45" : ""}`} />
+                <span className="absolute -top-3.5 right-1 ">
+                  <FaCrow
+                    className={`absolute   transition-all duration-500 ${
+                      nok ? "rotate-45 right-0.5" : "rotate-0 right-8"
+                    }`}
+                  />
                 </span>
               )}
 
               {player.name}
-              <span className="text-sm text-zinc-700 ms-1">
+              <span
+                className={`text-sm text-zinc-700 ms-1 ${
+                  game.settings.wordSetBy === player.name ? "opacity-85" : ""
+                }`}
+              >
                 {player.word && <IoHandRight />}
               </span>
               {isAdmin && (
@@ -242,34 +279,36 @@ const Mine = () => {
           ))}
         </ul>
       </div>
-      {game?.status === "playing" && !game.selectedWord && (
-        <div className="mb-4">
-          <input
-            type="text"
-            className="border border-gray-300 rounded-md p-2 w-full"
-            placeholder="Enter a word..."
-            value={word}
-            onChange={(e) => setWord(e.target.value)}
-            onKeyUp={(e) => {
-              if (e.key === "Enter" && word) {
-                submitWord();
-                setWord("");
-              }
-            }}
-          />
-          <button
-            onClick={() => {
-              if (word) {
-                submitWord();
-                setWord("");
-              }
-            }}
-            className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md w-full"
-          >
-            Submit Word
-          </button>
-        </div>
-      )}
+      {game?.status === "playing" &&
+        !game.selectedWord &&
+        currentPlayer?.role !== "nadoon" && (
+          <div className="mb-4">
+            <input
+              type="text"
+              className="border border-gray-300 rounded-md p-2 w-full"
+              placeholder="Enter a word..."
+              value={word}
+              onChange={(e) => setWord(e.target.value)}
+              onKeyUp={(e) => {
+                if (e.key === "Enter" && word) {
+                  submitWord();
+                  setWord("");
+                }
+              }}
+            />
+            <button
+              onClick={() => {
+                if (word) {
+                  submitWord();
+                  setWord("");
+                }
+              }}
+              className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md w-full"
+            >
+              Submit Word
+            </button>
+          </div>
+        )}
       {game.selectedWord && currentPlayer?.role !== "nadoon" && (
         <div className="flex flex-col items-center justify-center">
           <p>Selected Word</p>
@@ -293,15 +332,31 @@ const Mine = () => {
               </span>
             </h3>
             {role && (
-              <div className="p-6 flex justify-center">
+              <div className="relative p-6 flex justify-center">
                 <img
-                  onClick={() => setHideCard((p) => !p)}
+                  onClick={() => {
+                    if (currentPlayer.role !== "sheytoon") {
+                      setHideCard((p) => !p);
+                    } else {
+                      shuffleCard();
+                    }
+                  }}
                   className={`rounded-3xl max-w-md w-full ${
                     hideCard ? "opacity-15" : ""
                   }`}
                   src={`/img/${role}.png`}
                   alt="Role Card"
                 />
+                {start && (
+                  <div className=" absolute top-15  ">
+                    <SlotMachine
+                      start={start}
+                      numCards={5}
+                      duration={1}
+                      target={target}
+                    />
+                  </div>
+                )}
               </div>
             )}
           </div>

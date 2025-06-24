@@ -624,11 +624,16 @@ io.on("connection", (socket) => {
         };
       });
 
-      const isSettingWord = game.players.find((p) => p.word === "");
+      const isSettingWord = game.players.find(
+        (p) => p.role !== "nadoon" && p.word === ""
+      );
 
       if (!isSettingWord) {
-        const words = game.players.map((p) => p.word);
-        game.selectedWord = words[Math.floor(Math.random() * words.length)];
+        const notNadoon = game.players.filter((p) => p.role !== "nadoon");
+        const selectedPlayer =
+          notNadoon[Math.floor(Math.random() * notNadoon.length)];
+        game.selectedWord = selectedPlayer.word;
+        game.settings.wordSetBy = selectedPlayer.name;
       }
 
       await game.save();
@@ -660,6 +665,15 @@ io.on("connection", (socket) => {
         // Delete empty game
         await Game.deleteOne({ gameCode: code });
       }
+    } catch (error) {
+      console.error("Error handling disconnect:", error);
+    }
+  });
+
+  socket.on("shuffleCardMine", async (code, st, totalCards) => {
+    try {
+      const target = Math.floor(Math.random() * totalCards);
+      io.to(code).emit("targetCardMine", { code, st, tr: target });
     } catch (error) {
       console.error("Error handling disconnect:", error);
     }

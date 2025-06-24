@@ -90,7 +90,7 @@ function MineCreate() {
   }, [navigate]);
 
   const createMineGame = () => {
-    const code = Math.floor(Math.random() * 900000) + 100000;
+    const code = Math.floor(Math.random() * 9);
     localStorage.clear();
     localStorage.setItem(`isAdmin-${code}`, "true"); // Set admin flag
 
