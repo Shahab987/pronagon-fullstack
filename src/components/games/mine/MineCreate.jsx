@@ -17,7 +17,7 @@ function MineCreate() {
     if (type === "suc") {
       toast.success(msg);
     } else if (type === "err") {
-      toast.error(msg);
+      toast.error(msg, { duration: 2000 });
     }
   };
   useEffect(() => {

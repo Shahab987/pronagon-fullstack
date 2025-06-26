@@ -600,7 +600,8 @@ io.on("connection", (socket) => {
       }));
 
       await game.save();
-      io.to(data.code.toString()).emit("MineGameUpdated", game);
+      const newStart = true;
+      io.to(data.code.toString()).emit("MineGameUpdated", game, newStart);
     } catch (error) {
       console.log(error);
 
