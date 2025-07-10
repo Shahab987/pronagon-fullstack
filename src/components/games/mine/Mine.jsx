@@ -199,7 +199,7 @@ const Mine = () => {
                   // implement change admin here
                 } else {
                   setNok(!nok);
-                  playCrow();
+                  //playCrow();
                 }
               }}
               className={`relative flex gap-1 min-w-20 items-center justify-center text-zinc-700 font-semibold py-1 px-2 border rounded ${
