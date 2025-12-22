@@ -403,7 +403,7 @@ export default function InstagramRandomPicker() {
           <h3 className="text-xl font-bold mb-6 text-gray-700">
             🏆 لیست برندگان
           </h3>
-          <div className="grid grid-cols-3 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {selected.map((u, idx) => (
               <div
                 key={idx}
