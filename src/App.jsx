@@ -20,6 +20,7 @@ import GameRoom from "./components/games/GameRoom";
 import Mine from "./components/games/mine/Mine";
 import MineCreate from "./components/games/mine/MineCreate";
 import HeartBeat from "./components/HeartBeat/HeartBeat";
+import InstagramRandomPicker from "./components/RandomCmnt/InstagramRandomPicker";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="yours" element={<MaleTo />} />
           <Route path="mine" element={<MineCreate />} />
           <Route path="hr" element={<HeartBeat />} />
+          <Route path="randomid" element={<InstagramRandomPicker />} />
           <Route path="activation-success" element={<ActivationSuccess />} />
           <Route path="activation-failed" element={<ActivationFailed />} />
           <Route path="game/:gameCode" element={<GameRoom />} />
