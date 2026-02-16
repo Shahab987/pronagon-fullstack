@@ -13,7 +13,7 @@ import AddEssay from "./components/reader/AddEssay";
 import EssayList from "./components/reader/EssayList";
 import Typing from "./pages/Typing";
 import EasyType from "./components/EasyType/EasyType";
-import DirectionType from "./components/EasyType/DirectionType";
+import DirectionTypeV2 from "./components/EasyType/DirectionTypeV2";
 import Spinner from "./components/games/Spinner";
 import MaleTo from "./components/games/MaleTo";
 import GameRoom from "./components/games/GameRoom";
@@ -29,7 +29,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<DirectionType />} />
+          <Route index element={<DirectionTypeV2 />} />
+
           <Route path="auth" element={<Auth />}>
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />

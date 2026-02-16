@@ -8,7 +8,7 @@ import { logout, tokenCheck } from "../features/auth/authActions";
 
 function Layout() {
   const { loading, success, error, userToken, user, isLogedIn } = useSelector(
-    (state) => state.auth
+    (state) => state.auth,
   );
 
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function Layout() {
 
   return (
     <div onContextMenu={(e) => e.preventDefault()}>
-      <div className="bg-lime-700 ">
+      <div className="bg-lime-700 hidden">
         <nav className=" sm:container sm:mx-auto py-4 px-5  flex justify-center items-center gap-3 text-lime-100">
           {!isLogedIn && (
             <MyLink

@@ -13,7 +13,7 @@ const Letter = ({ letter, selectGroup }) => (
 
 const Group = ({ arr, selectGroup }) => {
   return (
-    <div className="">
+    <div className="flex flex-col justify-between h-[90dvh]">
       <div className="flex justify-center border- ">
         <SubGroup
           selectGroup={selectGroup}
@@ -21,7 +21,7 @@ const Group = ({ arr, selectGroup }) => {
           borderColor={"border-2 border-red-600"}
         />
       </div>
-      <div className="flex flex-row-reverse justify-center">
+      <div className="flex flex-row-reverse justify-between">
         <SubGroup
           selectGroup={selectGroup}
           arr={arr[1]}
@@ -102,7 +102,7 @@ const DirectionType = () => {
 
   const [currentGroup, setCurrentGroup] = useState(farsiLetters);
   const [level, setLevel] = useState(1);
-const [finalWord, setFinalWord] = useState("")
+  const [finalWord, setFinalWord] = useState("");
 
   const selectGroup = (letter) => {
     if (level === 1) {
@@ -118,36 +118,51 @@ const [finalWord, setFinalWord] = useState("")
     }
 
     if (level === 2) {
-    //   let b = currentGroup.filter(
-    //     (pair) => pair.findIndex((i) => i === letter) !== -1
-    //   )[0];
+      //   let b = currentGroup.filter(
+      //     (pair) => pair.findIndex((i) => i === letter) !== -1
+      //   )[0];
 
-    //   setCurrentGroup(b);
-    //   setLevel(3);
-        setCurrentGroup(farsiLetters)
-        setLevel(1)
-        setFinalWord(p=>p+letter)
+      //   setCurrentGroup(b);
+      //   setLevel(3);
+      setCurrentGroup(farsiLetters);
+      setLevel(1);
+      setFinalWord((p) => p + letter);
     }
     if (level === 3) {
-        setCurrentGroup(farsiLetters)
-        setLevel(1)
-        setFinalWord(p=>p+letter)
+      setCurrentGroup(farsiLetters);
+      setLevel(1);
+      setFinalWord((p) => p + letter);
     }
   };
 
   return (
     <div className="">
       <div className="flex flex-row-reverse">
-      <p className="text-2xl text-right my-1 p-1 pe-4 border border-gray-800 font-VazirMatn h-11 w-10/12 rounded-r-md">{finalWord}</p>
-        <button onClick={()=>{setFinalWord(p=>p+" ")}} className="text-center w-2/12 text-2xl font-VazirMatn border-y border-gray-800 h-11 mt-1 bg-blue-50 ">فاصله</button>
-        <button onClick={()=>{setFinalWord("")}} className="text-center w-2/12 text-2xl font-VazirMatn border border-gray-800 h-11 mt-1 bg-red-50 rounded-l-lg">پاک</button>
+        <p className="text-2xl text-right my-1 p-1 pe-4 border border-gray-800 font-VazirMatn h-11 w-10/12 rounded-r-md">
+          {finalWord}
+        </p>
+        <button
+          onClick={() => {
+            setFinalWord((p) => p + " ");
+          }}
+          className="text-center w-2/12 text-2xl font-VazirMatn border-y border-gray-800 h-11 mt-1 bg-blue-50 "
+        >
+          فاصله
+        </button>
+        <button
+          onClick={() => {
+            setFinalWord("");
+          }}
+          className="text-center w-2/12 text-2xl font-VazirMatn border border-gray-800 h-11 mt-1 bg-red-50 rounded-l-lg"
+        >
+          پاک
+        </button>
       </div>
       {level === 1 && <Group selectGroup={selectGroup} arr={currentGroup} />}
 
       {level === 2 && <SubGroup selectGroup={selectGroup} arr={currentGroup} />}
 
       {level === 3 && <Pair selectGroup={selectGroup} arr={currentGroup} />}
-
     </div>
   );
 };
